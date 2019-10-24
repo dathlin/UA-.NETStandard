@@ -1,5 +1,5 @@
 /* ========================================================================
- * Copyright (c) 2005-2017 The OPC Foundation, Inc. All rights reserved.
+ * Copyright (c) 2005-2019 The OPC Foundation, Inc. All rights reserved.
  *
  * OPC Foundation MIT License 1.00
  * 
@@ -53,12 +53,14 @@ namespace Opc.Ua.Gds.Server
         public GlobalDiscoverySampleServer(
             IApplicationsDatabase database,
             ICertificateRequest request,
-            ICertificateGroup certificateGroup
+            ICertificateGroup certificateGroup,
+            bool autoApprove = true
             )
         {
             m_database = database;
             m_request = request;
             m_certificateGroup = certificateGroup;
+            m_autoApprove = autoApprove;
         }
 
         #region Overridden Methods
@@ -88,7 +90,7 @@ namespace Opc.Ua.Gds.Server
             List<INodeManager> nodeManagers = new List<INodeManager>
             {
                 // create the custom node managers.
-                new ApplicationsNodeManager(server, configuration, m_database, m_request, m_certificateGroup)
+                new ApplicationsNodeManager(server, configuration, m_database, m_request, m_certificateGroup, m_autoApprove)
             };
 
             // create master node manager.
@@ -132,7 +134,7 @@ namespace Opc.Ua.Gds.Server
                     TranslationInfo info = new TranslationInfo(
                         "NoWriteAllowed",
                         "en-US",
-                        "Must provide a valid windows user before calling write.");
+                        "Must provide a valid user before calling write.");
 
                     // create an exception with a vendor defined sub-code.
                     throw new ServiceResultException(new ServiceResult(
@@ -240,15 +242,6 @@ namespace Opc.Ua.Gds.Server
             try
             {
                 CertificateValidator.Validate(certificate);
-
-                // determine if self-signed.
-                bool isSelfSigned = Utils.CompareDistinguishedName(certificate.Subject, certificate.Issuer);
-
-                // do not allow self signed application certs as user token
-                if (isSelfSigned && Utils.HasApplicationURN(certificate))
-                {
-                    throw new ServiceResultException(StatusCodes.BadCertificateUseNotAllowed);
-                }
             }
             catch (Exception e)
             {
@@ -297,6 +290,7 @@ namespace Opc.Ua.Gds.Server
         private IApplicationsDatabase m_database = null;
         private ICertificateRequest m_request = null;
         private ICertificateGroup m_certificateGroup = null;
+        private bool m_autoApprove;
         #endregion 
     }
 }

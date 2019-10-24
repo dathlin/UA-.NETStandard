@@ -1,5 +1,5 @@
 /* ========================================================================
- * Copyright (c) 2005-2016 The OPC Foundation, Inc. All rights reserved.
+ * Copyright (c) 2005-2019 The OPC Foundation, Inc. All rights reserved.
  *
  * OPC Foundation MIT License 1.00
  * 
@@ -2497,7 +2497,7 @@ namespace Opc.Ua.Server
         /// <summary>
         /// The node managers being managed.
         /// </summary>
-        protected IList<INodeManager> NodeManagers
+        public IList<INodeManager> NodeManagers
         {
             get { return m_nodeManagers; }
         }

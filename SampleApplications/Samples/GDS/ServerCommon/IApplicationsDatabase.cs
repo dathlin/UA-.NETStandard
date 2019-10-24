@@ -1,5 +1,5 @@
 ﻿/* ========================================================================
- * Copyright (c) 2005-2017 The OPC Foundation, Inc. All rights reserved.
+ * Copyright (c) 2005-2019 The OPC Foundation, Inc. All rights reserved.
  *
  * OPC Foundation MIT License 1.00
  * 
@@ -51,21 +51,21 @@ namespace Opc.Ua.Gds.Server.Database
             string[] serverCapabilities,
             out DateTime lastCounterResetTime);
         bool SetApplicationCertificate(
-            NodeId applicationId, 
-            byte[] certificate, 
-            bool isHttpsCertificate);
-        void GetApplicationCertificates(
             NodeId applicationId,
-            out byte[] certificate,
-            out byte[] httpsCertificate);
+            string certificateTypeId,
+            byte[] certificate);
+        bool GetApplicationCertificate(
+            NodeId applicationId,
+            string certificateTypeId,
+            out byte[] certificate);
         bool SetApplicationTrustLists(
-            NodeId applicationId, 
-            NodeId trustListId, 
-            NodeId httpsTrustListId);
+            NodeId applicationId,
+            string certificateTypeId,
+            string trustListId);
         bool GetApplicationTrustLists(
             NodeId applicationId,
-            out NodeId trustListId,
-            out NodeId httpsTrustListId);
+            string certificateTypeId,
+            out string trustListId);
         ApplicationDescription[] QueryApplications(
             uint startingRecordId, 
             uint maxRecordsToReturn, 

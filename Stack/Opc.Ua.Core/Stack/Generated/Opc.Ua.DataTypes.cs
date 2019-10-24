@@ -1,5 +1,5 @@
 /* ========================================================================
- * Copyright (c) 2005-2018 The OPC Foundation, Inc. All rights reserved.
+ * Copyright (c) 2005-2019 The OPC Foundation, Inc. All rights reserved.
  *
  * OPC Foundation MIT License 1.00
  * 
@@ -38,7 +38,7 @@ namespace Opc.Ua
     #region Enumeration Enumeration
     #if (!OPCUA_EXCLUDE_Enumeration)
     /// <summary>
-    /// Describes a value that is an enumerated DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -137,28 +137,22 @@ namespace Opc.Ua
     #region NamingRuleType Enumeration
     #if (!OPCUA_EXCLUDE_NamingRuleType)
     /// <summary>
-    /// Describes a value that specifies the significance of the BrowseName for an instance declaration.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum NamingRuleType
     {
-        /// <summary>
-        /// The BrowseName must appear in all instances of the type.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Mandatory_1")]
         Mandatory = 1,
 
-        /// <summary>
-        /// The BrowseName may appear in an instance of the type.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Optional_2")]
         Optional = 2,
 
-        /// <summary>
-        /// The modelling rule defines a constraint and the BrowseName is not used in an instance of the type.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Constraint_3")]
         Constraint = 3,
     }
@@ -253,7 +247,7 @@ namespace Opc.Ua
     #region KeyValuePair Class
     #if (!OPCUA_EXCLUDE_KeyValuePair)
     /// <summary>
-    /// A description for the KeyValuePair DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -289,9 +283,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Key field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Key", IsRequired = false, Order = 1)]
         public QualifiedName Key
         {
@@ -299,9 +291,7 @@ namespace Opc.Ua
             set { m_key = value; }
         }
 
-        /// <summary>
-        /// A description for the Value field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 2)]
         public Variant Value
         {
@@ -488,7 +478,7 @@ namespace Opc.Ua
     #region EndpointType Class
     #if (!OPCUA_EXCLUDE_EndpointType)
     /// <summary>
-    /// A description for the EndpointType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -526,9 +516,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the EndpointUrl field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndpointUrl", IsRequired = false, Order = 1)]
         public string EndpointUrl
         {
@@ -536,9 +524,7 @@ namespace Opc.Ua
             set { m_endpointUrl = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityMode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityMode", IsRequired = false, Order = 2)]
         public MessageSecurityMode SecurityMode
         {
@@ -546,9 +532,7 @@ namespace Opc.Ua
             set { m_securityMode = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityPolicyUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityPolicyUri", IsRequired = false, Order = 3)]
         public string SecurityPolicyUri
         {
@@ -556,9 +540,7 @@ namespace Opc.Ua
             set { m_securityPolicyUri = value; }
         }
 
-        /// <summary>
-        /// A description for the TransportProfileUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransportProfileUri", IsRequired = false, Order = 4)]
         public string TransportProfileUri
         {
@@ -752,37 +734,2090 @@ namespace Opc.Ua
     #endif
     #endregion
 
+    #region RationalNumber Class
+    #if (!OPCUA_EXCLUDE_RationalNumber)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
+    public partial class RationalNumber : IEncodeable
+    {
+        #region Constructors
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        public RationalNumber()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Called by the .NET framework during deserialization.
+        /// </summary>
+        [OnDeserializing]
+        private void Initialize(StreamingContext context)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Sets private members to default values.
+        /// </summary>
+        private void Initialize()
+        {
+            m_numerator = (int)0;
+            m_denominator = (uint)0;
+        }
+        #endregion
+
+        #region Public Properties
+        /// <remarks />
+        [DataMember(Name = "Numerator", IsRequired = false, Order = 1)]
+        public int Numerator
+        {
+            get { return m_numerator;  }
+            set { m_numerator = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "Denominator", IsRequired = false, Order = 2)]
+        public uint Denominator
+        {
+            get { return m_denominator;  }
+            set { m_denominator = value; }
+        }
+        #endregion
+
+        #region IEncodeable Members
+        /// <summary cref="IEncodeable.TypeId" />
+        public virtual ExpandedNodeId TypeId
+        {
+            get { return DataTypeIds.RationalNumber; }
+        }
+
+        /// <summary cref="IEncodeable.BinaryEncodingId" />
+        public virtual ExpandedNodeId BinaryEncodingId
+        {
+            get { return ObjectIds.RationalNumber_Encoding_DefaultBinary; }
+        }
+
+        /// <summary cref="IEncodeable.XmlEncodingId" />
+        public virtual ExpandedNodeId XmlEncodingId
+        {
+            get { return ObjectIds.RationalNumber_Encoding_DefaultXml; }
+        }
+
+        /// <summary cref="IEncodeable.Encode(IEncoder)" />
+        public virtual void Encode(IEncoder encoder)
+        {
+            encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            encoder.WriteInt32("Numerator", Numerator);
+            encoder.WriteUInt32("Denominator", Denominator);
+
+            encoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.Decode(IDecoder)" />
+        public virtual void Decode(IDecoder decoder)
+        {
+            decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            Numerator = decoder.ReadInt32("Numerator");
+            Denominator = decoder.ReadUInt32("Denominator");
+
+            decoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.IsEqual(IEncodeable)" />
+        public virtual bool IsEqual(IEncodeable encodeable)
+        {
+            if (Object.ReferenceEquals(this, encodeable))
+            {
+                return true;
+            }
+
+            RationalNumber value = encodeable as RationalNumber;
+
+            if (value == null)
+            {
+                return false;
+            }
+
+            if (!Utils.IsEqual(m_numerator, value.m_numerator)) return false;
+            if (!Utils.IsEqual(m_denominator, value.m_denominator)) return false;
+
+            return true;
+        }
+
+        #if !NET_STANDARD
+        /// <summary cref="ICloneable.Clone" />
+        public virtual object Clone()
+        {
+            return (RationalNumber)this.MemberwiseClone();
+        }
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            RationalNumber clone = (RationalNumber)base.MemberwiseClone();
+
+            clone.m_numerator = (int)Utils.Clone(this.m_numerator);
+            clone.m_denominator = (uint)Utils.Clone(this.m_denominator);
+
+            return clone;
+        }
+        #endregion
+
+        #region Private Fields
+        private int m_numerator;
+        private uint m_denominator;
+        #endregion
+    }
+
+    #region RationalNumberCollection Class
+    /// <summary>
+    /// A collection of RationalNumber objects.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [CollectionDataContract(Name = "ListOfRationalNumber", Namespace = Opc.Ua.Namespaces.OpcUaXsd, ItemName = "RationalNumber")]
+    #if !NET_STANDARD
+    public partial class RationalNumberCollection : List<RationalNumber>, ICloneable
+    #else
+    public partial class RationalNumberCollection : List<RationalNumber>
+    #endif
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the collection with default values.
+        /// </summary>
+        public RationalNumberCollection() {}
+
+        /// <summary>
+        /// Initializes the collection with an initial capacity.
+        /// </summary>
+        public RationalNumberCollection(int capacity) : base(capacity) {}
+
+        /// <summary>
+        /// Initializes the collection with another collection.
+        /// </summary>
+        public RationalNumberCollection(IEnumerable<RationalNumber> collection) : base(collection) {}
+        #endregion
+
+        #region Static Operators
+        /// <summary>
+        /// Converts an array to a collection.
+        /// </summary>
+        public static implicit operator RationalNumberCollection(RationalNumber[] values)
+        {
+            if (values != null)
+            {
+                return new RationalNumberCollection(values);
+            }
+
+            return new RationalNumberCollection();
+        }
+
+        /// <summary>
+        /// Converts a collection to an array.
+        /// </summary>
+        public static explicit operator RationalNumber[](RationalNumberCollection values)
+        {
+            if (values != null)
+            {
+                return values.ToArray();
+            }
+
+            return null;
+        }
+        #endregion
+
+        #if !NET_STANDARD
+        #region ICloneable Methods
+        /// <summary>
+        /// Creates a deep copy of the collection.
+        /// </summary>
+        public object Clone()
+        {
+            return (RationalNumberCollection)this.MemberwiseClone();
+        }
+        #endregion
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            RationalNumberCollection clone = new RationalNumberCollection(this.Count);
+
+            for (int ii = 0; ii < this.Count; ii++)
+            {
+                clone.Add((RationalNumber)Utils.Clone(this[ii]));
+            }
+
+            return clone;
+        }
+    }
+    #endregion
+    #endif
+    #endregion
+
+    #region Vector Class
+    #if (!OPCUA_EXCLUDE_Vector)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
+    public partial class Vector : IEncodeable
+    {
+        #region Constructors
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        public Vector()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Called by the .NET framework during deserialization.
+        /// </summary>
+        [OnDeserializing]
+        private void Initialize(StreamingContext context)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Sets private members to default values.
+        /// </summary>
+        private void Initialize()
+        {
+        }
+        #endregion
+
+        #region Public Properties
+        #endregion
+
+        #region IEncodeable Members
+        /// <summary cref="IEncodeable.TypeId" />
+        public virtual ExpandedNodeId TypeId
+        {
+            get { return DataTypeIds.Vector; }
+        }
+
+        /// <summary cref="IEncodeable.BinaryEncodingId" />
+        public virtual ExpandedNodeId BinaryEncodingId
+        {
+            get { return ObjectIds.Vector_Encoding_DefaultBinary; }
+        }
+
+        /// <summary cref="IEncodeable.XmlEncodingId" />
+        public virtual ExpandedNodeId XmlEncodingId
+        {
+            get { return ObjectIds.Vector_Encoding_DefaultXml; }
+        }
+
+        /// <summary cref="IEncodeable.Encode(IEncoder)" />
+        public virtual void Encode(IEncoder encoder)
+        {
+            encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+
+            encoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.Decode(IDecoder)" />
+        public virtual void Decode(IDecoder decoder)
+        {
+            decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+
+            decoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.IsEqual(IEncodeable)" />
+        public virtual bool IsEqual(IEncodeable encodeable)
+        {
+            if (Object.ReferenceEquals(this, encodeable))
+            {
+                return true;
+            }
+
+            Vector value = encodeable as Vector;
+
+            if (value == null)
+            {
+                return false;
+            }
+
+
+            return true;
+        }
+
+        #if !NET_STANDARD
+        /// <summary cref="ICloneable.Clone" />
+        public virtual object Clone()
+        {
+            return (Vector)this.MemberwiseClone();
+        }
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            Vector clone = (Vector)base.MemberwiseClone();
+
+
+            return clone;
+        }
+        #endregion
+
+        #region Private Fields
+        #endregion
+    }
+
+    #region VectorCollection Class
+    /// <summary>
+    /// A collection of Vector objects.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [CollectionDataContract(Name = "ListOfVector", Namespace = Opc.Ua.Namespaces.OpcUaXsd, ItemName = "Vector")]
+    #if !NET_STANDARD
+    public partial class VectorCollection : List<Vector>, ICloneable
+    #else
+    public partial class VectorCollection : List<Vector>
+    #endif
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the collection with default values.
+        /// </summary>
+        public VectorCollection() {}
+
+        /// <summary>
+        /// Initializes the collection with an initial capacity.
+        /// </summary>
+        public VectorCollection(int capacity) : base(capacity) {}
+
+        /// <summary>
+        /// Initializes the collection with another collection.
+        /// </summary>
+        public VectorCollection(IEnumerable<Vector> collection) : base(collection) {}
+        #endregion
+
+        #region Static Operators
+        /// <summary>
+        /// Converts an array to a collection.
+        /// </summary>
+        public static implicit operator VectorCollection(Vector[] values)
+        {
+            if (values != null)
+            {
+                return new VectorCollection(values);
+            }
+
+            return new VectorCollection();
+        }
+
+        /// <summary>
+        /// Converts a collection to an array.
+        /// </summary>
+        public static explicit operator Vector[](VectorCollection values)
+        {
+            if (values != null)
+            {
+                return values.ToArray();
+            }
+
+            return null;
+        }
+        #endregion
+
+        #if !NET_STANDARD
+        #region ICloneable Methods
+        /// <summary>
+        /// Creates a deep copy of the collection.
+        /// </summary>
+        public object Clone()
+        {
+            return (VectorCollection)this.MemberwiseClone();
+        }
+        #endregion
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            VectorCollection clone = new VectorCollection(this.Count);
+
+            for (int ii = 0; ii < this.Count; ii++)
+            {
+                clone.Add((Vector)Utils.Clone(this[ii]));
+            }
+
+            return clone;
+        }
+    }
+    #endregion
+    #endif
+    #endregion
+
+    #region ThreeDVector Class
+    #if (!OPCUA_EXCLUDE_ThreeDVector)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
+    public partial class ThreeDVector : Vector
+    {
+        #region Constructors
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        public ThreeDVector()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Called by the .NET framework during deserialization.
+        /// </summary>
+        [OnDeserializing]
+        private void Initialize(StreamingContext context)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Sets private members to default values.
+        /// </summary>
+        private void Initialize()
+        {
+            m_x = (double)0;
+            m_y = (double)0;
+            m_z = (double)0;
+        }
+        #endregion
+
+        #region Public Properties
+        /// <remarks />
+        [DataMember(Name = "X", IsRequired = false, Order = 1)]
+        public double X
+        {
+            get { return m_x;  }
+            set { m_x = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "Y", IsRequired = false, Order = 2)]
+        public double Y
+        {
+            get { return m_y;  }
+            set { m_y = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "Z", IsRequired = false, Order = 3)]
+        public double Z
+        {
+            get { return m_z;  }
+            set { m_z = value; }
+        }
+        #endregion
+
+        #region IEncodeable Members
+        /// <summary cref="IEncodeable.TypeId" />
+        public override ExpandedNodeId TypeId
+        {
+            get { return DataTypeIds.ThreeDVector; }
+        }
+
+        /// <summary cref="IEncodeable.BinaryEncodingId" />
+        public override ExpandedNodeId BinaryEncodingId
+        {
+            get { return ObjectIds.ThreeDVector_Encoding_DefaultBinary; }
+        }
+
+        /// <summary cref="IEncodeable.XmlEncodingId" />
+        public override ExpandedNodeId XmlEncodingId
+        {
+            get { return ObjectIds.ThreeDVector_Encoding_DefaultXml; }
+        }
+
+        /// <summary cref="IEncodeable.Encode(IEncoder)" />
+        public override void Encode(IEncoder encoder)
+        {
+            base.Encode(encoder);
+
+            encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            encoder.WriteDouble("X", X);
+            encoder.WriteDouble("Y", Y);
+            encoder.WriteDouble("Z", Z);
+
+            encoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.Decode(IDecoder)" />
+        public override void Decode(IDecoder decoder)
+        {
+            base.Decode(decoder);
+
+            decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            X = decoder.ReadDouble("X");
+            Y = decoder.ReadDouble("Y");
+            Z = decoder.ReadDouble("Z");
+
+            decoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.IsEqual(IEncodeable)" />
+        public override bool IsEqual(IEncodeable encodeable)
+        {
+            if (Object.ReferenceEquals(this, encodeable))
+            {
+                return true;
+            }
+
+            ThreeDVector value = encodeable as ThreeDVector;
+
+            if (value == null)
+            {
+                return false;
+            }
+
+            if (!base.IsEqual(encodeable)) return false;
+            if (!Utils.IsEqual(m_x, value.m_x)) return false;
+            if (!Utils.IsEqual(m_y, value.m_y)) return false;
+            if (!Utils.IsEqual(m_z, value.m_z)) return false;
+
+            return true;
+        }    
+
+        #if !NET_STANDARD
+        /// <summary cref="ICloneable.Clone" />
+        public override object Clone()
+        {
+            return (ThreeDVector)this.MemberwiseClone();
+        }
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            ThreeDVector clone = (ThreeDVector)base.MemberwiseClone();
+
+            clone.m_x = (double)Utils.Clone(this.m_x);
+            clone.m_y = (double)Utils.Clone(this.m_y);
+            clone.m_z = (double)Utils.Clone(this.m_z);
+
+            return clone;
+        }
+        #endregion
+
+        #region Private Fields
+        private double m_x;
+        private double m_y;
+        private double m_z;
+        #endregion
+    }
+
+    #region ThreeDVectorCollection Class
+    /// <summary>
+    /// A collection of ThreeDVector objects.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [CollectionDataContract(Name = "ListOfThreeDVector", Namespace = Opc.Ua.Namespaces.OpcUaXsd, ItemName = "ThreeDVector")]
+    #if !NET_STANDARD
+    public partial class ThreeDVectorCollection : List<ThreeDVector>, ICloneable
+    #else
+    public partial class ThreeDVectorCollection : List<ThreeDVector>
+    #endif
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the collection with default values.
+        /// </summary>
+        public ThreeDVectorCollection() {}
+
+        /// <summary>
+        /// Initializes the collection with an initial capacity.
+        /// </summary>
+        public ThreeDVectorCollection(int capacity) : base(capacity) {}
+
+        /// <summary>
+        /// Initializes the collection with another collection.
+        /// </summary>
+        public ThreeDVectorCollection(IEnumerable<ThreeDVector> collection) : base(collection) {}
+        #endregion
+
+        #region Static Operators
+        /// <summary>
+        /// Converts an array to a collection.
+        /// </summary>
+        public static implicit operator ThreeDVectorCollection(ThreeDVector[] values)
+        {
+            if (values != null)
+            {
+                return new ThreeDVectorCollection(values);
+            }
+
+            return new ThreeDVectorCollection();
+        }
+
+        /// <summary>
+        /// Converts a collection to an array.
+        /// </summary>
+        public static explicit operator ThreeDVector[](ThreeDVectorCollection values)
+        {
+            if (values != null)
+            {
+                return values.ToArray();
+            }
+
+            return null;
+        }
+        #endregion
+
+        #if !NET_STANDARD
+        #region ICloneable Methods
+        /// <summary>
+        /// Creates a deep copy of the collection.
+        /// </summary>
+        public object Clone()
+        {
+            return (ThreeDVectorCollection)this.MemberwiseClone();
+        }
+        #endregion
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            ThreeDVectorCollection clone = new ThreeDVectorCollection(this.Count);
+
+            for (int ii = 0; ii < this.Count; ii++)
+            {
+                clone.Add((ThreeDVector)Utils.Clone(this[ii]));
+            }
+
+            return clone;
+        }
+    }
+    #endregion
+    #endif
+    #endregion
+
+    #region CartesianCoordinates Class
+    #if (!OPCUA_EXCLUDE_CartesianCoordinates)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
+    public partial class CartesianCoordinates : IEncodeable
+    {
+        #region Constructors
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        public CartesianCoordinates()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Called by the .NET framework during deserialization.
+        /// </summary>
+        [OnDeserializing]
+        private void Initialize(StreamingContext context)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Sets private members to default values.
+        /// </summary>
+        private void Initialize()
+        {
+        }
+        #endregion
+
+        #region Public Properties
+        #endregion
+
+        #region IEncodeable Members
+        /// <summary cref="IEncodeable.TypeId" />
+        public virtual ExpandedNodeId TypeId
+        {
+            get { return DataTypeIds.CartesianCoordinates; }
+        }
+
+        /// <summary cref="IEncodeable.BinaryEncodingId" />
+        public virtual ExpandedNodeId BinaryEncodingId
+        {
+            get { return ObjectIds.CartesianCoordinates_Encoding_DefaultBinary; }
+        }
+
+        /// <summary cref="IEncodeable.XmlEncodingId" />
+        public virtual ExpandedNodeId XmlEncodingId
+        {
+            get { return ObjectIds.CartesianCoordinates_Encoding_DefaultXml; }
+        }
+
+        /// <summary cref="IEncodeable.Encode(IEncoder)" />
+        public virtual void Encode(IEncoder encoder)
+        {
+            encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+
+            encoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.Decode(IDecoder)" />
+        public virtual void Decode(IDecoder decoder)
+        {
+            decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+
+            decoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.IsEqual(IEncodeable)" />
+        public virtual bool IsEqual(IEncodeable encodeable)
+        {
+            if (Object.ReferenceEquals(this, encodeable))
+            {
+                return true;
+            }
+
+            CartesianCoordinates value = encodeable as CartesianCoordinates;
+
+            if (value == null)
+            {
+                return false;
+            }
+
+
+            return true;
+        }
+
+        #if !NET_STANDARD
+        /// <summary cref="ICloneable.Clone" />
+        public virtual object Clone()
+        {
+            return (CartesianCoordinates)this.MemberwiseClone();
+        }
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            CartesianCoordinates clone = (CartesianCoordinates)base.MemberwiseClone();
+
+
+            return clone;
+        }
+        #endregion
+
+        #region Private Fields
+        #endregion
+    }
+
+    #region CartesianCoordinatesCollection Class
+    /// <summary>
+    /// A collection of CartesianCoordinates objects.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [CollectionDataContract(Name = "ListOfCartesianCoordinates", Namespace = Opc.Ua.Namespaces.OpcUaXsd, ItemName = "CartesianCoordinates")]
+    #if !NET_STANDARD
+    public partial class CartesianCoordinatesCollection : List<CartesianCoordinates>, ICloneable
+    #else
+    public partial class CartesianCoordinatesCollection : List<CartesianCoordinates>
+    #endif
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the collection with default values.
+        /// </summary>
+        public CartesianCoordinatesCollection() {}
+
+        /// <summary>
+        /// Initializes the collection with an initial capacity.
+        /// </summary>
+        public CartesianCoordinatesCollection(int capacity) : base(capacity) {}
+
+        /// <summary>
+        /// Initializes the collection with another collection.
+        /// </summary>
+        public CartesianCoordinatesCollection(IEnumerable<CartesianCoordinates> collection) : base(collection) {}
+        #endregion
+
+        #region Static Operators
+        /// <summary>
+        /// Converts an array to a collection.
+        /// </summary>
+        public static implicit operator CartesianCoordinatesCollection(CartesianCoordinates[] values)
+        {
+            if (values != null)
+            {
+                return new CartesianCoordinatesCollection(values);
+            }
+
+            return new CartesianCoordinatesCollection();
+        }
+
+        /// <summary>
+        /// Converts a collection to an array.
+        /// </summary>
+        public static explicit operator CartesianCoordinates[](CartesianCoordinatesCollection values)
+        {
+            if (values != null)
+            {
+                return values.ToArray();
+            }
+
+            return null;
+        }
+        #endregion
+
+        #if !NET_STANDARD
+        #region ICloneable Methods
+        /// <summary>
+        /// Creates a deep copy of the collection.
+        /// </summary>
+        public object Clone()
+        {
+            return (CartesianCoordinatesCollection)this.MemberwiseClone();
+        }
+        #endregion
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            CartesianCoordinatesCollection clone = new CartesianCoordinatesCollection(this.Count);
+
+            for (int ii = 0; ii < this.Count; ii++)
+            {
+                clone.Add((CartesianCoordinates)Utils.Clone(this[ii]));
+            }
+
+            return clone;
+        }
+    }
+    #endregion
+    #endif
+    #endregion
+
+    #region ThreeDCartesianCoordinates Class
+    #if (!OPCUA_EXCLUDE_ThreeDCartesianCoordinates)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
+    public partial class ThreeDCartesianCoordinates : CartesianCoordinates
+    {
+        #region Constructors
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        public ThreeDCartesianCoordinates()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Called by the .NET framework during deserialization.
+        /// </summary>
+        [OnDeserializing]
+        private void Initialize(StreamingContext context)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Sets private members to default values.
+        /// </summary>
+        private void Initialize()
+        {
+            m_x = (double)0;
+            m_y = (double)0;
+            m_z = (double)0;
+        }
+        #endregion
+
+        #region Public Properties
+        /// <remarks />
+        [DataMember(Name = "X", IsRequired = false, Order = 1)]
+        public double X
+        {
+            get { return m_x;  }
+            set { m_x = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "Y", IsRequired = false, Order = 2)]
+        public double Y
+        {
+            get { return m_y;  }
+            set { m_y = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "Z", IsRequired = false, Order = 3)]
+        public double Z
+        {
+            get { return m_z;  }
+            set { m_z = value; }
+        }
+        #endregion
+
+        #region IEncodeable Members
+        /// <summary cref="IEncodeable.TypeId" />
+        public override ExpandedNodeId TypeId
+        {
+            get { return DataTypeIds.ThreeDCartesianCoordinates; }
+        }
+
+        /// <summary cref="IEncodeable.BinaryEncodingId" />
+        public override ExpandedNodeId BinaryEncodingId
+        {
+            get { return ObjectIds.ThreeDCartesianCoordinates_Encoding_DefaultBinary; }
+        }
+
+        /// <summary cref="IEncodeable.XmlEncodingId" />
+        public override ExpandedNodeId XmlEncodingId
+        {
+            get { return ObjectIds.ThreeDCartesianCoordinates_Encoding_DefaultXml; }
+        }
+
+        /// <summary cref="IEncodeable.Encode(IEncoder)" />
+        public override void Encode(IEncoder encoder)
+        {
+            base.Encode(encoder);
+
+            encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            encoder.WriteDouble("X", X);
+            encoder.WriteDouble("Y", Y);
+            encoder.WriteDouble("Z", Z);
+
+            encoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.Decode(IDecoder)" />
+        public override void Decode(IDecoder decoder)
+        {
+            base.Decode(decoder);
+
+            decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            X = decoder.ReadDouble("X");
+            Y = decoder.ReadDouble("Y");
+            Z = decoder.ReadDouble("Z");
+
+            decoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.IsEqual(IEncodeable)" />
+        public override bool IsEqual(IEncodeable encodeable)
+        {
+            if (Object.ReferenceEquals(this, encodeable))
+            {
+                return true;
+            }
+
+            ThreeDCartesianCoordinates value = encodeable as ThreeDCartesianCoordinates;
+
+            if (value == null)
+            {
+                return false;
+            }
+
+            if (!base.IsEqual(encodeable)) return false;
+            if (!Utils.IsEqual(m_x, value.m_x)) return false;
+            if (!Utils.IsEqual(m_y, value.m_y)) return false;
+            if (!Utils.IsEqual(m_z, value.m_z)) return false;
+
+            return true;
+        }    
+
+        #if !NET_STANDARD
+        /// <summary cref="ICloneable.Clone" />
+        public override object Clone()
+        {
+            return (ThreeDCartesianCoordinates)this.MemberwiseClone();
+        }
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            ThreeDCartesianCoordinates clone = (ThreeDCartesianCoordinates)base.MemberwiseClone();
+
+            clone.m_x = (double)Utils.Clone(this.m_x);
+            clone.m_y = (double)Utils.Clone(this.m_y);
+            clone.m_z = (double)Utils.Clone(this.m_z);
+
+            return clone;
+        }
+        #endregion
+
+        #region Private Fields
+        private double m_x;
+        private double m_y;
+        private double m_z;
+        #endregion
+    }
+
+    #region ThreeDCartesianCoordinatesCollection Class
+    /// <summary>
+    /// A collection of ThreeDCartesianCoordinates objects.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [CollectionDataContract(Name = "ListOfThreeDCartesianCoordinates", Namespace = Opc.Ua.Namespaces.OpcUaXsd, ItemName = "ThreeDCartesianCoordinates")]
+    #if !NET_STANDARD
+    public partial class ThreeDCartesianCoordinatesCollection : List<ThreeDCartesianCoordinates>, ICloneable
+    #else
+    public partial class ThreeDCartesianCoordinatesCollection : List<ThreeDCartesianCoordinates>
+    #endif
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the collection with default values.
+        /// </summary>
+        public ThreeDCartesianCoordinatesCollection() {}
+
+        /// <summary>
+        /// Initializes the collection with an initial capacity.
+        /// </summary>
+        public ThreeDCartesianCoordinatesCollection(int capacity) : base(capacity) {}
+
+        /// <summary>
+        /// Initializes the collection with another collection.
+        /// </summary>
+        public ThreeDCartesianCoordinatesCollection(IEnumerable<ThreeDCartesianCoordinates> collection) : base(collection) {}
+        #endregion
+
+        #region Static Operators
+        /// <summary>
+        /// Converts an array to a collection.
+        /// </summary>
+        public static implicit operator ThreeDCartesianCoordinatesCollection(ThreeDCartesianCoordinates[] values)
+        {
+            if (values != null)
+            {
+                return new ThreeDCartesianCoordinatesCollection(values);
+            }
+
+            return new ThreeDCartesianCoordinatesCollection();
+        }
+
+        /// <summary>
+        /// Converts a collection to an array.
+        /// </summary>
+        public static explicit operator ThreeDCartesianCoordinates[](ThreeDCartesianCoordinatesCollection values)
+        {
+            if (values != null)
+            {
+                return values.ToArray();
+            }
+
+            return null;
+        }
+        #endregion
+
+        #if !NET_STANDARD
+        #region ICloneable Methods
+        /// <summary>
+        /// Creates a deep copy of the collection.
+        /// </summary>
+        public object Clone()
+        {
+            return (ThreeDCartesianCoordinatesCollection)this.MemberwiseClone();
+        }
+        #endregion
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            ThreeDCartesianCoordinatesCollection clone = new ThreeDCartesianCoordinatesCollection(this.Count);
+
+            for (int ii = 0; ii < this.Count; ii++)
+            {
+                clone.Add((ThreeDCartesianCoordinates)Utils.Clone(this[ii]));
+            }
+
+            return clone;
+        }
+    }
+    #endregion
+    #endif
+    #endregion
+
+    #region Orientation Class
+    #if (!OPCUA_EXCLUDE_Orientation)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
+    public partial class Orientation : IEncodeable
+    {
+        #region Constructors
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        public Orientation()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Called by the .NET framework during deserialization.
+        /// </summary>
+        [OnDeserializing]
+        private void Initialize(StreamingContext context)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Sets private members to default values.
+        /// </summary>
+        private void Initialize()
+        {
+        }
+        #endregion
+
+        #region Public Properties
+        #endregion
+
+        #region IEncodeable Members
+        /// <summary cref="IEncodeable.TypeId" />
+        public virtual ExpandedNodeId TypeId
+        {
+            get { return DataTypeIds.Orientation; }
+        }
+
+        /// <summary cref="IEncodeable.BinaryEncodingId" />
+        public virtual ExpandedNodeId BinaryEncodingId
+        {
+            get { return ObjectIds.Orientation_Encoding_DefaultBinary; }
+        }
+
+        /// <summary cref="IEncodeable.XmlEncodingId" />
+        public virtual ExpandedNodeId XmlEncodingId
+        {
+            get { return ObjectIds.Orientation_Encoding_DefaultXml; }
+        }
+
+        /// <summary cref="IEncodeable.Encode(IEncoder)" />
+        public virtual void Encode(IEncoder encoder)
+        {
+            encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+
+            encoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.Decode(IDecoder)" />
+        public virtual void Decode(IDecoder decoder)
+        {
+            decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+
+            decoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.IsEqual(IEncodeable)" />
+        public virtual bool IsEqual(IEncodeable encodeable)
+        {
+            if (Object.ReferenceEquals(this, encodeable))
+            {
+                return true;
+            }
+
+            Orientation value = encodeable as Orientation;
+
+            if (value == null)
+            {
+                return false;
+            }
+
+
+            return true;
+        }
+
+        #if !NET_STANDARD
+        /// <summary cref="ICloneable.Clone" />
+        public virtual object Clone()
+        {
+            return (Orientation)this.MemberwiseClone();
+        }
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            Orientation clone = (Orientation)base.MemberwiseClone();
+
+
+            return clone;
+        }
+        #endregion
+
+        #region Private Fields
+        #endregion
+    }
+
+    #region OrientationCollection Class
+    /// <summary>
+    /// A collection of Orientation objects.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [CollectionDataContract(Name = "ListOfOrientation", Namespace = Opc.Ua.Namespaces.OpcUaXsd, ItemName = "Orientation")]
+    #if !NET_STANDARD
+    public partial class OrientationCollection : List<Orientation>, ICloneable
+    #else
+    public partial class OrientationCollection : List<Orientation>
+    #endif
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the collection with default values.
+        /// </summary>
+        public OrientationCollection() {}
+
+        /// <summary>
+        /// Initializes the collection with an initial capacity.
+        /// </summary>
+        public OrientationCollection(int capacity) : base(capacity) {}
+
+        /// <summary>
+        /// Initializes the collection with another collection.
+        /// </summary>
+        public OrientationCollection(IEnumerable<Orientation> collection) : base(collection) {}
+        #endregion
+
+        #region Static Operators
+        /// <summary>
+        /// Converts an array to a collection.
+        /// </summary>
+        public static implicit operator OrientationCollection(Orientation[] values)
+        {
+            if (values != null)
+            {
+                return new OrientationCollection(values);
+            }
+
+            return new OrientationCollection();
+        }
+
+        /// <summary>
+        /// Converts a collection to an array.
+        /// </summary>
+        public static explicit operator Orientation[](OrientationCollection values)
+        {
+            if (values != null)
+            {
+                return values.ToArray();
+            }
+
+            return null;
+        }
+        #endregion
+
+        #if !NET_STANDARD
+        #region ICloneable Methods
+        /// <summary>
+        /// Creates a deep copy of the collection.
+        /// </summary>
+        public object Clone()
+        {
+            return (OrientationCollection)this.MemberwiseClone();
+        }
+        #endregion
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            OrientationCollection clone = new OrientationCollection(this.Count);
+
+            for (int ii = 0; ii < this.Count; ii++)
+            {
+                clone.Add((Orientation)Utils.Clone(this[ii]));
+            }
+
+            return clone;
+        }
+    }
+    #endregion
+    #endif
+    #endregion
+
+    #region ThreeDOrientation Class
+    #if (!OPCUA_EXCLUDE_ThreeDOrientation)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
+    public partial class ThreeDOrientation : Orientation
+    {
+        #region Constructors
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        public ThreeDOrientation()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Called by the .NET framework during deserialization.
+        /// </summary>
+        [OnDeserializing]
+        private void Initialize(StreamingContext context)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Sets private members to default values.
+        /// </summary>
+        private void Initialize()
+        {
+            m_a = (double)0;
+            m_b = (double)0;
+            m_c = (double)0;
+        }
+        #endregion
+
+        #region Public Properties
+        /// <remarks />
+        [DataMember(Name = "A", IsRequired = false, Order = 1)]
+        public double A
+        {
+            get { return m_a;  }
+            set { m_a = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "B", IsRequired = false, Order = 2)]
+        public double B
+        {
+            get { return m_b;  }
+            set { m_b = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "C", IsRequired = false, Order = 3)]
+        public double C
+        {
+            get { return m_c;  }
+            set { m_c = value; }
+        }
+        #endregion
+
+        #region IEncodeable Members
+        /// <summary cref="IEncodeable.TypeId" />
+        public override ExpandedNodeId TypeId
+        {
+            get { return DataTypeIds.ThreeDOrientation; }
+        }
+
+        /// <summary cref="IEncodeable.BinaryEncodingId" />
+        public override ExpandedNodeId BinaryEncodingId
+        {
+            get { return ObjectIds.ThreeDOrientation_Encoding_DefaultBinary; }
+        }
+
+        /// <summary cref="IEncodeable.XmlEncodingId" />
+        public override ExpandedNodeId XmlEncodingId
+        {
+            get { return ObjectIds.ThreeDOrientation_Encoding_DefaultXml; }
+        }
+
+        /// <summary cref="IEncodeable.Encode(IEncoder)" />
+        public override void Encode(IEncoder encoder)
+        {
+            base.Encode(encoder);
+
+            encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            encoder.WriteDouble("A", A);
+            encoder.WriteDouble("B", B);
+            encoder.WriteDouble("C", C);
+
+            encoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.Decode(IDecoder)" />
+        public override void Decode(IDecoder decoder)
+        {
+            base.Decode(decoder);
+
+            decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            A = decoder.ReadDouble("A");
+            B = decoder.ReadDouble("B");
+            C = decoder.ReadDouble("C");
+
+            decoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.IsEqual(IEncodeable)" />
+        public override bool IsEqual(IEncodeable encodeable)
+        {
+            if (Object.ReferenceEquals(this, encodeable))
+            {
+                return true;
+            }
+
+            ThreeDOrientation value = encodeable as ThreeDOrientation;
+
+            if (value == null)
+            {
+                return false;
+            }
+
+            if (!base.IsEqual(encodeable)) return false;
+            if (!Utils.IsEqual(m_a, value.m_a)) return false;
+            if (!Utils.IsEqual(m_b, value.m_b)) return false;
+            if (!Utils.IsEqual(m_c, value.m_c)) return false;
+
+            return true;
+        }    
+
+        #if !NET_STANDARD
+        /// <summary cref="ICloneable.Clone" />
+        public override object Clone()
+        {
+            return (ThreeDOrientation)this.MemberwiseClone();
+        }
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            ThreeDOrientation clone = (ThreeDOrientation)base.MemberwiseClone();
+
+            clone.m_a = (double)Utils.Clone(this.m_a);
+            clone.m_b = (double)Utils.Clone(this.m_b);
+            clone.m_c = (double)Utils.Clone(this.m_c);
+
+            return clone;
+        }
+        #endregion
+
+        #region Private Fields
+        private double m_a;
+        private double m_b;
+        private double m_c;
+        #endregion
+    }
+
+    #region ThreeDOrientationCollection Class
+    /// <summary>
+    /// A collection of ThreeDOrientation objects.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [CollectionDataContract(Name = "ListOfThreeDOrientation", Namespace = Opc.Ua.Namespaces.OpcUaXsd, ItemName = "ThreeDOrientation")]
+    #if !NET_STANDARD
+    public partial class ThreeDOrientationCollection : List<ThreeDOrientation>, ICloneable
+    #else
+    public partial class ThreeDOrientationCollection : List<ThreeDOrientation>
+    #endif
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the collection with default values.
+        /// </summary>
+        public ThreeDOrientationCollection() {}
+
+        /// <summary>
+        /// Initializes the collection with an initial capacity.
+        /// </summary>
+        public ThreeDOrientationCollection(int capacity) : base(capacity) {}
+
+        /// <summary>
+        /// Initializes the collection with another collection.
+        /// </summary>
+        public ThreeDOrientationCollection(IEnumerable<ThreeDOrientation> collection) : base(collection) {}
+        #endregion
+
+        #region Static Operators
+        /// <summary>
+        /// Converts an array to a collection.
+        /// </summary>
+        public static implicit operator ThreeDOrientationCollection(ThreeDOrientation[] values)
+        {
+            if (values != null)
+            {
+                return new ThreeDOrientationCollection(values);
+            }
+
+            return new ThreeDOrientationCollection();
+        }
+
+        /// <summary>
+        /// Converts a collection to an array.
+        /// </summary>
+        public static explicit operator ThreeDOrientation[](ThreeDOrientationCollection values)
+        {
+            if (values != null)
+            {
+                return values.ToArray();
+            }
+
+            return null;
+        }
+        #endregion
+
+        #if !NET_STANDARD
+        #region ICloneable Methods
+        /// <summary>
+        /// Creates a deep copy of the collection.
+        /// </summary>
+        public object Clone()
+        {
+            return (ThreeDOrientationCollection)this.MemberwiseClone();
+        }
+        #endregion
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            ThreeDOrientationCollection clone = new ThreeDOrientationCollection(this.Count);
+
+            for (int ii = 0; ii < this.Count; ii++)
+            {
+                clone.Add((ThreeDOrientation)Utils.Clone(this[ii]));
+            }
+
+            return clone;
+        }
+    }
+    #endregion
+    #endif
+    #endregion
+
+    #region Frame Class
+    #if (!OPCUA_EXCLUDE_Frame)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
+    public partial class Frame : IEncodeable
+    {
+        #region Constructors
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        public Frame()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Called by the .NET framework during deserialization.
+        /// </summary>
+        [OnDeserializing]
+        private void Initialize(StreamingContext context)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Sets private members to default values.
+        /// </summary>
+        private void Initialize()
+        {
+        }
+        #endregion
+
+        #region Public Properties
+        #endregion
+
+        #region IEncodeable Members
+        /// <summary cref="IEncodeable.TypeId" />
+        public virtual ExpandedNodeId TypeId
+        {
+            get { return DataTypeIds.Frame; }
+        }
+
+        /// <summary cref="IEncodeable.BinaryEncodingId" />
+        public virtual ExpandedNodeId BinaryEncodingId
+        {
+            get { return ObjectIds.Frame_Encoding_DefaultBinary; }
+        }
+
+        /// <summary cref="IEncodeable.XmlEncodingId" />
+        public virtual ExpandedNodeId XmlEncodingId
+        {
+            get { return ObjectIds.Frame_Encoding_DefaultXml; }
+        }
+
+        /// <summary cref="IEncodeable.Encode(IEncoder)" />
+        public virtual void Encode(IEncoder encoder)
+        {
+            encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+
+            encoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.Decode(IDecoder)" />
+        public virtual void Decode(IDecoder decoder)
+        {
+            decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+
+            decoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.IsEqual(IEncodeable)" />
+        public virtual bool IsEqual(IEncodeable encodeable)
+        {
+            if (Object.ReferenceEquals(this, encodeable))
+            {
+                return true;
+            }
+
+            Frame value = encodeable as Frame;
+
+            if (value == null)
+            {
+                return false;
+            }
+
+
+            return true;
+        }
+
+        #if !NET_STANDARD
+        /// <summary cref="ICloneable.Clone" />
+        public virtual object Clone()
+        {
+            return (Frame)this.MemberwiseClone();
+        }
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            Frame clone = (Frame)base.MemberwiseClone();
+
+
+            return clone;
+        }
+        #endregion
+
+        #region Private Fields
+        #endregion
+    }
+
+    #region FrameCollection Class
+    /// <summary>
+    /// A collection of Frame objects.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [CollectionDataContract(Name = "ListOfFrame", Namespace = Opc.Ua.Namespaces.OpcUaXsd, ItemName = "Frame")]
+    #if !NET_STANDARD
+    public partial class FrameCollection : List<Frame>, ICloneable
+    #else
+    public partial class FrameCollection : List<Frame>
+    #endif
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the collection with default values.
+        /// </summary>
+        public FrameCollection() {}
+
+        /// <summary>
+        /// Initializes the collection with an initial capacity.
+        /// </summary>
+        public FrameCollection(int capacity) : base(capacity) {}
+
+        /// <summary>
+        /// Initializes the collection with another collection.
+        /// </summary>
+        public FrameCollection(IEnumerable<Frame> collection) : base(collection) {}
+        #endregion
+
+        #region Static Operators
+        /// <summary>
+        /// Converts an array to a collection.
+        /// </summary>
+        public static implicit operator FrameCollection(Frame[] values)
+        {
+            if (values != null)
+            {
+                return new FrameCollection(values);
+            }
+
+            return new FrameCollection();
+        }
+
+        /// <summary>
+        /// Converts a collection to an array.
+        /// </summary>
+        public static explicit operator Frame[](FrameCollection values)
+        {
+            if (values != null)
+            {
+                return values.ToArray();
+            }
+
+            return null;
+        }
+        #endregion
+
+        #if !NET_STANDARD
+        #region ICloneable Methods
+        /// <summary>
+        /// Creates a deep copy of the collection.
+        /// </summary>
+        public object Clone()
+        {
+            return (FrameCollection)this.MemberwiseClone();
+        }
+        #endregion
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            FrameCollection clone = new FrameCollection(this.Count);
+
+            for (int ii = 0; ii < this.Count; ii++)
+            {
+                clone.Add((Frame)Utils.Clone(this[ii]));
+            }
+
+            return clone;
+        }
+    }
+    #endregion
+    #endif
+    #endregion
+
+    #region ThreeDFrame Class
+    #if (!OPCUA_EXCLUDE_ThreeDFrame)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
+    public partial class ThreeDFrame : Frame
+    {
+        #region Constructors
+        /// <summary>
+        /// The default constructor.
+        /// </summary>
+        public ThreeDFrame()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Called by the .NET framework during deserialization.
+        /// </summary>
+        [OnDeserializing]
+        private void Initialize(StreamingContext context)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Sets private members to default values.
+        /// </summary>
+        private void Initialize()
+        {
+            m_cartesianCoordinates = new ThreeDCartesianCoordinates();
+            m_orientation = new ThreeDOrientation();
+        }
+        #endregion
+
+        #region Public Properties
+        /// <summary>
+        /// 
+        /// </summary>
+        [DataMember(Name = "CartesianCoordinates", IsRequired = false, Order = 1)]
+        public ThreeDCartesianCoordinates CartesianCoordinates
+        {
+            get
+            {
+                return m_cartesianCoordinates;
+            }
+
+            set
+            {
+                m_cartesianCoordinates = value;
+
+                if (value == null)
+                {
+                    m_cartesianCoordinates = new ThreeDCartesianCoordinates();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DataMember(Name = "Orientation", IsRequired = false, Order = 2)]
+        public ThreeDOrientation Orientation
+        {
+            get
+            {
+                return m_orientation;
+            }
+
+            set
+            {
+                m_orientation = value;
+
+                if (value == null)
+                {
+                    m_orientation = new ThreeDOrientation();
+                }
+            }
+        }
+        #endregion
+
+        #region IEncodeable Members
+        /// <summary cref="IEncodeable.TypeId" />
+        public override ExpandedNodeId TypeId
+        {
+            get { return DataTypeIds.ThreeDFrame; }
+        }
+
+        /// <summary cref="IEncodeable.BinaryEncodingId" />
+        public override ExpandedNodeId BinaryEncodingId
+        {
+            get { return ObjectIds.ThreeDFrame_Encoding_DefaultBinary; }
+        }
+
+        /// <summary cref="IEncodeable.XmlEncodingId" />
+        public override ExpandedNodeId XmlEncodingId
+        {
+            get { return ObjectIds.ThreeDFrame_Encoding_DefaultXml; }
+        }
+
+        /// <summary cref="IEncodeable.Encode(IEncoder)" />
+        public override void Encode(IEncoder encoder)
+        {
+            base.Encode(encoder);
+
+            encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            encoder.WriteEncodeable("CartesianCoordinates", CartesianCoordinates, typeof(ThreeDCartesianCoordinates));
+            encoder.WriteEncodeable("Orientation", Orientation, typeof(ThreeDOrientation));
+
+            encoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.Decode(IDecoder)" />
+        public override void Decode(IDecoder decoder)
+        {
+            base.Decode(decoder);
+
+            decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
+
+            CartesianCoordinates = (ThreeDCartesianCoordinates)decoder.ReadEncodeable("CartesianCoordinates", typeof(ThreeDCartesianCoordinates));
+            Orientation = (ThreeDOrientation)decoder.ReadEncodeable("Orientation", typeof(ThreeDOrientation));
+
+            decoder.PopNamespace();
+        }
+
+        /// <summary cref="IEncodeable.IsEqual(IEncodeable)" />
+        public override bool IsEqual(IEncodeable encodeable)
+        {
+            if (Object.ReferenceEquals(this, encodeable))
+            {
+                return true;
+            }
+
+            ThreeDFrame value = encodeable as ThreeDFrame;
+
+            if (value == null)
+            {
+                return false;
+            }
+
+            if (!base.IsEqual(encodeable)) return false;
+            if (!Utils.IsEqual(m_cartesianCoordinates, value.m_cartesianCoordinates)) return false;
+            if (!Utils.IsEqual(m_orientation, value.m_orientation)) return false;
+
+            return true;
+        }    
+
+        #if !NET_STANDARD
+        /// <summary cref="ICloneable.Clone" />
+        public override object Clone()
+        {
+            return (ThreeDFrame)this.MemberwiseClone();
+        }
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            ThreeDFrame clone = (ThreeDFrame)base.MemberwiseClone();
+
+            clone.m_cartesianCoordinates = (ThreeDCartesianCoordinates)Utils.Clone(this.m_cartesianCoordinates);
+            clone.m_orientation = (ThreeDOrientation)Utils.Clone(this.m_orientation);
+
+            return clone;
+        }
+        #endregion
+
+        #region Private Fields
+        private ThreeDCartesianCoordinates m_cartesianCoordinates;
+        private ThreeDOrientation m_orientation;
+        #endregion
+    }
+
+    #region ThreeDFrameCollection Class
+    /// <summary>
+    /// A collection of ThreeDFrame objects.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    [CollectionDataContract(Name = "ListOfThreeDFrame", Namespace = Opc.Ua.Namespaces.OpcUaXsd, ItemName = "ThreeDFrame")]
+    #if !NET_STANDARD
+    public partial class ThreeDFrameCollection : List<ThreeDFrame>, ICloneable
+    #else
+    public partial class ThreeDFrameCollection : List<ThreeDFrame>
+    #endif
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the collection with default values.
+        /// </summary>
+        public ThreeDFrameCollection() {}
+
+        /// <summary>
+        /// Initializes the collection with an initial capacity.
+        /// </summary>
+        public ThreeDFrameCollection(int capacity) : base(capacity) {}
+
+        /// <summary>
+        /// Initializes the collection with another collection.
+        /// </summary>
+        public ThreeDFrameCollection(IEnumerable<ThreeDFrame> collection) : base(collection) {}
+        #endregion
+
+        #region Static Operators
+        /// <summary>
+        /// Converts an array to a collection.
+        /// </summary>
+        public static implicit operator ThreeDFrameCollection(ThreeDFrame[] values)
+        {
+            if (values != null)
+            {
+                return new ThreeDFrameCollection(values);
+            }
+
+            return new ThreeDFrameCollection();
+        }
+
+        /// <summary>
+        /// Converts a collection to an array.
+        /// </summary>
+        public static explicit operator ThreeDFrame[](ThreeDFrameCollection values)
+        {
+            if (values != null)
+            {
+                return values.ToArray();
+            }
+
+            return null;
+        }
+        #endregion
+
+        #if !NET_STANDARD
+        #region ICloneable Methods
+        /// <summary>
+        /// Creates a deep copy of the collection.
+        /// </summary>
+        public object Clone()
+        {
+            return (ThreeDFrameCollection)this.MemberwiseClone();
+        }
+        #endregion
+        #endif
+
+        /// <summary cref="Object.MemberwiseClone" />
+        public new object MemberwiseClone()
+        {
+            ThreeDFrameCollection clone = new ThreeDFrameCollection(this.Count);
+
+            for (int ii = 0; ii < this.Count; ii++)
+            {
+                clone.Add((ThreeDFrame)Utils.Clone(this[ii]));
+            }
+
+            return clone;
+        }
+    }
+    #endregion
+    #endif
+    #endregion
+
     #region OpenFileMode Enumeration
     #if (!OPCUA_EXCLUDE_OpenFileMode)
     /// <summary>
-    /// A description for the OpenFileMode DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum OpenFileMode
     {
-        /// <summary>
-        /// A description for the Read field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Read_1")]
         Read = 1,
 
-        /// <summary>
-        /// A description for the Write field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Write_2")]
         Write = 2,
 
-        /// <summary>
-        /// A description for the EraseExisting field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "EraseExisting_4")]
         EraseExisting = 4,
 
-        /// <summary>
-        /// A description for the Append field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Append_8")]
         Append = 8,
     }
@@ -877,46 +2912,34 @@ namespace Opc.Ua
     #region IdentityCriteriaType Enumeration
     #if (!OPCUA_EXCLUDE_IdentityCriteriaType)
     /// <summary>
-    /// A description for the IdentityCriteriaType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum IdentityCriteriaType
     {
-        /// <summary>
-        /// A description for the UserName field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "UserName_1")]
         UserName = 1,
 
-        /// <summary>
-        /// A description for the Thumbprint field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Thumbprint_2")]
         Thumbprint = 2,
 
-        /// <summary>
-        /// A description for the Role field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Role_3")]
         Role = 3,
 
-        /// <summary>
-        /// A description for the GroupId field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "GroupId_4")]
         GroupId = 4,
 
-        /// <summary>
-        /// A description for the Anonymous field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Anonymous_5")]
         Anonymous = 5,
 
-        /// <summary>
-        /// A description for the AuthenticatedUser field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AuthenticatedUser_6")]
         AuthenticatedUser = 6,
     }
@@ -1011,7 +3034,7 @@ namespace Opc.Ua
     #region IdentityMappingRuleType Class
     #if (!OPCUA_EXCLUDE_IdentityMappingRuleType)
     /// <summary>
-    /// A description for the IdentityMappingRuleType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -1047,9 +3070,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the CriteriaType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CriteriaType", IsRequired = false, Order = 1)]
         public IdentityCriteriaType CriteriaType
         {
@@ -1057,9 +3078,7 @@ namespace Opc.Ua
             set { m_criteriaType = value; }
         }
 
-        /// <summary>
-        /// A description for the Criteria field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Criteria", IsRequired = false, Order = 2)]
         public string Criteria
         {
@@ -1246,46 +3265,34 @@ namespace Opc.Ua
     #region TrustListMasks Enumeration
     #if (!OPCUA_EXCLUDE_TrustListMasks)
     /// <summary>
-    /// A description for the TrustListMasks DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum TrustListMasks
     {
-        /// <summary>
-        /// A description for the None field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the TrustedCertificates field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "TrustedCertificates_1")]
         TrustedCertificates = 1,
 
-        /// <summary>
-        /// A description for the TrustedCrls field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "TrustedCrls_2")]
         TrustedCrls = 2,
 
-        /// <summary>
-        /// A description for the IssuerCertificates field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "IssuerCertificates_4")]
         IssuerCertificates = 4,
 
-        /// <summary>
-        /// A description for the IssuerCrls field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "IssuerCrls_8")]
         IssuerCrls = 8,
 
-        /// <summary>
-        /// A description for the All field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "All_15")]
         All = 15,
     }
@@ -1295,7 +3302,7 @@ namespace Opc.Ua
     #region TrustListDataType Class
     #if (!OPCUA_EXCLUDE_TrustListDataType)
     /// <summary>
-    /// A description for the TrustListDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -1334,9 +3341,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the SpecifiedLists field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SpecifiedLists", IsRequired = false, Order = 1)]
         public uint SpecifiedLists
         {
@@ -1345,7 +3350,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the TrustedCertificates field.
+        /// 
         /// </summary>
         [DataMember(Name = "TrustedCertificates", IsRequired = false, Order = 2)]
         public ByteStringCollection TrustedCertificates
@@ -1367,7 +3372,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the TrustedCrls field.
+        /// 
         /// </summary>
         [DataMember(Name = "TrustedCrls", IsRequired = false, Order = 3)]
         public ByteStringCollection TrustedCrls
@@ -1389,7 +3394,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the IssuerCertificates field.
+        /// 
         /// </summary>
         [DataMember(Name = "IssuerCertificates", IsRequired = false, Order = 4)]
         public ByteStringCollection IssuerCertificates
@@ -1411,7 +3416,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the IssuerCrls field.
+        /// 
         /// </summary>
         [DataMember(Name = "IssuerCrls", IsRequired = false, Order = 5)]
         public ByteStringCollection IssuerCrls
@@ -1626,7 +3631,7 @@ namespace Opc.Ua
     #region DecimalDataType Class
     #if (!OPCUA_EXCLUDE_DecimalDataType)
     /// <summary>
-    /// A description for the DecimalDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -1662,9 +3667,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Scale field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Scale", IsRequired = false, Order = 1)]
         public short Scale
         {
@@ -1672,9 +3675,7 @@ namespace Opc.Ua
             set { m_scale = value; }
         }
 
-        /// <summary>
-        /// A description for the Value field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 2)]
         public byte[] Value
         {
@@ -1776,7 +3777,7 @@ namespace Opc.Ua
     #region DataTypeSchemaHeader Class
     #if (!OPCUA_EXCLUDE_DataTypeSchemaHeader)
     /// <summary>
-    /// A description for the DataTypeSchemaHeader DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -1815,7 +3816,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the Namespaces field.
+        /// 
         /// </summary>
         [DataMember(Name = "Namespaces", IsRequired = false, Order = 1)]
         public StringCollection Namespaces
@@ -1837,7 +3838,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the StructureDataTypes field.
+        /// 
         /// </summary>
         [DataMember(Name = "StructureDataTypes", IsRequired = false, Order = 2)]
         public StructureDescriptionCollection StructureDataTypes
@@ -1859,7 +3860,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the EnumDataTypes field.
+        /// 
         /// </summary>
         [DataMember(Name = "EnumDataTypes", IsRequired = false, Order = 3)]
         public EnumDescriptionCollection EnumDataTypes
@@ -1881,7 +3882,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SimpleDataTypes field.
+        /// 
         /// </summary>
         [DataMember(Name = "SimpleDataTypes", IsRequired = false, Order = 4)]
         public SimpleTypeDescriptionCollection SimpleDataTypes
@@ -2091,7 +4092,7 @@ namespace Opc.Ua
     #region DataTypeDescription Class
     #if (!OPCUA_EXCLUDE_DataTypeDescription)
     /// <summary>
-    /// A description for the DataTypeDescription DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -2127,9 +4128,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the DataTypeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataTypeId", IsRequired = false, Order = 1)]
         public NodeId DataTypeId
         {
@@ -2137,9 +4136,7 @@ namespace Opc.Ua
             set { m_dataTypeId = value; }
         }
 
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 2)]
         public QualifiedName Name
         {
@@ -2326,7 +4323,7 @@ namespace Opc.Ua
     #region StructureDescription Class
     #if (!OPCUA_EXCLUDE_StructureDescription)
     /// <summary>
-    /// A description for the StructureDescription DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -2362,7 +4359,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the StructureDefinition field.
+        /// 
         /// </summary>
         [DataMember(Name = "StructureDefinition", IsRequired = false, Order = 1)]
         public StructureDefinition StructureDefinition
@@ -2562,7 +4559,7 @@ namespace Opc.Ua
     #region EnumDescription Class
     #if (!OPCUA_EXCLUDE_EnumDescription)
     /// <summary>
-    /// A description for the EnumDescription DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -2599,7 +4596,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the EnumDefinition field.
+        /// 
         /// </summary>
         [DataMember(Name = "EnumDefinition", IsRequired = false, Order = 1)]
         public EnumDefinition EnumDefinition
@@ -2620,9 +4617,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the BuiltInType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BuiltInType", IsRequired = false, Order = 2)]
         public byte BuiltInType
         {
@@ -2814,7 +4809,7 @@ namespace Opc.Ua
     #region SimpleTypeDescription Class
     #if (!OPCUA_EXCLUDE_SimpleTypeDescription)
     /// <summary>
-    /// A description for the SimpleTypeDescription DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -2850,9 +4845,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the BaseDataType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BaseDataType", IsRequired = false, Order = 1)]
         public NodeId BaseDataType
         {
@@ -2860,9 +4853,7 @@ namespace Opc.Ua
             set { m_baseDataType = value; }
         }
 
-        /// <summary>
-        /// A description for the BuiltInType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BuiltInType", IsRequired = false, Order = 2)]
         public byte BuiltInType
         {
@@ -3054,7 +5045,7 @@ namespace Opc.Ua
     #region UABinaryFileDataType Class
     #if (!OPCUA_EXCLUDE_UABinaryFileDataType)
     /// <summary>
-    /// A description for the UABinaryFileDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -3091,9 +5082,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the SchemaLocation field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SchemaLocation", IsRequired = false, Order = 1)]
         public string SchemaLocation
         {
@@ -3102,7 +5091,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the FileHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "FileHeader", IsRequired = false, Order = 2)]
         public KeyValuePairCollection FileHeader
@@ -3123,9 +5112,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the Body field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Body", IsRequired = false, Order = 3)]
         public Variant Body
         {
@@ -3322,34 +5309,26 @@ namespace Opc.Ua
     #region PubSubState Enumeration
     #if (!OPCUA_EXCLUDE_PubSubState)
     /// <summary>
-    /// A description for the PubSubState DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum PubSubState
     {
-        /// <summary>
-        /// A description for the Disabled field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Disabled_0")]
         Disabled = 0,
 
-        /// <summary>
-        /// A description for the Paused field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Paused_1")]
         Paused = 1,
 
-        /// <summary>
-        /// A description for the Operational field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Operational_2")]
         Operational = 2,
 
-        /// <summary>
-        /// A description for the Error field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Error_3")]
         Error = 3,
     }
@@ -3444,7 +5423,7 @@ namespace Opc.Ua
     #region DataSetMetaDataType Class
     #if (!OPCUA_EXCLUDE_DataSetMetaDataType)
     /// <summary>
-    /// A description for the DataSetMetaDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -3483,9 +5462,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -3493,9 +5470,7 @@ namespace Opc.Ua
             set { m_name = value; }
         }
 
-        /// <summary>
-        /// A description for the Description field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Description", IsRequired = false, Order = 2)]
         public LocalizedText Description
         {
@@ -3504,7 +5479,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Fields field.
+        /// 
         /// </summary>
         [DataMember(Name = "Fields", IsRequired = false, Order = 3)]
         public FieldMetaDataCollection Fields
@@ -3525,9 +5500,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the DataSetClassId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetClassId", IsRequired = false, Order = 4)]
         public Uuid DataSetClassId
         {
@@ -3536,7 +5509,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ConfigurationVersion field.
+        /// 
         /// </summary>
         [DataMember(Name = "ConfigurationVersion", IsRequired = false, Order = 5)]
         public ConfigurationVersionDataType ConfigurationVersion
@@ -3756,7 +5729,7 @@ namespace Opc.Ua
     #region FieldMetaData Class
     #if (!OPCUA_EXCLUDE_FieldMetaData)
     /// <summary>
-    /// A description for the FieldMetaData DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -3788,7 +5761,7 @@ namespace Opc.Ua
         {
             m_name = null;
             m_description = null;
-            m_fieldFlags = DataSetFieldFlags.None;
+            m_fieldFlags = 0;
             m_builtInType = (byte)0;
             m_dataType = null;
             m_valueRank = (int)0;
@@ -3800,9 +5773,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -3810,9 +5781,7 @@ namespace Opc.Ua
             set { m_name = value; }
         }
 
-        /// <summary>
-        /// A description for the Description field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Description", IsRequired = false, Order = 2)]
         public LocalizedText Description
         {
@@ -3820,19 +5789,15 @@ namespace Opc.Ua
             set { m_description = value; }
         }
 
-        /// <summary>
-        /// A description for the FieldFlags field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "FieldFlags", IsRequired = false, Order = 3)]
-        public DataSetFieldFlags FieldFlags
+        public ushort FieldFlags
         {
             get { return m_fieldFlags;  }
             set { m_fieldFlags = value; }
         }
 
-        /// <summary>
-        /// A description for the BuiltInType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BuiltInType", IsRequired = false, Order = 4)]
         public byte BuiltInType
         {
@@ -3840,9 +5805,7 @@ namespace Opc.Ua
             set { m_builtInType = value; }
         }
 
-        /// <summary>
-        /// A description for the DataType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataType", IsRequired = false, Order = 5)]
         public NodeId DataType
         {
@@ -3850,9 +5813,7 @@ namespace Opc.Ua
             set { m_dataType = value; }
         }
 
-        /// <summary>
-        /// A description for the ValueRank field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ValueRank", IsRequired = false, Order = 6)]
         public int ValueRank
         {
@@ -3861,7 +5822,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ArrayDimensions field.
+        /// 
         /// </summary>
         [DataMember(Name = "ArrayDimensions", IsRequired = false, Order = 7)]
         public UInt32Collection ArrayDimensions
@@ -3882,9 +5843,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the MaxStringLength field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxStringLength", IsRequired = false, Order = 8)]
         public uint MaxStringLength
         {
@@ -3892,9 +5851,7 @@ namespace Opc.Ua
             set { m_maxStringLength = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetFieldId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetFieldId", IsRequired = false, Order = 9)]
         public Uuid DataSetFieldId
         {
@@ -3903,7 +5860,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Properties field.
+        /// 
         /// </summary>
         [DataMember(Name = "Properties", IsRequired = false, Order = 10)]
         public KeyValuePairCollection Properties
@@ -3951,7 +5908,7 @@ namespace Opc.Ua
 
             encoder.WriteString("Name", Name);
             encoder.WriteLocalizedText("Description", Description);
-            encoder.WriteEnumerated("FieldFlags", FieldFlags);
+            encoder.WriteUInt16("FieldFlags", FieldFlags);
             encoder.WriteByte("BuiltInType", BuiltInType);
             encoder.WriteNodeId("DataType", DataType);
             encoder.WriteInt32("ValueRank", ValueRank);
@@ -3970,7 +5927,7 @@ namespace Opc.Ua
 
             Name = decoder.ReadString("Name");
             Description = decoder.ReadLocalizedText("Description");
-            FieldFlags = (DataSetFieldFlags)decoder.ReadEnumerated("FieldFlags", typeof(DataSetFieldFlags));
+            FieldFlags = decoder.ReadUInt16("FieldFlags");
             BuiltInType = decoder.ReadByte("BuiltInType");
             DataType = decoder.ReadNodeId("DataType");
             ValueRank = decoder.ReadInt32("ValueRank");
@@ -4026,7 +5983,7 @@ namespace Opc.Ua
 
             clone.m_name = (string)Utils.Clone(this.m_name);
             clone.m_description = (LocalizedText)Utils.Clone(this.m_description);
-            clone.m_fieldFlags = (DataSetFieldFlags)Utils.Clone(this.m_fieldFlags);
+            clone.m_fieldFlags = (ushort)Utils.Clone(this.m_fieldFlags);
             clone.m_builtInType = (byte)Utils.Clone(this.m_builtInType);
             clone.m_dataType = (NodeId)Utils.Clone(this.m_dataType);
             clone.m_valueRank = (int)Utils.Clone(this.m_valueRank);
@@ -4042,7 +5999,7 @@ namespace Opc.Ua
         #region Private Fields
         private string m_name;
         private LocalizedText m_description;
-        private DataSetFieldFlags m_fieldFlags;
+        private ushort m_fieldFlags;
         private byte m_builtInType;
         private NodeId m_dataType;
         private int m_valueRank;
@@ -4143,22 +6100,18 @@ namespace Opc.Ua
     #region DataSetFieldFlags Enumeration
     #if (!OPCUA_EXCLUDE_DataSetFieldFlags)
     /// <summary>
-    /// A description for the DataSetFieldFlags DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum DataSetFieldFlags
+    public enum DataSetFieldFlags : UInt16
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the PromotedField field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "PromotedField_1")]
         PromotedField = 1,
     }
@@ -4168,7 +6121,7 @@ namespace Opc.Ua
     #region ConfigurationVersionDataType Class
     #if (!OPCUA_EXCLUDE_ConfigurationVersionDataType)
     /// <summary>
-    /// A description for the ConfigurationVersionDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -4204,9 +6157,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the MajorVersion field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MajorVersion", IsRequired = false, Order = 1)]
         public uint MajorVersion
         {
@@ -4214,9 +6165,7 @@ namespace Opc.Ua
             set { m_majorVersion = value; }
         }
 
-        /// <summary>
-        /// A description for the MinorVersion field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MinorVersion", IsRequired = false, Order = 2)]
         public uint MinorVersion
         {
@@ -4403,7 +6352,7 @@ namespace Opc.Ua
     #region PublishedDataSetDataType Class
     #if (!OPCUA_EXCLUDE_PublishedDataSetDataType)
     /// <summary>
-    /// A description for the PublishedDataSetDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -4442,9 +6391,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -4453,7 +6400,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataSetFolder field.
+        /// 
         /// </summary>
         [DataMember(Name = "DataSetFolder", IsRequired = false, Order = 2)]
         public StringCollection DataSetFolder
@@ -4475,7 +6422,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataSetMetaData field.
+        /// 
         /// </summary>
         [DataMember(Name = "DataSetMetaData", IsRequired = false, Order = 3)]
         public DataSetMetaDataType DataSetMetaData
@@ -4497,7 +6444,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ExtensionFields field.
+        /// 
         /// </summary>
         [DataMember(Name = "ExtensionFields", IsRequired = false, Order = 4)]
         public KeyValuePairCollection ExtensionFields
@@ -4518,9 +6465,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the DataSetSource field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetSource", IsRequired = false, Order = 5)]
         public ExtensionObject DataSetSource
         {
@@ -4722,7 +6667,7 @@ namespace Opc.Ua
     #region PublishedDataSetSourceDataType Class
     #if (!OPCUA_EXCLUDE_PublishedDataSetSourceDataType)
     /// <summary>
-    /// A description for the PublishedDataSetSourceDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -4926,7 +6871,7 @@ namespace Opc.Ua
     #region PublishedVariableDataType Class
     #if (!OPCUA_EXCLUDE_PublishedVariableDataType)
     /// <summary>
-    /// A description for the PublishedVariableDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -4968,9 +6913,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the PublishedVariable field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishedVariable", IsRequired = false, Order = 1)]
         public NodeId PublishedVariable
         {
@@ -4978,9 +6921,7 @@ namespace Opc.Ua
             set { m_publishedVariable = value; }
         }
 
-        /// <summary>
-        /// A description for the AttributeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AttributeId", IsRequired = false, Order = 2)]
         public uint AttributeId
         {
@@ -4988,9 +6929,7 @@ namespace Opc.Ua
             set { m_attributeId = value; }
         }
 
-        /// <summary>
-        /// A description for the SamplingIntervalHint field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SamplingIntervalHint", IsRequired = false, Order = 3)]
         public double SamplingIntervalHint
         {
@@ -4998,9 +6937,7 @@ namespace Opc.Ua
             set { m_samplingIntervalHint = value; }
         }
 
-        /// <summary>
-        /// A description for the DeadbandType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DeadbandType", IsRequired = false, Order = 4)]
         public uint DeadbandType
         {
@@ -5008,9 +6945,7 @@ namespace Opc.Ua
             set { m_deadbandType = value; }
         }
 
-        /// <summary>
-        /// A description for the DeadbandValue field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DeadbandValue", IsRequired = false, Order = 5)]
         public double DeadbandValue
         {
@@ -5018,9 +6953,7 @@ namespace Opc.Ua
             set { m_deadbandValue = value; }
         }
 
-        /// <summary>
-        /// A description for the IndexRange field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IndexRange", IsRequired = false, Order = 6)]
         public string IndexRange
         {
@@ -5028,9 +6961,7 @@ namespace Opc.Ua
             set { m_indexRange = value; }
         }
 
-        /// <summary>
-        /// A description for the SubstituteValue field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubstituteValue", IsRequired = false, Order = 7)]
         public Variant SubstituteValue
         {
@@ -5039,7 +6970,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the MetaDataProperties field.
+        /// 
         /// </summary>
         [DataMember(Name = "MetaDataProperties", IsRequired = false, Order = 8)]
         public QualifiedNameCollection MetaDataProperties
@@ -5269,7 +7200,7 @@ namespace Opc.Ua
     #region PublishedDataItemsDataType Class
     #if (!OPCUA_EXCLUDE_PublishedDataItemsDataType)
     /// <summary>
-    /// A description for the PublishedDataItemsDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -5305,7 +7236,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the PublishedData field.
+        /// 
         /// </summary>
         [DataMember(Name = "PublishedData", IsRequired = false, Order = 1)]
         public PublishedVariableDataTypeCollection PublishedData
@@ -5505,7 +7436,7 @@ namespace Opc.Ua
     #region PublishedEventsDataType Class
     #if (!OPCUA_EXCLUDE_PublishedEventsDataType)
     /// <summary>
-    /// A description for the PublishedEventsDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -5542,9 +7473,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the EventNotifier field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EventNotifier", IsRequired = false, Order = 1)]
         public NodeId EventNotifier
         {
@@ -5553,7 +7482,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SelectedFields field.
+        /// 
         /// </summary>
         [DataMember(Name = "SelectedFields", IsRequired = false, Order = 2)]
         public SimpleAttributeOperandCollection SelectedFields
@@ -5575,7 +7504,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Filter field.
+        /// 
         /// </summary>
         [DataMember(Name = "Filter", IsRequired = false, Order = 3)]
         public ContentFilter Filter
@@ -5785,54 +7714,40 @@ namespace Opc.Ua
     #region DataSetFieldContentMask Enumeration
     #if (!OPCUA_EXCLUDE_DataSetFieldContentMask)
     /// <summary>
-    /// A description for the DataSetFieldContentMask DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum DataSetFieldContentMask
+    public enum DataSetFieldContentMask : UInt32
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "StatusCode_1")]
         StatusCode = 1,
 
-        /// <summary>
-        /// A description for the SourceTimestamp field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SourceTimestamp_2")]
         SourceTimestamp = 2,
 
-        /// <summary>
-        /// A description for the ServerTimestamp field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ServerTimestamp_4")]
         ServerTimestamp = 4,
 
-        /// <summary>
-        /// A description for the SourcePicoSeconds field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SourcePicoSeconds_8")]
         SourcePicoSeconds = 8,
 
-        /// <summary>
-        /// A description for the ServerPicoSeconds field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ServerPicoSeconds_16")]
         ServerPicoSeconds = 16,
 
-        /// <summary>
-        /// A description for the RawDataEncoding field.
-        /// </summary>
-        [EnumMember(Value = "RawDataEncoding_32")]
-        RawDataEncoding = 32,
+        /// <remarks />
+        [EnumMember(Value = "RawData_32")]
+        RawData = 32,
     }
 
     #region DataSetFieldContentMaskCollection Class
@@ -5925,7 +7840,7 @@ namespace Opc.Ua
     #region DataSetWriterDataType Class
     #if (!OPCUA_EXCLUDE_DataSetWriterDataType)
     /// <summary>
-    /// A description for the DataSetWriterDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -5958,7 +7873,7 @@ namespace Opc.Ua
             m_name = null;
             m_enabled = true;
             m_dataSetWriterId = (ushort)0;
-            m_dataSetFieldContentMask = DataSetFieldContentMask.None;
+            m_dataSetFieldContentMask = 0;
             m_keyFrameCount = (uint)0;
             m_dataSetName = null;
             m_dataSetWriterProperties = new KeyValuePairCollection();
@@ -5968,9 +7883,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -5978,9 +7891,7 @@ namespace Opc.Ua
             set { m_name = value; }
         }
 
-        /// <summary>
-        /// A description for the Enabled field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Enabled", IsRequired = false, Order = 2)]
         public bool Enabled
         {
@@ -5988,9 +7899,7 @@ namespace Opc.Ua
             set { m_enabled = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetWriterId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetWriterId", IsRequired = false, Order = 3)]
         public ushort DataSetWriterId
         {
@@ -5998,19 +7907,15 @@ namespace Opc.Ua
             set { m_dataSetWriterId = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetFieldContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetFieldContentMask", IsRequired = false, Order = 4)]
-        public DataSetFieldContentMask DataSetFieldContentMask
+        public uint DataSetFieldContentMask
         {
             get { return m_dataSetFieldContentMask;  }
             set { m_dataSetFieldContentMask = value; }
         }
 
-        /// <summary>
-        /// A description for the KeyFrameCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "KeyFrameCount", IsRequired = false, Order = 5)]
         public uint KeyFrameCount
         {
@@ -6018,9 +7923,7 @@ namespace Opc.Ua
             set { m_keyFrameCount = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetName", IsRequired = false, Order = 6)]
         public string DataSetName
         {
@@ -6029,7 +7932,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataSetWriterProperties field.
+        /// 
         /// </summary>
         [DataMember(Name = "DataSetWriterProperties", IsRequired = false, Order = 7)]
         public KeyValuePairCollection DataSetWriterProperties
@@ -6050,9 +7953,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the TransportSettings field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransportSettings", IsRequired = false, Order = 8)]
         public ExtensionObject TransportSettings
         {
@@ -6060,9 +7961,7 @@ namespace Opc.Ua
             set { m_transportSettings = value; }
         }
 
-        /// <summary>
-        /// A description for the MessageSettings field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MessageSettings", IsRequired = false, Order = 9)]
         public ExtensionObject MessageSettings
         {
@@ -6098,7 +7997,7 @@ namespace Opc.Ua
             encoder.WriteString("Name", Name);
             encoder.WriteBoolean("Enabled", Enabled);
             encoder.WriteUInt16("DataSetWriterId", DataSetWriterId);
-            encoder.WriteEnumerated("DataSetFieldContentMask", DataSetFieldContentMask);
+            encoder.WriteUInt32("DataSetFieldContentMask", DataSetFieldContentMask);
             encoder.WriteUInt32("KeyFrameCount", KeyFrameCount);
             encoder.WriteString("DataSetName", DataSetName);
             encoder.WriteEncodeableArray("DataSetWriterProperties", DataSetWriterProperties.ToArray(), typeof(KeyValuePair));
@@ -6116,7 +8015,7 @@ namespace Opc.Ua
             Name = decoder.ReadString("Name");
             Enabled = decoder.ReadBoolean("Enabled");
             DataSetWriterId = decoder.ReadUInt16("DataSetWriterId");
-            DataSetFieldContentMask = (DataSetFieldContentMask)decoder.ReadEnumerated("DataSetFieldContentMask", typeof(DataSetFieldContentMask));
+            DataSetFieldContentMask = decoder.ReadUInt32("DataSetFieldContentMask");
             KeyFrameCount = decoder.ReadUInt32("KeyFrameCount");
             DataSetName = decoder.ReadString("DataSetName");
             DataSetWriterProperties = (KeyValuePairCollection)decoder.ReadEncodeableArray("DataSetWriterProperties", typeof(KeyValuePair));
@@ -6170,7 +8069,7 @@ namespace Opc.Ua
             clone.m_name = (string)Utils.Clone(this.m_name);
             clone.m_enabled = (bool)Utils.Clone(this.m_enabled);
             clone.m_dataSetWriterId = (ushort)Utils.Clone(this.m_dataSetWriterId);
-            clone.m_dataSetFieldContentMask = (DataSetFieldContentMask)Utils.Clone(this.m_dataSetFieldContentMask);
+            clone.m_dataSetFieldContentMask = (uint)Utils.Clone(this.m_dataSetFieldContentMask);
             clone.m_keyFrameCount = (uint)Utils.Clone(this.m_keyFrameCount);
             clone.m_dataSetName = (string)Utils.Clone(this.m_dataSetName);
             clone.m_dataSetWriterProperties = (KeyValuePairCollection)Utils.Clone(this.m_dataSetWriterProperties);
@@ -6185,7 +8084,7 @@ namespace Opc.Ua
         private string m_name;
         private bool m_enabled;
         private ushort m_dataSetWriterId;
-        private DataSetFieldContentMask m_dataSetFieldContentMask;
+        private uint m_dataSetFieldContentMask;
         private uint m_keyFrameCount;
         private string m_dataSetName;
         private KeyValuePairCollection m_dataSetWriterProperties;
@@ -6284,7 +8183,7 @@ namespace Opc.Ua
     #region DataSetWriterTransportDataType Class
     #if (!OPCUA_EXCLUDE_DataSetWriterTransportDataType)
     /// <summary>
-    /// A description for the DataSetWriterTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -6488,7 +8387,7 @@ namespace Opc.Ua
     #region DataSetWriterMessageDataType Class
     #if (!OPCUA_EXCLUDE_DataSetWriterMessageDataType)
     /// <summary>
-    /// A description for the DataSetWriterMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -6692,7 +8591,7 @@ namespace Opc.Ua
     #region PubSubGroupDataType Class
     #if (!OPCUA_EXCLUDE_PubSubGroupDataType)
     /// <summary>
-    /// A description for the PubSubGroupDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -6733,9 +8632,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -6743,9 +8640,7 @@ namespace Opc.Ua
             set { m_name = value; }
         }
 
-        /// <summary>
-        /// A description for the Enabled field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Enabled", IsRequired = false, Order = 2)]
         public bool Enabled
         {
@@ -6753,9 +8648,7 @@ namespace Opc.Ua
             set { m_enabled = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityMode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityMode", IsRequired = false, Order = 3)]
         public MessageSecurityMode SecurityMode
         {
@@ -6763,9 +8656,7 @@ namespace Opc.Ua
             set { m_securityMode = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityGroupId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityGroupId", IsRequired = false, Order = 4)]
         public string SecurityGroupId
         {
@@ -6774,7 +8665,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SecurityKeyServices field.
+        /// 
         /// </summary>
         [DataMember(Name = "SecurityKeyServices", IsRequired = false, Order = 5)]
         public EndpointDescriptionCollection SecurityKeyServices
@@ -6795,9 +8686,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the MaxNetworkMessageSize field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxNetworkMessageSize", IsRequired = false, Order = 6)]
         public uint MaxNetworkMessageSize
         {
@@ -6806,7 +8695,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the GroupProperties field.
+        /// 
         /// </summary>
         [DataMember(Name = "GroupProperties", IsRequired = false, Order = 7)]
         public KeyValuePairCollection GroupProperties
@@ -7031,7 +8920,7 @@ namespace Opc.Ua
     #region WriterGroupDataType Class
     #if (!OPCUA_EXCLUDE_WriterGroupDataType)
     /// <summary>
-    /// A description for the WriterGroupDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -7066,6 +8955,7 @@ namespace Opc.Ua
             m_keepAliveTime = (double)0;
             m_priority = (byte)0;
             m_localeIds = new StringCollection();
+            m_headerLayoutUri = null;
             m_transportSettings = null;
             m_messageSettings = null;
             m_dataSetWriters = new DataSetWriterDataTypeCollection();
@@ -7073,9 +8963,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the WriterGroupId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "WriterGroupId", IsRequired = false, Order = 1)]
         public ushort WriterGroupId
         {
@@ -7083,9 +8971,7 @@ namespace Opc.Ua
             set { m_writerGroupId = value; }
         }
 
-        /// <summary>
-        /// A description for the PublishingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishingInterval", IsRequired = false, Order = 2)]
         public double PublishingInterval
         {
@@ -7093,9 +8979,7 @@ namespace Opc.Ua
             set { m_publishingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the KeepAliveTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "KeepAliveTime", IsRequired = false, Order = 3)]
         public double KeepAliveTime
         {
@@ -7103,9 +8987,7 @@ namespace Opc.Ua
             set { m_keepAliveTime = value; }
         }
 
-        /// <summary>
-        /// A description for the Priority field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Priority", IsRequired = false, Order = 4)]
         public byte Priority
         {
@@ -7114,7 +8996,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LocaleIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "LocaleIds", IsRequired = false, Order = 5)]
         public StringCollection LocaleIds
@@ -7135,20 +9017,24 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the TransportSettings field.
-        /// </summary>
-        [DataMember(Name = "TransportSettings", IsRequired = false, Order = 6)]
+        /// <remarks />
+        [DataMember(Name = "HeaderLayoutUri", IsRequired = false, Order = 6)]
+        public string HeaderLayoutUri
+        {
+            get { return m_headerLayoutUri;  }
+            set { m_headerLayoutUri = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "TransportSettings", IsRequired = false, Order = 7)]
         public ExtensionObject TransportSettings
         {
             get { return m_transportSettings;  }
             set { m_transportSettings = value; }
         }
 
-        /// <summary>
-        /// A description for the MessageSettings field.
-        /// </summary>
-        [DataMember(Name = "MessageSettings", IsRequired = false, Order = 7)]
+        /// <remarks />
+        [DataMember(Name = "MessageSettings", IsRequired = false, Order = 8)]
         public ExtensionObject MessageSettings
         {
             get { return m_messageSettings;  }
@@ -7156,9 +9042,9 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataSetWriters field.
+        /// 
         /// </summary>
-        [DataMember(Name = "DataSetWriters", IsRequired = false, Order = 8)]
+        [DataMember(Name = "DataSetWriters", IsRequired = false, Order = 9)]
         public DataSetWriterDataTypeCollection DataSetWriters
         {
             get
@@ -7209,6 +9095,7 @@ namespace Opc.Ua
             encoder.WriteDouble("KeepAliveTime", KeepAliveTime);
             encoder.WriteByte("Priority", Priority);
             encoder.WriteStringArray("LocaleIds", LocaleIds);
+            encoder.WriteString("HeaderLayoutUri", HeaderLayoutUri);
             encoder.WriteExtensionObject("TransportSettings", TransportSettings);
             encoder.WriteExtensionObject("MessageSettings", MessageSettings);
             encoder.WriteEncodeableArray("DataSetWriters", DataSetWriters.ToArray(), typeof(DataSetWriterDataType));
@@ -7228,6 +9115,7 @@ namespace Opc.Ua
             KeepAliveTime = decoder.ReadDouble("KeepAliveTime");
             Priority = decoder.ReadByte("Priority");
             LocaleIds = decoder.ReadStringArray("LocaleIds");
+            HeaderLayoutUri = decoder.ReadString("HeaderLayoutUri");
             TransportSettings = decoder.ReadExtensionObject("TransportSettings");
             MessageSettings = decoder.ReadExtensionObject("MessageSettings");
             DataSetWriters = (DataSetWriterDataTypeCollection)decoder.ReadEncodeableArray("DataSetWriters", typeof(DataSetWriterDataType));
@@ -7256,6 +9144,7 @@ namespace Opc.Ua
             if (!Utils.IsEqual(m_keepAliveTime, value.m_keepAliveTime)) return false;
             if (!Utils.IsEqual(m_priority, value.m_priority)) return false;
             if (!Utils.IsEqual(m_localeIds, value.m_localeIds)) return false;
+            if (!Utils.IsEqual(m_headerLayoutUri, value.m_headerLayoutUri)) return false;
             if (!Utils.IsEqual(m_transportSettings, value.m_transportSettings)) return false;
             if (!Utils.IsEqual(m_messageSettings, value.m_messageSettings)) return false;
             if (!Utils.IsEqual(m_dataSetWriters, value.m_dataSetWriters)) return false;
@@ -7281,6 +9170,7 @@ namespace Opc.Ua
             clone.m_keepAliveTime = (double)Utils.Clone(this.m_keepAliveTime);
             clone.m_priority = (byte)Utils.Clone(this.m_priority);
             clone.m_localeIds = (StringCollection)Utils.Clone(this.m_localeIds);
+            clone.m_headerLayoutUri = (string)Utils.Clone(this.m_headerLayoutUri);
             clone.m_transportSettings = (ExtensionObject)Utils.Clone(this.m_transportSettings);
             clone.m_messageSettings = (ExtensionObject)Utils.Clone(this.m_messageSettings);
             clone.m_dataSetWriters = (DataSetWriterDataTypeCollection)Utils.Clone(this.m_dataSetWriters);
@@ -7295,6 +9185,7 @@ namespace Opc.Ua
         private double m_keepAliveTime;
         private byte m_priority;
         private StringCollection m_localeIds;
+        private string m_headerLayoutUri;
         private ExtensionObject m_transportSettings;
         private ExtensionObject m_messageSettings;
         private DataSetWriterDataTypeCollection m_dataSetWriters;
@@ -7391,7 +9282,7 @@ namespace Opc.Ua
     #region WriterGroupTransportDataType Class
     #if (!OPCUA_EXCLUDE_WriterGroupTransportDataType)
     /// <summary>
-    /// A description for the WriterGroupTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -7595,7 +9486,7 @@ namespace Opc.Ua
     #region WriterGroupMessageDataType Class
     #if (!OPCUA_EXCLUDE_WriterGroupMessageDataType)
     /// <summary>
-    /// A description for the WriterGroupMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -7799,7 +9690,7 @@ namespace Opc.Ua
     #region PubSubConnectionDataType Class
     #if (!OPCUA_EXCLUDE_PubSubConnectionDataType)
     /// <summary>
-    /// A description for the PubSubConnectionDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -7842,9 +9733,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -7852,9 +9741,7 @@ namespace Opc.Ua
             set { m_name = value; }
         }
 
-        /// <summary>
-        /// A description for the Enabled field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Enabled", IsRequired = false, Order = 2)]
         public bool Enabled
         {
@@ -7862,9 +9749,7 @@ namespace Opc.Ua
             set { m_enabled = value; }
         }
 
-        /// <summary>
-        /// A description for the PublisherId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublisherId", IsRequired = false, Order = 3)]
         public Variant PublisherId
         {
@@ -7872,9 +9757,7 @@ namespace Opc.Ua
             set { m_publisherId = value; }
         }
 
-        /// <summary>
-        /// A description for the TransportProfileUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransportProfileUri", IsRequired = false, Order = 4)]
         public string TransportProfileUri
         {
@@ -7882,9 +9765,7 @@ namespace Opc.Ua
             set { m_transportProfileUri = value; }
         }
 
-        /// <summary>
-        /// A description for the Address field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Address", IsRequired = false, Order = 5)]
         public ExtensionObject Address
         {
@@ -7893,7 +9774,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ConnectionProperties field.
+        /// 
         /// </summary>
         [DataMember(Name = "ConnectionProperties", IsRequired = false, Order = 6)]
         public KeyValuePairCollection ConnectionProperties
@@ -7914,9 +9795,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the TransportSettings field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransportSettings", IsRequired = false, Order = 7)]
         public ExtensionObject TransportSettings
         {
@@ -7925,7 +9804,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the WriterGroups field.
+        /// 
         /// </summary>
         [DataMember(Name = "WriterGroups", IsRequired = false, Order = 8)]
         public WriterGroupDataTypeCollection WriterGroups
@@ -7947,7 +9826,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ReaderGroups field.
+        /// 
         /// </summary>
         [DataMember(Name = "ReaderGroups", IsRequired = false, Order = 9)]
         public ReaderGroupDataTypeCollection ReaderGroups
@@ -8182,7 +10061,7 @@ namespace Opc.Ua
     #region ConnectionTransportDataType Class
     #if (!OPCUA_EXCLUDE_ConnectionTransportDataType)
     /// <summary>
-    /// A description for the ConnectionTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -8386,7 +10265,7 @@ namespace Opc.Ua
     #region NetworkAddressDataType Class
     #if (!OPCUA_EXCLUDE_NetworkAddressDataType)
     /// <summary>
-    /// A description for the NetworkAddressDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -8421,9 +10300,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NetworkInterface field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NetworkInterface", IsRequired = false, Order = 1)]
         public string NetworkInterface
         {
@@ -8605,7 +10482,7 @@ namespace Opc.Ua
     #region NetworkAddressUrlDataType Class
     #if (!OPCUA_EXCLUDE_NetworkAddressUrlDataType)
     /// <summary>
-    /// A description for the NetworkAddressUrlDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -8640,9 +10517,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Url field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Url", IsRequired = false, Order = 1)]
         public string Url
         {
@@ -8829,7 +10704,7 @@ namespace Opc.Ua
     #region ReaderGroupDataType Class
     #if (!OPCUA_EXCLUDE_ReaderGroupDataType)
     /// <summary>
-    /// A description for the ReaderGroupDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -8866,9 +10741,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the TransportSettings field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransportSettings", IsRequired = false, Order = 1)]
         public ExtensionObject TransportSettings
         {
@@ -8876,9 +10749,7 @@ namespace Opc.Ua
             set { m_transportSettings = value; }
         }
 
-        /// <summary>
-        /// A description for the MessageSettings field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MessageSettings", IsRequired = false, Order = 2)]
         public ExtensionObject MessageSettings
         {
@@ -8887,7 +10758,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataSetReaders field.
+        /// 
         /// </summary>
         [DataMember(Name = "DataSetReaders", IsRequired = false, Order = 3)]
         public DataSetReaderDataTypeCollection DataSetReaders
@@ -9097,7 +10968,7 @@ namespace Opc.Ua
     #region ReaderGroupTransportDataType Class
     #if (!OPCUA_EXCLUDE_ReaderGroupTransportDataType)
     /// <summary>
-    /// A description for the ReaderGroupTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -9301,7 +11172,7 @@ namespace Opc.Ua
     #region ReaderGroupMessageDataType Class
     #if (!OPCUA_EXCLUDE_ReaderGroupMessageDataType)
     /// <summary>
-    /// A description for the ReaderGroupMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -9505,7 +11376,7 @@ namespace Opc.Ua
     #region DataSetReaderDataType Class
     #if (!OPCUA_EXCLUDE_DataSetReaderDataType)
     /// <summary>
-    /// A description for the DataSetReaderDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -9541,8 +11412,10 @@ namespace Opc.Ua
             m_writerGroupId = (ushort)0;
             m_dataSetWriterId = (ushort)0;
             m_dataSetMetaData = new DataSetMetaDataType();
-            m_dataSetFieldContentMask = DataSetFieldContentMask.None;
+            m_dataSetFieldContentMask = 0;
             m_messageReceiveTimeout = (double)0;
+            m_keyFrameCount = (uint)0;
+            m_headerLayoutUri = null;
             m_securityMode = MessageSecurityMode.Invalid;
             m_securityGroupId = null;
             m_securityKeyServices = new EndpointDescriptionCollection();
@@ -9554,9 +11427,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -9564,9 +11435,7 @@ namespace Opc.Ua
             set { m_name = value; }
         }
 
-        /// <summary>
-        /// A description for the Enabled field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Enabled", IsRequired = false, Order = 2)]
         public bool Enabled
         {
@@ -9574,9 +11443,7 @@ namespace Opc.Ua
             set { m_enabled = value; }
         }
 
-        /// <summary>
-        /// A description for the PublisherId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublisherId", IsRequired = false, Order = 3)]
         public Variant PublisherId
         {
@@ -9584,9 +11451,7 @@ namespace Opc.Ua
             set { m_publisherId = value; }
         }
 
-        /// <summary>
-        /// A description for the WriterGroupId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "WriterGroupId", IsRequired = false, Order = 4)]
         public ushort WriterGroupId
         {
@@ -9594,9 +11459,7 @@ namespace Opc.Ua
             set { m_writerGroupId = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetWriterId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetWriterId", IsRequired = false, Order = 5)]
         public ushort DataSetWriterId
         {
@@ -9605,7 +11468,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataSetMetaData field.
+        /// 
         /// </summary>
         [DataMember(Name = "DataSetMetaData", IsRequired = false, Order = 6)]
         public DataSetMetaDataType DataSetMetaData
@@ -9626,19 +11489,15 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the DataSetFieldContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetFieldContentMask", IsRequired = false, Order = 7)]
-        public DataSetFieldContentMask DataSetFieldContentMask
+        public uint DataSetFieldContentMask
         {
             get { return m_dataSetFieldContentMask;  }
             set { m_dataSetFieldContentMask = value; }
         }
 
-        /// <summary>
-        /// A description for the MessageReceiveTimeout field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MessageReceiveTimeout", IsRequired = false, Order = 8)]
         public double MessageReceiveTimeout
         {
@@ -9646,20 +11505,32 @@ namespace Opc.Ua
             set { m_messageReceiveTimeout = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityMode field.
-        /// </summary>
-        [DataMember(Name = "SecurityMode", IsRequired = false, Order = 9)]
+        /// <remarks />
+        [DataMember(Name = "KeyFrameCount", IsRequired = false, Order = 9)]
+        public uint KeyFrameCount
+        {
+            get { return m_keyFrameCount;  }
+            set { m_keyFrameCount = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "HeaderLayoutUri", IsRequired = false, Order = 10)]
+        public string HeaderLayoutUri
+        {
+            get { return m_headerLayoutUri;  }
+            set { m_headerLayoutUri = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "SecurityMode", IsRequired = false, Order = 11)]
         public MessageSecurityMode SecurityMode
         {
             get { return m_securityMode;  }
             set { m_securityMode = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityGroupId field.
-        /// </summary>
-        [DataMember(Name = "SecurityGroupId", IsRequired = false, Order = 10)]
+        /// <remarks />
+        [DataMember(Name = "SecurityGroupId", IsRequired = false, Order = 12)]
         public string SecurityGroupId
         {
             get { return m_securityGroupId;  }
@@ -9667,9 +11538,9 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SecurityKeyServices field.
+        /// 
         /// </summary>
-        [DataMember(Name = "SecurityKeyServices", IsRequired = false, Order = 11)]
+        [DataMember(Name = "SecurityKeyServices", IsRequired = false, Order = 13)]
         public EndpointDescriptionCollection SecurityKeyServices
         {
             get
@@ -9689,9 +11560,9 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataSetReaderProperties field.
+        /// 
         /// </summary>
-        [DataMember(Name = "DataSetReaderProperties", IsRequired = false, Order = 12)]
+        [DataMember(Name = "DataSetReaderProperties", IsRequired = false, Order = 14)]
         public KeyValuePairCollection DataSetReaderProperties
         {
             get
@@ -9710,30 +11581,24 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the TransportSettings field.
-        /// </summary>
-        [DataMember(Name = "TransportSettings", IsRequired = false, Order = 13)]
+        /// <remarks />
+        [DataMember(Name = "TransportSettings", IsRequired = false, Order = 15)]
         public ExtensionObject TransportSettings
         {
             get { return m_transportSettings;  }
             set { m_transportSettings = value; }
         }
 
-        /// <summary>
-        /// A description for the MessageSettings field.
-        /// </summary>
-        [DataMember(Name = "MessageSettings", IsRequired = false, Order = 14)]
+        /// <remarks />
+        [DataMember(Name = "MessageSettings", IsRequired = false, Order = 16)]
         public ExtensionObject MessageSettings
         {
             get { return m_messageSettings;  }
             set { m_messageSettings = value; }
         }
 
-        /// <summary>
-        /// A description for the SubscribedDataSet field.
-        /// </summary>
-        [DataMember(Name = "SubscribedDataSet", IsRequired = false, Order = 15)]
+        /// <remarks />
+        [DataMember(Name = "SubscribedDataSet", IsRequired = false, Order = 17)]
         public ExtensionObject SubscribedDataSet
         {
             get { return m_subscribedDataSet;  }
@@ -9771,8 +11636,10 @@ namespace Opc.Ua
             encoder.WriteUInt16("WriterGroupId", WriterGroupId);
             encoder.WriteUInt16("DataSetWriterId", DataSetWriterId);
             encoder.WriteEncodeable("DataSetMetaData", DataSetMetaData, typeof(DataSetMetaDataType));
-            encoder.WriteEnumerated("DataSetFieldContentMask", DataSetFieldContentMask);
+            encoder.WriteUInt32("DataSetFieldContentMask", DataSetFieldContentMask);
             encoder.WriteDouble("MessageReceiveTimeout", MessageReceiveTimeout);
+            encoder.WriteUInt32("KeyFrameCount", KeyFrameCount);
+            encoder.WriteString("HeaderLayoutUri", HeaderLayoutUri);
             encoder.WriteEnumerated("SecurityMode", SecurityMode);
             encoder.WriteString("SecurityGroupId", SecurityGroupId);
             encoder.WriteEncodeableArray("SecurityKeyServices", SecurityKeyServices.ToArray(), typeof(EndpointDescription));
@@ -9795,8 +11662,10 @@ namespace Opc.Ua
             WriterGroupId = decoder.ReadUInt16("WriterGroupId");
             DataSetWriterId = decoder.ReadUInt16("DataSetWriterId");
             DataSetMetaData = (DataSetMetaDataType)decoder.ReadEncodeable("DataSetMetaData", typeof(DataSetMetaDataType));
-            DataSetFieldContentMask = (DataSetFieldContentMask)decoder.ReadEnumerated("DataSetFieldContentMask", typeof(DataSetFieldContentMask));
+            DataSetFieldContentMask = decoder.ReadUInt32("DataSetFieldContentMask");
             MessageReceiveTimeout = decoder.ReadDouble("MessageReceiveTimeout");
+            KeyFrameCount = decoder.ReadUInt32("KeyFrameCount");
+            HeaderLayoutUri = decoder.ReadString("HeaderLayoutUri");
             SecurityMode = (MessageSecurityMode)decoder.ReadEnumerated("SecurityMode", typeof(MessageSecurityMode));
             SecurityGroupId = decoder.ReadString("SecurityGroupId");
             SecurityKeyServices = (EndpointDescriptionCollection)decoder.ReadEncodeableArray("SecurityKeyServices", typeof(EndpointDescription));
@@ -9831,6 +11700,8 @@ namespace Opc.Ua
             if (!Utils.IsEqual(m_dataSetMetaData, value.m_dataSetMetaData)) return false;
             if (!Utils.IsEqual(m_dataSetFieldContentMask, value.m_dataSetFieldContentMask)) return false;
             if (!Utils.IsEqual(m_messageReceiveTimeout, value.m_messageReceiveTimeout)) return false;
+            if (!Utils.IsEqual(m_keyFrameCount, value.m_keyFrameCount)) return false;
+            if (!Utils.IsEqual(m_headerLayoutUri, value.m_headerLayoutUri)) return false;
             if (!Utils.IsEqual(m_securityMode, value.m_securityMode)) return false;
             if (!Utils.IsEqual(m_securityGroupId, value.m_securityGroupId)) return false;
             if (!Utils.IsEqual(m_securityKeyServices, value.m_securityKeyServices)) return false;
@@ -9861,8 +11732,10 @@ namespace Opc.Ua
             clone.m_writerGroupId = (ushort)Utils.Clone(this.m_writerGroupId);
             clone.m_dataSetWriterId = (ushort)Utils.Clone(this.m_dataSetWriterId);
             clone.m_dataSetMetaData = (DataSetMetaDataType)Utils.Clone(this.m_dataSetMetaData);
-            clone.m_dataSetFieldContentMask = (DataSetFieldContentMask)Utils.Clone(this.m_dataSetFieldContentMask);
+            clone.m_dataSetFieldContentMask = (uint)Utils.Clone(this.m_dataSetFieldContentMask);
             clone.m_messageReceiveTimeout = (double)Utils.Clone(this.m_messageReceiveTimeout);
+            clone.m_keyFrameCount = (uint)Utils.Clone(this.m_keyFrameCount);
+            clone.m_headerLayoutUri = (string)Utils.Clone(this.m_headerLayoutUri);
             clone.m_securityMode = (MessageSecurityMode)Utils.Clone(this.m_securityMode);
             clone.m_securityGroupId = (string)Utils.Clone(this.m_securityGroupId);
             clone.m_securityKeyServices = (EndpointDescriptionCollection)Utils.Clone(this.m_securityKeyServices);
@@ -9882,8 +11755,10 @@ namespace Opc.Ua
         private ushort m_writerGroupId;
         private ushort m_dataSetWriterId;
         private DataSetMetaDataType m_dataSetMetaData;
-        private DataSetFieldContentMask m_dataSetFieldContentMask;
+        private uint m_dataSetFieldContentMask;
         private double m_messageReceiveTimeout;
+        private uint m_keyFrameCount;
+        private string m_headerLayoutUri;
         private MessageSecurityMode m_securityMode;
         private string m_securityGroupId;
         private EndpointDescriptionCollection m_securityKeyServices;
@@ -9984,7 +11859,7 @@ namespace Opc.Ua
     #region DataSetReaderTransportDataType Class
     #if (!OPCUA_EXCLUDE_DataSetReaderTransportDataType)
     /// <summary>
-    /// A description for the DataSetReaderTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -10188,7 +12063,7 @@ namespace Opc.Ua
     #region DataSetReaderMessageDataType Class
     #if (!OPCUA_EXCLUDE_DataSetReaderMessageDataType)
     /// <summary>
-    /// A description for the DataSetReaderMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -10392,7 +12267,7 @@ namespace Opc.Ua
     #region SubscribedDataSetDataType Class
     #if (!OPCUA_EXCLUDE_SubscribedDataSetDataType)
     /// <summary>
-    /// A description for the SubscribedDataSetDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -10596,7 +12471,7 @@ namespace Opc.Ua
     #region TargetVariablesDataType Class
     #if (!OPCUA_EXCLUDE_TargetVariablesDataType)
     /// <summary>
-    /// A description for the TargetVariablesDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -10632,7 +12507,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the TargetVariables field.
+        /// 
         /// </summary>
         [DataMember(Name = "TargetVariables", IsRequired = false, Order = 1)]
         public FieldTargetDataTypeCollection TargetVariables
@@ -10832,7 +12707,7 @@ namespace Opc.Ua
     #region FieldTargetDataType Class
     #if (!OPCUA_EXCLUDE_FieldTargetDataType)
     /// <summary>
-    /// A description for the FieldTargetDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -10873,9 +12748,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the DataSetFieldId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetFieldId", IsRequired = false, Order = 1)]
         public Uuid DataSetFieldId
         {
@@ -10883,9 +12756,7 @@ namespace Opc.Ua
             set { m_dataSetFieldId = value; }
         }
 
-        /// <summary>
-        /// A description for the ReceiverIndexRange field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReceiverIndexRange", IsRequired = false, Order = 2)]
         public string ReceiverIndexRange
         {
@@ -10893,9 +12764,7 @@ namespace Opc.Ua
             set { m_receiverIndexRange = value; }
         }
 
-        /// <summary>
-        /// A description for the TargetNodeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TargetNodeId", IsRequired = false, Order = 3)]
         public NodeId TargetNodeId
         {
@@ -10903,9 +12772,7 @@ namespace Opc.Ua
             set { m_targetNodeId = value; }
         }
 
-        /// <summary>
-        /// A description for the AttributeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AttributeId", IsRequired = false, Order = 4)]
         public uint AttributeId
         {
@@ -10913,9 +12780,7 @@ namespace Opc.Ua
             set { m_attributeId = value; }
         }
 
-        /// <summary>
-        /// A description for the WriteIndexRange field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "WriteIndexRange", IsRequired = false, Order = 5)]
         public string WriteIndexRange
         {
@@ -10923,9 +12788,7 @@ namespace Opc.Ua
             set { m_writeIndexRange = value; }
         }
 
-        /// <summary>
-        /// A description for the OverrideValueHandling field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "OverrideValueHandling", IsRequired = false, Order = 6)]
         public OverrideValueHandling OverrideValueHandling
         {
@@ -10933,9 +12796,7 @@ namespace Opc.Ua
             set { m_overrideValueHandling = value; }
         }
 
-        /// <summary>
-        /// A description for the OverrideValue field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "OverrideValue", IsRequired = false, Order = 7)]
         public Variant OverrideValue
         {
@@ -11147,28 +13008,22 @@ namespace Opc.Ua
     #region OverrideValueHandling Enumeration
     #if (!OPCUA_EXCLUDE_OverrideValueHandling)
     /// <summary>
-    /// A description for the OverrideValueHandling DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum OverrideValueHandling
     {
-        /// <summary>
-        /// A description for the Disabled field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Disabled_0")]
         Disabled = 0,
 
-        /// <summary>
-        /// A description for the LastUseableValue field.
-        /// </summary>
-        [EnumMember(Value = "LastUseableValue_1")]
-        LastUseableValue = 1,
+        /// <remarks />
+        [EnumMember(Value = "LastUsableValue_1")]
+        LastUsableValue = 1,
 
-        /// <summary>
-        /// A description for the OverrideValue field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "OverrideValue_2")]
         OverrideValue = 2,
     }
@@ -11263,7 +13118,7 @@ namespace Opc.Ua
     #region SubscribedDataSetMirrorDataType Class
     #if (!OPCUA_EXCLUDE_SubscribedDataSetMirrorDataType)
     /// <summary>
-    /// A description for the SubscribedDataSetMirrorDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -11299,9 +13154,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ParentNodeName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ParentNodeName", IsRequired = false, Order = 1)]
         public string ParentNodeName
         {
@@ -11310,7 +13163,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the RolePermissions field.
+        /// 
         /// </summary>
         [DataMember(Name = "RolePermissions", IsRequired = false, Order = 2)]
         public RolePermissionTypeCollection RolePermissions
@@ -11515,7 +13368,7 @@ namespace Opc.Ua
     #region PubSubConfigurationDataType Class
     #if (!OPCUA_EXCLUDE_PubSubConfigurationDataType)
     /// <summary>
-    /// A description for the PubSubConfigurationDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -11553,7 +13406,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the PublishedDataSets field.
+        /// 
         /// </summary>
         [DataMember(Name = "PublishedDataSets", IsRequired = false, Order = 1)]
         public PublishedDataSetDataTypeCollection PublishedDataSets
@@ -11575,7 +13428,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Connections field.
+        /// 
         /// </summary>
         [DataMember(Name = "Connections", IsRequired = false, Order = 2)]
         public PubSubConnectionDataTypeCollection Connections
@@ -11596,9 +13449,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the Enabled field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Enabled", IsRequired = false, Order = 3)]
         public bool Enabled
         {
@@ -11790,28 +13641,22 @@ namespace Opc.Ua
     #region DataSetOrderingType Enumeration
     #if (!OPCUA_EXCLUDE_DataSetOrderingType)
     /// <summary>
-    /// A description for the DataSetOrderingType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum DataSetOrderingType
     {
-        /// <summary>
-        /// A description for the Undefined field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Undefined_0")]
         Undefined = 0,
 
-        /// <summary>
-        /// A description for the AscendingWriterId field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AscendingWriterId_1")]
         AscendingWriterId = 1,
 
-        /// <summary>
-        /// A description for the AscendingWriterIdSingle field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AscendingWriterIdSingle_2")]
         AscendingWriterIdSingle = 2,
     }
@@ -11906,82 +13751,58 @@ namespace Opc.Ua
     #region UadpNetworkMessageContentMask Enumeration
     #if (!OPCUA_EXCLUDE_UadpNetworkMessageContentMask)
     /// <summary>
-    /// A description for the UadpNetworkMessageContentMask DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum UadpNetworkMessageContentMask
+    public enum UadpNetworkMessageContentMask : UInt32
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the PublisherId field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "PublisherId_1")]
         PublisherId = 1,
 
-        /// <summary>
-        /// A description for the GroupHeader field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "GroupHeader_2")]
         GroupHeader = 2,
 
-        /// <summary>
-        /// A description for the WriterGroupId field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "WriterGroupId_4")]
         WriterGroupId = 4,
 
-        /// <summary>
-        /// A description for the GroupVersion field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "GroupVersion_8")]
         GroupVersion = 8,
 
-        /// <summary>
-        /// A description for the NetworkMessageNumber field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NetworkMessageNumber_16")]
         NetworkMessageNumber = 16,
 
-        /// <summary>
-        /// A description for the SequenceNumber field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SequenceNumber_32")]
         SequenceNumber = 32,
 
-        /// <summary>
-        /// A description for the PayloadHeader field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "PayloadHeader_64")]
         PayloadHeader = 64,
 
-        /// <summary>
-        /// A description for the Timestamp field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Timestamp_128")]
         Timestamp = 128,
 
-        /// <summary>
-        /// A description for the Picoseconds field.
-        /// </summary>
-        [EnumMember(Value = "Picoseconds_256")]
-        Picoseconds = 256,
+        /// <remarks />
+        [EnumMember(Value = "PicoSeconds_256")]
+        PicoSeconds = 256,
 
-        /// <summary>
-        /// A description for the DataSetClassId field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataSetClassId_512")]
         DataSetClassId = 512,
 
-        /// <summary>
-        /// A description for the PromotedFields field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "PromotedFields_1024")]
         PromotedFields = 1024,
     }
@@ -12076,7 +13897,7 @@ namespace Opc.Ua
     #region UadpWriterGroupMessageDataType Class
     #if (!OPCUA_EXCLUDE_UadpWriterGroupMessageDataType)
     /// <summary>
-    /// A description for the UadpWriterGroupMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -12108,16 +13929,14 @@ namespace Opc.Ua
         {
             m_groupVersion = (uint)0;
             m_dataSetOrdering = DataSetOrderingType.Undefined;
-            m_networkMessageContentMask = UadpNetworkMessageContentMask.None;
+            m_networkMessageContentMask = 0;
             m_samplingOffset = (double)0;
             m_publishingOffset = new DoubleCollection();
         }
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the GroupVersion field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "GroupVersion", IsRequired = false, Order = 1)]
         public uint GroupVersion
         {
@@ -12125,9 +13944,7 @@ namespace Opc.Ua
             set { m_groupVersion = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetOrdering field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetOrdering", IsRequired = false, Order = 2)]
         public DataSetOrderingType DataSetOrdering
         {
@@ -12135,19 +13952,15 @@ namespace Opc.Ua
             set { m_dataSetOrdering = value; }
         }
 
-        /// <summary>
-        /// A description for the NetworkMessageContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NetworkMessageContentMask", IsRequired = false, Order = 3)]
-        public UadpNetworkMessageContentMask NetworkMessageContentMask
+        public uint NetworkMessageContentMask
         {
             get { return m_networkMessageContentMask;  }
             set { m_networkMessageContentMask = value; }
         }
 
-        /// <summary>
-        /// A description for the SamplingOffset field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SamplingOffset", IsRequired = false, Order = 4)]
         public double SamplingOffset
         {
@@ -12156,7 +13969,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the PublishingOffset field.
+        /// 
         /// </summary>
         [DataMember(Name = "PublishingOffset", IsRequired = false, Order = 5)]
         public DoubleCollection PublishingOffset
@@ -12206,7 +14019,7 @@ namespace Opc.Ua
 
             encoder.WriteUInt32("GroupVersion", GroupVersion);
             encoder.WriteEnumerated("DataSetOrdering", DataSetOrdering);
-            encoder.WriteEnumerated("NetworkMessageContentMask", NetworkMessageContentMask);
+            encoder.WriteUInt32("NetworkMessageContentMask", NetworkMessageContentMask);
             encoder.WriteDouble("SamplingOffset", SamplingOffset);
             encoder.WriteDoubleArray("PublishingOffset", PublishingOffset);
 
@@ -12222,7 +14035,7 @@ namespace Opc.Ua
 
             GroupVersion = decoder.ReadUInt32("GroupVersion");
             DataSetOrdering = (DataSetOrderingType)decoder.ReadEnumerated("DataSetOrdering", typeof(DataSetOrderingType));
-            NetworkMessageContentMask = (UadpNetworkMessageContentMask)decoder.ReadEnumerated("NetworkMessageContentMask", typeof(UadpNetworkMessageContentMask));
+            NetworkMessageContentMask = decoder.ReadUInt32("NetworkMessageContentMask");
             SamplingOffset = decoder.ReadDouble("SamplingOffset");
             PublishingOffset = decoder.ReadDoubleArray("PublishingOffset");
 
@@ -12269,7 +14082,7 @@ namespace Opc.Ua
 
             clone.m_groupVersion = (uint)Utils.Clone(this.m_groupVersion);
             clone.m_dataSetOrdering = (DataSetOrderingType)Utils.Clone(this.m_dataSetOrdering);
-            clone.m_networkMessageContentMask = (UadpNetworkMessageContentMask)Utils.Clone(this.m_networkMessageContentMask);
+            clone.m_networkMessageContentMask = (uint)Utils.Clone(this.m_networkMessageContentMask);
             clone.m_samplingOffset = (double)Utils.Clone(this.m_samplingOffset);
             clone.m_publishingOffset = (DoubleCollection)Utils.Clone(this.m_publishingOffset);
 
@@ -12280,7 +14093,7 @@ namespace Opc.Ua
         #region Private Fields
         private uint m_groupVersion;
         private DataSetOrderingType m_dataSetOrdering;
-        private UadpNetworkMessageContentMask m_networkMessageContentMask;
+        private uint m_networkMessageContentMask;
         private double m_samplingOffset;
         private DoubleCollection m_publishingOffset;
         #endregion
@@ -12376,52 +14189,38 @@ namespace Opc.Ua
     #region UadpDataSetMessageContentMask Enumeration
     #if (!OPCUA_EXCLUDE_UadpDataSetMessageContentMask)
     /// <summary>
-    /// A description for the UadpDataSetMessageContentMask DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum UadpDataSetMessageContentMask
+    public enum UadpDataSetMessageContentMask : UInt32
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the Timestamp field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Timestamp_1")]
         Timestamp = 1,
 
-        /// <summary>
-        /// A description for the PicoSeconds field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "PicoSeconds_2")]
         PicoSeconds = 2,
 
-        /// <summary>
-        /// A description for the Status field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Status_4")]
         Status = 4,
 
-        /// <summary>
-        /// A description for the MajorVersion field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "MajorVersion_8")]
         MajorVersion = 8,
 
-        /// <summary>
-        /// A description for the MinorVersion field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "MinorVersion_16")]
         MinorVersion = 16,
 
-        /// <summary>
-        /// A description for the SequenceNumber field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SequenceNumber_32")]
         SequenceNumber = 32,
     }
@@ -12516,7 +14315,7 @@ namespace Opc.Ua
     #region UadpDataSetWriterMessageDataType Class
     #if (!OPCUA_EXCLUDE_UadpDataSetWriterMessageDataType)
     /// <summary>
-    /// A description for the UadpDataSetWriterMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -12546,7 +14345,7 @@ namespace Opc.Ua
         /// </summary>
         private void Initialize()
         {
-            m_dataSetMessageContentMask = UadpDataSetMessageContentMask.None;
+            m_dataSetMessageContentMask = 0;
             m_configuredSize = (ushort)0;
             m_networkMessageNumber = (ushort)0;
             m_dataSetOffset = (ushort)0;
@@ -12554,19 +14353,15 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the DataSetMessageContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetMessageContentMask", IsRequired = false, Order = 1)]
-        public UadpDataSetMessageContentMask DataSetMessageContentMask
+        public uint DataSetMessageContentMask
         {
             get { return m_dataSetMessageContentMask;  }
             set { m_dataSetMessageContentMask = value; }
         }
 
-        /// <summary>
-        /// A description for the ConfiguredSize field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ConfiguredSize", IsRequired = false, Order = 2)]
         public ushort ConfiguredSize
         {
@@ -12574,9 +14369,7 @@ namespace Opc.Ua
             set { m_configuredSize = value; }
         }
 
-        /// <summary>
-        /// A description for the NetworkMessageNumber field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NetworkMessageNumber", IsRequired = false, Order = 3)]
         public ushort NetworkMessageNumber
         {
@@ -12584,9 +14377,7 @@ namespace Opc.Ua
             set { m_networkMessageNumber = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetOffset field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetOffset", IsRequired = false, Order = 4)]
         public ushort DataSetOffset
         {
@@ -12621,7 +14412,7 @@ namespace Opc.Ua
 
             encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
-            encoder.WriteEnumerated("DataSetMessageContentMask", DataSetMessageContentMask);
+            encoder.WriteUInt32("DataSetMessageContentMask", DataSetMessageContentMask);
             encoder.WriteUInt16("ConfiguredSize", ConfiguredSize);
             encoder.WriteUInt16("NetworkMessageNumber", NetworkMessageNumber);
             encoder.WriteUInt16("DataSetOffset", DataSetOffset);
@@ -12636,7 +14427,7 @@ namespace Opc.Ua
 
             decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
-            DataSetMessageContentMask = (UadpDataSetMessageContentMask)decoder.ReadEnumerated("DataSetMessageContentMask", typeof(UadpDataSetMessageContentMask));
+            DataSetMessageContentMask = decoder.ReadUInt32("DataSetMessageContentMask");
             ConfiguredSize = decoder.ReadUInt16("ConfiguredSize");
             NetworkMessageNumber = decoder.ReadUInt16("NetworkMessageNumber");
             DataSetOffset = decoder.ReadUInt16("DataSetOffset");
@@ -12681,7 +14472,7 @@ namespace Opc.Ua
         {
             UadpDataSetWriterMessageDataType clone = (UadpDataSetWriterMessageDataType)base.MemberwiseClone();
 
-            clone.m_dataSetMessageContentMask = (UadpDataSetMessageContentMask)Utils.Clone(this.m_dataSetMessageContentMask);
+            clone.m_dataSetMessageContentMask = (uint)Utils.Clone(this.m_dataSetMessageContentMask);
             clone.m_configuredSize = (ushort)Utils.Clone(this.m_configuredSize);
             clone.m_networkMessageNumber = (ushort)Utils.Clone(this.m_networkMessageNumber);
             clone.m_dataSetOffset = (ushort)Utils.Clone(this.m_dataSetOffset);
@@ -12691,7 +14482,7 @@ namespace Opc.Ua
         #endregion
 
         #region Private Fields
-        private UadpDataSetMessageContentMask m_dataSetMessageContentMask;
+        private uint m_dataSetMessageContentMask;
         private ushort m_configuredSize;
         private ushort m_networkMessageNumber;
         private ushort m_dataSetOffset;
@@ -12788,7 +14579,7 @@ namespace Opc.Ua
     #region UadpDataSetReaderMessageDataType Class
     #if (!OPCUA_EXCLUDE_UadpDataSetReaderMessageDataType)
     /// <summary>
-    /// A description for the UadpDataSetReaderMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -12822,8 +14613,8 @@ namespace Opc.Ua
             m_networkMessageNumber = (ushort)0;
             m_dataSetOffset = (ushort)0;
             m_dataSetClassId = Uuid.Empty;
-            m_networkMessageContentMask = UadpNetworkMessageContentMask.None;
-            m_dataSetMessageContentMask = UadpDataSetMessageContentMask.None;
+            m_networkMessageContentMask = 0;
+            m_dataSetMessageContentMask = 0;
             m_publishingInterval = (double)0;
             m_receiveOffset = (double)0;
             m_processingOffset = (double)0;
@@ -12831,9 +14622,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the GroupVersion field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "GroupVersion", IsRequired = false, Order = 1)]
         public uint GroupVersion
         {
@@ -12841,9 +14630,7 @@ namespace Opc.Ua
             set { m_groupVersion = value; }
         }
 
-        /// <summary>
-        /// A description for the NetworkMessageNumber field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NetworkMessageNumber", IsRequired = false, Order = 2)]
         public ushort NetworkMessageNumber
         {
@@ -12851,9 +14638,7 @@ namespace Opc.Ua
             set { m_networkMessageNumber = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetOffset field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetOffset", IsRequired = false, Order = 3)]
         public ushort DataSetOffset
         {
@@ -12861,9 +14646,7 @@ namespace Opc.Ua
             set { m_dataSetOffset = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetClassId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetClassId", IsRequired = false, Order = 4)]
         public Uuid DataSetClassId
         {
@@ -12871,29 +14654,23 @@ namespace Opc.Ua
             set { m_dataSetClassId = value; }
         }
 
-        /// <summary>
-        /// A description for the NetworkMessageContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NetworkMessageContentMask", IsRequired = false, Order = 5)]
-        public UadpNetworkMessageContentMask NetworkMessageContentMask
+        public uint NetworkMessageContentMask
         {
             get { return m_networkMessageContentMask;  }
             set { m_networkMessageContentMask = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetMessageContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetMessageContentMask", IsRequired = false, Order = 6)]
-        public UadpDataSetMessageContentMask DataSetMessageContentMask
+        public uint DataSetMessageContentMask
         {
             get { return m_dataSetMessageContentMask;  }
             set { m_dataSetMessageContentMask = value; }
         }
 
-        /// <summary>
-        /// A description for the PublishingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishingInterval", IsRequired = false, Order = 7)]
         public double PublishingInterval
         {
@@ -12901,9 +14678,7 @@ namespace Opc.Ua
             set { m_publishingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the ReceiveOffset field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReceiveOffset", IsRequired = false, Order = 8)]
         public double ReceiveOffset
         {
@@ -12911,9 +14686,7 @@ namespace Opc.Ua
             set { m_receiveOffset = value; }
         }
 
-        /// <summary>
-        /// A description for the ProcessingOffset field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ProcessingOffset", IsRequired = false, Order = 9)]
         public double ProcessingOffset
         {
@@ -12952,8 +14725,8 @@ namespace Opc.Ua
             encoder.WriteUInt16("NetworkMessageNumber", NetworkMessageNumber);
             encoder.WriteUInt16("DataSetOffset", DataSetOffset);
             encoder.WriteGuid("DataSetClassId", DataSetClassId);
-            encoder.WriteEnumerated("NetworkMessageContentMask", NetworkMessageContentMask);
-            encoder.WriteEnumerated("DataSetMessageContentMask", DataSetMessageContentMask);
+            encoder.WriteUInt32("NetworkMessageContentMask", NetworkMessageContentMask);
+            encoder.WriteUInt32("DataSetMessageContentMask", DataSetMessageContentMask);
             encoder.WriteDouble("PublishingInterval", PublishingInterval);
             encoder.WriteDouble("ReceiveOffset", ReceiveOffset);
             encoder.WriteDouble("ProcessingOffset", ProcessingOffset);
@@ -12972,8 +14745,8 @@ namespace Opc.Ua
             NetworkMessageNumber = decoder.ReadUInt16("NetworkMessageNumber");
             DataSetOffset = decoder.ReadUInt16("DataSetOffset");
             DataSetClassId = decoder.ReadGuid("DataSetClassId");
-            NetworkMessageContentMask = (UadpNetworkMessageContentMask)decoder.ReadEnumerated("NetworkMessageContentMask", typeof(UadpNetworkMessageContentMask));
-            DataSetMessageContentMask = (UadpDataSetMessageContentMask)decoder.ReadEnumerated("DataSetMessageContentMask", typeof(UadpDataSetMessageContentMask));
+            NetworkMessageContentMask = decoder.ReadUInt32("NetworkMessageContentMask");
+            DataSetMessageContentMask = decoder.ReadUInt32("DataSetMessageContentMask");
             PublishingInterval = decoder.ReadDouble("PublishingInterval");
             ReceiveOffset = decoder.ReadDouble("ReceiveOffset");
             ProcessingOffset = decoder.ReadDouble("ProcessingOffset");
@@ -13027,8 +14800,8 @@ namespace Opc.Ua
             clone.m_networkMessageNumber = (ushort)Utils.Clone(this.m_networkMessageNumber);
             clone.m_dataSetOffset = (ushort)Utils.Clone(this.m_dataSetOffset);
             clone.m_dataSetClassId = (Uuid)Utils.Clone(this.m_dataSetClassId);
-            clone.m_networkMessageContentMask = (UadpNetworkMessageContentMask)Utils.Clone(this.m_networkMessageContentMask);
-            clone.m_dataSetMessageContentMask = (UadpDataSetMessageContentMask)Utils.Clone(this.m_dataSetMessageContentMask);
+            clone.m_networkMessageContentMask = (uint)Utils.Clone(this.m_networkMessageContentMask);
+            clone.m_dataSetMessageContentMask = (uint)Utils.Clone(this.m_dataSetMessageContentMask);
             clone.m_publishingInterval = (double)Utils.Clone(this.m_publishingInterval);
             clone.m_receiveOffset = (double)Utils.Clone(this.m_receiveOffset);
             clone.m_processingOffset = (double)Utils.Clone(this.m_processingOffset);
@@ -13042,8 +14815,8 @@ namespace Opc.Ua
         private ushort m_networkMessageNumber;
         private ushort m_dataSetOffset;
         private Uuid m_dataSetClassId;
-        private UadpNetworkMessageContentMask m_networkMessageContentMask;
-        private UadpDataSetMessageContentMask m_dataSetMessageContentMask;
+        private uint m_networkMessageContentMask;
+        private uint m_dataSetMessageContentMask;
         private double m_publishingInterval;
         private double m_receiveOffset;
         private double m_processingOffset;
@@ -13140,52 +14913,38 @@ namespace Opc.Ua
     #region JsonNetworkMessageContentMask Enumeration
     #if (!OPCUA_EXCLUDE_JsonNetworkMessageContentMask)
     /// <summary>
-    /// A description for the JsonNetworkMessageContentMask DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum JsonNetworkMessageContentMask
+    public enum JsonNetworkMessageContentMask : UInt32
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the NetworkMessageHeader field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NetworkMessageHeader_1")]
         NetworkMessageHeader = 1,
 
-        /// <summary>
-        /// A description for the DataSetMessageHeader field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataSetMessageHeader_2")]
         DataSetMessageHeader = 2,
 
-        /// <summary>
-        /// A description for the SingleDataSetMessage field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SingleDataSetMessage_4")]
         SingleDataSetMessage = 4,
 
-        /// <summary>
-        /// A description for the PublisherId field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "PublisherId_8")]
         PublisherId = 8,
 
-        /// <summary>
-        /// A description for the DataSetClassId field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataSetClassId_16")]
         DataSetClassId = 16,
 
-        /// <summary>
-        /// A description for the ReplyTo field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReplyTo_32")]
         ReplyTo = 32,
     }
@@ -13280,7 +15039,7 @@ namespace Opc.Ua
     #region JsonWriterGroupMessageDataType Class
     #if (!OPCUA_EXCLUDE_JsonWriterGroupMessageDataType)
     /// <summary>
-    /// A description for the JsonWriterGroupMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -13310,16 +15069,14 @@ namespace Opc.Ua
         /// </summary>
         private void Initialize()
         {
-            m_networkMessageContentMask = JsonNetworkMessageContentMask.None;
+            m_networkMessageContentMask = 0;
         }
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NetworkMessageContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NetworkMessageContentMask", IsRequired = false, Order = 1)]
-        public JsonNetworkMessageContentMask NetworkMessageContentMask
+        public uint NetworkMessageContentMask
         {
             get { return m_networkMessageContentMask;  }
             set { m_networkMessageContentMask = value; }
@@ -13352,7 +15109,7 @@ namespace Opc.Ua
 
             encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
-            encoder.WriteEnumerated("NetworkMessageContentMask", NetworkMessageContentMask);
+            encoder.WriteUInt32("NetworkMessageContentMask", NetworkMessageContentMask);
 
             encoder.PopNamespace();
         }
@@ -13364,7 +15121,7 @@ namespace Opc.Ua
 
             decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
-            NetworkMessageContentMask = (JsonNetworkMessageContentMask)decoder.ReadEnumerated("NetworkMessageContentMask", typeof(JsonNetworkMessageContentMask));
+            NetworkMessageContentMask = decoder.ReadUInt32("NetworkMessageContentMask");
 
             decoder.PopNamespace();
         }
@@ -13403,14 +15160,14 @@ namespace Opc.Ua
         {
             JsonWriterGroupMessageDataType clone = (JsonWriterGroupMessageDataType)base.MemberwiseClone();
 
-            clone.m_networkMessageContentMask = (JsonNetworkMessageContentMask)Utils.Clone(this.m_networkMessageContentMask);
+            clone.m_networkMessageContentMask = (uint)Utils.Clone(this.m_networkMessageContentMask);
 
             return clone;
         }
         #endregion
 
         #region Private Fields
-        private JsonNetworkMessageContentMask m_networkMessageContentMask;
+        private uint m_networkMessageContentMask;
         #endregion
     }
 
@@ -13504,46 +15261,34 @@ namespace Opc.Ua
     #region JsonDataSetMessageContentMask Enumeration
     #if (!OPCUA_EXCLUDE_JsonDataSetMessageContentMask)
     /// <summary>
-    /// A description for the JsonDataSetMessageContentMask DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum JsonDataSetMessageContentMask
+    public enum JsonDataSetMessageContentMask : UInt32
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the DataSetWriterId field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataSetWriterId_1")]
         DataSetWriterId = 1,
 
-        /// <summary>
-        /// A description for the MetaDataVersion field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "MetaDataVersion_2")]
         MetaDataVersion = 2,
 
-        /// <summary>
-        /// A description for the SequenceNumber field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SequenceNumber_4")]
         SequenceNumber = 4,
 
-        /// <summary>
-        /// A description for the Timestamp field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Timestamp_8")]
         Timestamp = 8,
 
-        /// <summary>
-        /// A description for the Status field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Status_16")]
         Status = 16,
     }
@@ -13638,7 +15383,7 @@ namespace Opc.Ua
     #region JsonDataSetWriterMessageDataType Class
     #if (!OPCUA_EXCLUDE_JsonDataSetWriterMessageDataType)
     /// <summary>
-    /// A description for the JsonDataSetWriterMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -13668,16 +15413,14 @@ namespace Opc.Ua
         /// </summary>
         private void Initialize()
         {
-            m_dataSetMessageContentMask = JsonDataSetMessageContentMask.None;
+            m_dataSetMessageContentMask = 0;
         }
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the DataSetMessageContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetMessageContentMask", IsRequired = false, Order = 1)]
-        public JsonDataSetMessageContentMask DataSetMessageContentMask
+        public uint DataSetMessageContentMask
         {
             get { return m_dataSetMessageContentMask;  }
             set { m_dataSetMessageContentMask = value; }
@@ -13710,7 +15453,7 @@ namespace Opc.Ua
 
             encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
-            encoder.WriteEnumerated("DataSetMessageContentMask", DataSetMessageContentMask);
+            encoder.WriteUInt32("DataSetMessageContentMask", DataSetMessageContentMask);
 
             encoder.PopNamespace();
         }
@@ -13722,7 +15465,7 @@ namespace Opc.Ua
 
             decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
-            DataSetMessageContentMask = (JsonDataSetMessageContentMask)decoder.ReadEnumerated("DataSetMessageContentMask", typeof(JsonDataSetMessageContentMask));
+            DataSetMessageContentMask = decoder.ReadUInt32("DataSetMessageContentMask");
 
             decoder.PopNamespace();
         }
@@ -13761,14 +15504,14 @@ namespace Opc.Ua
         {
             JsonDataSetWriterMessageDataType clone = (JsonDataSetWriterMessageDataType)base.MemberwiseClone();
 
-            clone.m_dataSetMessageContentMask = (JsonDataSetMessageContentMask)Utils.Clone(this.m_dataSetMessageContentMask);
+            clone.m_dataSetMessageContentMask = (uint)Utils.Clone(this.m_dataSetMessageContentMask);
 
             return clone;
         }
         #endregion
 
         #region Private Fields
-        private JsonDataSetMessageContentMask m_dataSetMessageContentMask;
+        private uint m_dataSetMessageContentMask;
         #endregion
     }
 
@@ -13862,7 +15605,7 @@ namespace Opc.Ua
     #region JsonDataSetReaderMessageDataType Class
     #if (!OPCUA_EXCLUDE_JsonDataSetReaderMessageDataType)
     /// <summary>
-    /// A description for the JsonDataSetReaderMessageDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -13892,27 +15635,23 @@ namespace Opc.Ua
         /// </summary>
         private void Initialize()
         {
-            m_networkMessageContentMask = JsonNetworkMessageContentMask.None;
-            m_dataSetMessageContentMask = JsonDataSetMessageContentMask.None;
+            m_networkMessageContentMask = 0;
+            m_dataSetMessageContentMask = 0;
         }
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NetworkMessageContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NetworkMessageContentMask", IsRequired = false, Order = 1)]
-        public JsonNetworkMessageContentMask NetworkMessageContentMask
+        public uint NetworkMessageContentMask
         {
             get { return m_networkMessageContentMask;  }
             set { m_networkMessageContentMask = value; }
         }
 
-        /// <summary>
-        /// A description for the DataSetMessageContentMask field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataSetMessageContentMask", IsRequired = false, Order = 2)]
-        public JsonDataSetMessageContentMask DataSetMessageContentMask
+        public uint DataSetMessageContentMask
         {
             get { return m_dataSetMessageContentMask;  }
             set { m_dataSetMessageContentMask = value; }
@@ -13945,8 +15684,8 @@ namespace Opc.Ua
 
             encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
-            encoder.WriteEnumerated("NetworkMessageContentMask", NetworkMessageContentMask);
-            encoder.WriteEnumerated("DataSetMessageContentMask", DataSetMessageContentMask);
+            encoder.WriteUInt32("NetworkMessageContentMask", NetworkMessageContentMask);
+            encoder.WriteUInt32("DataSetMessageContentMask", DataSetMessageContentMask);
 
             encoder.PopNamespace();
         }
@@ -13958,8 +15697,8 @@ namespace Opc.Ua
 
             decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
-            NetworkMessageContentMask = (JsonNetworkMessageContentMask)decoder.ReadEnumerated("NetworkMessageContentMask", typeof(JsonNetworkMessageContentMask));
-            DataSetMessageContentMask = (JsonDataSetMessageContentMask)decoder.ReadEnumerated("DataSetMessageContentMask", typeof(JsonDataSetMessageContentMask));
+            NetworkMessageContentMask = decoder.ReadUInt32("NetworkMessageContentMask");
+            DataSetMessageContentMask = decoder.ReadUInt32("DataSetMessageContentMask");
 
             decoder.PopNamespace();
         }
@@ -13999,16 +15738,16 @@ namespace Opc.Ua
         {
             JsonDataSetReaderMessageDataType clone = (JsonDataSetReaderMessageDataType)base.MemberwiseClone();
 
-            clone.m_networkMessageContentMask = (JsonNetworkMessageContentMask)Utils.Clone(this.m_networkMessageContentMask);
-            clone.m_dataSetMessageContentMask = (JsonDataSetMessageContentMask)Utils.Clone(this.m_dataSetMessageContentMask);
+            clone.m_networkMessageContentMask = (uint)Utils.Clone(this.m_networkMessageContentMask);
+            clone.m_dataSetMessageContentMask = (uint)Utils.Clone(this.m_dataSetMessageContentMask);
 
             return clone;
         }
         #endregion
 
         #region Private Fields
-        private JsonNetworkMessageContentMask m_networkMessageContentMask;
-        private JsonDataSetMessageContentMask m_dataSetMessageContentMask;
+        private uint m_networkMessageContentMask;
+        private uint m_dataSetMessageContentMask;
         #endregion
     }
 
@@ -14102,7 +15841,7 @@ namespace Opc.Ua
     #region DatagramConnectionTransportDataType Class
     #if (!OPCUA_EXCLUDE_DatagramConnectionTransportDataType)
     /// <summary>
-    /// A description for the DatagramConnectionTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -14137,9 +15876,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the DiscoveryAddress field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DiscoveryAddress", IsRequired = false, Order = 1)]
         public ExtensionObject DiscoveryAddress
         {
@@ -14326,7 +16063,7 @@ namespace Opc.Ua
     #region DatagramWriterGroupTransportDataType Class
     #if (!OPCUA_EXCLUDE_DatagramWriterGroupTransportDataType)
     /// <summary>
-    /// A description for the DatagramWriterGroupTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -14362,9 +16099,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the MessageRepeatCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MessageRepeatCount", IsRequired = false, Order = 1)]
         public byte MessageRepeatCount
         {
@@ -14372,9 +16107,7 @@ namespace Opc.Ua
             set { m_messageRepeatCount = value; }
         }
 
-        /// <summary>
-        /// A description for the MessageRepeatDelay field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MessageRepeatDelay", IsRequired = false, Order = 2)]
         public double MessageRepeatDelay
         {
@@ -14566,7 +16299,7 @@ namespace Opc.Ua
     #region BrokerConnectionTransportDataType Class
     #if (!OPCUA_EXCLUDE_BrokerConnectionTransportDataType)
     /// <summary>
-    /// A description for the BrokerConnectionTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -14602,9 +16335,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ResourceUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ResourceUri", IsRequired = false, Order = 1)]
         public string ResourceUri
         {
@@ -14612,9 +16343,7 @@ namespace Opc.Ua
             set { m_resourceUri = value; }
         }
 
-        /// <summary>
-        /// A description for the AuthenticationProfileUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AuthenticationProfileUri", IsRequired = false, Order = 2)]
         public string AuthenticationProfileUri
         {
@@ -14806,40 +16535,30 @@ namespace Opc.Ua
     #region BrokerTransportQualityOfService Enumeration
     #if (!OPCUA_EXCLUDE_BrokerTransportQualityOfService)
     /// <summary>
-    /// A description for the BrokerTransportQualityOfService DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum BrokerTransportQualityOfService
     {
-        /// <summary>
-        /// A description for the NotSpecified field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NotSpecified_0")]
         NotSpecified = 0,
 
-        /// <summary>
-        /// A description for the BestEffort field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "BestEffort_1")]
         BestEffort = 1,
 
-        /// <summary>
-        /// A description for the AtLeastOnce field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AtLeastOnce_2")]
         AtLeastOnce = 2,
 
-        /// <summary>
-        /// A description for the AtMostOnce field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AtMostOnce_3")]
         AtMostOnce = 3,
 
-        /// <summary>
-        /// A description for the ExactlyOnce field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ExactlyOnce_4")]
         ExactlyOnce = 4,
     }
@@ -14934,7 +16653,7 @@ namespace Opc.Ua
     #region BrokerWriterGroupTransportDataType Class
     #if (!OPCUA_EXCLUDE_BrokerWriterGroupTransportDataType)
     /// <summary>
-    /// A description for the BrokerWriterGroupTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -14972,9 +16691,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the QueueName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "QueueName", IsRequired = false, Order = 1)]
         public string QueueName
         {
@@ -14982,9 +16699,7 @@ namespace Opc.Ua
             set { m_queueName = value; }
         }
 
-        /// <summary>
-        /// A description for the ResourceUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ResourceUri", IsRequired = false, Order = 2)]
         public string ResourceUri
         {
@@ -14992,9 +16707,7 @@ namespace Opc.Ua
             set { m_resourceUri = value; }
         }
 
-        /// <summary>
-        /// A description for the AuthenticationProfileUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AuthenticationProfileUri", IsRequired = false, Order = 3)]
         public string AuthenticationProfileUri
         {
@@ -15002,9 +16715,7 @@ namespace Opc.Ua
             set { m_authenticationProfileUri = value; }
         }
 
-        /// <summary>
-        /// A description for the RequestedDeliveryGuarantee field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedDeliveryGuarantee", IsRequired = false, Order = 4)]
         public BrokerTransportQualityOfService RequestedDeliveryGuarantee
         {
@@ -15206,7 +16917,7 @@ namespace Opc.Ua
     #region BrokerDataSetWriterTransportDataType Class
     #if (!OPCUA_EXCLUDE_BrokerDataSetWriterTransportDataType)
     /// <summary>
-    /// A description for the BrokerDataSetWriterTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -15239,15 +16950,14 @@ namespace Opc.Ua
             m_queueName = null;
             m_resourceUri = null;
             m_authenticationProfileUri = null;
+            m_requestedDeliveryGuarantee = BrokerTransportQualityOfService.NotSpecified;
             m_metaDataQueueName = null;
             m_metaDataUpdateTime = (double)0;
         }
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the QueueName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "QueueName", IsRequired = false, Order = 1)]
         public string QueueName
         {
@@ -15255,9 +16965,7 @@ namespace Opc.Ua
             set { m_queueName = value; }
         }
 
-        /// <summary>
-        /// A description for the ResourceUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ResourceUri", IsRequired = false, Order = 2)]
         public string ResourceUri
         {
@@ -15265,9 +16973,7 @@ namespace Opc.Ua
             set { m_resourceUri = value; }
         }
 
-        /// <summary>
-        /// A description for the AuthenticationProfileUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AuthenticationProfileUri", IsRequired = false, Order = 3)]
         public string AuthenticationProfileUri
         {
@@ -15275,20 +16981,24 @@ namespace Opc.Ua
             set { m_authenticationProfileUri = value; }
         }
 
-        /// <summary>
-        /// A description for the MetaDataQueueName field.
-        /// </summary>
-        [DataMember(Name = "MetaDataQueueName", IsRequired = false, Order = 4)]
+        /// <remarks />
+        [DataMember(Name = "RequestedDeliveryGuarantee", IsRequired = false, Order = 4)]
+        public BrokerTransportQualityOfService RequestedDeliveryGuarantee
+        {
+            get { return m_requestedDeliveryGuarantee;  }
+            set { m_requestedDeliveryGuarantee = value; }
+        }
+
+        /// <remarks />
+        [DataMember(Name = "MetaDataQueueName", IsRequired = false, Order = 5)]
         public string MetaDataQueueName
         {
             get { return m_metaDataQueueName;  }
             set { m_metaDataQueueName = value; }
         }
 
-        /// <summary>
-        /// A description for the MetaDataUpdateTime field.
-        /// </summary>
-        [DataMember(Name = "MetaDataUpdateTime", IsRequired = false, Order = 5)]
+        /// <remarks />
+        [DataMember(Name = "MetaDataUpdateTime", IsRequired = false, Order = 6)]
         public double MetaDataUpdateTime
         {
             get { return m_metaDataUpdateTime;  }
@@ -15325,6 +17035,7 @@ namespace Opc.Ua
             encoder.WriteString("QueueName", QueueName);
             encoder.WriteString("ResourceUri", ResourceUri);
             encoder.WriteString("AuthenticationProfileUri", AuthenticationProfileUri);
+            encoder.WriteEnumerated("RequestedDeliveryGuarantee", RequestedDeliveryGuarantee);
             encoder.WriteString("MetaDataQueueName", MetaDataQueueName);
             encoder.WriteDouble("MetaDataUpdateTime", MetaDataUpdateTime);
 
@@ -15341,6 +17052,7 @@ namespace Opc.Ua
             QueueName = decoder.ReadString("QueueName");
             ResourceUri = decoder.ReadString("ResourceUri");
             AuthenticationProfileUri = decoder.ReadString("AuthenticationProfileUri");
+            RequestedDeliveryGuarantee = (BrokerTransportQualityOfService)decoder.ReadEnumerated("RequestedDeliveryGuarantee", typeof(BrokerTransportQualityOfService));
             MetaDataQueueName = decoder.ReadString("MetaDataQueueName");
             MetaDataUpdateTime = decoder.ReadDouble("MetaDataUpdateTime");
 
@@ -15366,6 +17078,7 @@ namespace Opc.Ua
             if (!Utils.IsEqual(m_queueName, value.m_queueName)) return false;
             if (!Utils.IsEqual(m_resourceUri, value.m_resourceUri)) return false;
             if (!Utils.IsEqual(m_authenticationProfileUri, value.m_authenticationProfileUri)) return false;
+            if (!Utils.IsEqual(m_requestedDeliveryGuarantee, value.m_requestedDeliveryGuarantee)) return false;
             if (!Utils.IsEqual(m_metaDataQueueName, value.m_metaDataQueueName)) return false;
             if (!Utils.IsEqual(m_metaDataUpdateTime, value.m_metaDataUpdateTime)) return false;
 
@@ -15388,6 +17101,7 @@ namespace Opc.Ua
             clone.m_queueName = (string)Utils.Clone(this.m_queueName);
             clone.m_resourceUri = (string)Utils.Clone(this.m_resourceUri);
             clone.m_authenticationProfileUri = (string)Utils.Clone(this.m_authenticationProfileUri);
+            clone.m_requestedDeliveryGuarantee = (BrokerTransportQualityOfService)Utils.Clone(this.m_requestedDeliveryGuarantee);
             clone.m_metaDataQueueName = (string)Utils.Clone(this.m_metaDataQueueName);
             clone.m_metaDataUpdateTime = (double)Utils.Clone(this.m_metaDataUpdateTime);
 
@@ -15399,6 +17113,7 @@ namespace Opc.Ua
         private string m_queueName;
         private string m_resourceUri;
         private string m_authenticationProfileUri;
+        private BrokerTransportQualityOfService m_requestedDeliveryGuarantee;
         private string m_metaDataQueueName;
         private double m_metaDataUpdateTime;
         #endregion
@@ -15494,7 +17209,7 @@ namespace Opc.Ua
     #region BrokerDataSetReaderTransportDataType Class
     #if (!OPCUA_EXCLUDE_BrokerDataSetReaderTransportDataType)
     /// <summary>
-    /// A description for the BrokerDataSetReaderTransportDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -15533,9 +17248,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the QueueName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "QueueName", IsRequired = false, Order = 1)]
         public string QueueName
         {
@@ -15543,9 +17256,7 @@ namespace Opc.Ua
             set { m_queueName = value; }
         }
 
-        /// <summary>
-        /// A description for the ResourceUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ResourceUri", IsRequired = false, Order = 2)]
         public string ResourceUri
         {
@@ -15553,9 +17264,7 @@ namespace Opc.Ua
             set { m_resourceUri = value; }
         }
 
-        /// <summary>
-        /// A description for the AuthenticationProfileUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AuthenticationProfileUri", IsRequired = false, Order = 3)]
         public string AuthenticationProfileUri
         {
@@ -15563,9 +17272,7 @@ namespace Opc.Ua
             set { m_authenticationProfileUri = value; }
         }
 
-        /// <summary>
-        /// A description for the RequestedDeliveryGuarantee field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedDeliveryGuarantee", IsRequired = false, Order = 4)]
         public BrokerTransportQualityOfService RequestedDeliveryGuarantee
         {
@@ -15573,9 +17280,7 @@ namespace Opc.Ua
             set { m_requestedDeliveryGuarantee = value; }
         }
 
-        /// <summary>
-        /// A description for the MetaDataQueueName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MetaDataQueueName", IsRequired = false, Order = 5)]
         public string MetaDataQueueName
         {
@@ -15782,40 +17487,30 @@ namespace Opc.Ua
     #region DiagnosticsLevel Enumeration
     #if (!OPCUA_EXCLUDE_DiagnosticsLevel)
     /// <summary>
-    /// A description for the DiagnosticsLevel DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum DiagnosticsLevel
     {
-        /// <summary>
-        /// A description for the Basic field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Basic_0")]
         Basic = 0,
 
-        /// <summary>
-        /// A description for the Advanced field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Advanced_1")]
         Advanced = 1,
 
-        /// <summary>
-        /// A description for the Info field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Info_2")]
         Info = 2,
 
-        /// <summary>
-        /// A description for the Log field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Log_3")]
         Log = 3,
 
-        /// <summary>
-        /// A description for the Debug field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Debug_4")]
         Debug = 4,
     }
@@ -15910,22 +17605,18 @@ namespace Opc.Ua
     #region PubSubDiagnosticsCounterClassification Enumeration
     #if (!OPCUA_EXCLUDE_PubSubDiagnosticsCounterClassification)
     /// <summary>
-    /// A description for the PubSubDiagnosticsCounterClassification DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum PubSubDiagnosticsCounterClassification
     {
-        /// <summary>
-        /// A description for the Information field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Information_0")]
         Information = 0,
 
-        /// <summary>
-        /// A description for the Error field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Error_1")]
         Error = 1,
     }
@@ -16020,34 +17711,26 @@ namespace Opc.Ua
     #region IdType Enumeration
     #if (!OPCUA_EXCLUDE_IdType)
     /// <summary>
-    /// The type of identifier used in a node id.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum IdType
     {
-        /// <summary>
-        /// The identifier is a numeric value. 0 is a null value.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Numeric_0")]
         Numeric = 0,
 
-        /// <summary>
-        /// The identifier is a string value. An empty string is a null value.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "String_1")]
         String = 1,
 
-        /// <summary>
-        /// The identifier is a 16 byte structure. 16 zero bytes is a null value.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Guid_2")]
         Guid = 2,
 
-        /// <summary>
-        /// The identifier is an array of bytes. A zero length array is a null value.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Opaque_3")]
         Opaque = 3,
     }
@@ -16142,64 +17825,46 @@ namespace Opc.Ua
     #region NodeClass Enumeration
     #if (!OPCUA_EXCLUDE_NodeClass)
     /// <summary>
-    /// A mask specifying the class of the node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum NodeClass
     {
-        /// <summary>
-        /// No classes are selected.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Unspecified_0")]
         Unspecified = 0,
 
-        /// <summary>
-        /// The node is an object.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Object_1")]
         Object = 1,
 
-        /// <summary>
-        /// The node is a variable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Variable_2")]
         Variable = 2,
 
-        /// <summary>
-        /// The node is a method.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Method_4")]
         Method = 4,
 
-        /// <summary>
-        /// The node is an object type.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ObjectType_8")]
         ObjectType = 8,
 
-        /// <summary>
-        /// The node is an variable type.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "VariableType_16")]
         VariableType = 16,
 
-        /// <summary>
-        /// The node is a reference type.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReferenceType_32")]
         ReferenceType = 32,
 
-        /// <summary>
-        /// The node is a data type.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataType_64")]
         DataType = 64,
 
-        /// <summary>
-        /// The node is a view.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "View_128")]
         View = 128,
     }
@@ -16209,118 +17874,82 @@ namespace Opc.Ua
     #region PermissionType Enumeration
     #if (!OPCUA_EXCLUDE_PermissionType)
     /// <summary>
-    /// A description for the PermissionType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum PermissionType
+    public enum PermissionType : UInt32
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the Browse field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Browse_1")]
         Browse = 1,
 
-        /// <summary>
-        /// A description for the ReadRolePermissions field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReadRolePermissions_2")]
         ReadRolePermissions = 2,
 
-        /// <summary>
-        /// A description for the WriteAttribute field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "WriteAttribute_4")]
         WriteAttribute = 4,
 
-        /// <summary>
-        /// A description for the WriteRolePermissions field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "WriteRolePermissions_8")]
         WriteRolePermissions = 8,
 
-        /// <summary>
-        /// A description for the WriteHistorizing field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "WriteHistorizing_16")]
         WriteHistorizing = 16,
 
-        /// <summary>
-        /// A description for the Read field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Read_32")]
         Read = 32,
 
-        /// <summary>
-        /// A description for the Write field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Write_64")]
         Write = 64,
 
-        /// <summary>
-        /// A description for the ReadHistory field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReadHistory_128")]
         ReadHistory = 128,
 
-        /// <summary>
-        /// A description for the InsertHistory field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "InsertHistory_256")]
         InsertHistory = 256,
 
-        /// <summary>
-        /// A description for the ModifyHistory field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ModifyHistory_512")]
         ModifyHistory = 512,
 
-        /// <summary>
-        /// A description for the DeleteHistory field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DeleteHistory_1024")]
         DeleteHistory = 1024,
 
-        /// <summary>
-        /// A description for the ReceiveEvents field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReceiveEvents_2048")]
         ReceiveEvents = 2048,
 
-        /// <summary>
-        /// A description for the Call field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Call_4096")]
         Call = 4096,
 
-        /// <summary>
-        /// A description for the AddReference field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AddReference_8192")]
         AddReference = 8192,
 
-        /// <summary>
-        /// A description for the RemoveReference field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "RemoveReference_16384")]
         RemoveReference = 16384,
 
-        /// <summary>
-        /// A description for the DeleteNode field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DeleteNode_32768")]
         DeleteNode = 32768,
 
-        /// <summary>
-        /// A description for the AddNode field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AddNode_65536")]
         AddNode = 65536,
     }
@@ -16330,52 +17959,42 @@ namespace Opc.Ua
     #region AccessLevelType Enumeration
     #if (!OPCUA_EXCLUDE_AccessLevelType)
     /// <summary>
-    /// A description for the AccessLevelType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum AccessLevelType
+    public enum AccessLevelType : Byte
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the CurrentRead field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "CurrentRead_1")]
         CurrentRead = 1,
 
-        /// <summary>
-        /// A description for the CurrentWrite field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "CurrentWrite_2")]
         CurrentWrite = 2,
 
-        /// <summary>
-        /// A description for the HistoryRead field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "HistoryRead_4")]
         HistoryRead = 4,
 
-        /// <summary>
-        /// A description for the HistoryWrite field.
-        /// </summary>
-        [EnumMember(Value = "HistoryWrite_16")]
-        HistoryWrite = 16,
+        /// <remarks />
+        [EnumMember(Value = "HistoryWrite_8")]
+        HistoryWrite = 8,
 
-        /// <summary>
-        /// A description for the StatusWrite field.
-        /// </summary>
+        /// <remarks />
+        [EnumMember(Value = "SemanticChange_16")]
+        SemanticChange = 16,
+
+        /// <remarks />
         [EnumMember(Value = "StatusWrite_32")]
         StatusWrite = 32,
 
-        /// <summary>
-        /// A description for the TimestampWrite field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "TimestampWrite_64")]
         TimestampWrite = 64,
     }
@@ -16385,70 +18004,54 @@ namespace Opc.Ua
     #region AccessLevelExType Enumeration
     #if (!OPCUA_EXCLUDE_AccessLevelExType)
     /// <summary>
-    /// A description for the AccessLevelExType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum AccessLevelExType
+    public enum AccessLevelExType : UInt32
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the CurrentRead field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "CurrentRead_1")]
         CurrentRead = 1,
 
-        /// <summary>
-        /// A description for the CurrentWrite field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "CurrentWrite_2")]
         CurrentWrite = 2,
 
-        /// <summary>
-        /// A description for the HistoryRead field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "HistoryRead_4")]
         HistoryRead = 4,
 
-        /// <summary>
-        /// A description for the HistoryWrite field.
-        /// </summary>
-        [EnumMember(Value = "HistoryWrite_16")]
-        HistoryWrite = 16,
+        /// <remarks />
+        [EnumMember(Value = "HistoryWrite_8")]
+        HistoryWrite = 8,
 
-        /// <summary>
-        /// A description for the StatusWrite field.
-        /// </summary>
+        /// <remarks />
+        [EnumMember(Value = "SemanticChange_16")]
+        SemanticChange = 16,
+
+        /// <remarks />
         [EnumMember(Value = "StatusWrite_32")]
         StatusWrite = 32,
 
-        /// <summary>
-        /// A description for the TimestampWrite field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "TimestampWrite_64")]
         TimestampWrite = 64,
 
-        /// <summary>
-        /// A description for the NonatomicRead field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NonatomicRead_256")]
         NonatomicRead = 256,
 
-        /// <summary>
-        /// A description for the NonatomicWrite field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NonatomicWrite_512")]
         NonatomicWrite = 512,
 
-        /// <summary>
-        /// A description for the WriteFullArrayOnly field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "WriteFullArrayOnly_1024")]
         WriteFullArrayOnly = 1024,
     }
@@ -16458,34 +18061,26 @@ namespace Opc.Ua
     #region EventNotifierType Enumeration
     #if (!OPCUA_EXCLUDE_EventNotifierType)
     /// <summary>
-    /// A description for the EventNotifierType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum EventNotifierType
+    public enum EventNotifierType : Byte
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the SubscribeToEvents field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SubscribeToEvents_1")]
         SubscribeToEvents = 1,
 
-        /// <summary>
-        /// A description for the HistoryRead field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "HistoryRead_4")]
         HistoryRead = 4,
 
-        /// <summary>
-        /// A description for the HistoryWrite field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "HistoryWrite_8")]
         HistoryWrite = 8,
     }
@@ -16495,34 +18090,26 @@ namespace Opc.Ua
     #region AccessRestrictionType Enumeration
     #if (!OPCUA_EXCLUDE_AccessRestrictionType)
     /// <summary>
-    /// A description for the AccessRestrictionType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum AccessRestrictionType
+    public enum AccessRestrictionType : UInt32
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the SigningRequired field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SigningRequired_1")]
         SigningRequired = 1,
 
-        /// <summary>
-        /// A description for the EncryptionRequired field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "EncryptionRequired_2")]
         EncryptionRequired = 2,
 
-        /// <summary>
-        /// A description for the SessionRequired field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SessionRequired_4")]
         SessionRequired = 4,
     }
@@ -16532,7 +18119,7 @@ namespace Opc.Ua
     #region RolePermissionType Class
     #if (!OPCUA_EXCLUDE_RolePermissionType)
     /// <summary>
-    /// A description for the RolePermissionType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -16563,14 +18150,12 @@ namespace Opc.Ua
         private void Initialize()
         {
             m_roleId = null;
-            m_permissions = PermissionType.None;
+            m_permissions = 0;
         }
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the RoleId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RoleId", IsRequired = false, Order = 1)]
         public NodeId RoleId
         {
@@ -16578,11 +18163,9 @@ namespace Opc.Ua
             set { m_roleId = value; }
         }
 
-        /// <summary>
-        /// A description for the Permissions field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Permissions", IsRequired = false, Order = 2)]
-        public PermissionType Permissions
+        public uint Permissions
         {
             get { return m_permissions;  }
             set { m_permissions = value; }
@@ -16614,7 +18197,7 @@ namespace Opc.Ua
             encoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
             encoder.WriteNodeId("RoleId", RoleId);
-            encoder.WriteEnumerated("Permissions", Permissions);
+            encoder.WriteUInt32("Permissions", Permissions);
 
             encoder.PopNamespace();
         }
@@ -16625,7 +18208,7 @@ namespace Opc.Ua
             decoder.PushNamespace(Opc.Ua.Namespaces.OpcUaXsd);
 
             RoleId = decoder.ReadNodeId("RoleId");
-            Permissions = (PermissionType)decoder.ReadEnumerated("Permissions", typeof(PermissionType));
+            Permissions = decoder.ReadUInt32("Permissions");
 
             decoder.PopNamespace();
         }
@@ -16665,7 +18248,7 @@ namespace Opc.Ua
             RolePermissionType clone = (RolePermissionType)base.MemberwiseClone();
 
             clone.m_roleId = (NodeId)Utils.Clone(this.m_roleId);
-            clone.m_permissions = (PermissionType)Utils.Clone(this.m_permissions);
+            clone.m_permissions = (uint)Utils.Clone(this.m_permissions);
 
             return clone;
         }
@@ -16673,7 +18256,7 @@ namespace Opc.Ua
 
         #region Private Fields
         private NodeId m_roleId;
-        private PermissionType m_permissions;
+        private uint m_permissions;
         #endregion
     }
 
@@ -16767,7 +18350,7 @@ namespace Opc.Ua
     #region DataTypeDefinition Class
     #if (!OPCUA_EXCLUDE_DataTypeDefinition)
     /// <summary>
-    /// A description for the DataTypeDefinition DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -16971,28 +18554,22 @@ namespace Opc.Ua
     #region StructureType Enumeration
     #if (!OPCUA_EXCLUDE_StructureType)
     /// <summary>
-    /// A description for the StructureType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum StructureType
     {
-        /// <summary>
-        /// A description for the Structure field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Structure_0")]
         Structure = 0,
 
-        /// <summary>
-        /// A description for the StructureWithOptionalFields field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "StructureWithOptionalFields_1")]
         StructureWithOptionalFields = 1,
 
-        /// <summary>
-        /// A description for the Union field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Union_2")]
         Union = 2,
     }
@@ -17002,7 +18579,7 @@ namespace Opc.Ua
     #region StructureField Class
     #if (!OPCUA_EXCLUDE_StructureField)
     /// <summary>
-    /// A description for the StructureField DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -17043,9 +18620,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -17053,9 +18628,7 @@ namespace Opc.Ua
             set { m_name = value; }
         }
 
-        /// <summary>
-        /// A description for the Description field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Description", IsRequired = false, Order = 2)]
         public LocalizedText Description
         {
@@ -17063,9 +18636,7 @@ namespace Opc.Ua
             set { m_description = value; }
         }
 
-        /// <summary>
-        /// A description for the DataType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataType", IsRequired = false, Order = 3)]
         public NodeId DataType
         {
@@ -17073,9 +18644,7 @@ namespace Opc.Ua
             set { m_dataType = value; }
         }
 
-        /// <summary>
-        /// A description for the ValueRank field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ValueRank", IsRequired = false, Order = 4)]
         public int ValueRank
         {
@@ -17084,7 +18653,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ArrayDimensions field.
+        /// 
         /// </summary>
         [DataMember(Name = "ArrayDimensions", IsRequired = false, Order = 5)]
         public UInt32Collection ArrayDimensions
@@ -17105,9 +18674,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the MaxStringLength field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxStringLength", IsRequired = false, Order = 6)]
         public uint MaxStringLength
         {
@@ -17115,9 +18682,7 @@ namespace Opc.Ua
             set { m_maxStringLength = value; }
         }
 
-        /// <summary>
-        /// A description for the IsOptional field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsOptional", IsRequired = false, Order = 7)]
         public bool IsOptional
         {
@@ -17329,7 +18894,7 @@ namespace Opc.Ua
     #region StructureDefinition Class
     #if (!OPCUA_EXCLUDE_StructureDefinition)
     /// <summary>
-    /// A description for the StructureDefinition DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -17367,9 +18932,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the DefaultEncodingId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DefaultEncodingId", IsRequired = false, Order = 1)]
         public NodeId DefaultEncodingId
         {
@@ -17377,9 +18940,7 @@ namespace Opc.Ua
             set { m_defaultEncodingId = value; }
         }
 
-        /// <summary>
-        /// A description for the BaseDataType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BaseDataType", IsRequired = false, Order = 2)]
         public NodeId BaseDataType
         {
@@ -17387,9 +18948,7 @@ namespace Opc.Ua
             set { m_baseDataType = value; }
         }
 
-        /// <summary>
-        /// A description for the StructureType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StructureType", IsRequired = false, Order = 3)]
         public StructureType StructureType
         {
@@ -17398,7 +18957,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Fields field.
+        /// 
         /// </summary>
         [DataMember(Name = "Fields", IsRequired = false, Order = 4)]
         public StructureFieldCollection Fields
@@ -17613,7 +19172,7 @@ namespace Opc.Ua
     #region EnumDefinition Class
     #if (!OPCUA_EXCLUDE_EnumDefinition)
     /// <summary>
-    /// A description for the EnumDefinition DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -17649,7 +19208,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the Fields field.
+        /// 
         /// </summary>
         [DataMember(Name = "Fields", IsRequired = false, Order = 1)]
         public EnumFieldCollection Fields
@@ -17849,7 +19408,7 @@ namespace Opc.Ua
     #region Node Class
     #if (!OPCUA_EXCLUDE_Node)
     /// <summary>
-    /// Specifies the attributes which belong to all nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -17894,9 +19453,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A unique identifier for the node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public NodeId NodeId
         {
@@ -17904,9 +19461,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// The class of the node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeClass", IsRequired = false, Order = 2)]
         public NodeClass NodeClass
         {
@@ -17914,9 +19469,7 @@ namespace Opc.Ua
             set { m_nodeClass = value; }
         }
 
-        /// <summary>
-        /// The browse name of the node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BrowseName", IsRequired = false, Order = 3)]
         public QualifiedName BrowseName
         {
@@ -17924,9 +19477,7 @@ namespace Opc.Ua
             set { m_browseName = value; }
         }
 
-        /// <summary>
-        /// The display name of the node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DisplayName", IsRequired = false, Order = 4)]
         public LocalizedText DisplayName
         {
@@ -17934,9 +19485,7 @@ namespace Opc.Ua
             set { m_displayName = value; }
         }
 
-        /// <summary>
-        /// The description of the node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Description", IsRequired = false, Order = 5)]
         public LocalizedText Description
         {
@@ -17944,9 +19493,7 @@ namespace Opc.Ua
             set { m_description = value; }
         }
 
-        /// <summary>
-        /// A mask indicating which attributes are writable.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "WriteMask", IsRequired = false, Order = 6)]
         public uint WriteMask
         {
@@ -17954,9 +19501,7 @@ namespace Opc.Ua
             set { m_writeMask = value; }
         }
 
-        /// <summary>
-        /// A mask indicating which attributes are writable by the current user.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserWriteMask", IsRequired = false, Order = 7)]
         public uint UserWriteMask
         {
@@ -17965,7 +19510,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A list of permissions for the node assigned to roles.
+        /// 
         /// </summary>
         [DataMember(Name = "RolePermissions", IsRequired = false, Order = 8)]
         public RolePermissionTypeCollection RolePermissions
@@ -17987,7 +19532,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A list of permissions for the node assigned to roles which are available to the current session.
+        /// 
         /// </summary>
         [DataMember(Name = "UserRolePermissions", IsRequired = false, Order = 9)]
         public RolePermissionTypeCollection UserRolePermissions
@@ -18008,9 +19553,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A mask indicating any access restrictions that apply to the node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AccessRestrictions", IsRequired = false, Order = 10)]
         public ushort AccessRestrictions
         {
@@ -18019,7 +19562,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The references that belong to the node.
+        /// 
         /// </summary>
         [DataMember(Name = "References", IsRequired = false, Order = 11)]
         public ReferenceNodeCollection References
@@ -18264,7 +19807,7 @@ namespace Opc.Ua
     #region InstanceNode Class
     #if (!OPCUA_EXCLUDE_InstanceNode)
     /// <summary>
-    /// A description for the InstanceNode DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -18387,7 +19930,7 @@ namespace Opc.Ua
     #region TypeNode Class
     #if (!OPCUA_EXCLUDE_TypeNode)
     /// <summary>
-    /// A description for the TypeNode DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -18510,7 +20053,7 @@ namespace Opc.Ua
     #region ObjectNode Class
     #if (!OPCUA_EXCLUDE_ObjectNode)
     /// <summary>
-    /// Specifies the attributes which belong to object nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -18545,9 +20088,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A mask indicating whether events are produced by the object.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EventNotifier", IsRequired = false, Order = 1)]
         public byte EventNotifier
         {
@@ -18649,7 +20190,7 @@ namespace Opc.Ua
     #region ObjectTypeNode Class
     #if (!OPCUA_EXCLUDE_ObjectTypeNode)
     /// <summary>
-    /// Specifies the attributes which belong to object type nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -18684,9 +20225,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the type is abstract and only subtypes of it appear in the address space.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsAbstract", IsRequired = false, Order = 1)]
         public bool IsAbstract
         {
@@ -18788,7 +20327,7 @@ namespace Opc.Ua
     #region VariableNode Class
     #if (!OPCUA_EXCLUDE_VariableNode)
     /// <summary>
-    /// Specifies the attributes which belong to variable nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -18831,9 +20370,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The current value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 1)]
         public Variant Value
         {
@@ -18841,9 +20378,7 @@ namespace Opc.Ua
             set { m_value = value; }
         }
 
-        /// <summary>
-        /// The data type of the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataType", IsRequired = false, Order = 2)]
         public NodeId DataType
         {
@@ -18851,9 +20386,7 @@ namespace Opc.Ua
             set { m_dataType = value; }
         }
 
-        /// <summary>
-        /// Whether the value is an array type and the rank of the array if it is.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ValueRank", IsRequired = false, Order = 3)]
         public int ValueRank
         {
@@ -18862,7 +20395,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The number of dimensions if the value is an array type and one or more dimensions have a fixed length.
+        /// 
         /// </summary>
         [DataMember(Name = "ArrayDimensions", IsRequired = false, Order = 4)]
         public UInt32Collection ArrayDimensions
@@ -18883,9 +20416,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A bit mask specifying how the value may be accessed.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AccessLevel", IsRequired = false, Order = 5)]
         public byte AccessLevel
         {
@@ -18893,9 +20424,7 @@ namespace Opc.Ua
             set { m_accessLevel = value; }
         }
 
-        /// <summary>
-        /// A bit mask specifying how the value may be accessed by the current user.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserAccessLevel", IsRequired = false, Order = 6)]
         public byte UserAccessLevel
         {
@@ -18903,9 +20432,7 @@ namespace Opc.Ua
             set { m_userAccessLevel = value; }
         }
 
-        /// <summary>
-        /// The minimum possible sampling interval for the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MinimumSamplingInterval", IsRequired = false, Order = 7)]
         public double MinimumSamplingInterval
         {
@@ -18913,9 +20440,7 @@ namespace Opc.Ua
             set { m_minimumSamplingInterval = value; }
         }
 
-        /// <summary>
-        /// TRUE if the server is current storing the history of the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Historizing", IsRequired = false, Order = 8)]
         public bool Historizing
         {
@@ -18923,9 +20448,7 @@ namespace Opc.Ua
             set { m_historizing = value; }
         }
 
-        /// <summary>
-        /// A bit mask specifying how the value may be accessed.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AccessLevelEx", IsRequired = false, Order = 9)]
         public uint AccessLevelEx
         {
@@ -19067,7 +20590,7 @@ namespace Opc.Ua
     #region VariableTypeNode Class
     #if (!OPCUA_EXCLUDE_VariableTypeNode)
     /// <summary>
-    /// Specifies the attributes which belong to variable type nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -19106,9 +20629,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The default value when creating new instances.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 1)]
         public Variant Value
         {
@@ -19116,9 +20637,7 @@ namespace Opc.Ua
             set { m_value = value; }
         }
 
-        /// <summary>
-        /// The data type of the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataType", IsRequired = false, Order = 2)]
         public NodeId DataType
         {
@@ -19126,9 +20645,7 @@ namespace Opc.Ua
             set { m_dataType = value; }
         }
 
-        /// <summary>
-        /// Whether the value is an array type and the rank of the array if it is.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ValueRank", IsRequired = false, Order = 3)]
         public int ValueRank
         {
@@ -19137,7 +20654,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The number of dimensions if the value is an array type and one or more dimensions have a fixed length.
+        /// 
         /// </summary>
         [DataMember(Name = "ArrayDimensions", IsRequired = false, Order = 4)]
         public UInt32Collection ArrayDimensions
@@ -19158,9 +20675,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// If TRUE the type is abstract and only subtypes of it appear in the address space.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsAbstract", IsRequired = false, Order = 5)]
         public bool IsAbstract
         {
@@ -19282,7 +20797,7 @@ namespace Opc.Ua
     #region ReferenceTypeNode Class
     #if (!OPCUA_EXCLUDE_ReferenceTypeNode)
     /// <summary>
-    /// Specifies the attributes which belong to reference type nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -19319,9 +20834,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the type is abstract and only subtypes of it appear in the address space.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsAbstract", IsRequired = false, Order = 1)]
         public bool IsAbstract
         {
@@ -19329,9 +20842,7 @@ namespace Opc.Ua
             set { m_isAbstract = value; }
         }
 
-        /// <summary>
-        /// If TRUE the reference type has the same semantics in both directions.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Symmetric", IsRequired = false, Order = 2)]
         public bool Symmetric
         {
@@ -19339,9 +20850,7 @@ namespace Opc.Ua
             set { m_symmetric = value; }
         }
 
-        /// <summary>
-        /// The display name for the reference when following it from target to source.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "InverseName", IsRequired = false, Order = 3)]
         public LocalizedText InverseName
         {
@@ -19453,7 +20962,7 @@ namespace Opc.Ua
     #region MethodNode Class
     #if (!OPCUA_EXCLUDE_MethodNode)
     /// <summary>
-    /// Specifies the attributes which belong to method nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -19489,9 +20998,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the method can be called.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Executable", IsRequired = false, Order = 1)]
         public bool Executable
         {
@@ -19499,9 +21006,7 @@ namespace Opc.Ua
             set { m_executable = value; }
         }
 
-        /// <summary>
-        /// If TRUE the method can be called by the current user.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserExecutable", IsRequired = false, Order = 2)]
         public bool UserExecutable
         {
@@ -19608,7 +21113,7 @@ namespace Opc.Ua
     #region ViewNode Class
     #if (!OPCUA_EXCLUDE_ViewNode)
     /// <summary>
-    /// A description for the ViewNode DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -19644,9 +21149,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the view contains a tree of non-looping hierarchical references.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ContainsNoLoops", IsRequired = false, Order = 1)]
         public bool ContainsNoLoops
         {
@@ -19654,9 +21157,7 @@ namespace Opc.Ua
             set { m_containsNoLoops = value; }
         }
 
-        /// <summary>
-        /// A mask indicating whether events are produced by the view.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EventNotifier", IsRequired = false, Order = 2)]
         public byte EventNotifier
         {
@@ -19763,7 +21264,7 @@ namespace Opc.Ua
     #region DataTypeNode Class
     #if (!OPCUA_EXCLUDE_DataTypeNode)
     /// <summary>
-    /// A description for the DataTypeNode DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -19799,9 +21300,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the type is abstract and only subtypes of it appear in the address space.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsAbstract", IsRequired = false, Order = 1)]
         public bool IsAbstract
         {
@@ -19809,9 +21308,7 @@ namespace Opc.Ua
             set { m_isAbstract = value; }
         }
 
-        /// <summary>
-        /// Provides the metadata and encoding information for custom DataTypes.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataTypeDefinition", IsRequired = false, Order = 2)]
         public ExtensionObject DataTypeDefinition
         {
@@ -19918,7 +21415,7 @@ namespace Opc.Ua
     #region ReferenceNode Class
     #if (!OPCUA_EXCLUDE_ReferenceNode)
     /// <summary>
-    /// Specifies a reference which belongs to a node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -19955,9 +21452,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The node id of the reference type for the reference.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReferenceTypeId", IsRequired = false, Order = 1)]
         public NodeId ReferenceTypeId
         {
@@ -19965,9 +21460,7 @@ namespace Opc.Ua
             set { m_referenceTypeId = value; }
         }
 
-        /// <summary>
-        /// The reference is an inverse reference.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsInverse", IsRequired = false, Order = 2)]
         public bool IsInverse
         {
@@ -19975,9 +21468,7 @@ namespace Opc.Ua
             set { m_isInverse = value; }
         }
 
-        /// <summary>
-        /// The node id for the target of the reference.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TargetId", IsRequired = false, Order = 3)]
         public ExpandedNodeId TargetId
         {
@@ -20169,7 +21660,7 @@ namespace Opc.Ua
     #region Argument Class
     #if (!OPCUA_EXCLUDE_Argument)
     /// <summary>
-    /// An argument for a method.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -20208,9 +21699,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The name of the argument.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -20218,9 +21707,7 @@ namespace Opc.Ua
             set { m_name = value; }
         }
 
-        /// <summary>
-        /// The data type of the argument.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataType", IsRequired = false, Order = 2)]
         public NodeId DataType
         {
@@ -20228,9 +21715,7 @@ namespace Opc.Ua
             set { m_dataType = value; }
         }
 
-        /// <summary>
-        /// Whether the argument is an array type and the rank of the array if it is.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ValueRank", IsRequired = false, Order = 3)]
         public int ValueRank
         {
@@ -20239,7 +21724,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The number of dimensions if the argument is an array type and one or more dimensions have a fixed length.
+        /// 
         /// </summary>
         [DataMember(Name = "ArrayDimensions", IsRequired = false, Order = 4)]
         public UInt32Collection ArrayDimensions
@@ -20260,9 +21745,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The description for the argument.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Description", IsRequired = false, Order = 5)]
         public LocalizedText Description
         {
@@ -20464,7 +21947,7 @@ namespace Opc.Ua
     #region EnumValueType Class
     #if (!OPCUA_EXCLUDE_EnumValueType)
     /// <summary>
-    /// A mapping between a value of an enumerated type and a name and description.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -20501,9 +21984,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The value of the enumeration.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 1)]
         public long Value
         {
@@ -20511,9 +21992,7 @@ namespace Opc.Ua
             set { m_value = value; }
         }
 
-        /// <summary>
-        /// Human readable name for the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DisplayName", IsRequired = false, Order = 2)]
         public LocalizedText DisplayName
         {
@@ -20521,9 +22000,7 @@ namespace Opc.Ua
             set { m_displayName = value; }
         }
 
-        /// <summary>
-        /// A description of the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Description", IsRequired = false, Order = 3)]
         public LocalizedText Description
         {
@@ -20715,7 +22192,7 @@ namespace Opc.Ua
     #region EnumField Class
     #if (!OPCUA_EXCLUDE_EnumField)
     /// <summary>
-    /// A description for the EnumField DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -20750,9 +22227,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Name field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Name", IsRequired = false, Order = 1)]
         public string Name
         {
@@ -20939,7 +22414,7 @@ namespace Opc.Ua
     #region OptionSet Class
     #if (!OPCUA_EXCLUDE_OptionSet)
     /// <summary>
-    /// This abstract Structured DataType is the base DataType for all DataTypes representing a bit mask.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -20975,9 +22450,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// Array of bytes representing the bits in the option set.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 1)]
         public byte[] Value
         {
@@ -20985,9 +22458,7 @@ namespace Opc.Ua
             set { m_value = value; }
         }
 
-        /// <summary>
-        /// Array of bytes with same size as value representing the valid bits in the value parameter.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ValidBits", IsRequired = false, Order = 2)]
         public byte[] ValidBits
         {
@@ -21174,7 +22645,7 @@ namespace Opc.Ua
     #region Union Class
     #if (!OPCUA_EXCLUDE_Union)
     /// <summary>
-    /// This abstract DataType is the base DataType for all union DataTypes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -21378,7 +22849,7 @@ namespace Opc.Ua
     #region TimeZoneDataType Class
     #if (!OPCUA_EXCLUDE_TimeZoneDataType)
     /// <summary>
-    /// A description for the TimeZoneDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -21414,9 +22885,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Offset field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Offset", IsRequired = false, Order = 1)]
         public short Offset
         {
@@ -21424,9 +22893,7 @@ namespace Opc.Ua
             set { m_offset = value; }
         }
 
-        /// <summary>
-        /// A description for the DaylightSavingInOffset field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DaylightSavingInOffset", IsRequired = false, Order = 2)]
         public bool DaylightSavingInOffset
         {
@@ -21613,34 +23080,26 @@ namespace Opc.Ua
     #region ApplicationType Enumeration
     #if (!OPCUA_EXCLUDE_ApplicationType)
     /// <summary>
-    /// The types of applications.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum ApplicationType
     {
-        /// <summary>
-        /// The application is a server.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Server_0")]
         Server = 0,
 
-        /// <summary>
-        /// The application is a client.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Client_1")]
         Client = 1,
 
-        /// <summary>
-        /// The application is a client and a server.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ClientAndServer_2")]
         ClientAndServer = 2,
 
-        /// <summary>
-        /// The application is a discovery server.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DiscoveryServer_3")]
         DiscoveryServer = 3,
     }
@@ -21650,7 +23109,7 @@ namespace Opc.Ua
     #region ApplicationDescription Class
     #if (!OPCUA_EXCLUDE_ApplicationDescription)
     /// <summary>
-    /// Describes an application and how to find it.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -21691,9 +23150,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The globally unique identifier for the application.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ApplicationUri", IsRequired = false, Order = 1)]
         public string ApplicationUri
         {
@@ -21701,9 +23158,7 @@ namespace Opc.Ua
             set { m_applicationUri = value; }
         }
 
-        /// <summary>
-        /// The globally unique identifier for the product.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ProductUri", IsRequired = false, Order = 2)]
         public string ProductUri
         {
@@ -21711,9 +23166,7 @@ namespace Opc.Ua
             set { m_productUri = value; }
         }
 
-        /// <summary>
-        /// The name of application.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ApplicationName", IsRequired = false, Order = 3)]
         public LocalizedText ApplicationName
         {
@@ -21721,9 +23174,7 @@ namespace Opc.Ua
             set { m_applicationName = value; }
         }
 
-        /// <summary>
-        /// The type of application.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ApplicationType", IsRequired = false, Order = 4)]
         public ApplicationType ApplicationType
         {
@@ -21731,9 +23182,7 @@ namespace Opc.Ua
             set { m_applicationType = value; }
         }
 
-        /// <summary>
-        /// The globally unique identifier for the server that is acting as a gateway for the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "GatewayServerUri", IsRequired = false, Order = 5)]
         public string GatewayServerUri
         {
@@ -21741,9 +23190,7 @@ namespace Opc.Ua
             set { m_gatewayServerUri = value; }
         }
 
-        /// <summary>
-        /// The globally unique identifier for the discovery profile supported by the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DiscoveryProfileUri", IsRequired = false, Order = 6)]
         public string DiscoveryProfileUri
         {
@@ -21752,7 +23199,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The URLs for the server's discovery endpoints.
+        /// 
         /// </summary>
         [DataMember(Name = "DiscoveryUrls", IsRequired = false, Order = 7)]
         public StringCollection DiscoveryUrls
@@ -21977,7 +23424,7 @@ namespace Opc.Ua
     #region RequestHeader Class
     #if (!OPCUA_EXCLUDE_RequestHeader)
     /// <summary>
-    /// The header passed with every server request.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -22018,9 +23465,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The authentication token for the current session.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AuthenticationToken", IsRequired = false, Order = 1)]
         public NodeId AuthenticationToken
         {
@@ -22028,9 +23473,7 @@ namespace Opc.Ua
             set { m_authenticationToken = value; }
         }
 
-        /// <summary>
-        /// When the request was sent by the client.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Timestamp", IsRequired = false, Order = 2)]
         public DateTime Timestamp
         {
@@ -22038,9 +23481,7 @@ namespace Opc.Ua
             set { m_timestamp = value; }
         }
 
-        /// <summary>
-        /// A handle assigned by the client to the request. It is returned in the response.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestHandle", IsRequired = false, Order = 3)]
         public uint RequestHandle
         {
@@ -22048,9 +23489,7 @@ namespace Opc.Ua
             set { m_requestHandle = value; }
         }
 
-        /// <summary>
-        /// A mask indicating what diagnostic information should be returned in the response.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReturnDiagnostics", IsRequired = false, Order = 4)]
         public uint ReturnDiagnostics
         {
@@ -22058,9 +23497,7 @@ namespace Opc.Ua
             set { m_returnDiagnostics = value; }
         }
 
-        /// <summary>
-        /// Identifies an entry in the client audit log.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AuditEntryId", IsRequired = false, Order = 5)]
         public string AuditEntryId
         {
@@ -22068,9 +23505,7 @@ namespace Opc.Ua
             set { m_auditEntryId = value; }
         }
 
-        /// <summary>
-        /// The timeout for the operation specified by the client.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TimeoutHint", IsRequired = false, Order = 6)]
         public uint TimeoutHint
         {
@@ -22078,9 +23513,7 @@ namespace Opc.Ua
             set { m_timeoutHint = value; }
         }
 
-        /// <summary>
-        /// Allows vendor specific information to be included in the header.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AdditionalHeader", IsRequired = false, Order = 7)]
         public ExtensionObject AdditionalHeader
         {
@@ -22207,7 +23640,7 @@ namespace Opc.Ua
     #region ResponseHeader Class
     #if (!OPCUA_EXCLUDE_ResponseHeader)
     /// <summary>
-    /// The header passed with every server response.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -22247,9 +23680,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// When the response was sent by the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Timestamp", IsRequired = false, Order = 1)]
         public DateTime Timestamp
         {
@@ -22257,9 +23688,7 @@ namespace Opc.Ua
             set { m_timestamp = value; }
         }
 
-        /// <summary>
-        /// The handle passed by the client in the request.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestHandle", IsRequired = false, Order = 2)]
         public uint RequestHandle
         {
@@ -22267,9 +23696,7 @@ namespace Opc.Ua
             set { m_requestHandle = value; }
         }
 
-        /// <summary>
-        /// The result of the operation. If Bad there are no parameters returned.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServiceResult", IsRequired = false, Order = 3)]
         public StatusCode ServiceResult
         {
@@ -22277,9 +23704,7 @@ namespace Opc.Ua
             set { m_serviceResult = value; }
         }
 
-        /// <summary>
-        /// The diagnostics associated with the ServiceResult.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServiceDiagnostics", IsRequired = false, Order = 4)]
         public DiagnosticInfo ServiceDiagnostics
         {
@@ -22288,7 +23713,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A table of strings referenced by the diagnotics structures included in the request.
+        /// 
         /// </summary>
         [DataMember(Name = "StringTable", IsRequired = false, Order = 5)]
         public StringCollection StringTable
@@ -22309,9 +23734,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// Allows vendor specific information to be included in the header.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AdditionalHeader", IsRequired = false, Order = 6)]
         public ExtensionObject AdditionalHeader
         {
@@ -22433,7 +23856,7 @@ namespace Opc.Ua
     #region ServiceFault Class
     #if (!OPCUA_EXCLUDE_ServiceFault)
     /// <summary>
-    /// The response returned by all services when there is a service level error.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -22469,7 +23892,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -22579,7 +24002,7 @@ namespace Opc.Ua
     #region SessionlessInvokeRequestType Class
     #if (!OPCUA_EXCLUDE_SessionlessInvokeRequestType)
     /// <summary>
-    /// A description for the SessionlessInvokeRequestType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -22619,7 +24042,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the UrisVersion field.
+        /// 
         /// </summary>
         [DataMember(Name = "UrisVersion", IsRequired = false, Order = 1)]
         public UInt32Collection UrisVersion
@@ -22641,7 +24064,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the NamespaceUris field.
+        /// 
         /// </summary>
         [DataMember(Name = "NamespaceUris", IsRequired = false, Order = 2)]
         public StringCollection NamespaceUris
@@ -22663,7 +24086,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ServerUris field.
+        /// 
         /// </summary>
         [DataMember(Name = "ServerUris", IsRequired = false, Order = 3)]
         public StringCollection ServerUris
@@ -22685,7 +24108,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LocaleIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "LocaleIds", IsRequired = false, Order = 4)]
         public StringCollection LocaleIds
@@ -22706,9 +24129,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the ServiceId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServiceId", IsRequired = false, Order = 5)]
         public uint ServiceId
         {
@@ -22825,7 +24246,7 @@ namespace Opc.Ua
     #region SessionlessInvokeResponseType Class
     #if (!OPCUA_EXCLUDE_SessionlessInvokeResponseType)
     /// <summary>
-    /// A description for the SessionlessInvokeResponseType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -22863,7 +24284,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the NamespaceUris field.
+        /// 
         /// </summary>
         [DataMember(Name = "NamespaceUris", IsRequired = false, Order = 1)]
         public StringCollection NamespaceUris
@@ -22885,7 +24306,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ServerUris field.
+        /// 
         /// </summary>
         [DataMember(Name = "ServerUris", IsRequired = false, Order = 2)]
         public StringCollection ServerUris
@@ -22906,9 +24327,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the ServiceId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServiceId", IsRequired = false, Order = 3)]
         public uint ServiceId
         {
@@ -23015,7 +24434,7 @@ namespace Opc.Ua
     #region FindServersRequest Class
     #if (!OPCUA_EXCLUDE_FindServersRequest)
     /// <summary>
-    /// Finds the servers known to the discovery server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -23054,7 +24473,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -23075,9 +24494,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The URL used by the client to send the request.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndpointUrl", IsRequired = false, Order = 2)]
         public string EndpointUrl
         {
@@ -23086,7 +24503,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The locales to use when constructing a response.
+        /// 
         /// </summary>
         [DataMember(Name = "LocaleIds", IsRequired = false, Order = 3)]
         public StringCollection LocaleIds
@@ -23108,7 +24525,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The URIs of the servers to return (all servers returned if none specified).
+        /// 
         /// </summary>
         [DataMember(Name = "ServerUris", IsRequired = false, Order = 4)]
         public StringCollection ServerUris
@@ -23233,7 +24650,7 @@ namespace Opc.Ua
     #region FindServersResponse Class
     #if (!OPCUA_EXCLUDE_FindServersResponse)
     /// <summary>
-    /// Finds the servers known to the discovery server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -23270,7 +24687,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -23292,7 +24709,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The servers that met the criteria specified in the request.
+        /// 
         /// </summary>
         [DataMember(Name = "Servers", IsRequired = false, Order = 2)]
         public ApplicationDescriptionCollection Servers
@@ -23407,7 +24824,7 @@ namespace Opc.Ua
     #region ServerOnNetwork Class
     #if (!OPCUA_EXCLUDE_ServerOnNetwork)
     /// <summary>
-    /// A description for the ServerOnNetwork DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -23445,9 +24862,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the RecordId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RecordId", IsRequired = false, Order = 1)]
         public uint RecordId
         {
@@ -23455,9 +24870,7 @@ namespace Opc.Ua
             set { m_recordId = value; }
         }
 
-        /// <summary>
-        /// A description for the ServerName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerName", IsRequired = false, Order = 2)]
         public string ServerName
         {
@@ -23465,9 +24878,7 @@ namespace Opc.Ua
             set { m_serverName = value; }
         }
 
-        /// <summary>
-        /// A description for the DiscoveryUrl field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DiscoveryUrl", IsRequired = false, Order = 3)]
         public string DiscoveryUrl
         {
@@ -23476,7 +24887,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ServerCapabilities field.
+        /// 
         /// </summary>
         [DataMember(Name = "ServerCapabilities", IsRequired = false, Order = 4)]
         public StringCollection ServerCapabilities
@@ -23686,7 +25097,7 @@ namespace Opc.Ua
     #region FindServersOnNetworkRequest Class
     #if (!OPCUA_EXCLUDE_FindServersOnNetworkRequest)
     /// <summary>
-    /// A description for the FindServersOnNetworkRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -23725,7 +25136,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -23746,9 +25157,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the StartingRecordId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StartingRecordId", IsRequired = false, Order = 2)]
         public uint StartingRecordId
         {
@@ -23756,9 +25165,7 @@ namespace Opc.Ua
             set { m_startingRecordId = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxRecordsToReturn field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxRecordsToReturn", IsRequired = false, Order = 3)]
         public uint MaxRecordsToReturn
         {
@@ -23767,7 +25174,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ServerCapabilityFilter field.
+        /// 
         /// </summary>
         [DataMember(Name = "ServerCapabilityFilter", IsRequired = false, Order = 4)]
         public StringCollection ServerCapabilityFilter
@@ -23892,7 +25299,7 @@ namespace Opc.Ua
     #region FindServersOnNetworkResponse Class
     #if (!OPCUA_EXCLUDE_FindServersOnNetworkResponse)
     /// <summary>
-    /// A description for the FindServersOnNetworkResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -23930,7 +25337,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -23951,9 +25358,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the LastCounterResetTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LastCounterResetTime", IsRequired = false, Order = 2)]
         public DateTime LastCounterResetTime
         {
@@ -23962,7 +25367,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Servers field.
+        /// 
         /// </summary>
         [DataMember(Name = "Servers", IsRequired = false, Order = 3)]
         public ServerOnNetworkCollection Servers
@@ -24082,34 +25487,26 @@ namespace Opc.Ua
     #region MessageSecurityMode Enumeration
     #if (!OPCUA_EXCLUDE_MessageSecurityMode)
     /// <summary>
-    /// The type of security to use on a message.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum MessageSecurityMode
     {
-        /// <summary>
-        /// An invalid mode.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Invalid_0")]
         Invalid = 0,
 
-        /// <summary>
-        /// No security is used.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_1")]
         None = 1,
 
-        /// <summary>
-        /// The message is signed.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Sign_2")]
         Sign = 2,
 
-        /// <summary>
-        /// The message is signed and encrypted.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "SignAndEncrypt_3")]
         SignAndEncrypt = 3,
     }
@@ -24119,34 +25516,26 @@ namespace Opc.Ua
     #region UserTokenType Enumeration
     #if (!OPCUA_EXCLUDE_UserTokenType)
     /// <summary>
-    /// The possible user token types.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum UserTokenType
     {
-        /// <summary>
-        /// An anonymous user.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Anonymous_0")]
         Anonymous = 0,
 
-        /// <summary>
-        /// A user identified by a user name and password.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "UserName_1")]
         UserName = 1,
 
-        /// <summary>
-        /// A user identified by an X509 certificate.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Certificate_2")]
         Certificate = 2,
 
-        /// <summary>
-        /// A user identified by WS-Security XML token.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "IssuedToken_3")]
         IssuedToken = 3,
     }
@@ -24156,7 +25545,7 @@ namespace Opc.Ua
     #region UserTokenPolicy Class
     #if (!OPCUA_EXCLUDE_UserTokenPolicy)
     /// <summary>
-    /// Describes a user token that can be used with a server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -24195,9 +25584,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A identifier for the policy assigned by the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PolicyId", IsRequired = false, Order = 1)]
         public string PolicyId
         {
@@ -24205,9 +25592,7 @@ namespace Opc.Ua
             set { m_policyId = value; }
         }
 
-        /// <summary>
-        /// The type of user token.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TokenType", IsRequired = false, Order = 2)]
         public UserTokenType TokenType
         {
@@ -24215,9 +25600,7 @@ namespace Opc.Ua
             set { m_tokenType = value; }
         }
 
-        /// <summary>
-        /// The type of issued token.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IssuedTokenType", IsRequired = false, Order = 3)]
         public string IssuedTokenType
         {
@@ -24225,9 +25608,7 @@ namespace Opc.Ua
             set { m_issuedTokenType = value; }
         }
 
-        /// <summary>
-        /// The endpoint or any other information need to contruct an issued token URL.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IssuerEndpointUrl", IsRequired = false, Order = 4)]
         public string IssuerEndpointUrl
         {
@@ -24235,9 +25616,7 @@ namespace Opc.Ua
             set { m_issuerEndpointUrl = value; }
         }
 
-        /// <summary>
-        /// The security policy to use when encrypting or signing the user token.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityPolicyUri", IsRequired = false, Order = 5)]
         public string SecurityPolicyUri
         {
@@ -24439,7 +25818,7 @@ namespace Opc.Ua
     #region EndpointDescription Class
     #if (!OPCUA_EXCLUDE_EndpointDescription)
     /// <summary>
-    /// The description of a endpoint that can be used to access a server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -24481,9 +25860,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The network endpoint to use when connecting to the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndpointUrl", IsRequired = false, Order = 1)]
         public string EndpointUrl
         {
@@ -24492,7 +25869,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The description of the server.
+        /// 
         /// </summary>
         [DataMember(Name = "Server", IsRequired = false, Order = 2)]
         public ApplicationDescription Server
@@ -24513,9 +25890,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The server's application certificate.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerCertificate", IsRequired = false, Order = 3)]
         public byte[] ServerCertificate
         {
@@ -24523,9 +25898,7 @@ namespace Opc.Ua
             set { m_serverCertificate = value; }
         }
 
-        /// <summary>
-        /// The security mode that must be used when connecting to the endpoint.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityMode", IsRequired = false, Order = 4)]
         public MessageSecurityMode SecurityMode
         {
@@ -24533,9 +25906,7 @@ namespace Opc.Ua
             set { m_securityMode = value; }
         }
 
-        /// <summary>
-        /// The security policy to use when connecting to the endpoint.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityPolicyUri", IsRequired = false, Order = 5)]
         public string SecurityPolicyUri
         {
@@ -24544,7 +25915,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The user identity tokens that can be used with this endpoint.
+        /// 
         /// </summary>
         [DataMember(Name = "UserIdentityTokens", IsRequired = false, Order = 6)]
         public UserTokenPolicyCollection UserIdentityTokens
@@ -24565,9 +25936,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The transport profile to use when connecting to the endpoint.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransportProfileUri", IsRequired = false, Order = 7)]
         public string TransportProfileUri
         {
@@ -24575,9 +25944,7 @@ namespace Opc.Ua
             set { m_transportProfileUri = value; }
         }
 
-        /// <summary>
-        /// A server assigned value that indicates how secure the endpoint is relative to other server endpoints.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityLevel", IsRequired = false, Order = 8)]
         public byte SecurityLevel
         {
@@ -24794,7 +26161,7 @@ namespace Opc.Ua
     #region GetEndpointsRequest Class
     #if (!OPCUA_EXCLUDE_GetEndpointsRequest)
     /// <summary>
-    /// Gets the endpoints used by the server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -24833,7 +26200,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -24854,9 +26221,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The URL used by the client to send the request.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndpointUrl", IsRequired = false, Order = 2)]
         public string EndpointUrl
         {
@@ -24865,7 +26230,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The locales to use when constructing a response.
+        /// 
         /// </summary>
         [DataMember(Name = "LocaleIds", IsRequired = false, Order = 3)]
         public StringCollection LocaleIds
@@ -24887,7 +26252,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The URIs of the transport profiles for the endpoints to return (all endpoints returned if none specified).
+        /// 
         /// </summary>
         [DataMember(Name = "ProfileUris", IsRequired = false, Order = 4)]
         public StringCollection ProfileUris
@@ -25012,7 +26377,7 @@ namespace Opc.Ua
     #region GetEndpointsResponse Class
     #if (!OPCUA_EXCLUDE_GetEndpointsResponse)
     /// <summary>
-    /// Gets the endpoints used by the server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -25049,7 +26414,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -25071,7 +26436,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The endpoints that met the criteria specified in the request.
+        /// 
         /// </summary>
         [DataMember(Name = "Endpoints", IsRequired = false, Order = 2)]
         public EndpointDescriptionCollection Endpoints
@@ -25186,7 +26551,7 @@ namespace Opc.Ua
     #region RegisteredServer Class
     #if (!OPCUA_EXCLUDE_RegisteredServer)
     /// <summary>
-    /// The information required to register a server with a discovery server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -25228,9 +26593,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The globally unique identifier for the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerUri", IsRequired = false, Order = 1)]
         public string ServerUri
         {
@@ -25238,9 +26601,7 @@ namespace Opc.Ua
             set { m_serverUri = value; }
         }
 
-        /// <summary>
-        /// The globally unique identifier for the product.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ProductUri", IsRequired = false, Order = 2)]
         public string ProductUri
         {
@@ -25249,7 +26610,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The name of server in multiple lcoales.
+        /// 
         /// </summary>
         [DataMember(Name = "ServerNames", IsRequired = false, Order = 3)]
         public LocalizedTextCollection ServerNames
@@ -25270,9 +26631,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The type of server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerType", IsRequired = false, Order = 4)]
         public ApplicationType ServerType
         {
@@ -25280,9 +26639,7 @@ namespace Opc.Ua
             set { m_serverType = value; }
         }
 
-        /// <summary>
-        /// The globally unique identifier for the server that is acting as a gateway for the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "GatewayServerUri", IsRequired = false, Order = 5)]
         public string GatewayServerUri
         {
@@ -25291,7 +26648,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The URLs for the server's discovery endpoints.
+        /// 
         /// </summary>
         [DataMember(Name = "DiscoveryUrls", IsRequired = false, Order = 6)]
         public StringCollection DiscoveryUrls
@@ -25312,9 +26669,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A path to a file that is deleted when the server is no longer accepting connections.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SemaphoreFilePath", IsRequired = false, Order = 7)]
         public string SemaphoreFilePath
         {
@@ -25322,9 +26677,7 @@ namespace Opc.Ua
             set { m_semaphoreFilePath = value; }
         }
 
-        /// <summary>
-        /// If FALSE the server will save the registration information to a persistent datastore.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsOnline", IsRequired = false, Order = 8)]
         public bool IsOnline
         {
@@ -25541,7 +26894,7 @@ namespace Opc.Ua
     #region RegisterServerRequest Class
     #if (!OPCUA_EXCLUDE_RegisterServerRequest)
     /// <summary>
-    /// Registers a server with the discovery server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -25578,7 +26931,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -25600,7 +26953,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The server to register.
+        /// 
         /// </summary>
         [DataMember(Name = "Server", IsRequired = false, Order = 2)]
         public RegisteredServer Server
@@ -25715,7 +27068,7 @@ namespace Opc.Ua
     #region RegisterServerResponse Class
     #if (!OPCUA_EXCLUDE_RegisterServerResponse)
     /// <summary>
-    /// Registers a server with the discovery server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -25751,7 +27104,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -25861,7 +27214,7 @@ namespace Opc.Ua
     #region DiscoveryConfiguration Class
     #if (!OPCUA_EXCLUDE_DiscoveryConfiguration)
     /// <summary>
-    /// A base type for discovery configuration information.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -25980,7 +27333,7 @@ namespace Opc.Ua
     #region MdnsDiscoveryConfiguration Class
     #if (!OPCUA_EXCLUDE_MdnsDiscoveryConfiguration)
     /// <summary>
-    /// The discovery information needed for mDNS registration.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -26016,9 +27369,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The name for server that is broadcast via mDNS.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MdnsServerName", IsRequired = false, Order = 1)]
         public string MdnsServerName
         {
@@ -26027,7 +27378,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The server capabilities that are broadcast via mDNS.
+        /// 
         /// </summary>
         [DataMember(Name = "ServerCapabilities", IsRequired = false, Order = 2)]
         public StringCollection ServerCapabilities
@@ -26147,7 +27498,7 @@ namespace Opc.Ua
     #region RegisterServer2Request Class
     #if (!OPCUA_EXCLUDE_RegisterServer2Request)
     /// <summary>
-    /// A description for the RegisterServer2Request DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -26185,7 +27536,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -26207,7 +27558,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Server field.
+        /// 
         /// </summary>
         [DataMember(Name = "Server", IsRequired = false, Order = 2)]
         public RegisteredServer Server
@@ -26229,7 +27580,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiscoveryConfiguration field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiscoveryConfiguration", IsRequired = false, Order = 3)]
         public ExtensionObjectCollection DiscoveryConfiguration
@@ -26349,7 +27700,7 @@ namespace Opc.Ua
     #region RegisterServer2Response Class
     #if (!OPCUA_EXCLUDE_RegisterServer2Response)
     /// <summary>
-    /// A description for the RegisterServer2Response DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -26387,7 +27738,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -26409,7 +27760,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ConfigurationResults field.
+        /// 
         /// </summary>
         [DataMember(Name = "ConfigurationResults", IsRequired = false, Order = 2)]
         public StatusCodeCollection ConfigurationResults
@@ -26431,7 +27782,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -26551,22 +27902,18 @@ namespace Opc.Ua
     #region SecurityTokenRequestType Enumeration
     #if (!OPCUA_EXCLUDE_SecurityTokenRequestType)
     /// <summary>
-    /// Indicates whether a token if being created or renewed.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum SecurityTokenRequestType
     {
-        /// <summary>
-        /// The channel is being created.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Issue_0")]
         Issue = 0,
 
-        /// <summary>
-        /// The channel is being renewed.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Renew_1")]
         Renew = 1,
     }
@@ -26576,7 +27923,7 @@ namespace Opc.Ua
     #region ChannelSecurityToken Class
     #if (!OPCUA_EXCLUDE_ChannelSecurityToken)
     /// <summary>
-    /// The token that identifies a set of keys for an active secure channel.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -26614,9 +27961,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A unique identifier for the channel.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ChannelId", IsRequired = false, Order = 1)]
         public uint ChannelId
         {
@@ -26624,9 +27969,7 @@ namespace Opc.Ua
             set { m_channelId = value; }
         }
 
-        /// <summary>
-        /// A unique identifier for the current token.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TokenId", IsRequired = false, Order = 2)]
         public uint TokenId
         {
@@ -26634,9 +27977,7 @@ namespace Opc.Ua
             set { m_tokenId = value; }
         }
 
-        /// <summary>
-        /// When the channel was created.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CreatedAt", IsRequired = false, Order = 3)]
         public DateTime CreatedAt
         {
@@ -26644,9 +27985,7 @@ namespace Opc.Ua
             set { m_createdAt = value; }
         }
 
-        /// <summary>
-        /// When the channel will expiry.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedLifetime", IsRequired = false, Order = 4)]
         public uint RevisedLifetime
         {
@@ -26758,7 +28097,7 @@ namespace Opc.Ua
     #region OpenSecureChannelRequest Class
     #if (!OPCUA_EXCLUDE_OpenSecureChannelRequest)
     /// <summary>
-    /// Creates a secure channel with a server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -26799,7 +28138,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -26820,9 +28159,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The version of protocol used by the client.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientProtocolVersion", IsRequired = false, Order = 2)]
         public uint ClientProtocolVersion
         {
@@ -26830,9 +28167,7 @@ namespace Opc.Ua
             set { m_clientProtocolVersion = value; }
         }
 
-        /// <summary>
-        /// Whether the channel is being created or renewed.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestType", IsRequired = false, Order = 3)]
         public SecurityTokenRequestType RequestType
         {
@@ -26840,9 +28175,7 @@ namespace Opc.Ua
             set { m_requestType = value; }
         }
 
-        /// <summary>
-        /// The security mode to use with the channel.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityMode", IsRequired = false, Order = 4)]
         public MessageSecurityMode SecurityMode
         {
@@ -26850,9 +28183,7 @@ namespace Opc.Ua
             set { m_securityMode = value; }
         }
 
-        /// <summary>
-        /// A random number generated by the client.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientNonce", IsRequired = false, Order = 5)]
         public byte[] ClientNonce
         {
@@ -26860,9 +28191,7 @@ namespace Opc.Ua
             set { m_clientNonce = value; }
         }
 
-        /// <summary>
-        /// The channel lifetime in milliseconds.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedLifetime", IsRequired = false, Order = 6)]
         public uint RequestedLifetime
         {
@@ -26984,7 +28313,7 @@ namespace Opc.Ua
     #region OpenSecureChannelResponse Class
     #if (!OPCUA_EXCLUDE_OpenSecureChannelResponse)
     /// <summary>
-    /// Creates a secure channel with a server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -27023,7 +28352,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -27044,9 +28373,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The version of protocol used by the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerProtocolVersion", IsRequired = false, Order = 2)]
         public uint ServerProtocolVersion
         {
@@ -27055,7 +28382,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The token that identifies the new secure channel.
+        /// 
         /// </summary>
         [DataMember(Name = "SecurityToken", IsRequired = false, Order = 3)]
         public ChannelSecurityToken SecurityToken
@@ -27076,9 +28403,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A random number generated by the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerNonce", IsRequired = false, Order = 4)]
         public byte[] ServerNonce
         {
@@ -27190,7 +28515,7 @@ namespace Opc.Ua
     #region CloseSecureChannelRequest Class
     #if (!OPCUA_EXCLUDE_CloseSecureChannelRequest)
     /// <summary>
-    /// Closes a secure channel.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -27226,7 +28551,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -27336,7 +28661,7 @@ namespace Opc.Ua
     #region CloseSecureChannelResponse Class
     #if (!OPCUA_EXCLUDE_CloseSecureChannelResponse)
     /// <summary>
-    /// Closes a secure channel.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -27372,7 +28697,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -27482,7 +28807,7 @@ namespace Opc.Ua
     #region SignedSoftwareCertificate Class
     #if (!OPCUA_EXCLUDE_SignedSoftwareCertificate)
     /// <summary>
-    /// A software certificate with a digital signature.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -27518,9 +28843,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The data of the certificate.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CertificateData", IsRequired = false, Order = 1)]
         public byte[] CertificateData
         {
@@ -27528,9 +28851,7 @@ namespace Opc.Ua
             set { m_certificateData = value; }
         }
 
-        /// <summary>
-        /// The digital signature.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Signature", IsRequired = false, Order = 2)]
         public byte[] Signature
         {
@@ -27717,7 +29038,7 @@ namespace Opc.Ua
     #region SignatureData Class
     #if (!OPCUA_EXCLUDE_SignatureData)
     /// <summary>
-    /// A digital signature.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -27753,9 +29074,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The cryptography algorithm used to create the signature.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Algorithm", IsRequired = false, Order = 1)]
         public string Algorithm
         {
@@ -27763,9 +29082,7 @@ namespace Opc.Ua
             set { m_algorithm = value; }
         }
 
-        /// <summary>
-        /// The signature.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Signature", IsRequired = false, Order = 2)]
         public byte[] Signature
         {
@@ -27867,7 +29184,7 @@ namespace Opc.Ua
     #region CreateSessionRequest Class
     #if (!OPCUA_EXCLUDE_CreateSessionRequest)
     /// <summary>
-    /// Creates a new session with the server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -27911,7 +29228,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -27933,7 +29250,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// Describes the client application.
+        /// 
         /// </summary>
         [DataMember(Name = "ClientDescription", IsRequired = false, Order = 2)]
         public ApplicationDescription ClientDescription
@@ -27954,9 +29271,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The URI of the server that the client wants to create a session with.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerUri", IsRequired = false, Order = 3)]
         public string ServerUri
         {
@@ -27964,9 +29279,7 @@ namespace Opc.Ua
             set { m_serverUri = value; }
         }
 
-        /// <summary>
-        /// The URL that the client used to connect to the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndpointUrl", IsRequired = false, Order = 4)]
         public string EndpointUrl
         {
@@ -27974,9 +29287,7 @@ namespace Opc.Ua
             set { m_endpointUrl = value; }
         }
 
-        /// <summary>
-        /// A name for the session provided by the client.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SessionName", IsRequired = false, Order = 5)]
         public string SessionName
         {
@@ -27984,9 +29295,7 @@ namespace Opc.Ua
             set { m_sessionName = value; }
         }
 
-        /// <summary>
-        /// A random number generated by the client.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientNonce", IsRequired = false, Order = 6)]
         public byte[] ClientNonce
         {
@@ -27994,9 +29303,7 @@ namespace Opc.Ua
             set { m_clientNonce = value; }
         }
 
-        /// <summary>
-        /// The application certificate for the client.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientCertificate", IsRequired = false, Order = 7)]
         public byte[] ClientCertificate
         {
@@ -28004,9 +29311,7 @@ namespace Opc.Ua
             set { m_clientCertificate = value; }
         }
 
-        /// <summary>
-        /// The requested session timeout in milliseconds.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedSessionTimeout", IsRequired = false, Order = 8)]
         public double RequestedSessionTimeout
         {
@@ -28014,9 +29319,7 @@ namespace Opc.Ua
             set { m_requestedSessionTimeout = value; }
         }
 
-        /// <summary>
-        /// The maximum message size accepted by the client.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxResponseMessageSize", IsRequired = false, Order = 9)]
         public uint MaxResponseMessageSize
         {
@@ -28153,7 +29456,7 @@ namespace Opc.Ua
     #region CreateSessionResponse Class
     #if (!OPCUA_EXCLUDE_CreateSessionResponse)
     /// <summary>
-    /// Creates a new session with the server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -28198,7 +29501,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -28219,9 +29522,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A identifier which uniquely identifies the session.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SessionId", IsRequired = false, Order = 2)]
         public NodeId SessionId
         {
@@ -28229,9 +29530,7 @@ namespace Opc.Ua
             set { m_sessionId = value; }
         }
 
-        /// <summary>
-        /// The token used to authenticate the client in subsequent requests.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AuthenticationToken", IsRequired = false, Order = 3)]
         public NodeId AuthenticationToken
         {
@@ -28239,9 +29538,7 @@ namespace Opc.Ua
             set { m_authenticationToken = value; }
         }
 
-        /// <summary>
-        /// The session timeout in milliseconds.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedSessionTimeout", IsRequired = false, Order = 4)]
         public double RevisedSessionTimeout
         {
@@ -28249,9 +29546,7 @@ namespace Opc.Ua
             set { m_revisedSessionTimeout = value; }
         }
 
-        /// <summary>
-        /// A random number generated by the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerNonce", IsRequired = false, Order = 5)]
         public byte[] ServerNonce
         {
@@ -28259,9 +29554,7 @@ namespace Opc.Ua
             set { m_serverNonce = value; }
         }
 
-        /// <summary>
-        /// The application certificate for the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerCertificate", IsRequired = false, Order = 6)]
         public byte[] ServerCertificate
         {
@@ -28270,7 +29563,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The endpoints provided by the server.
+        /// 
         /// </summary>
         [DataMember(Name = "ServerEndpoints", IsRequired = false, Order = 7)]
         public EndpointDescriptionCollection ServerEndpoints
@@ -28292,7 +29585,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The software certificates owned by the server.
+        /// 
         /// </summary>
         [DataMember(Name = "ServerSoftwareCertificates", IsRequired = false, Order = 8)]
         public SignedSoftwareCertificateCollection ServerSoftwareCertificates
@@ -28314,7 +29607,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A signature created with the server certificate.
+        /// 
         /// </summary>
         [DataMember(Name = "ServerSignature", IsRequired = false, Order = 9)]
         public SignatureData ServerSignature
@@ -28335,9 +29628,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The maximum message size accepted by the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxRequestMessageSize", IsRequired = false, Order = 10)]
         public uint MaxRequestMessageSize
         {
@@ -28479,7 +29770,7 @@ namespace Opc.Ua
     #region UserIdentityToken Class
     #if (!OPCUA_EXCLUDE_UserIdentityToken)
     /// <summary>
-    /// A base type for a user identity token.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -28514,9 +29805,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The policy id specified in a user token policy for the endpoint being used.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PolicyId", IsRequired = false, Order = 1)]
         public string PolicyId
         {
@@ -28613,7 +29902,7 @@ namespace Opc.Ua
     #region AnonymousIdentityToken Class
     #if (!OPCUA_EXCLUDE_AnonymousIdentityToken)
     /// <summary>
-    /// A token representing an anonymous user.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -28736,7 +30025,7 @@ namespace Opc.Ua
     #region UserNameIdentityToken Class
     #if (!OPCUA_EXCLUDE_UserNameIdentityToken)
     /// <summary>
-    /// A token representing a user identified by a user name and password.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -28773,9 +30062,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The user name.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserName", IsRequired = false, Order = 1)]
         public string UserName
         {
@@ -28783,9 +30070,7 @@ namespace Opc.Ua
             set { m_userName = value; }
         }
 
-        /// <summary>
-        /// The password encrypted with the server certificate.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Password", IsRequired = false, Order = 2)]
         public byte[] Password
         {
@@ -28793,9 +30078,7 @@ namespace Opc.Ua
             set { m_password = value; }
         }
 
-        /// <summary>
-        /// The algorithm used to encrypt the password.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EncryptionAlgorithm", IsRequired = false, Order = 3)]
         public string EncryptionAlgorithm
         {
@@ -28907,7 +30190,7 @@ namespace Opc.Ua
     #region X509IdentityToken Class
     #if (!OPCUA_EXCLUDE_X509IdentityToken)
     /// <summary>
-    /// A token representing a user identified by an X509 certificate.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -28942,9 +30225,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The certificate.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CertificateData", IsRequired = false, Order = 1)]
         public byte[] CertificateData
         {
@@ -29046,7 +30327,7 @@ namespace Opc.Ua
     #region IssuedIdentityToken Class
     #if (!OPCUA_EXCLUDE_IssuedIdentityToken)
     /// <summary>
-    /// A token representing a user identified by a WS-Security XML token.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -29082,9 +30363,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The XML token encrypted with the server certificate.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TokenData", IsRequired = false, Order = 1)]
         public byte[] TokenData
         {
@@ -29092,9 +30371,7 @@ namespace Opc.Ua
             set { m_tokenData = value; }
         }
 
-        /// <summary>
-        /// The algorithm used to encrypt the certificate.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EncryptionAlgorithm", IsRequired = false, Order = 2)]
         public string EncryptionAlgorithm
         {
@@ -29201,7 +30478,7 @@ namespace Opc.Ua
     #region ActivateSessionRequest Class
     #if (!OPCUA_EXCLUDE_ActivateSessionRequest)
     /// <summary>
-    /// Activates a session with the server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -29242,7 +30519,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -29264,7 +30541,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A signature created with the client certificate from the last server nonce returned by the server.
+        /// 
         /// </summary>
         [DataMember(Name = "ClientSignature", IsRequired = false, Order = 2)]
         public SignatureData ClientSignature
@@ -29286,7 +30563,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The software certificates owned by the client.
+        /// 
         /// </summary>
         [DataMember(Name = "ClientSoftwareCertificates", IsRequired = false, Order = 3)]
         public SignedSoftwareCertificateCollection ClientSoftwareCertificates
@@ -29308,7 +30585,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The locales to use with the session.
+        /// 
         /// </summary>
         [DataMember(Name = "LocaleIds", IsRequired = false, Order = 4)]
         public StringCollection LocaleIds
@@ -29329,9 +30606,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The user identity to use with the session.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserIdentityToken", IsRequired = false, Order = 5)]
         public ExtensionObject UserIdentityToken
         {
@@ -29340,7 +30615,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A digital signature created with the user identity token.
+        /// 
         /// </summary>
         [DataMember(Name = "UserTokenSignature", IsRequired = false, Order = 6)]
         public SignatureData UserTokenSignature
@@ -29475,7 +30750,7 @@ namespace Opc.Ua
     #region ActivateSessionResponse Class
     #if (!OPCUA_EXCLUDE_ActivateSessionResponse)
     /// <summary>
-    /// Activates a session with the server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -29514,7 +30789,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -29535,9 +30810,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A random number generated by the server.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerNonce", IsRequired = false, Order = 2)]
         public byte[] ServerNonce
         {
@@ -29546,7 +30819,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// Any errors during validation of the software certificates.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 3)]
         public StatusCodeCollection Results
@@ -29568,7 +30841,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The diagnostics associated with the software certificates results.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 4)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -29693,7 +30966,7 @@ namespace Opc.Ua
     #region CloseSessionRequest Class
     #if (!OPCUA_EXCLUDE_CloseSessionRequest)
     /// <summary>
-    /// Closes a session with the server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -29730,7 +31003,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -29751,9 +31024,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// If TRUE all subscriptions are deleted when the session is closed.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DeleteSubscriptions", IsRequired = false, Order = 2)]
         public bool DeleteSubscriptions
         {
@@ -29855,7 +31126,7 @@ namespace Opc.Ua
     #region CloseSessionResponse Class
     #if (!OPCUA_EXCLUDE_CloseSessionResponse)
     /// <summary>
-    /// Closes a session with the server.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -29891,7 +31162,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -30001,7 +31272,7 @@ namespace Opc.Ua
     #region CancelRequest Class
     #if (!OPCUA_EXCLUDE_CancelRequest)
     /// <summary>
-    /// Cancels an outstanding request.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -30038,7 +31309,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -30059,9 +31330,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The handle assigned by the client to the requests being cancelled.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestHandle", IsRequired = false, Order = 2)]
         public uint RequestHandle
         {
@@ -30163,7 +31432,7 @@ namespace Opc.Ua
     #region CancelResponse Class
     #if (!OPCUA_EXCLUDE_CancelResponse)
     /// <summary>
-    /// Cancels an outstanding request.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -30200,7 +31469,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -30221,9 +31490,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The number of requests successfully cancelled.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CancelCount", IsRequired = false, Order = 2)]
         public uint CancelCount
         {
@@ -30325,220 +31592,150 @@ namespace Opc.Ua
     #region NodeAttributesMask Enumeration
     #if (!OPCUA_EXCLUDE_NodeAttributesMask)
     /// <summary>
-    /// The bits used to specify default attributes for a new node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum NodeAttributesMask
     {
-        /// <summary>
-        /// No attribuites provided.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// The access level attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AccessLevel_1")]
         AccessLevel = 1,
 
-        /// <summary>
-        /// The array dimensions attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ArrayDimensions_2")]
         ArrayDimensions = 2,
 
-        /// <summary>
-        /// The browse name attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "BrowseName_4")]
         BrowseName = 4,
 
-        /// <summary>
-        /// The contains no loops attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ContainsNoLoops_8")]
         ContainsNoLoops = 8,
 
-        /// <summary>
-        /// The data type attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataType_16")]
         DataType = 16,
 
-        /// <summary>
-        /// The description attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Description_32")]
         Description = 32,
 
-        /// <summary>
-        /// The display name attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DisplayName_64")]
         DisplayName = 64,
 
-        /// <summary>
-        /// The event notifier attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "EventNotifier_128")]
         EventNotifier = 128,
 
-        /// <summary>
-        /// The executable attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Executable_256")]
         Executable = 256,
 
-        /// <summary>
-        /// The historizing attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Historizing_512")]
         Historizing = 512,
 
-        /// <summary>
-        /// The inverse name attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "InverseName_1024")]
         InverseName = 1024,
 
-        /// <summary>
-        /// The is abstract attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "IsAbstract_2048")]
         IsAbstract = 2048,
 
-        /// <summary>
-        /// The minimum sampling interval attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "MinimumSamplingInterval_4096")]
         MinimumSamplingInterval = 4096,
 
-        /// <summary>
-        /// The node class attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NodeClass_8192")]
         NodeClass = 8192,
 
-        /// <summary>
-        /// The node id attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NodeId_16384")]
         NodeId = 16384,
 
-        /// <summary>
-        /// The symmetric attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Symmetric_32768")]
         Symmetric = 32768,
 
-        /// <summary>
-        /// The user access level attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "UserAccessLevel_65536")]
         UserAccessLevel = 65536,
 
-        /// <summary>
-        /// The user executable attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "UserExecutable_131072")]
         UserExecutable = 131072,
 
-        /// <summary>
-        /// The user write mask attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "UserWriteMask_262144")]
         UserWriteMask = 262144,
 
-        /// <summary>
-        /// The value rank attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ValueRank_524288")]
         ValueRank = 524288,
 
-        /// <summary>
-        /// The write mask attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "WriteMask_1048576")]
         WriteMask = 1048576,
 
-        /// <summary>
-        /// The value attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Value_2097152")]
         Value = 2097152,
 
-        /// <summary>
-        /// The write mask attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataTypeDefinition_4194304")]
         DataTypeDefinition = 4194304,
 
-        /// <summary>
-        /// The write mask attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "RolePermissions_8388608")]
         RolePermissions = 8388608,
 
-        /// <summary>
-        /// The write mask attribute is specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AccessRestrictions_16777216")]
         AccessRestrictions = 16777216,
 
-        /// <summary>
-        /// All attributes are specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "All_33554431")]
         All = 33554431,
 
-        /// <summary>
-        /// All base attributes are specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "BaseNode_26501220")]
         BaseNode = 26501220,
 
-        /// <summary>
-        /// All object attributes are specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Object_26501348")]
         Object = 26501348,
 
-        /// <summary>
-        /// All object type attributes are specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ObjectType_26503268")]
         ObjectType = 26503268,
 
-        /// <summary>
-        /// All variable attributes are specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Variable_26571383")]
         Variable = 26571383,
 
-        /// <summary>
-        /// All variable type attributes are specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "VariableType_28600438")]
         VariableType = 28600438,
 
-        /// <summary>
-        /// All method attributes are specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Method_26632548")]
         Method = 26632548,
 
-        /// <summary>
-        /// All reference type attributes are specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReferenceType_26537060")]
         ReferenceType = 26537060,
 
-        /// <summary>
-        /// All view attributes are specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "View_26501356")]
         View = 26501356,
     }
@@ -30548,7 +31745,7 @@ namespace Opc.Ua
     #region NodeAttributes Class
     #if (!OPCUA_EXCLUDE_NodeAttributes)
     /// <summary>
-    /// The base attributes for all nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -30587,9 +31784,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A mask indicating which attributes have been provided.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SpecifiedAttributes", IsRequired = false, Order = 1)]
         public uint SpecifiedAttributes
         {
@@ -30597,9 +31792,7 @@ namespace Opc.Ua
             set { m_specifiedAttributes = value; }
         }
 
-        /// <summary>
-        /// A human readable name for the node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DisplayName", IsRequired = false, Order = 2)]
         public LocalizedText DisplayName
         {
@@ -30607,9 +31800,7 @@ namespace Opc.Ua
             set { m_displayName = value; }
         }
 
-        /// <summary>
-        /// A description for the node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Description", IsRequired = false, Order = 3)]
         public LocalizedText Description
         {
@@ -30617,9 +31808,7 @@ namespace Opc.Ua
             set { m_description = value; }
         }
 
-        /// <summary>
-        /// A mask which specifies which attributes are writable.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "WriteMask", IsRequired = false, Order = 4)]
         public uint WriteMask
         {
@@ -30627,9 +31816,7 @@ namespace Opc.Ua
             set { m_writeMask = value; }
         }
 
-        /// <summary>
-        /// A mask which specifies which attributes are writable by the current user.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserWriteMask", IsRequired = false, Order = 5)]
         public uint UserWriteMask
         {
@@ -30746,7 +31933,7 @@ namespace Opc.Ua
     #region ObjectAttributes Class
     #if (!OPCUA_EXCLUDE_ObjectAttributes)
     /// <summary>
-    /// The attributes for an object node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -30781,9 +31968,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A mask indicating what events are produced by the object.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EventNotifier", IsRequired = false, Order = 1)]
         public byte EventNotifier
         {
@@ -30885,7 +32070,7 @@ namespace Opc.Ua
     #region VariableAttributes Class
     #if (!OPCUA_EXCLUDE_VariableAttributes)
     /// <summary>
-    /// The attributes for a variable node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -30927,9 +32112,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The value of the variable.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 1)]
         public Variant Value
         {
@@ -30937,9 +32120,7 @@ namespace Opc.Ua
             set { m_value = value; }
         }
 
-        /// <summary>
-        /// The data type of the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataType", IsRequired = false, Order = 2)]
         public NodeId DataType
         {
@@ -30947,9 +32128,7 @@ namespace Opc.Ua
             set { m_dataType = value; }
         }
 
-        /// <summary>
-        /// Whether the value is an array type and the rank of the array if it is.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ValueRank", IsRequired = false, Order = 3)]
         public int ValueRank
         {
@@ -30958,7 +32137,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The number of dimensions if the value is an array type and one or more dimensions have a fixed length.
+        /// 
         /// </summary>
         [DataMember(Name = "ArrayDimensions", IsRequired = false, Order = 4)]
         public UInt32Collection ArrayDimensions
@@ -30979,9 +32158,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A bit mask specifying how the value may be accessed.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AccessLevel", IsRequired = false, Order = 5)]
         public byte AccessLevel
         {
@@ -30989,9 +32166,7 @@ namespace Opc.Ua
             set { m_accessLevel = value; }
         }
 
-        /// <summary>
-        /// A bit mask specifying how the value may be accessed by the current user.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserAccessLevel", IsRequired = false, Order = 6)]
         public byte UserAccessLevel
         {
@@ -30999,9 +32174,7 @@ namespace Opc.Ua
             set { m_userAccessLevel = value; }
         }
 
-        /// <summary>
-        /// The minimum possible sampling interval for the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MinimumSamplingInterval", IsRequired = false, Order = 7)]
         public double MinimumSamplingInterval
         {
@@ -31009,9 +32182,7 @@ namespace Opc.Ua
             set { m_minimumSamplingInterval = value; }
         }
 
-        /// <summary>
-        /// TRUE if the server is current storing the history of the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Historizing", IsRequired = false, Order = 8)]
         public bool Historizing
         {
@@ -31148,7 +32319,7 @@ namespace Opc.Ua
     #region MethodAttributes Class
     #if (!OPCUA_EXCLUDE_MethodAttributes)
     /// <summary>
-    /// The attributes for a method node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -31184,9 +32355,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the method can be called.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Executable", IsRequired = false, Order = 1)]
         public bool Executable
         {
@@ -31194,9 +32363,7 @@ namespace Opc.Ua
             set { m_executable = value; }
         }
 
-        /// <summary>
-        /// If TRUE the method can be called by the current user.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserExecutable", IsRequired = false, Order = 2)]
         public bool UserExecutable
         {
@@ -31303,7 +32470,7 @@ namespace Opc.Ua
     #region ObjectTypeAttributes Class
     #if (!OPCUA_EXCLUDE_ObjectTypeAttributes)
     /// <summary>
-    /// The attributes for an object type node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -31338,9 +32505,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the type is abstract and only subtypes of it appear in the address space.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsAbstract", IsRequired = false, Order = 1)]
         public bool IsAbstract
         {
@@ -31442,7 +32607,7 @@ namespace Opc.Ua
     #region VariableTypeAttributes Class
     #if (!OPCUA_EXCLUDE_VariableTypeAttributes)
     /// <summary>
-    /// The attributes for a variable type node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -31481,9 +32646,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The default value when creating new instances.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 1)]
         public Variant Value
         {
@@ -31491,9 +32654,7 @@ namespace Opc.Ua
             set { m_value = value; }
         }
 
-        /// <summary>
-        /// The data type of the value.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataType", IsRequired = false, Order = 2)]
         public NodeId DataType
         {
@@ -31501,9 +32662,7 @@ namespace Opc.Ua
             set { m_dataType = value; }
         }
 
-        /// <summary>
-        /// Whether the value is an array type and the rank of the array if it is.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ValueRank", IsRequired = false, Order = 3)]
         public int ValueRank
         {
@@ -31512,7 +32671,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The number of dimensions if the value is an array type and one or more dimensions have a fixed length.
+        /// 
         /// </summary>
         [DataMember(Name = "ArrayDimensions", IsRequired = false, Order = 4)]
         public UInt32Collection ArrayDimensions
@@ -31533,9 +32692,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// If TRUE the type is abstract and only subtypes of it appear in the address space.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsAbstract", IsRequired = false, Order = 5)]
         public bool IsAbstract
         {
@@ -31657,7 +32814,7 @@ namespace Opc.Ua
     #region ReferenceTypeAttributes Class
     #if (!OPCUA_EXCLUDE_ReferenceTypeAttributes)
     /// <summary>
-    /// The attributes for a reference type node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -31694,9 +32851,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the type is abstract and only subtypes of it appear in the address space.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsAbstract", IsRequired = false, Order = 1)]
         public bool IsAbstract
         {
@@ -31704,9 +32859,7 @@ namespace Opc.Ua
             set { m_isAbstract = value; }
         }
 
-        /// <summary>
-        /// If TRUE the reference type has the same semantics in both directions.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Symmetric", IsRequired = false, Order = 2)]
         public bool Symmetric
         {
@@ -31714,9 +32867,7 @@ namespace Opc.Ua
             set { m_symmetric = value; }
         }
 
-        /// <summary>
-        /// The display name for the reference when following it from target to source.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "InverseName", IsRequired = false, Order = 3)]
         public LocalizedText InverseName
         {
@@ -31828,7 +32979,7 @@ namespace Opc.Ua
     #region DataTypeAttributes Class
     #if (!OPCUA_EXCLUDE_DataTypeAttributes)
     /// <summary>
-    /// The attributes for a data type node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -31863,9 +33014,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the type is abstract and only subtypes of it appear in the address space.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsAbstract", IsRequired = false, Order = 1)]
         public bool IsAbstract
         {
@@ -31967,7 +33116,7 @@ namespace Opc.Ua
     #region ViewAttributes Class
     #if (!OPCUA_EXCLUDE_ViewAttributes)
     /// <summary>
-    /// The attributes for a view node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -32003,9 +33152,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// If TRUE the view contains a tree of non-looping hierarchical references.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ContainsNoLoops", IsRequired = false, Order = 1)]
         public bool ContainsNoLoops
         {
@@ -32013,9 +33160,7 @@ namespace Opc.Ua
             set { m_containsNoLoops = value; }
         }
 
-        /// <summary>
-        /// A mask indicating whether events are produced by the view.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EventNotifier", IsRequired = false, Order = 2)]
         public byte EventNotifier
         {
@@ -32122,7 +33267,7 @@ namespace Opc.Ua
     #region GenericAttributeValue Class
     #if (!OPCUA_EXCLUDE_GenericAttributeValue)
     /// <summary>
-    /// A description for the GenericAttributeValue DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -32158,9 +33303,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the AttributeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AttributeId", IsRequired = false, Order = 1)]
         public uint AttributeId
         {
@@ -32168,9 +33311,7 @@ namespace Opc.Ua
             set { m_attributeId = value; }
         }
 
-        /// <summary>
-        /// A description for the Value field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 2)]
         public Variant Value
         {
@@ -32357,7 +33498,7 @@ namespace Opc.Ua
     #region GenericAttributes Class
     #if (!OPCUA_EXCLUDE_GenericAttributes)
     /// <summary>
-    /// A description for the GenericAttributes DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -32393,7 +33534,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the AttributeValues field.
+        /// 
         /// </summary>
         [DataMember(Name = "AttributeValues", IsRequired = false, Order = 1)]
         public GenericAttributeValueCollection AttributeValues
@@ -32508,7 +33649,7 @@ namespace Opc.Ua
     #region AddNodesItem Class
     #if (!OPCUA_EXCLUDE_AddNodesItem)
     /// <summary>
-    /// A request to add a node to the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -32549,9 +33690,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The node id for the parent node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ParentNodeId", IsRequired = false, Order = 1)]
         public ExpandedNodeId ParentNodeId
         {
@@ -32559,9 +33698,7 @@ namespace Opc.Ua
             set { m_parentNodeId = value; }
         }
 
-        /// <summary>
-        /// The type of reference from the parent to the new node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReferenceTypeId", IsRequired = false, Order = 2)]
         public NodeId ReferenceTypeId
         {
@@ -32569,9 +33706,7 @@ namespace Opc.Ua
             set { m_referenceTypeId = value; }
         }
 
-        /// <summary>
-        /// The node id requested by the client. If null the server must provide one.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedNewNodeId", IsRequired = false, Order = 3)]
         public ExpandedNodeId RequestedNewNodeId
         {
@@ -32579,9 +33714,7 @@ namespace Opc.Ua
             set { m_requestedNewNodeId = value; }
         }
 
-        /// <summary>
-        /// The browse name for the new node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BrowseName", IsRequired = false, Order = 4)]
         public QualifiedName BrowseName
         {
@@ -32589,9 +33722,7 @@ namespace Opc.Ua
             set { m_browseName = value; }
         }
 
-        /// <summary>
-        /// The class of the new node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeClass", IsRequired = false, Order = 5)]
         public NodeClass NodeClass
         {
@@ -32599,9 +33730,7 @@ namespace Opc.Ua
             set { m_nodeClass = value; }
         }
 
-        /// <summary>
-        /// The default attributes for the new node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeAttributes", IsRequired = false, Order = 6)]
         public ExtensionObject NodeAttributes
         {
@@ -32609,9 +33738,7 @@ namespace Opc.Ua
             set { m_nodeAttributes = value; }
         }
 
-        /// <summary>
-        /// The type definition for the new node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TypeDefinition", IsRequired = false, Order = 7)]
         public ExpandedNodeId TypeDefinition
         {
@@ -32823,7 +33950,7 @@ namespace Opc.Ua
     #region AddNodesResult Class
     #if (!OPCUA_EXCLUDE_AddNodesResult)
     /// <summary>
-    /// A result of an add node operation.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -32859,9 +33986,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A code indicating any error during the operation.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -32869,9 +33994,7 @@ namespace Opc.Ua
             set { m_statusCode = value; }
         }
 
-        /// <summary>
-        /// The id of the new node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AddedNodeId", IsRequired = false, Order = 2)]
         public NodeId AddedNodeId
         {
@@ -33058,7 +34181,7 @@ namespace Opc.Ua
     #region AddNodesRequest Class
     #if (!OPCUA_EXCLUDE_AddNodesRequest)
     /// <summary>
-    /// Adds one or more nodes to the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -33095,7 +34218,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -33117,7 +34240,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The list of nodes to add.
+        /// 
         /// </summary>
         [DataMember(Name = "NodesToAdd", IsRequired = false, Order = 2)]
         public AddNodesItemCollection NodesToAdd
@@ -33232,7 +34355,7 @@ namespace Opc.Ua
     #region AddNodesResponse Class
     #if (!OPCUA_EXCLUDE_AddNodesResponse)
     /// <summary>
-    /// Adds one or more nodes to the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -33270,7 +34393,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -33292,7 +34415,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The results for the add node operations.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public AddNodesResultCollection Results
@@ -33314,7 +34437,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The diagnostics associated with the results returned.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -33434,7 +34557,7 @@ namespace Opc.Ua
     #region AddReferencesItem Class
     #if (!OPCUA_EXCLUDE_AddReferencesItem)
     /// <summary>
-    /// A request to add a reference to the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -33474,9 +34597,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The source of the reference.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SourceNodeId", IsRequired = false, Order = 1)]
         public NodeId SourceNodeId
         {
@@ -33484,9 +34605,7 @@ namespace Opc.Ua
             set { m_sourceNodeId = value; }
         }
 
-        /// <summary>
-        /// The type of reference.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReferenceTypeId", IsRequired = false, Order = 2)]
         public NodeId ReferenceTypeId
         {
@@ -33494,9 +34613,7 @@ namespace Opc.Ua
             set { m_referenceTypeId = value; }
         }
 
-        /// <summary>
-        /// If TRUE the reference is a forward reference.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsForward", IsRequired = false, Order = 3)]
         public bool IsForward
         {
@@ -33504,9 +34621,7 @@ namespace Opc.Ua
             set { m_isForward = value; }
         }
 
-        /// <summary>
-        /// The URI of the server containing the target (if in another server).
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TargetServerUri", IsRequired = false, Order = 4)]
         public string TargetServerUri
         {
@@ -33514,9 +34629,7 @@ namespace Opc.Ua
             set { m_targetServerUri = value; }
         }
 
-        /// <summary>
-        /// The target of the reference.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TargetNodeId", IsRequired = false, Order = 5)]
         public ExpandedNodeId TargetNodeId
         {
@@ -33524,9 +34637,7 @@ namespace Opc.Ua
             set { m_targetNodeId = value; }
         }
 
-        /// <summary>
-        /// The node class of the target (if known).
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TargetNodeClass", IsRequired = false, Order = 6)]
         public NodeClass TargetNodeClass
         {
@@ -33733,7 +34844,7 @@ namespace Opc.Ua
     #region AddReferencesRequest Class
     #if (!OPCUA_EXCLUDE_AddReferencesRequest)
     /// <summary>
-    /// Adds one or more references to the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -33770,7 +34881,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -33792,7 +34903,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The list of references to add.
+        /// 
         /// </summary>
         [DataMember(Name = "ReferencesToAdd", IsRequired = false, Order = 2)]
         public AddReferencesItemCollection ReferencesToAdd
@@ -33907,7 +35018,7 @@ namespace Opc.Ua
     #region AddReferencesResponse Class
     #if (!OPCUA_EXCLUDE_AddReferencesResponse)
     /// <summary>
-    /// Adds one or more references to the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -33945,7 +35056,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -33967,7 +35078,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The results for the add reference operations.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public StatusCodeCollection Results
@@ -33989,7 +35100,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The diagnostics associated with the results returned.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -34109,7 +35220,7 @@ namespace Opc.Ua
     #region DeleteNodesItem Class
     #if (!OPCUA_EXCLUDE_DeleteNodesItem)
     /// <summary>
-    /// A request to delete a node to the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -34145,9 +35256,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The id of the node to delete.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public NodeId NodeId
         {
@@ -34155,9 +35264,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// If TRUE all references to the are deleted as well.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DeleteTargetReferences", IsRequired = false, Order = 2)]
         public bool DeleteTargetReferences
         {
@@ -34344,7 +35451,7 @@ namespace Opc.Ua
     #region DeleteNodesRequest Class
     #if (!OPCUA_EXCLUDE_DeleteNodesRequest)
     /// <summary>
-    /// Delete one or more nodes from the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -34381,7 +35488,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -34403,7 +35510,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The list of nodes to delete.
+        /// 
         /// </summary>
         [DataMember(Name = "NodesToDelete", IsRequired = false, Order = 2)]
         public DeleteNodesItemCollection NodesToDelete
@@ -34518,7 +35625,7 @@ namespace Opc.Ua
     #region DeleteNodesResponse Class
     #if (!OPCUA_EXCLUDE_DeleteNodesResponse)
     /// <summary>
-    /// Delete one or more nodes from the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -34556,7 +35663,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -34578,7 +35685,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The results for the delete nodes operations.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public StatusCodeCollection Results
@@ -34600,7 +35707,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The diagnostics associated with the results returned.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -34720,7 +35827,7 @@ namespace Opc.Ua
     #region DeleteReferencesItem Class
     #if (!OPCUA_EXCLUDE_DeleteReferencesItem)
     /// <summary>
-    /// A request to delete a node from the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -34759,9 +35866,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The source of the reference to delete.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SourceNodeId", IsRequired = false, Order = 1)]
         public NodeId SourceNodeId
         {
@@ -34769,9 +35874,7 @@ namespace Opc.Ua
             set { m_sourceNodeId = value; }
         }
 
-        /// <summary>
-        /// The type of reference to delete.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReferenceTypeId", IsRequired = false, Order = 2)]
         public NodeId ReferenceTypeId
         {
@@ -34779,9 +35882,7 @@ namespace Opc.Ua
             set { m_referenceTypeId = value; }
         }
 
-        /// <summary>
-        /// If TRUE the a forward reference is deleted.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsForward", IsRequired = false, Order = 3)]
         public bool IsForward
         {
@@ -34789,9 +35890,7 @@ namespace Opc.Ua
             set { m_isForward = value; }
         }
 
-        /// <summary>
-        /// The target of the reference to delete.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TargetNodeId", IsRequired = false, Order = 4)]
         public ExpandedNodeId TargetNodeId
         {
@@ -34799,9 +35898,7 @@ namespace Opc.Ua
             set { m_targetNodeId = value; }
         }
 
-        /// <summary>
-        /// If TRUE the reference is deleted in both directions.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DeleteBidirectional", IsRequired = false, Order = 5)]
         public bool DeleteBidirectional
         {
@@ -35003,7 +36100,7 @@ namespace Opc.Ua
     #region DeleteReferencesRequest Class
     #if (!OPCUA_EXCLUDE_DeleteReferencesRequest)
     /// <summary>
-    /// Delete one or more references from the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -35040,7 +36137,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -35062,7 +36159,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The list of references to delete.
+        /// 
         /// </summary>
         [DataMember(Name = "ReferencesToDelete", IsRequired = false, Order = 2)]
         public DeleteReferencesItemCollection ReferencesToDelete
@@ -35177,7 +36274,7 @@ namespace Opc.Ua
     #region DeleteReferencesResponse Class
     #if (!OPCUA_EXCLUDE_DeleteReferencesResponse)
     /// <summary>
-    /// Delete one or more references from the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -35215,7 +36312,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -35237,7 +36334,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The results for the delete reference operations.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public StatusCodeCollection Results
@@ -35259,7 +36356,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The diagnostics associated with the results returned.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -35379,172 +36476,118 @@ namespace Opc.Ua
     #region AttributeWriteMask Enumeration
     #if (!OPCUA_EXCLUDE_AttributeWriteMask)
     /// <summary>
-    /// Define bits used to indicate which attributes are writable.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)][Flags]
-    public enum AttributeWriteMask
+    public enum AttributeWriteMask : UInt32
     {
-        /// <summary>
-        /// No value specified.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// The access level attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AccessLevel_1")]
         AccessLevel = 1,
 
-        /// <summary>
-        /// The array dimensions attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ArrayDimensions_2")]
         ArrayDimensions = 2,
 
-        /// <summary>
-        /// The browse name attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "BrowseName_4")]
         BrowseName = 4,
 
-        /// <summary>
-        /// The contains no loops attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ContainsNoLoops_8")]
         ContainsNoLoops = 8,
 
-        /// <summary>
-        /// The data type attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataType_16")]
         DataType = 16,
 
-        /// <summary>
-        /// The description attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Description_32")]
         Description = 32,
 
-        /// <summary>
-        /// The display name attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DisplayName_64")]
         DisplayName = 64,
 
-        /// <summary>
-        /// The event notifier attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "EventNotifier_128")]
         EventNotifier = 128,
 
-        /// <summary>
-        /// The executable attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Executable_256")]
         Executable = 256,
 
-        /// <summary>
-        /// The historizing attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Historizing_512")]
         Historizing = 512,
 
-        /// <summary>
-        /// The inverse name attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "InverseName_1024")]
         InverseName = 1024,
 
-        /// <summary>
-        /// The is abstract attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "IsAbstract_2048")]
         IsAbstract = 2048,
 
-        /// <summary>
-        /// The minimum sampling interval attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "MinimumSamplingInterval_4096")]
         MinimumSamplingInterval = 4096,
 
-        /// <summary>
-        /// The node class attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NodeClass_8192")]
         NodeClass = 8192,
 
-        /// <summary>
-        /// The node id attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NodeId_16384")]
         NodeId = 16384,
 
-        /// <summary>
-        /// The symmetric attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Symmetric_32768")]
         Symmetric = 32768,
 
-        /// <summary>
-        /// The user access level attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "UserAccessLevel_65536")]
         UserAccessLevel = 65536,
 
-        /// <summary>
-        /// The user executable attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "UserExecutable_131072")]
         UserExecutable = 131072,
 
-        /// <summary>
-        /// The user write mask attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "UserWriteMask_262144")]
         UserWriteMask = 262144,
 
-        /// <summary>
-        /// The value rank attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ValueRank_524288")]
         ValueRank = 524288,
 
-        /// <summary>
-        /// The write mask attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "WriteMask_1048576")]
         WriteMask = 1048576,
 
-        /// <summary>
-        /// The value attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ValueForVariableType_2097152")]
         ValueForVariableType = 2097152,
 
-        /// <summary>
-        /// The DataTypeDefinition attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataTypeDefinition_4194304")]
         DataTypeDefinition = 4194304,
 
-        /// <summary>
-        /// The RolePermissions attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "RolePermissions_8388608")]
         RolePermissions = 8388608,
 
-        /// <summary>
-        /// The AccessRestrictions attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AccessRestrictions_16777216")]
         AccessRestrictions = 16777216,
 
-        /// <summary>
-        /// The AccessLevelEx attribute is writable.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AccessLevelEx_33554432")]
         AccessLevelEx = 33554432,
     }
@@ -35554,34 +36597,26 @@ namespace Opc.Ua
     #region BrowseDirection Enumeration
     #if (!OPCUA_EXCLUDE_BrowseDirection)
     /// <summary>
-    /// The directions of the references to return.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum BrowseDirection
     {
-        /// <summary>
-        /// Return forward references.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Forward_0")]
         Forward = 0,
 
-        /// <summary>
-        /// Return inverse references.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Inverse_1")]
         Inverse = 1,
 
-        /// <summary>
-        /// Return forward and inverse references.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Both_2")]
         Both = 2,
 
-        /// <summary>
-        /// A description for the Invalid field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Invalid_3")]
         Invalid = 3,
     }
@@ -35591,7 +36626,7 @@ namespace Opc.Ua
     #region ViewDescription Class
     #if (!OPCUA_EXCLUDE_ViewDescription)
     /// <summary>
-    /// The view to browse.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -35628,9 +36663,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The node id of the view.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ViewId", IsRequired = false, Order = 1)]
         public NodeId ViewId
         {
@@ -35638,9 +36671,7 @@ namespace Opc.Ua
             set { m_viewId = value; }
         }
 
-        /// <summary>
-        /// Browses the view at or before this time.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Timestamp", IsRequired = false, Order = 2)]
         public DateTime Timestamp
         {
@@ -35648,9 +36679,7 @@ namespace Opc.Ua
             set { m_timestamp = value; }
         }
 
-        /// <summary>
-        /// Browses a specific version of the view .
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ViewVersion", IsRequired = false, Order = 3)]
         public uint ViewVersion
         {
@@ -35757,7 +36786,7 @@ namespace Opc.Ua
     #region BrowseDescription Class
     #if (!OPCUA_EXCLUDE_BrowseDescription)
     /// <summary>
-    /// A request to browse the the references from a node.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -35797,9 +36826,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The id of the node to browse.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public NodeId NodeId
         {
@@ -35807,9 +36834,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// The direction of the references to return.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BrowseDirection", IsRequired = false, Order = 2)]
         public BrowseDirection BrowseDirection
         {
@@ -35817,9 +36842,7 @@ namespace Opc.Ua
             set { m_browseDirection = value; }
         }
 
-        /// <summary>
-        /// The type of references to return.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReferenceTypeId", IsRequired = false, Order = 3)]
         public NodeId ReferenceTypeId
         {
@@ -35827,9 +36850,7 @@ namespace Opc.Ua
             set { m_referenceTypeId = value; }
         }
 
-        /// <summary>
-        /// Includes subtypes of the reference type.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IncludeSubtypes", IsRequired = false, Order = 4)]
         public bool IncludeSubtypes
         {
@@ -35837,9 +36858,7 @@ namespace Opc.Ua
             set { m_includeSubtypes = value; }
         }
 
-        /// <summary>
-        /// A mask indicating which node classes to return. 0 means return all nodes.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeClassMask", IsRequired = false, Order = 5)]
         public uint NodeClassMask
         {
@@ -35847,9 +36866,7 @@ namespace Opc.Ua
             set { m_nodeClassMask = value; }
         }
 
-        /// <summary>
-        /// A mask indicating which fields should be returned in the results.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ResultMask", IsRequired = false, Order = 6)]
         public uint ResultMask
         {
@@ -36056,70 +37073,50 @@ namespace Opc.Ua
     #region BrowseResultMask Enumeration
     #if (!OPCUA_EXCLUDE_BrowseResultMask)
     /// <summary>
-    /// A bit mask which specifies what should be returned in a browse response.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum BrowseResultMask
     {
-        /// <summary>
-        /// Return only the node id.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// Return the reference type id.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReferenceTypeId_1")]
         ReferenceTypeId = 1,
 
-        /// <summary>
-        /// Return the flag indicating whether the reference is a forward reference.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "IsForward_2")]
         IsForward = 2,
 
-        /// <summary>
-        /// Return the node class.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NodeClass_4")]
         NodeClass = 4,
 
-        /// <summary>
-        /// Return the browse name.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "BrowseName_8")]
         BrowseName = 8,
 
-        /// <summary>
-        /// Return the display name.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DisplayName_16")]
         DisplayName = 16,
 
-        /// <summary>
-        /// Return the type definition.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "TypeDefinition_32")]
         TypeDefinition = 32,
 
-        /// <summary>
-        /// Return all fields.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "All_63")]
         All = 63,
 
-        /// <summary>
-        /// Return the reference type information.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReferenceTypeInfo_3")]
         ReferenceTypeInfo = 3,
 
-        /// <summary>
-        /// Return the information about the target node.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "TargetInfo_60")]
         TargetInfo = 60,
     }
@@ -36129,7 +37126,7 @@ namespace Opc.Ua
     #region ReferenceDescription Class
     #if (!OPCUA_EXCLUDE_ReferenceDescription)
     /// <summary>
-    /// The description of a reference.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -36170,9 +37167,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The type of references.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReferenceTypeId", IsRequired = false, Order = 1)]
         public NodeId ReferenceTypeId
         {
@@ -36180,9 +37175,7 @@ namespace Opc.Ua
             set { m_referenceTypeId = value; }
         }
 
-        /// <summary>
-        /// TRUE if the reference is a forward reference.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsForward", IsRequired = false, Order = 2)]
         public bool IsForward
         {
@@ -36190,9 +37183,7 @@ namespace Opc.Ua
             set { m_isForward = value; }
         }
 
-        /// <summary>
-        /// The id of the target node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 3)]
         public ExpandedNodeId NodeId
         {
@@ -36200,9 +37191,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// The browse name of the target node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BrowseName", IsRequired = false, Order = 4)]
         public QualifiedName BrowseName
         {
@@ -36210,9 +37199,7 @@ namespace Opc.Ua
             set { m_browseName = value; }
         }
 
-        /// <summary>
-        /// The display name of the target node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DisplayName", IsRequired = false, Order = 5)]
         public LocalizedText DisplayName
         {
@@ -36220,9 +37207,7 @@ namespace Opc.Ua
             set { m_displayName = value; }
         }
 
-        /// <summary>
-        /// The node class of the target node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeClass", IsRequired = false, Order = 6)]
         public NodeClass NodeClass
         {
@@ -36230,9 +37215,7 @@ namespace Opc.Ua
             set { m_nodeClass = value; }
         }
 
-        /// <summary>
-        /// The type definition of the target node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TypeDefinition", IsRequired = false, Order = 7)]
         public ExpandedNodeId TypeDefinition
         {
@@ -36444,7 +37427,7 @@ namespace Opc.Ua
     #region BrowseResult Class
     #if (!OPCUA_EXCLUDE_BrowseResult)
     /// <summary>
-    /// The result of a browse operation.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -36481,9 +37464,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A code indicating any error during the operation.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -36491,9 +37472,7 @@ namespace Opc.Ua
             set { m_statusCode = value; }
         }
 
-        /// <summary>
-        /// A value that indicates the operation is incomplete and can be continued by calling BrowseNext.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ContinuationPoint", IsRequired = false, Order = 2)]
         public byte[] ContinuationPoint
         {
@@ -36502,7 +37481,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A list of references that meet the criteria specified in the request.
+        /// 
         /// </summary>
         [DataMember(Name = "References", IsRequired = false, Order = 3)]
         public ReferenceDescriptionCollection References
@@ -36707,7 +37686,7 @@ namespace Opc.Ua
     #region BrowseRequest Class
     #if (!OPCUA_EXCLUDE_BrowseRequest)
     /// <summary>
-    /// Browse the references for one or more nodes from the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -36746,7 +37725,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -36768,7 +37747,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The view to browse.
+        /// 
         /// </summary>
         [DataMember(Name = "View", IsRequired = false, Order = 2)]
         public ViewDescription View
@@ -36789,9 +37768,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// The maximum number of references to return in the response.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedMaxReferencesPerNode", IsRequired = false, Order = 3)]
         public uint RequestedMaxReferencesPerNode
         {
@@ -36800,7 +37777,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The list of nodes to browse.
+        /// 
         /// </summary>
         [DataMember(Name = "NodesToBrowse", IsRequired = false, Order = 4)]
         public BrowseDescriptionCollection NodesToBrowse
@@ -36925,7 +37902,7 @@ namespace Opc.Ua
     #region BrowseResponse Class
     #if (!OPCUA_EXCLUDE_BrowseResponse)
     /// <summary>
-    /// Browse the references for one or more nodes from the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -36963,7 +37940,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -36985,7 +37962,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The results for the browse operations.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public BrowseResultCollection Results
@@ -37007,7 +37984,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The diagnostics associated with the results.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -37127,7 +38104,7 @@ namespace Opc.Ua
     #region BrowseNextRequest Class
     #if (!OPCUA_EXCLUDE_BrowseNextRequest)
     /// <summary>
-    /// Continues one or more browse operations.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -37165,7 +38142,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -37186,9 +38163,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// If TRUE the continuation points are released and no results are returned.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReleaseContinuationPoints", IsRequired = false, Order = 2)]
         public bool ReleaseContinuationPoints
         {
@@ -37197,7 +38172,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The contination points returned from a previous call to Browse and BrowseNext.
+        /// 
         /// </summary>
         [DataMember(Name = "ContinuationPoints", IsRequired = false, Order = 3)]
         public ByteStringCollection ContinuationPoints
@@ -37317,7 +38292,7 @@ namespace Opc.Ua
     #region BrowseNextResponse Class
     #if (!OPCUA_EXCLUDE_BrowseNextResponse)
     /// <summary>
-    /// Continues one or more browse operations.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -37355,7 +38330,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -37377,7 +38352,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The results for the browse operations.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public BrowseResultCollection Results
@@ -37399,7 +38374,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The diagnostics associated with the results.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -37519,7 +38494,7 @@ namespace Opc.Ua
     #region RelativePathElement Class
     #if (!OPCUA_EXCLUDE_RelativePathElement)
     /// <summary>
-    /// An element in a relative path.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -37557,9 +38532,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The type of reference to follow.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReferenceTypeId", IsRequired = false, Order = 1)]
         public NodeId ReferenceTypeId
         {
@@ -37567,9 +38540,7 @@ namespace Opc.Ua
             set { m_referenceTypeId = value; }
         }
 
-        /// <summary>
-        /// If TRUE the reverse reference is followed.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsInverse", IsRequired = false, Order = 2)]
         public bool IsInverse
         {
@@ -37577,9 +38548,7 @@ namespace Opc.Ua
             set { m_isInverse = value; }
         }
 
-        /// <summary>
-        /// If TRUE then subtypes of the reference type are followed.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IncludeSubtypes", IsRequired = false, Order = 3)]
         public bool IncludeSubtypes
         {
@@ -37587,9 +38556,7 @@ namespace Opc.Ua
             set { m_includeSubtypes = value; }
         }
 
-        /// <summary>
-        /// The browse name of the target.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TargetName", IsRequired = false, Order = 4)]
         public QualifiedName TargetName
         {
@@ -37786,7 +38753,7 @@ namespace Opc.Ua
     #region RelativePath Class
     #if (!OPCUA_EXCLUDE_RelativePath)
     /// <summary>
-    /// A relative path constructed from reference types and browse names.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -37822,7 +38789,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A list of elements in the path.
+        /// 
         /// </summary>
         [DataMember(Name = "Elements", IsRequired = false, Order = 1)]
         public RelativePathElementCollection Elements
@@ -37932,7 +38899,7 @@ namespace Opc.Ua
     #region BrowsePath Class
     #if (!OPCUA_EXCLUDE_BrowsePath)
     /// <summary>
-    /// A request to translate a path into a node id.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -37968,9 +38935,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The starting point for the search.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StartingNode", IsRequired = false, Order = 1)]
         public NodeId StartingNode
         {
@@ -37979,7 +38944,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The path to follow.
+        /// 
         /// </summary>
         [DataMember(Name = "RelativePath", IsRequired = false, Order = 2)]
         public RelativePath RelativePath
@@ -38179,7 +39144,7 @@ namespace Opc.Ua
     #region BrowsePathTarget Class
     #if (!OPCUA_EXCLUDE_BrowsePathTarget)
     /// <summary>
-    /// The target of the translated path.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -38215,9 +39180,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// The id of the target node.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TargetId", IsRequired = false, Order = 1)]
         public ExpandedNodeId TargetId
         {
@@ -38225,9 +39188,7 @@ namespace Opc.Ua
             set { m_targetId = value; }
         }
 
-        /// <summary>
-        /// The index of the target in the relative path. UInt32.MaxValue if the entire path was processed.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RemainingPathIndex", IsRequired = false, Order = 2)]
         public uint RemainingPathIndex
         {
@@ -38414,7 +39375,7 @@ namespace Opc.Ua
     #region BrowsePathResult Class
     #if (!OPCUA_EXCLUDE_BrowsePathResult)
     /// <summary>
-    /// The result of a translate opearation.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -38450,9 +39411,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A code indicating any error during the operation.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -38461,7 +39420,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A list of nodes found. The first element matches the type definition.
+        /// 
         /// </summary>
         [DataMember(Name = "Targets", IsRequired = false, Order = 2)]
         public BrowsePathTargetCollection Targets
@@ -38661,7 +39620,7 @@ namespace Opc.Ua
     #region TranslateBrowsePathsToNodeIdsRequest Class
     #if (!OPCUA_EXCLUDE_TranslateBrowsePathsToNodeIdsRequest)
     /// <summary>
-    /// Translates one or more paths in the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -38698,7 +39657,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -38720,7 +39679,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The list of paths to translate.
+        /// 
         /// </summary>
         [DataMember(Name = "BrowsePaths", IsRequired = false, Order = 2)]
         public BrowsePathCollection BrowsePaths
@@ -38835,7 +39794,7 @@ namespace Opc.Ua
     #region TranslateBrowsePathsToNodeIdsResponse Class
     #if (!OPCUA_EXCLUDE_TranslateBrowsePathsToNodeIdsResponse)
     /// <summary>
-    /// Translates one or more paths in the server address space.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -38873,7 +39832,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -38895,7 +39854,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The results for the translate operations.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public BrowsePathResultCollection Results
@@ -38917,7 +39876,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The diagnostics associated with the results.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -39037,7 +39996,7 @@ namespace Opc.Ua
     #region RegisterNodesRequest Class
     #if (!OPCUA_EXCLUDE_RegisterNodesRequest)
     /// <summary>
-    /// Registers one or more nodes for repeated use within a session.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -39074,7 +40033,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -39096,7 +40055,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The list of nodes to register.
+        /// 
         /// </summary>
         [DataMember(Name = "NodesToRegister", IsRequired = false, Order = 2)]
         public NodeIdCollection NodesToRegister
@@ -39211,7 +40170,7 @@ namespace Opc.Ua
     #region RegisterNodesResponse Class
     #if (!OPCUA_EXCLUDE_RegisterNodesResponse)
     /// <summary>
-    /// Registers one or more nodes for repeated use within a session.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -39248,7 +40207,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -39270,7 +40229,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The list of node ids that can be used for fast access to the nodes.
+        /// 
         /// </summary>
         [DataMember(Name = "RegisteredNodeIds", IsRequired = false, Order = 2)]
         public NodeIdCollection RegisteredNodeIds
@@ -39385,7 +40344,7 @@ namespace Opc.Ua
     #region UnregisterNodesRequest Class
     #if (!OPCUA_EXCLUDE_UnregisterNodesRequest)
     /// <summary>
-    /// Unregisters one or more previously registered nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -39422,7 +40381,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all requests sent to a server.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -39444,7 +40403,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The list of nodes to unregister.
+        /// 
         /// </summary>
         [DataMember(Name = "NodesToUnregister", IsRequired = false, Order = 2)]
         public NodeIdCollection NodesToUnregister
@@ -39559,7 +40518,7 @@ namespace Opc.Ua
     #region UnregisterNodesResponse Class
     #if (!OPCUA_EXCLUDE_UnregisterNodesResponse)
     /// <summary>
-    /// Unregisters one or more previously registered nodes.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -39595,7 +40554,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A standard header included in all responses returned by servers.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -39705,7 +40664,7 @@ namespace Opc.Ua
     #region EndpointConfiguration Class
     #if (!OPCUA_EXCLUDE_EndpointConfiguration)
     /// <summary>
-    /// A description for the EndpointConfiguration DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -39748,9 +40707,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the OperationTimeout field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "OperationTimeout", IsRequired = false, Order = 1)]
         public int OperationTimeout
         {
@@ -39758,9 +40715,7 @@ namespace Opc.Ua
             set { m_operationTimeout = value; }
         }
 
-        /// <summary>
-        /// A description for the UseBinaryEncoding field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UseBinaryEncoding", IsRequired = false, Order = 2)]
         public bool UseBinaryEncoding
         {
@@ -39768,9 +40723,7 @@ namespace Opc.Ua
             set { m_useBinaryEncoding = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxStringLength field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxStringLength", IsRequired = false, Order = 3)]
         public int MaxStringLength
         {
@@ -39778,9 +40731,7 @@ namespace Opc.Ua
             set { m_maxStringLength = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxByteStringLength field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxByteStringLength", IsRequired = false, Order = 4)]
         public int MaxByteStringLength
         {
@@ -39788,9 +40739,7 @@ namespace Opc.Ua
             set { m_maxByteStringLength = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxArrayLength field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxArrayLength", IsRequired = false, Order = 5)]
         public int MaxArrayLength
         {
@@ -39798,9 +40747,7 @@ namespace Opc.Ua
             set { m_maxArrayLength = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxMessageSize field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxMessageSize", IsRequired = false, Order = 6)]
         public int MaxMessageSize
         {
@@ -39808,9 +40755,7 @@ namespace Opc.Ua
             set { m_maxMessageSize = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxBufferSize field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxBufferSize", IsRequired = false, Order = 7)]
         public int MaxBufferSize
         {
@@ -39818,9 +40763,7 @@ namespace Opc.Ua
             set { m_maxBufferSize = value; }
         }
 
-        /// <summary>
-        /// A description for the ChannelLifetime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ChannelLifetime", IsRequired = false, Order = 8)]
         public int ChannelLifetime
         {
@@ -39828,9 +40771,7 @@ namespace Opc.Ua
             set { m_channelLifetime = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityTokenLifetime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityTokenLifetime", IsRequired = false, Order = 9)]
         public int SecurityTokenLifetime
         {
@@ -40052,7 +40993,7 @@ namespace Opc.Ua
     #region QueryDataDescription Class
     #if (!OPCUA_EXCLUDE_QueryDataDescription)
     /// <summary>
-    /// A description for the QueryDataDescription DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -40090,7 +41031,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RelativePath field.
+        /// 
         /// </summary>
         [DataMember(Name = "RelativePath", IsRequired = false, Order = 1)]
         public RelativePath RelativePath
@@ -40111,9 +41052,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the AttributeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AttributeId", IsRequired = false, Order = 2)]
         public uint AttributeId
         {
@@ -40121,9 +41060,7 @@ namespace Opc.Ua
             set { m_attributeId = value; }
         }
 
-        /// <summary>
-        /// A description for the IndexRange field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IndexRange", IsRequired = false, Order = 3)]
         public string IndexRange
         {
@@ -40315,7 +41252,7 @@ namespace Opc.Ua
     #region NodeTypeDescription Class
     #if (!OPCUA_EXCLUDE_NodeTypeDescription)
     /// <summary>
-    /// A description for the NodeTypeDescription DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -40352,9 +41289,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the TypeDefinitionNode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TypeDefinitionNode", IsRequired = false, Order = 1)]
         public ExpandedNodeId TypeDefinitionNode
         {
@@ -40362,9 +41297,7 @@ namespace Opc.Ua
             set { m_typeDefinitionNode = value; }
         }
 
-        /// <summary>
-        /// A description for the IncludeSubTypes field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IncludeSubTypes", IsRequired = false, Order = 2)]
         public bool IncludeSubTypes
         {
@@ -40373,7 +41306,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataToReturn field.
+        /// 
         /// </summary>
         [DataMember(Name = "DataToReturn", IsRequired = false, Order = 3)]
         public QueryDataDescriptionCollection DataToReturn
@@ -40578,118 +41511,82 @@ namespace Opc.Ua
     #region FilterOperator Enumeration
     #if (!OPCUA_EXCLUDE_FilterOperator)
     /// <summary>
-    /// A description for the FilterOperator DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum FilterOperator
     {
-        /// <summary>
-        /// A description for the Equals field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Equals_0")]
         Equals = 0,
 
-        /// <summary>
-        /// A description for the IsNull field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "IsNull_1")]
         IsNull = 1,
 
-        /// <summary>
-        /// A description for the GreaterThan field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "GreaterThan_2")]
         GreaterThan = 2,
 
-        /// <summary>
-        /// A description for the LessThan field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "LessThan_3")]
         LessThan = 3,
 
-        /// <summary>
-        /// A description for the GreaterThanOrEqual field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "GreaterThanOrEqual_4")]
         GreaterThanOrEqual = 4,
 
-        /// <summary>
-        /// A description for the LessThanOrEqual field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "LessThanOrEqual_5")]
         LessThanOrEqual = 5,
 
-        /// <summary>
-        /// A description for the Like field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Like_6")]
         Like = 6,
 
-        /// <summary>
-        /// A description for the Not field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Not_7")]
         Not = 7,
 
-        /// <summary>
-        /// A description for the Between field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Between_8")]
         Between = 8,
 
-        /// <summary>
-        /// A description for the InList field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "InList_9")]
         InList = 9,
 
-        /// <summary>
-        /// A description for the And field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "And_10")]
         And = 10,
 
-        /// <summary>
-        /// A description for the Or field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Or_11")]
         Or = 11,
 
-        /// <summary>
-        /// A description for the Cast field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Cast_12")]
         Cast = 12,
 
-        /// <summary>
-        /// A description for the InView field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "InView_13")]
         InView = 13,
 
-        /// <summary>
-        /// A description for the OfType field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "OfType_14")]
         OfType = 14,
 
-        /// <summary>
-        /// A description for the RelatedTo field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "RelatedTo_15")]
         RelatedTo = 15,
 
-        /// <summary>
-        /// A description for the BitwiseAnd field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "BitwiseAnd_16")]
         BitwiseAnd = 16,
 
-        /// <summary>
-        /// A description for the BitwiseOr field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "BitwiseOr_17")]
         BitwiseOr = 17,
     }
@@ -40699,7 +41596,7 @@ namespace Opc.Ua
     #region QueryDataSet Class
     #if (!OPCUA_EXCLUDE_QueryDataSet)
     /// <summary>
-    /// A description for the QueryDataSet DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -40736,9 +41633,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NodeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public ExpandedNodeId NodeId
         {
@@ -40746,9 +41641,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// A description for the TypeDefinitionNode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TypeDefinitionNode", IsRequired = false, Order = 2)]
         public ExpandedNodeId TypeDefinitionNode
         {
@@ -40757,7 +41650,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Values field.
+        /// 
         /// </summary>
         [DataMember(Name = "Values", IsRequired = false, Order = 3)]
         public VariantCollection Values
@@ -40962,7 +41855,7 @@ namespace Opc.Ua
     #region NodeReference Class
     #if (!OPCUA_EXCLUDE_NodeReference)
     /// <summary>
-    /// A description for the NodeReference DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -41000,9 +41893,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NodeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public NodeId NodeId
         {
@@ -41010,9 +41901,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// A description for the ReferenceTypeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReferenceTypeId", IsRequired = false, Order = 2)]
         public NodeId ReferenceTypeId
         {
@@ -41020,9 +41909,7 @@ namespace Opc.Ua
             set { m_referenceTypeId = value; }
         }
 
-        /// <summary>
-        /// A description for the IsForward field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsForward", IsRequired = false, Order = 3)]
         public bool IsForward
         {
@@ -41031,7 +41918,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ReferencedNodeIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "ReferencedNodeIds", IsRequired = false, Order = 4)]
         public NodeIdCollection ReferencedNodeIds
@@ -41241,7 +42128,7 @@ namespace Opc.Ua
     #region ContentFilterElement Class
     #if (!OPCUA_EXCLUDE_ContentFilterElement)
     /// <summary>
-    /// A description for the ContentFilterElement DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -41277,9 +42164,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the FilterOperator field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "FilterOperator", IsRequired = false, Order = 1)]
         public FilterOperator FilterOperator
         {
@@ -41288,7 +42173,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the FilterOperands field.
+        /// 
         /// </summary>
         [DataMember(Name = "FilterOperands", IsRequired = false, Order = 2)]
         public ExtensionObjectCollection FilterOperands
@@ -41488,7 +42373,7 @@ namespace Opc.Ua
     #region ContentFilter Class
     #if (!OPCUA_EXCLUDE_ContentFilter)
     /// <summary>
-    /// A description for the ContentFilter DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -41524,7 +42409,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the Elements field.
+        /// 
         /// </summary>
         [DataMember(Name = "Elements", IsRequired = false, Order = 1)]
         public ContentFilterElementCollection Elements
@@ -41719,7 +42604,7 @@ namespace Opc.Ua
     #region FilterOperand Class
     #if (!OPCUA_EXCLUDE_FilterOperand)
     /// <summary>
-    /// A description for the FilterOperand DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -41838,7 +42723,7 @@ namespace Opc.Ua
     #region ElementOperand Class
     #if (!OPCUA_EXCLUDE_ElementOperand)
     /// <summary>
-    /// A description for the ElementOperand DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -41873,9 +42758,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Index field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Index", IsRequired = false, Order = 1)]
         public uint Index
         {
@@ -41977,7 +42860,7 @@ namespace Opc.Ua
     #region LiteralOperand Class
     #if (!OPCUA_EXCLUDE_LiteralOperand)
     /// <summary>
-    /// A description for the LiteralOperand DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -42012,9 +42895,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Value field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 1)]
         public Variant Value
         {
@@ -42116,7 +42997,7 @@ namespace Opc.Ua
     #region AttributeOperand Class
     #if (!OPCUA_EXCLUDE_AttributeOperand)
     /// <summary>
-    /// A description for the AttributeOperand DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -42155,9 +43036,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NodeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public NodeId NodeId
         {
@@ -42165,9 +43044,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// A description for the Alias field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Alias", IsRequired = false, Order = 2)]
         public string Alias
         {
@@ -42176,7 +43053,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the BrowsePath field.
+        /// 
         /// </summary>
         [DataMember(Name = "BrowsePath", IsRequired = false, Order = 3)]
         public RelativePath BrowsePath
@@ -42197,9 +43074,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the AttributeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AttributeId", IsRequired = false, Order = 4)]
         public uint AttributeId
         {
@@ -42207,9 +43082,7 @@ namespace Opc.Ua
             set { m_attributeId = value; }
         }
 
-        /// <summary>
-        /// A description for the IndexRange field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IndexRange", IsRequired = false, Order = 5)]
         public string IndexRange
         {
@@ -42331,7 +43204,7 @@ namespace Opc.Ua
     #region SimpleAttributeOperand Class
     #if (!OPCUA_EXCLUDE_SimpleAttributeOperand)
     /// <summary>
-    /// A description for the SimpleAttributeOperand DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -42369,9 +43242,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the TypeDefinitionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TypeDefinitionId", IsRequired = false, Order = 1)]
         public NodeId TypeDefinitionId
         {
@@ -42380,7 +43251,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the BrowsePath field.
+        /// 
         /// </summary>
         [DataMember(Name = "BrowsePath", IsRequired = false, Order = 2)]
         public QualifiedNameCollection BrowsePath
@@ -42401,9 +43272,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the AttributeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AttributeId", IsRequired = false, Order = 3)]
         public uint AttributeId
         {
@@ -42411,9 +43280,7 @@ namespace Opc.Ua
             set { m_attributeId = value; }
         }
 
-        /// <summary>
-        /// A description for the IndexRange field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IndexRange", IsRequired = false, Order = 4)]
         public string IndexRange
         {
@@ -42615,7 +43482,7 @@ namespace Opc.Ua
     #region ContentFilterElementResult Class
     #if (!OPCUA_EXCLUDE_ContentFilterElementResult)
     /// <summary>
-    /// A description for the ContentFilterElementResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -42652,9 +43519,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -42663,7 +43528,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the OperandStatusCodes field.
+        /// 
         /// </summary>
         [DataMember(Name = "OperandStatusCodes", IsRequired = false, Order = 2)]
         public StatusCodeCollection OperandStatusCodes
@@ -42685,7 +43550,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the OperandDiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "OperandDiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection OperandDiagnosticInfos
@@ -42890,7 +43755,7 @@ namespace Opc.Ua
     #region ContentFilterResult Class
     #if (!OPCUA_EXCLUDE_ContentFilterResult)
     /// <summary>
-    /// A description for the ContentFilterResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -42927,7 +43792,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ElementResults field.
+        /// 
         /// </summary>
         [DataMember(Name = "ElementResults", IsRequired = false, Order = 1)]
         public ContentFilterElementResultCollection ElementResults
@@ -42949,7 +43814,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ElementDiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "ElementDiagnosticInfos", IsRequired = false, Order = 2)]
         public DiagnosticInfoCollection ElementDiagnosticInfos
@@ -43064,7 +43929,7 @@ namespace Opc.Ua
     #region ParsingResult Class
     #if (!OPCUA_EXCLUDE_ParsingResult)
     /// <summary>
-    /// A description for the ParsingResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -43101,9 +43966,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -43112,7 +43975,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataStatusCodes field.
+        /// 
         /// </summary>
         [DataMember(Name = "DataStatusCodes", IsRequired = false, Order = 2)]
         public StatusCodeCollection DataStatusCodes
@@ -43134,7 +43997,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DataDiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DataDiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DataDiagnosticInfos
@@ -43339,7 +44202,7 @@ namespace Opc.Ua
     #region QueryFirstRequest Class
     #if (!OPCUA_EXCLUDE_QueryFirstRequest)
     /// <summary>
-    /// A description for the QueryFirstRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -43380,7 +44243,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -43402,7 +44265,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the View field.
+        /// 
         /// </summary>
         [DataMember(Name = "View", IsRequired = false, Order = 2)]
         public ViewDescription View
@@ -43424,7 +44287,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the NodeTypes field.
+        /// 
         /// </summary>
         [DataMember(Name = "NodeTypes", IsRequired = false, Order = 3)]
         public NodeTypeDescriptionCollection NodeTypes
@@ -43446,7 +44309,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Filter field.
+        /// 
         /// </summary>
         [DataMember(Name = "Filter", IsRequired = false, Order = 4)]
         public ContentFilter Filter
@@ -43467,9 +44330,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the MaxDataSetsToReturn field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxDataSetsToReturn", IsRequired = false, Order = 5)]
         public uint MaxDataSetsToReturn
         {
@@ -43477,9 +44338,7 @@ namespace Opc.Ua
             set { m_maxDataSetsToReturn = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxReferencesToReturn field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxReferencesToReturn", IsRequired = false, Order = 6)]
         public uint MaxReferencesToReturn
         {
@@ -43601,7 +44460,7 @@ namespace Opc.Ua
     #region QueryFirstResponse Class
     #if (!OPCUA_EXCLUDE_QueryFirstResponse)
     /// <summary>
-    /// A description for the QueryFirstResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -43642,7 +44501,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -43664,7 +44523,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the QueryDataSets field.
+        /// 
         /// </summary>
         [DataMember(Name = "QueryDataSets", IsRequired = false, Order = 2)]
         public QueryDataSetCollection QueryDataSets
@@ -43685,9 +44544,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the ContinuationPoint field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ContinuationPoint", IsRequired = false, Order = 3)]
         public byte[] ContinuationPoint
         {
@@ -43696,7 +44553,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ParsingResults field.
+        /// 
         /// </summary>
         [DataMember(Name = "ParsingResults", IsRequired = false, Order = 4)]
         public ParsingResultCollection ParsingResults
@@ -43718,7 +44575,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 5)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -43740,7 +44597,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the FilterResult field.
+        /// 
         /// </summary>
         [DataMember(Name = "FilterResult", IsRequired = false, Order = 6)]
         public ContentFilterResult FilterResult
@@ -43875,7 +44732,7 @@ namespace Opc.Ua
     #region QueryNextRequest Class
     #if (!OPCUA_EXCLUDE_QueryNextRequest)
     /// <summary>
-    /// A description for the QueryNextRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -43913,7 +44770,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -43934,9 +44791,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the ReleaseContinuationPoint field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReleaseContinuationPoint", IsRequired = false, Order = 2)]
         public bool ReleaseContinuationPoint
         {
@@ -43944,9 +44799,7 @@ namespace Opc.Ua
             set { m_releaseContinuationPoint = value; }
         }
 
-        /// <summary>
-        /// A description for the ContinuationPoint field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ContinuationPoint", IsRequired = false, Order = 3)]
         public byte[] ContinuationPoint
         {
@@ -44053,7 +44906,7 @@ namespace Opc.Ua
     #region QueryNextResponse Class
     #if (!OPCUA_EXCLUDE_QueryNextResponse)
     /// <summary>
-    /// A description for the QueryNextResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -44091,7 +44944,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -44113,7 +44966,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the QueryDataSets field.
+        /// 
         /// </summary>
         [DataMember(Name = "QueryDataSets", IsRequired = false, Order = 2)]
         public QueryDataSetCollection QueryDataSets
@@ -44134,9 +44987,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the RevisedContinuationPoint field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedContinuationPoint", IsRequired = false, Order = 3)]
         public byte[] RevisedContinuationPoint
         {
@@ -44243,40 +45094,30 @@ namespace Opc.Ua
     #region TimestampsToReturn Enumeration
     #if (!OPCUA_EXCLUDE_TimestampsToReturn)
     /// <summary>
-    /// A description for the TimestampsToReturn DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum TimestampsToReturn
     {
-        /// <summary>
-        /// A description for the Source field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Source_0")]
         Source = 0,
 
-        /// <summary>
-        /// A description for the Server field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Server_1")]
         Server = 1,
 
-        /// <summary>
-        /// A description for the Both field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Both_2")]
         Both = 2,
 
-        /// <summary>
-        /// A description for the Neither field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Neither_3")]
         Neither = 3,
 
-        /// <summary>
-        /// A description for the Invalid field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Invalid_4")]
         Invalid = 4,
     }
@@ -44286,7 +45127,7 @@ namespace Opc.Ua
     #region ReadValueId Class
     #if (!OPCUA_EXCLUDE_ReadValueId)
     /// <summary>
-    /// A description for the ReadValueId DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -44324,9 +45165,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NodeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public NodeId NodeId
         {
@@ -44334,9 +45173,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// A description for the AttributeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AttributeId", IsRequired = false, Order = 2)]
         public uint AttributeId
         {
@@ -44344,9 +45181,7 @@ namespace Opc.Ua
             set { m_attributeId = value; }
         }
 
-        /// <summary>
-        /// A description for the IndexRange field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IndexRange", IsRequired = false, Order = 3)]
         public string IndexRange
         {
@@ -44354,9 +45189,7 @@ namespace Opc.Ua
             set { m_indexRange = value; }
         }
 
-        /// <summary>
-        /// A description for the DataEncoding field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataEncoding", IsRequired = false, Order = 4)]
         public QualifiedName DataEncoding
         {
@@ -44553,7 +45386,7 @@ namespace Opc.Ua
     #region ReadRequest Class
     #if (!OPCUA_EXCLUDE_ReadRequest)
     /// <summary>
-    /// A description for the ReadRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -44592,7 +45425,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -44613,9 +45446,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the MaxAge field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxAge", IsRequired = false, Order = 2)]
         public double MaxAge
         {
@@ -44623,9 +45454,7 @@ namespace Opc.Ua
             set { m_maxAge = value; }
         }
 
-        /// <summary>
-        /// A description for the TimestampsToReturn field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TimestampsToReturn", IsRequired = false, Order = 3)]
         public TimestampsToReturn TimestampsToReturn
         {
@@ -44634,7 +45463,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the NodesToRead field.
+        /// 
         /// </summary>
         [DataMember(Name = "NodesToRead", IsRequired = false, Order = 4)]
         public ReadValueIdCollection NodesToRead
@@ -44759,7 +45588,7 @@ namespace Opc.Ua
     #region ReadResponse Class
     #if (!OPCUA_EXCLUDE_ReadResponse)
     /// <summary>
-    /// A description for the ReadResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -44797,7 +45626,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -44819,7 +45648,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public DataValueCollection Results
@@ -44841,7 +45670,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -44961,7 +45790,7 @@ namespace Opc.Ua
     #region HistoryReadValueId Class
     #if (!OPCUA_EXCLUDE_HistoryReadValueId)
     /// <summary>
-    /// A description for the HistoryReadValueId DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -44999,9 +45828,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NodeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public NodeId NodeId
         {
@@ -45009,9 +45836,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// A description for the IndexRange field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IndexRange", IsRequired = false, Order = 2)]
         public string IndexRange
         {
@@ -45019,9 +45844,7 @@ namespace Opc.Ua
             set { m_indexRange = value; }
         }
 
-        /// <summary>
-        /// A description for the DataEncoding field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataEncoding", IsRequired = false, Order = 3)]
         public QualifiedName DataEncoding
         {
@@ -45029,9 +45852,7 @@ namespace Opc.Ua
             set { m_dataEncoding = value; }
         }
 
-        /// <summary>
-        /// A description for the ContinuationPoint field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ContinuationPoint", IsRequired = false, Order = 4)]
         public byte[] ContinuationPoint
         {
@@ -45228,7 +46049,7 @@ namespace Opc.Ua
     #region HistoryReadResult Class
     #if (!OPCUA_EXCLUDE_HistoryReadResult)
     /// <summary>
-    /// A description for the HistoryReadResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -45265,9 +46086,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -45275,9 +46094,7 @@ namespace Opc.Ua
             set { m_statusCode = value; }
         }
 
-        /// <summary>
-        /// A description for the ContinuationPoint field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ContinuationPoint", IsRequired = false, Order = 2)]
         public byte[] ContinuationPoint
         {
@@ -45285,9 +46102,7 @@ namespace Opc.Ua
             set { m_continuationPoint = value; }
         }
 
-        /// <summary>
-        /// A description for the HistoryData field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "HistoryData", IsRequired = false, Order = 3)]
         public ExtensionObject HistoryData
         {
@@ -45479,7 +46294,7 @@ namespace Opc.Ua
     #region HistoryReadDetails Class
     #if (!OPCUA_EXCLUDE_HistoryReadDetails)
     /// <summary>
-    /// A description for the HistoryReadDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -45598,7 +46413,7 @@ namespace Opc.Ua
     #region ReadEventDetails Class
     #if (!OPCUA_EXCLUDE_ReadEventDetails)
     /// <summary>
-    /// A description for the ReadEventDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -45636,9 +46451,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NumValuesPerNode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NumValuesPerNode", IsRequired = false, Order = 1)]
         public uint NumValuesPerNode
         {
@@ -45646,9 +46459,7 @@ namespace Opc.Ua
             set { m_numValuesPerNode = value; }
         }
 
-        /// <summary>
-        /// A description for the StartTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StartTime", IsRequired = false, Order = 2)]
         public DateTime StartTime
         {
@@ -45656,9 +46467,7 @@ namespace Opc.Ua
             set { m_startTime = value; }
         }
 
-        /// <summary>
-        /// A description for the EndTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndTime", IsRequired = false, Order = 3)]
         public DateTime EndTime
         {
@@ -45667,7 +46476,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Filter field.
+        /// 
         /// </summary>
         [DataMember(Name = "Filter", IsRequired = false, Order = 4)]
         public EventFilter Filter
@@ -45797,7 +46606,7 @@ namespace Opc.Ua
     #region ReadRawModifiedDetails Class
     #if (!OPCUA_EXCLUDE_ReadRawModifiedDetails)
     /// <summary>
-    /// A description for the ReadRawModifiedDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -45836,9 +46645,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the IsReadModified field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsReadModified", IsRequired = false, Order = 1)]
         public bool IsReadModified
         {
@@ -45846,9 +46653,7 @@ namespace Opc.Ua
             set { m_isReadModified = value; }
         }
 
-        /// <summary>
-        /// A description for the StartTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StartTime", IsRequired = false, Order = 2)]
         public DateTime StartTime
         {
@@ -45856,9 +46661,7 @@ namespace Opc.Ua
             set { m_startTime = value; }
         }
 
-        /// <summary>
-        /// A description for the EndTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndTime", IsRequired = false, Order = 3)]
         public DateTime EndTime
         {
@@ -45866,9 +46669,7 @@ namespace Opc.Ua
             set { m_endTime = value; }
         }
 
-        /// <summary>
-        /// A description for the NumValuesPerNode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NumValuesPerNode", IsRequired = false, Order = 4)]
         public uint NumValuesPerNode
         {
@@ -45876,9 +46677,7 @@ namespace Opc.Ua
             set { m_numValuesPerNode = value; }
         }
 
-        /// <summary>
-        /// A description for the ReturnBounds field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReturnBounds", IsRequired = false, Order = 5)]
         public bool ReturnBounds
         {
@@ -46000,7 +46799,7 @@ namespace Opc.Ua
     #region ReadProcessedDetails Class
     #if (!OPCUA_EXCLUDE_ReadProcessedDetails)
     /// <summary>
-    /// A description for the ReadProcessedDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -46039,9 +46838,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StartTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StartTime", IsRequired = false, Order = 1)]
         public DateTime StartTime
         {
@@ -46049,9 +46846,7 @@ namespace Opc.Ua
             set { m_startTime = value; }
         }
 
-        /// <summary>
-        /// A description for the EndTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndTime", IsRequired = false, Order = 2)]
         public DateTime EndTime
         {
@@ -46059,9 +46854,7 @@ namespace Opc.Ua
             set { m_endTime = value; }
         }
 
-        /// <summary>
-        /// A description for the ProcessingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ProcessingInterval", IsRequired = false, Order = 3)]
         public double ProcessingInterval
         {
@@ -46070,7 +46863,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AggregateType field.
+        /// 
         /// </summary>
         [DataMember(Name = "AggregateType", IsRequired = false, Order = 4)]
         public NodeIdCollection AggregateType
@@ -46092,7 +46885,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AggregateConfiguration field.
+        /// 
         /// </summary>
         [DataMember(Name = "AggregateConfiguration", IsRequired = false, Order = 5)]
         public AggregateConfiguration AggregateConfiguration
@@ -46227,7 +47020,7 @@ namespace Opc.Ua
     #region ReadAtTimeDetails Class
     #if (!OPCUA_EXCLUDE_ReadAtTimeDetails)
     /// <summary>
-    /// A description for the ReadAtTimeDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -46264,7 +47057,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ReqTimes field.
+        /// 
         /// </summary>
         [DataMember(Name = "ReqTimes", IsRequired = false, Order = 1)]
         public DateTimeCollection ReqTimes
@@ -46285,9 +47078,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the UseSimpleBounds field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UseSimpleBounds", IsRequired = false, Order = 2)]
         public bool UseSimpleBounds
         {
@@ -46394,7 +47185,7 @@ namespace Opc.Ua
     #region HistoryData Class
     #if (!OPCUA_EXCLUDE_HistoryData)
     /// <summary>
-    /// A description for the HistoryData DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -46430,7 +47221,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the DataValues field.
+        /// 
         /// </summary>
         [DataMember(Name = "DataValues", IsRequired = false, Order = 1)]
         public DataValueCollection DataValues
@@ -46540,7 +47331,7 @@ namespace Opc.Ua
     #region ModificationInfo Class
     #if (!OPCUA_EXCLUDE_ModificationInfo)
     /// <summary>
-    /// A description for the ModificationInfo DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -46577,9 +47368,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ModificationTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ModificationTime", IsRequired = false, Order = 1)]
         public DateTime ModificationTime
         {
@@ -46587,9 +47376,7 @@ namespace Opc.Ua
             set { m_modificationTime = value; }
         }
 
-        /// <summary>
-        /// A description for the UpdateType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UpdateType", IsRequired = false, Order = 2)]
         public HistoryUpdateType UpdateType
         {
@@ -46597,9 +47384,7 @@ namespace Opc.Ua
             set { m_updateType = value; }
         }
 
-        /// <summary>
-        /// A description for the UserName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserName", IsRequired = false, Order = 3)]
         public string UserName
         {
@@ -46791,7 +47576,7 @@ namespace Opc.Ua
     #region HistoryModifiedData Class
     #if (!OPCUA_EXCLUDE_HistoryModifiedData)
     /// <summary>
-    /// A description for the HistoryModifiedData DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -46827,7 +47612,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ModificationInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "ModificationInfos", IsRequired = false, Order = 1)]
         public ModificationInfoCollection ModificationInfos
@@ -46942,7 +47727,7 @@ namespace Opc.Ua
     #region HistoryEvent Class
     #if (!OPCUA_EXCLUDE_HistoryEvent)
     /// <summary>
-    /// A description for the HistoryEvent DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -46978,7 +47763,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the Events field.
+        /// 
         /// </summary>
         [DataMember(Name = "Events", IsRequired = false, Order = 1)]
         public HistoryEventFieldListCollection Events
@@ -47088,7 +47873,7 @@ namespace Opc.Ua
     #region HistoryReadRequest Class
     #if (!OPCUA_EXCLUDE_HistoryReadRequest)
     /// <summary>
-    /// A description for the HistoryReadRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -47128,7 +47913,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -47149,9 +47934,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the HistoryReadDetails field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "HistoryReadDetails", IsRequired = false, Order = 2)]
         public ExtensionObject HistoryReadDetails
         {
@@ -47159,9 +47942,7 @@ namespace Opc.Ua
             set { m_historyReadDetails = value; }
         }
 
-        /// <summary>
-        /// A description for the TimestampsToReturn field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TimestampsToReturn", IsRequired = false, Order = 3)]
         public TimestampsToReturn TimestampsToReturn
         {
@@ -47169,9 +47950,7 @@ namespace Opc.Ua
             set { m_timestampsToReturn = value; }
         }
 
-        /// <summary>
-        /// A description for the ReleaseContinuationPoints field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ReleaseContinuationPoints", IsRequired = false, Order = 4)]
         public bool ReleaseContinuationPoints
         {
@@ -47180,7 +47959,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the NodesToRead field.
+        /// 
         /// </summary>
         [DataMember(Name = "NodesToRead", IsRequired = false, Order = 5)]
         public HistoryReadValueIdCollection NodesToRead
@@ -47310,7 +48089,7 @@ namespace Opc.Ua
     #region HistoryReadResponse Class
     #if (!OPCUA_EXCLUDE_HistoryReadResponse)
     /// <summary>
-    /// A description for the HistoryReadResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -47348,7 +48127,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -47370,7 +48149,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public HistoryReadResultCollection Results
@@ -47392,7 +48171,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -47512,7 +48291,7 @@ namespace Opc.Ua
     #region WriteValue Class
     #if (!OPCUA_EXCLUDE_WriteValue)
     /// <summary>
-    /// A description for the WriteValue DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -47550,9 +48329,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NodeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public NodeId NodeId
         {
@@ -47560,9 +48337,7 @@ namespace Opc.Ua
             set { m_nodeId = value; }
         }
 
-        /// <summary>
-        /// A description for the AttributeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AttributeId", IsRequired = false, Order = 2)]
         public uint AttributeId
         {
@@ -47570,9 +48345,7 @@ namespace Opc.Ua
             set { m_attributeId = value; }
         }
 
-        /// <summary>
-        /// A description for the IndexRange field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IndexRange", IsRequired = false, Order = 3)]
         public string IndexRange
         {
@@ -47580,9 +48353,7 @@ namespace Opc.Ua
             set { m_indexRange = value; }
         }
 
-        /// <summary>
-        /// A description for the Value field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 4)]
         public DataValue Value
         {
@@ -47779,7 +48550,7 @@ namespace Opc.Ua
     #region WriteRequest Class
     #if (!OPCUA_EXCLUDE_WriteRequest)
     /// <summary>
-    /// A description for the WriteRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -47816,7 +48587,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -47838,7 +48609,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the NodesToWrite field.
+        /// 
         /// </summary>
         [DataMember(Name = "NodesToWrite", IsRequired = false, Order = 2)]
         public WriteValueCollection NodesToWrite
@@ -47953,7 +48724,7 @@ namespace Opc.Ua
     #region WriteResponse Class
     #if (!OPCUA_EXCLUDE_WriteResponse)
     /// <summary>
-    /// A description for the WriteResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -47991,7 +48762,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -48013,7 +48784,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public StatusCodeCollection Results
@@ -48035,7 +48806,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -48155,7 +48926,7 @@ namespace Opc.Ua
     #region HistoryUpdateDetails Class
     #if (!OPCUA_EXCLUDE_HistoryUpdateDetails)
     /// <summary>
-    /// A description for the HistoryUpdateDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -48190,9 +48961,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NodeId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NodeId", IsRequired = false, Order = 1)]
         public NodeId NodeId
         {
@@ -48289,34 +49058,26 @@ namespace Opc.Ua
     #region HistoryUpdateType Enumeration
     #if (!OPCUA_EXCLUDE_HistoryUpdateType)
     /// <summary>
-    /// A description for the HistoryUpdateType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum HistoryUpdateType
     {
-        /// <summary>
-        /// A description for the Insert field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Insert_1")]
         Insert = 1,
 
-        /// <summary>
-        /// A description for the Replace field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Replace_2")]
         Replace = 2,
 
-        /// <summary>
-        /// A description for the Update field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Update_3")]
         Update = 3,
 
-        /// <summary>
-        /// A description for the Delete field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Delete_4")]
         Delete = 4,
     }
@@ -48326,34 +49087,26 @@ namespace Opc.Ua
     #region PerformUpdateType Enumeration
     #if (!OPCUA_EXCLUDE_PerformUpdateType)
     /// <summary>
-    /// A description for the PerformUpdateType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum PerformUpdateType
     {
-        /// <summary>
-        /// A description for the Insert field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Insert_1")]
         Insert = 1,
 
-        /// <summary>
-        /// A description for the Replace field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Replace_2")]
         Replace = 2,
 
-        /// <summary>
-        /// A description for the Update field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Update_3")]
         Update = 3,
 
-        /// <summary>
-        /// A description for the Remove field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Remove_4")]
         Remove = 4,
     }
@@ -48363,7 +49116,7 @@ namespace Opc.Ua
     #region UpdateDataDetails Class
     #if (!OPCUA_EXCLUDE_UpdateDataDetails)
     /// <summary>
-    /// A description for the UpdateDataDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -48399,9 +49152,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the PerformInsertReplace field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PerformInsertReplace", IsRequired = false, Order = 1)]
         public PerformUpdateType PerformInsertReplace
         {
@@ -48410,7 +49161,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the UpdateValues field.
+        /// 
         /// </summary>
         [DataMember(Name = "UpdateValues", IsRequired = false, Order = 2)]
         public DataValueCollection UpdateValues
@@ -48530,7 +49281,7 @@ namespace Opc.Ua
     #region UpdateStructureDataDetails Class
     #if (!OPCUA_EXCLUDE_UpdateStructureDataDetails)
     /// <summary>
-    /// A description for the UpdateStructureDataDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -48566,9 +49317,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the PerformInsertReplace field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PerformInsertReplace", IsRequired = false, Order = 1)]
         public PerformUpdateType PerformInsertReplace
         {
@@ -48577,7 +49326,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the UpdateValues field.
+        /// 
         /// </summary>
         [DataMember(Name = "UpdateValues", IsRequired = false, Order = 2)]
         public DataValueCollection UpdateValues
@@ -48697,7 +49446,7 @@ namespace Opc.Ua
     #region UpdateEventDetails Class
     #if (!OPCUA_EXCLUDE_UpdateEventDetails)
     /// <summary>
-    /// A description for the UpdateEventDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -48734,9 +49483,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the PerformInsertReplace field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PerformInsertReplace", IsRequired = false, Order = 1)]
         public PerformUpdateType PerformInsertReplace
         {
@@ -48745,7 +49492,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Filter field.
+        /// 
         /// </summary>
         [DataMember(Name = "Filter", IsRequired = false, Order = 2)]
         public EventFilter Filter
@@ -48767,7 +49514,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the EventData field.
+        /// 
         /// </summary>
         [DataMember(Name = "EventData", IsRequired = false, Order = 3)]
         public HistoryEventFieldListCollection EventData
@@ -48892,7 +49639,7 @@ namespace Opc.Ua
     #region DeleteRawModifiedDetails Class
     #if (!OPCUA_EXCLUDE_DeleteRawModifiedDetails)
     /// <summary>
-    /// A description for the DeleteRawModifiedDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -48929,9 +49676,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the IsDeleteModified field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "IsDeleteModified", IsRequired = false, Order = 1)]
         public bool IsDeleteModified
         {
@@ -48939,9 +49684,7 @@ namespace Opc.Ua
             set { m_isDeleteModified = value; }
         }
 
-        /// <summary>
-        /// A description for the StartTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StartTime", IsRequired = false, Order = 2)]
         public DateTime StartTime
         {
@@ -48949,9 +49692,7 @@ namespace Opc.Ua
             set { m_startTime = value; }
         }
 
-        /// <summary>
-        /// A description for the EndTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndTime", IsRequired = false, Order = 3)]
         public DateTime EndTime
         {
@@ -49063,7 +49804,7 @@ namespace Opc.Ua
     #region DeleteAtTimeDetails Class
     #if (!OPCUA_EXCLUDE_DeleteAtTimeDetails)
     /// <summary>
-    /// A description for the DeleteAtTimeDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -49099,7 +49840,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ReqTimes field.
+        /// 
         /// </summary>
         [DataMember(Name = "ReqTimes", IsRequired = false, Order = 1)]
         public DateTimeCollection ReqTimes
@@ -49214,7 +49955,7 @@ namespace Opc.Ua
     #region DeleteEventDetails Class
     #if (!OPCUA_EXCLUDE_DeleteEventDetails)
     /// <summary>
-    /// A description for the DeleteEventDetails DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -49250,7 +49991,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the EventIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "EventIds", IsRequired = false, Order = 1)]
         public ByteStringCollection EventIds
@@ -49365,7 +50106,7 @@ namespace Opc.Ua
     #region HistoryUpdateResult Class
     #if (!OPCUA_EXCLUDE_HistoryUpdateResult)
     /// <summary>
-    /// A description for the HistoryUpdateResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -49402,9 +50143,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -49413,7 +50152,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the OperationResults field.
+        /// 
         /// </summary>
         [DataMember(Name = "OperationResults", IsRequired = false, Order = 2)]
         public StatusCodeCollection OperationResults
@@ -49435,7 +50174,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -49640,7 +50379,7 @@ namespace Opc.Ua
     #region HistoryUpdateRequest Class
     #if (!OPCUA_EXCLUDE_HistoryUpdateRequest)
     /// <summary>
-    /// A description for the HistoryUpdateRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -49677,7 +50416,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -49699,7 +50438,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the HistoryUpdateDetails field.
+        /// 
         /// </summary>
         [DataMember(Name = "HistoryUpdateDetails", IsRequired = false, Order = 2)]
         public ExtensionObjectCollection HistoryUpdateDetails
@@ -49814,7 +50553,7 @@ namespace Opc.Ua
     #region HistoryUpdateResponse Class
     #if (!OPCUA_EXCLUDE_HistoryUpdateResponse)
     /// <summary>
-    /// A description for the HistoryUpdateResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -49852,7 +50591,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -49874,7 +50613,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public HistoryUpdateResultCollection Results
@@ -49896,7 +50635,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -50016,7 +50755,7 @@ namespace Opc.Ua
     #region CallMethodRequest Class
     #if (!OPCUA_EXCLUDE_CallMethodRequest)
     /// <summary>
-    /// A description for the CallMethodRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -50053,9 +50792,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ObjectId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ObjectId", IsRequired = false, Order = 1)]
         public NodeId ObjectId
         {
@@ -50063,9 +50800,7 @@ namespace Opc.Ua
             set { m_objectId = value; }
         }
 
-        /// <summary>
-        /// A description for the MethodId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MethodId", IsRequired = false, Order = 2)]
         public NodeId MethodId
         {
@@ -50074,7 +50809,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the InputArguments field.
+        /// 
         /// </summary>
         [DataMember(Name = "InputArguments", IsRequired = false, Order = 3)]
         public VariantCollection InputArguments
@@ -50279,7 +51014,7 @@ namespace Opc.Ua
     #region CallMethodResult Class
     #if (!OPCUA_EXCLUDE_CallMethodResult)
     /// <summary>
-    /// A description for the CallMethodResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -50317,9 +51052,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -50328,7 +51061,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the InputArgumentResults field.
+        /// 
         /// </summary>
         [DataMember(Name = "InputArgumentResults", IsRequired = false, Order = 2)]
         public StatusCodeCollection InputArgumentResults
@@ -50350,7 +51083,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the InputArgumentDiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "InputArgumentDiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection InputArgumentDiagnosticInfos
@@ -50372,7 +51105,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the OutputArguments field.
+        /// 
         /// </summary>
         [DataMember(Name = "OutputArguments", IsRequired = false, Order = 4)]
         public VariantCollection OutputArguments
@@ -50582,7 +51315,7 @@ namespace Opc.Ua
     #region CallRequest Class
     #if (!OPCUA_EXCLUDE_CallRequest)
     /// <summary>
-    /// A description for the CallRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -50619,7 +51352,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -50641,7 +51374,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the MethodsToCall field.
+        /// 
         /// </summary>
         [DataMember(Name = "MethodsToCall", IsRequired = false, Order = 2)]
         public CallMethodRequestCollection MethodsToCall
@@ -50756,7 +51489,7 @@ namespace Opc.Ua
     #region CallResponse Class
     #if (!OPCUA_EXCLUDE_CallResponse)
     /// <summary>
-    /// A description for the CallResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -50794,7 +51527,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -50816,7 +51549,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public CallMethodResultCollection Results
@@ -50838,7 +51571,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -50958,28 +51691,22 @@ namespace Opc.Ua
     #region MonitoringMode Enumeration
     #if (!OPCUA_EXCLUDE_MonitoringMode)
     /// <summary>
-    /// A description for the MonitoringMode DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum MonitoringMode
     {
-        /// <summary>
-        /// A description for the Disabled field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Disabled_0")]
         Disabled = 0,
 
-        /// <summary>
-        /// A description for the Sampling field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Sampling_1")]
         Sampling = 1,
 
-        /// <summary>
-        /// A description for the Reporting field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Reporting_2")]
         Reporting = 2,
     }
@@ -50989,28 +51716,22 @@ namespace Opc.Ua
     #region DataChangeTrigger Enumeration
     #if (!OPCUA_EXCLUDE_DataChangeTrigger)
     /// <summary>
-    /// A description for the DataChangeTrigger DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum DataChangeTrigger
     {
-        /// <summary>
-        /// A description for the Status field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Status_0")]
         Status = 0,
 
-        /// <summary>
-        /// A description for the StatusValue field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "StatusValue_1")]
         StatusValue = 1,
 
-        /// <summary>
-        /// A description for the StatusValueTimestamp field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "StatusValueTimestamp_2")]
         StatusValueTimestamp = 2,
     }
@@ -51020,28 +51741,22 @@ namespace Opc.Ua
     #region DeadbandType Enumeration
     #if (!OPCUA_EXCLUDE_DeadbandType)
     /// <summary>
-    /// A description for the DeadbandType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum DeadbandType
     {
-        /// <summary>
-        /// A description for the None field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the Absolute field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Absolute_1")]
         Absolute = 1,
 
-        /// <summary>
-        /// A description for the Percent field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Percent_2")]
         Percent = 2,
     }
@@ -51051,7 +51766,7 @@ namespace Opc.Ua
     #region MonitoringFilter Class
     #if (!OPCUA_EXCLUDE_MonitoringFilter)
     /// <summary>
-    /// A description for the MonitoringFilter DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -51170,7 +51885,7 @@ namespace Opc.Ua
     #region DataChangeFilter Class
     #if (!OPCUA_EXCLUDE_DataChangeFilter)
     /// <summary>
-    /// A description for the DataChangeFilter DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -51207,9 +51922,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Trigger field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Trigger", IsRequired = false, Order = 1)]
         public DataChangeTrigger Trigger
         {
@@ -51217,9 +51930,7 @@ namespace Opc.Ua
             set { m_trigger = value; }
         }
 
-        /// <summary>
-        /// A description for the DeadbandType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DeadbandType", IsRequired = false, Order = 2)]
         public uint DeadbandType
         {
@@ -51227,9 +51938,7 @@ namespace Opc.Ua
             set { m_deadbandType = value; }
         }
 
-        /// <summary>
-        /// A description for the DeadbandValue field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DeadbandValue", IsRequired = false, Order = 3)]
         public double DeadbandValue
         {
@@ -51341,7 +52050,7 @@ namespace Opc.Ua
     #region EventFilter Class
     #if (!OPCUA_EXCLUDE_EventFilter)
     /// <summary>
-    /// A description for the EventFilter DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -51378,7 +52087,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the SelectClauses field.
+        /// 
         /// </summary>
         [DataMember(Name = "SelectClauses", IsRequired = false, Order = 1)]
         public SimpleAttributeOperandCollection SelectClauses
@@ -51400,7 +52109,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the WhereClause field.
+        /// 
         /// </summary>
         [DataMember(Name = "WhereClause", IsRequired = false, Order = 2)]
         public ContentFilter WhereClause
@@ -51520,7 +52229,7 @@ namespace Opc.Ua
     #region AggregateConfiguration Class
     #if (!OPCUA_EXCLUDE_AggregateConfiguration)
     /// <summary>
-    /// A description for the AggregateConfiguration DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -51559,9 +52268,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the UseServerCapabilitiesDefaults field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UseServerCapabilitiesDefaults", IsRequired = false, Order = 1)]
         public bool UseServerCapabilitiesDefaults
         {
@@ -51569,9 +52276,7 @@ namespace Opc.Ua
             set { m_useServerCapabilitiesDefaults = value; }
         }
 
-        /// <summary>
-        /// A description for the TreatUncertainAsBad field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TreatUncertainAsBad", IsRequired = false, Order = 2)]
         public bool TreatUncertainAsBad
         {
@@ -51579,9 +52284,7 @@ namespace Opc.Ua
             set { m_treatUncertainAsBad = value; }
         }
 
-        /// <summary>
-        /// A description for the PercentDataBad field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PercentDataBad", IsRequired = false, Order = 3)]
         public byte PercentDataBad
         {
@@ -51589,9 +52292,7 @@ namespace Opc.Ua
             set { m_percentDataBad = value; }
         }
 
-        /// <summary>
-        /// A description for the PercentDataGood field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PercentDataGood", IsRequired = false, Order = 4)]
         public byte PercentDataGood
         {
@@ -51599,9 +52300,7 @@ namespace Opc.Ua
             set { m_percentDataGood = value; }
         }
 
-        /// <summary>
-        /// A description for the UseSlopedExtrapolation field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UseSlopedExtrapolation", IsRequired = false, Order = 5)]
         public bool UseSlopedExtrapolation
         {
@@ -51718,7 +52417,7 @@ namespace Opc.Ua
     #region AggregateFilter Class
     #if (!OPCUA_EXCLUDE_AggregateFilter)
     /// <summary>
-    /// A description for the AggregateFilter DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -51756,9 +52455,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StartTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StartTime", IsRequired = false, Order = 1)]
         public DateTime StartTime
         {
@@ -51766,9 +52463,7 @@ namespace Opc.Ua
             set { m_startTime = value; }
         }
 
-        /// <summary>
-        /// A description for the AggregateType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AggregateType", IsRequired = false, Order = 2)]
         public NodeId AggregateType
         {
@@ -51776,9 +52471,7 @@ namespace Opc.Ua
             set { m_aggregateType = value; }
         }
 
-        /// <summary>
-        /// A description for the ProcessingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ProcessingInterval", IsRequired = false, Order = 3)]
         public double ProcessingInterval
         {
@@ -51787,7 +52480,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AggregateConfiguration field.
+        /// 
         /// </summary>
         [DataMember(Name = "AggregateConfiguration", IsRequired = false, Order = 4)]
         public AggregateConfiguration AggregateConfiguration
@@ -51917,7 +52610,7 @@ namespace Opc.Ua
     #region MonitoringFilterResult Class
     #if (!OPCUA_EXCLUDE_MonitoringFilterResult)
     /// <summary>
-    /// A description for the MonitoringFilterResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -52036,7 +52729,7 @@ namespace Opc.Ua
     #region EventFilterResult Class
     #if (!OPCUA_EXCLUDE_EventFilterResult)
     /// <summary>
-    /// A description for the EventFilterResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -52074,7 +52767,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the SelectClauseResults field.
+        /// 
         /// </summary>
         [DataMember(Name = "SelectClauseResults", IsRequired = false, Order = 1)]
         public StatusCodeCollection SelectClauseResults
@@ -52096,7 +52789,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SelectClauseDiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "SelectClauseDiagnosticInfos", IsRequired = false, Order = 2)]
         public DiagnosticInfoCollection SelectClauseDiagnosticInfos
@@ -52118,7 +52811,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the WhereClauseResult field.
+        /// 
         /// </summary>
         [DataMember(Name = "WhereClauseResult", IsRequired = false, Order = 3)]
         public ContentFilterResult WhereClauseResult
@@ -52243,7 +52936,7 @@ namespace Opc.Ua
     #region AggregateFilterResult Class
     #if (!OPCUA_EXCLUDE_AggregateFilterResult)
     /// <summary>
-    /// A description for the AggregateFilterResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -52280,9 +52973,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the RevisedStartTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedStartTime", IsRequired = false, Order = 1)]
         public DateTime RevisedStartTime
         {
@@ -52290,9 +52981,7 @@ namespace Opc.Ua
             set { m_revisedStartTime = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedProcessingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedProcessingInterval", IsRequired = false, Order = 2)]
         public double RevisedProcessingInterval
         {
@@ -52301,7 +52990,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the RevisedAggregateConfiguration field.
+        /// 
         /// </summary>
         [DataMember(Name = "RevisedAggregateConfiguration", IsRequired = false, Order = 3)]
         public AggregateConfiguration RevisedAggregateConfiguration
@@ -52426,7 +53115,7 @@ namespace Opc.Ua
     #region MonitoringParameters Class
     #if (!OPCUA_EXCLUDE_MonitoringParameters)
     /// <summary>
-    /// A description for the MonitoringParameters DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -52465,9 +53154,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ClientHandle field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientHandle", IsRequired = false, Order = 1)]
         public uint ClientHandle
         {
@@ -52475,9 +53162,7 @@ namespace Opc.Ua
             set { m_clientHandle = value; }
         }
 
-        /// <summary>
-        /// A description for the SamplingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SamplingInterval", IsRequired = false, Order = 2)]
         public double SamplingInterval
         {
@@ -52485,9 +53170,7 @@ namespace Opc.Ua
             set { m_samplingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the Filter field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Filter", IsRequired = false, Order = 3)]
         public ExtensionObject Filter
         {
@@ -52495,9 +53178,7 @@ namespace Opc.Ua
             set { m_filter = value; }
         }
 
-        /// <summary>
-        /// A description for the QueueSize field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "QueueSize", IsRequired = false, Order = 4)]
         public uint QueueSize
         {
@@ -52505,9 +53186,7 @@ namespace Opc.Ua
             set { m_queueSize = value; }
         }
 
-        /// <summary>
-        /// A description for the DiscardOldest field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DiscardOldest", IsRequired = false, Order = 5)]
         public bool DiscardOldest
         {
@@ -52624,7 +53303,7 @@ namespace Opc.Ua
     #region MonitoredItemCreateRequest Class
     #if (!OPCUA_EXCLUDE_MonitoredItemCreateRequest)
     /// <summary>
-    /// A description for the MonitoredItemCreateRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -52662,7 +53341,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ItemToMonitor field.
+        /// 
         /// </summary>
         [DataMember(Name = "ItemToMonitor", IsRequired = false, Order = 1)]
         public ReadValueId ItemToMonitor
@@ -52683,9 +53362,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the MonitoringMode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MonitoringMode", IsRequired = false, Order = 2)]
         public MonitoringMode MonitoringMode
         {
@@ -52694,7 +53371,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the RequestedParameters field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestedParameters", IsRequired = false, Order = 3)]
         public MonitoringParameters RequestedParameters
@@ -52899,7 +53576,7 @@ namespace Opc.Ua
     #region MonitoredItemCreateResult Class
     #if (!OPCUA_EXCLUDE_MonitoredItemCreateResult)
     /// <summary>
-    /// A description for the MonitoredItemCreateResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -52938,9 +53615,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -52948,9 +53623,7 @@ namespace Opc.Ua
             set { m_statusCode = value; }
         }
 
-        /// <summary>
-        /// A description for the MonitoredItemId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MonitoredItemId", IsRequired = false, Order = 2)]
         public uint MonitoredItemId
         {
@@ -52958,9 +53631,7 @@ namespace Opc.Ua
             set { m_monitoredItemId = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedSamplingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedSamplingInterval", IsRequired = false, Order = 3)]
         public double RevisedSamplingInterval
         {
@@ -52968,9 +53639,7 @@ namespace Opc.Ua
             set { m_revisedSamplingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedQueueSize field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedQueueSize", IsRequired = false, Order = 4)]
         public uint RevisedQueueSize
         {
@@ -52978,9 +53647,7 @@ namespace Opc.Ua
             set { m_revisedQueueSize = value; }
         }
 
-        /// <summary>
-        /// A description for the FilterResult field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "FilterResult", IsRequired = false, Order = 5)]
         public ExtensionObject FilterResult
         {
@@ -53182,7 +53849,7 @@ namespace Opc.Ua
     #region CreateMonitoredItemsRequest Class
     #if (!OPCUA_EXCLUDE_CreateMonitoredItemsRequest)
     /// <summary>
-    /// A description for the CreateMonitoredItemsRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -53221,7 +53888,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -53242,9 +53909,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -53252,9 +53917,7 @@ namespace Opc.Ua
             set { m_subscriptionId = value; }
         }
 
-        /// <summary>
-        /// A description for the TimestampsToReturn field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TimestampsToReturn", IsRequired = false, Order = 3)]
         public TimestampsToReturn TimestampsToReturn
         {
@@ -53263,7 +53926,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ItemsToCreate field.
+        /// 
         /// </summary>
         [DataMember(Name = "ItemsToCreate", IsRequired = false, Order = 4)]
         public MonitoredItemCreateRequestCollection ItemsToCreate
@@ -53388,7 +54051,7 @@ namespace Opc.Ua
     #region CreateMonitoredItemsResponse Class
     #if (!OPCUA_EXCLUDE_CreateMonitoredItemsResponse)
     /// <summary>
-    /// A description for the CreateMonitoredItemsResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -53426,7 +54089,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -53448,7 +54111,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public MonitoredItemCreateResultCollection Results
@@ -53470,7 +54133,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -53590,7 +54253,7 @@ namespace Opc.Ua
     #region MonitoredItemModifyRequest Class
     #if (!OPCUA_EXCLUDE_MonitoredItemModifyRequest)
     /// <summary>
-    /// A description for the MonitoredItemModifyRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -53626,9 +54289,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the MonitoredItemId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MonitoredItemId", IsRequired = false, Order = 1)]
         public uint MonitoredItemId
         {
@@ -53637,7 +54298,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the RequestedParameters field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestedParameters", IsRequired = false, Order = 2)]
         public MonitoringParameters RequestedParameters
@@ -53837,7 +54498,7 @@ namespace Opc.Ua
     #region MonitoredItemModifyResult Class
     #if (!OPCUA_EXCLUDE_MonitoredItemModifyResult)
     /// <summary>
-    /// A description for the MonitoredItemModifyResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -53875,9 +54536,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -53885,9 +54544,7 @@ namespace Opc.Ua
             set { m_statusCode = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedSamplingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedSamplingInterval", IsRequired = false, Order = 2)]
         public double RevisedSamplingInterval
         {
@@ -53895,9 +54552,7 @@ namespace Opc.Ua
             set { m_revisedSamplingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedQueueSize field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedQueueSize", IsRequired = false, Order = 3)]
         public uint RevisedQueueSize
         {
@@ -53905,9 +54560,7 @@ namespace Opc.Ua
             set { m_revisedQueueSize = value; }
         }
 
-        /// <summary>
-        /// A description for the FilterResult field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "FilterResult", IsRequired = false, Order = 4)]
         public ExtensionObject FilterResult
         {
@@ -54104,7 +54757,7 @@ namespace Opc.Ua
     #region ModifyMonitoredItemsRequest Class
     #if (!OPCUA_EXCLUDE_ModifyMonitoredItemsRequest)
     /// <summary>
-    /// A description for the ModifyMonitoredItemsRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -54143,7 +54796,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -54164,9 +54817,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -54174,9 +54825,7 @@ namespace Opc.Ua
             set { m_subscriptionId = value; }
         }
 
-        /// <summary>
-        /// A description for the TimestampsToReturn field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TimestampsToReturn", IsRequired = false, Order = 3)]
         public TimestampsToReturn TimestampsToReturn
         {
@@ -54185,7 +54834,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ItemsToModify field.
+        /// 
         /// </summary>
         [DataMember(Name = "ItemsToModify", IsRequired = false, Order = 4)]
         public MonitoredItemModifyRequestCollection ItemsToModify
@@ -54310,7 +54959,7 @@ namespace Opc.Ua
     #region ModifyMonitoredItemsResponse Class
     #if (!OPCUA_EXCLUDE_ModifyMonitoredItemsResponse)
     /// <summary>
-    /// A description for the ModifyMonitoredItemsResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -54348,7 +54997,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -54370,7 +55019,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public MonitoredItemModifyResultCollection Results
@@ -54392,7 +55041,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -54512,7 +55161,7 @@ namespace Opc.Ua
     #region SetMonitoringModeRequest Class
     #if (!OPCUA_EXCLUDE_SetMonitoringModeRequest)
     /// <summary>
-    /// A description for the SetMonitoringModeRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -54551,7 +55200,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -54572,9 +55221,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -54582,9 +55229,7 @@ namespace Opc.Ua
             set { m_subscriptionId = value; }
         }
 
-        /// <summary>
-        /// A description for the MonitoringMode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MonitoringMode", IsRequired = false, Order = 3)]
         public MonitoringMode MonitoringMode
         {
@@ -54593,7 +55238,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the MonitoredItemIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "MonitoredItemIds", IsRequired = false, Order = 4)]
         public UInt32Collection MonitoredItemIds
@@ -54718,7 +55363,7 @@ namespace Opc.Ua
     #region SetMonitoringModeResponse Class
     #if (!OPCUA_EXCLUDE_SetMonitoringModeResponse)
     /// <summary>
-    /// A description for the SetMonitoringModeResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -54756,7 +55401,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -54778,7 +55423,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public StatusCodeCollection Results
@@ -54800,7 +55445,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -54920,7 +55565,7 @@ namespace Opc.Ua
     #region SetTriggeringRequest Class
     #if (!OPCUA_EXCLUDE_SetTriggeringRequest)
     /// <summary>
-    /// A description for the SetTriggeringRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -54960,7 +55605,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -54981,9 +55626,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -54991,9 +55634,7 @@ namespace Opc.Ua
             set { m_subscriptionId = value; }
         }
 
-        /// <summary>
-        /// A description for the TriggeringItemId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TriggeringItemId", IsRequired = false, Order = 3)]
         public uint TriggeringItemId
         {
@@ -55002,7 +55643,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LinksToAdd field.
+        /// 
         /// </summary>
         [DataMember(Name = "LinksToAdd", IsRequired = false, Order = 4)]
         public UInt32Collection LinksToAdd
@@ -55024,7 +55665,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LinksToRemove field.
+        /// 
         /// </summary>
         [DataMember(Name = "LinksToRemove", IsRequired = false, Order = 5)]
         public UInt32Collection LinksToRemove
@@ -55154,7 +55795,7 @@ namespace Opc.Ua
     #region SetTriggeringResponse Class
     #if (!OPCUA_EXCLUDE_SetTriggeringResponse)
     /// <summary>
-    /// A description for the SetTriggeringResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -55194,7 +55835,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -55216,7 +55857,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AddResults field.
+        /// 
         /// </summary>
         [DataMember(Name = "AddResults", IsRequired = false, Order = 2)]
         public StatusCodeCollection AddResults
@@ -55238,7 +55879,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AddDiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "AddDiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection AddDiagnosticInfos
@@ -55260,7 +55901,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the RemoveResults field.
+        /// 
         /// </summary>
         [DataMember(Name = "RemoveResults", IsRequired = false, Order = 4)]
         public StatusCodeCollection RemoveResults
@@ -55282,7 +55923,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the RemoveDiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "RemoveDiagnosticInfos", IsRequired = false, Order = 5)]
         public DiagnosticInfoCollection RemoveDiagnosticInfos
@@ -55412,7 +56053,7 @@ namespace Opc.Ua
     #region DeleteMonitoredItemsRequest Class
     #if (!OPCUA_EXCLUDE_DeleteMonitoredItemsRequest)
     /// <summary>
-    /// A description for the DeleteMonitoredItemsRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -55450,7 +56091,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -55471,9 +56112,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -55482,7 +56121,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the MonitoredItemIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "MonitoredItemIds", IsRequired = false, Order = 3)]
         public UInt32Collection MonitoredItemIds
@@ -55602,7 +56241,7 @@ namespace Opc.Ua
     #region DeleteMonitoredItemsResponse Class
     #if (!OPCUA_EXCLUDE_DeleteMonitoredItemsResponse)
     /// <summary>
-    /// A description for the DeleteMonitoredItemsResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -55640,7 +56279,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -55662,7 +56301,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public StatusCodeCollection Results
@@ -55684,7 +56323,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -55804,7 +56443,7 @@ namespace Opc.Ua
     #region CreateSubscriptionRequest Class
     #if (!OPCUA_EXCLUDE_CreateSubscriptionRequest)
     /// <summary>
-    /// A description for the CreateSubscriptionRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -55846,7 +56485,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -55867,9 +56506,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the RequestedPublishingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedPublishingInterval", IsRequired = false, Order = 2)]
         public double RequestedPublishingInterval
         {
@@ -55877,9 +56514,7 @@ namespace Opc.Ua
             set { m_requestedPublishingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the RequestedLifetimeCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedLifetimeCount", IsRequired = false, Order = 3)]
         public uint RequestedLifetimeCount
         {
@@ -55887,9 +56522,7 @@ namespace Opc.Ua
             set { m_requestedLifetimeCount = value; }
         }
 
-        /// <summary>
-        /// A description for the RequestedMaxKeepAliveCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedMaxKeepAliveCount", IsRequired = false, Order = 4)]
         public uint RequestedMaxKeepAliveCount
         {
@@ -55897,9 +56530,7 @@ namespace Opc.Ua
             set { m_requestedMaxKeepAliveCount = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxNotificationsPerPublish field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxNotificationsPerPublish", IsRequired = false, Order = 5)]
         public uint MaxNotificationsPerPublish
         {
@@ -55907,9 +56538,7 @@ namespace Opc.Ua
             set { m_maxNotificationsPerPublish = value; }
         }
 
-        /// <summary>
-        /// A description for the PublishingEnabled field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishingEnabled", IsRequired = false, Order = 6)]
         public bool PublishingEnabled
         {
@@ -55917,9 +56546,7 @@ namespace Opc.Ua
             set { m_publishingEnabled = value; }
         }
 
-        /// <summary>
-        /// A description for the Priority field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Priority", IsRequired = false, Order = 7)]
         public byte Priority
         {
@@ -56046,7 +56673,7 @@ namespace Opc.Ua
     #region CreateSubscriptionResponse Class
     #if (!OPCUA_EXCLUDE_CreateSubscriptionResponse)
     /// <summary>
-    /// A description for the CreateSubscriptionResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -56086,7 +56713,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -56107,9 +56734,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -56117,9 +56742,7 @@ namespace Opc.Ua
             set { m_subscriptionId = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedPublishingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedPublishingInterval", IsRequired = false, Order = 3)]
         public double RevisedPublishingInterval
         {
@@ -56127,9 +56750,7 @@ namespace Opc.Ua
             set { m_revisedPublishingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedLifetimeCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedLifetimeCount", IsRequired = false, Order = 4)]
         public uint RevisedLifetimeCount
         {
@@ -56137,9 +56758,7 @@ namespace Opc.Ua
             set { m_revisedLifetimeCount = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedMaxKeepAliveCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedMaxKeepAliveCount", IsRequired = false, Order = 5)]
         public uint RevisedMaxKeepAliveCount
         {
@@ -56256,7 +56875,7 @@ namespace Opc.Ua
     #region ModifySubscriptionRequest Class
     #if (!OPCUA_EXCLUDE_ModifySubscriptionRequest)
     /// <summary>
-    /// A description for the ModifySubscriptionRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -56298,7 +56917,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -56319,9 +56938,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -56329,9 +56946,7 @@ namespace Opc.Ua
             set { m_subscriptionId = value; }
         }
 
-        /// <summary>
-        /// A description for the RequestedPublishingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedPublishingInterval", IsRequired = false, Order = 3)]
         public double RequestedPublishingInterval
         {
@@ -56339,9 +56954,7 @@ namespace Opc.Ua
             set { m_requestedPublishingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the RequestedLifetimeCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedLifetimeCount", IsRequired = false, Order = 4)]
         public uint RequestedLifetimeCount
         {
@@ -56349,9 +56962,7 @@ namespace Opc.Ua
             set { m_requestedLifetimeCount = value; }
         }
 
-        /// <summary>
-        /// A description for the RequestedMaxKeepAliveCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RequestedMaxKeepAliveCount", IsRequired = false, Order = 5)]
         public uint RequestedMaxKeepAliveCount
         {
@@ -56359,9 +56970,7 @@ namespace Opc.Ua
             set { m_requestedMaxKeepAliveCount = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxNotificationsPerPublish field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxNotificationsPerPublish", IsRequired = false, Order = 6)]
         public uint MaxNotificationsPerPublish
         {
@@ -56369,9 +56978,7 @@ namespace Opc.Ua
             set { m_maxNotificationsPerPublish = value; }
         }
 
-        /// <summary>
-        /// A description for the Priority field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Priority", IsRequired = false, Order = 7)]
         public byte Priority
         {
@@ -56498,7 +57105,7 @@ namespace Opc.Ua
     #region ModifySubscriptionResponse Class
     #if (!OPCUA_EXCLUDE_ModifySubscriptionResponse)
     /// <summary>
-    /// A description for the ModifySubscriptionResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -56537,7 +57144,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -56558,9 +57165,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the RevisedPublishingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedPublishingInterval", IsRequired = false, Order = 2)]
         public double RevisedPublishingInterval
         {
@@ -56568,9 +57173,7 @@ namespace Opc.Ua
             set { m_revisedPublishingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedLifetimeCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedLifetimeCount", IsRequired = false, Order = 3)]
         public uint RevisedLifetimeCount
         {
@@ -56578,9 +57181,7 @@ namespace Opc.Ua
             set { m_revisedLifetimeCount = value; }
         }
 
-        /// <summary>
-        /// A description for the RevisedMaxKeepAliveCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RevisedMaxKeepAliveCount", IsRequired = false, Order = 4)]
         public uint RevisedMaxKeepAliveCount
         {
@@ -56692,7 +57293,7 @@ namespace Opc.Ua
     #region SetPublishingModeRequest Class
     #if (!OPCUA_EXCLUDE_SetPublishingModeRequest)
     /// <summary>
-    /// A description for the SetPublishingModeRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -56730,7 +57331,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -56751,9 +57352,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the PublishingEnabled field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishingEnabled", IsRequired = false, Order = 2)]
         public bool PublishingEnabled
         {
@@ -56762,7 +57361,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SubscriptionIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "SubscriptionIds", IsRequired = false, Order = 3)]
         public UInt32Collection SubscriptionIds
@@ -56882,7 +57481,7 @@ namespace Opc.Ua
     #region SetPublishingModeResponse Class
     #if (!OPCUA_EXCLUDE_SetPublishingModeResponse)
     /// <summary>
-    /// A description for the SetPublishingModeResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -56920,7 +57519,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -56942,7 +57541,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public StatusCodeCollection Results
@@ -56964,7 +57563,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -57084,7 +57683,7 @@ namespace Opc.Ua
     #region NotificationMessage Class
     #if (!OPCUA_EXCLUDE_NotificationMessage)
     /// <summary>
-    /// A description for the NotificationMessage DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -57121,9 +57720,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the SequenceNumber field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SequenceNumber", IsRequired = false, Order = 1)]
         public uint SequenceNumber
         {
@@ -57131,9 +57728,7 @@ namespace Opc.Ua
             set { m_sequenceNumber = value; }
         }
 
-        /// <summary>
-        /// A description for the PublishTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishTime", IsRequired = false, Order = 2)]
         public DateTime PublishTime
         {
@@ -57142,7 +57737,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the NotificationData field.
+        /// 
         /// </summary>
         [DataMember(Name = "NotificationData", IsRequired = false, Order = 3)]
         public ExtensionObjectCollection NotificationData
@@ -57262,7 +57857,7 @@ namespace Opc.Ua
     #region NotificationData Class
     #if (!OPCUA_EXCLUDE_NotificationData)
     /// <summary>
-    /// A description for the NotificationData DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -57381,7 +57976,7 @@ namespace Opc.Ua
     #region DataChangeNotification Class
     #if (!OPCUA_EXCLUDE_DataChangeNotification)
     /// <summary>
-    /// A description for the DataChangeNotification DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -57418,7 +58013,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the MonitoredItems field.
+        /// 
         /// </summary>
         [DataMember(Name = "MonitoredItems", IsRequired = false, Order = 1)]
         public MonitoredItemNotificationCollection MonitoredItems
@@ -57440,7 +58035,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 2)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -57560,7 +58155,7 @@ namespace Opc.Ua
     #region MonitoredItemNotification Class
     #if (!OPCUA_EXCLUDE_MonitoredItemNotification)
     /// <summary>
-    /// A description for the MonitoredItemNotification DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -57596,9 +58191,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ClientHandle field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientHandle", IsRequired = false, Order = 1)]
         public uint ClientHandle
         {
@@ -57606,9 +58199,7 @@ namespace Opc.Ua
             set { m_clientHandle = value; }
         }
 
-        /// <summary>
-        /// A description for the Value field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 2)]
         public DataValue Value
         {
@@ -57795,7 +58386,7 @@ namespace Opc.Ua
     #region EventNotificationList Class
     #if (!OPCUA_EXCLUDE_EventNotificationList)
     /// <summary>
-    /// A description for the EventNotificationList DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -57831,7 +58422,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the Events field.
+        /// 
         /// </summary>
         [DataMember(Name = "Events", IsRequired = false, Order = 1)]
         public EventFieldListCollection Events
@@ -57946,7 +58537,7 @@ namespace Opc.Ua
     #region EventFieldList Class
     #if (!OPCUA_EXCLUDE_EventFieldList)
     /// <summary>
-    /// A description for the EventFieldList DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -57982,9 +58573,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ClientHandle field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientHandle", IsRequired = false, Order = 1)]
         public uint ClientHandle
         {
@@ -57993,7 +58582,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the EventFields field.
+        /// 
         /// </summary>
         [DataMember(Name = "EventFields", IsRequired = false, Order = 2)]
         public VariantCollection EventFields
@@ -58193,7 +58782,7 @@ namespace Opc.Ua
     #region HistoryEventFieldList Class
     #if (!OPCUA_EXCLUDE_HistoryEventFieldList)
     /// <summary>
-    /// A description for the HistoryEventFieldList DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -58229,7 +58818,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the EventFields field.
+        /// 
         /// </summary>
         [DataMember(Name = "EventFields", IsRequired = false, Order = 1)]
         public VariantCollection EventFields
@@ -58424,7 +59013,7 @@ namespace Opc.Ua
     #region StatusChangeNotification Class
     #if (!OPCUA_EXCLUDE_StatusChangeNotification)
     /// <summary>
-    /// A description for the StatusChangeNotification DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -58460,9 +59049,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Status field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Status", IsRequired = false, Order = 1)]
         public StatusCode Status
         {
@@ -58470,9 +59057,7 @@ namespace Opc.Ua
             set { m_status = value; }
         }
 
-        /// <summary>
-        /// A description for the DiagnosticInfo field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DiagnosticInfo", IsRequired = false, Order = 2)]
         public DiagnosticInfo DiagnosticInfo
         {
@@ -58579,7 +59164,7 @@ namespace Opc.Ua
     #region SubscriptionAcknowledgement Class
     #if (!OPCUA_EXCLUDE_SubscriptionAcknowledgement)
     /// <summary>
-    /// A description for the SubscriptionAcknowledgement DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -58615,9 +59200,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 1)]
         public uint SubscriptionId
         {
@@ -58625,9 +59208,7 @@ namespace Opc.Ua
             set { m_subscriptionId = value; }
         }
 
-        /// <summary>
-        /// A description for the SequenceNumber field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SequenceNumber", IsRequired = false, Order = 2)]
         public uint SequenceNumber
         {
@@ -58814,7 +59395,7 @@ namespace Opc.Ua
     #region PublishRequest Class
     #if (!OPCUA_EXCLUDE_PublishRequest)
     /// <summary>
-    /// A description for the PublishRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -58851,7 +59432,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -58873,7 +59454,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SubscriptionAcknowledgements field.
+        /// 
         /// </summary>
         [DataMember(Name = "SubscriptionAcknowledgements", IsRequired = false, Order = 2)]
         public SubscriptionAcknowledgementCollection SubscriptionAcknowledgements
@@ -58988,7 +59569,7 @@ namespace Opc.Ua
     #region PublishResponse Class
     #if (!OPCUA_EXCLUDE_PublishResponse)
     /// <summary>
-    /// A description for the PublishResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -59030,7 +59611,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -59051,9 +59632,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -59062,7 +59641,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AvailableSequenceNumbers field.
+        /// 
         /// </summary>
         [DataMember(Name = "AvailableSequenceNumbers", IsRequired = false, Order = 3)]
         public UInt32Collection AvailableSequenceNumbers
@@ -59083,9 +59662,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the MoreNotifications field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MoreNotifications", IsRequired = false, Order = 4)]
         public bool MoreNotifications
         {
@@ -59094,7 +59671,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the NotificationMessage field.
+        /// 
         /// </summary>
         [DataMember(Name = "NotificationMessage", IsRequired = false, Order = 5)]
         public NotificationMessage NotificationMessage
@@ -59116,7 +59693,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 6)]
         public StatusCodeCollection Results
@@ -59138,7 +59715,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 7)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -59278,7 +59855,7 @@ namespace Opc.Ua
     #region RepublishRequest Class
     #if (!OPCUA_EXCLUDE_RepublishRequest)
     /// <summary>
-    /// A description for the RepublishRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -59316,7 +59893,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -59337,9 +59914,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -59347,9 +59922,7 @@ namespace Opc.Ua
             set { m_subscriptionId = value; }
         }
 
-        /// <summary>
-        /// A description for the RetransmitSequenceNumber field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RetransmitSequenceNumber", IsRequired = false, Order = 3)]
         public uint RetransmitSequenceNumber
         {
@@ -59456,7 +60029,7 @@ namespace Opc.Ua
     #region RepublishResponse Class
     #if (!OPCUA_EXCLUDE_RepublishResponse)
     /// <summary>
-    /// A description for the RepublishResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -59493,7 +60066,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -59515,7 +60088,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the NotificationMessage field.
+        /// 
         /// </summary>
         [DataMember(Name = "NotificationMessage", IsRequired = false, Order = 2)]
         public NotificationMessage NotificationMessage
@@ -59630,7 +60203,7 @@ namespace Opc.Ua
     #region TransferResult Class
     #if (!OPCUA_EXCLUDE_TransferResult)
     /// <summary>
-    /// A description for the TransferResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -59666,9 +60239,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -59677,7 +60248,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AvailableSequenceNumbers field.
+        /// 
         /// </summary>
         [DataMember(Name = "AvailableSequenceNumbers", IsRequired = false, Order = 2)]
         public UInt32Collection AvailableSequenceNumbers
@@ -59877,7 +60448,7 @@ namespace Opc.Ua
     #region TransferSubscriptionsRequest Class
     #if (!OPCUA_EXCLUDE_TransferSubscriptionsRequest)
     /// <summary>
-    /// A description for the TransferSubscriptionsRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -59915,7 +60486,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -59937,7 +60508,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SubscriptionIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "SubscriptionIds", IsRequired = false, Order = 2)]
         public UInt32Collection SubscriptionIds
@@ -59958,9 +60529,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SendInitialValues field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SendInitialValues", IsRequired = false, Order = 3)]
         public bool SendInitialValues
         {
@@ -60067,7 +60636,7 @@ namespace Opc.Ua
     #region TransferSubscriptionsResponse Class
     #if (!OPCUA_EXCLUDE_TransferSubscriptionsResponse)
     /// <summary>
-    /// A description for the TransferSubscriptionsResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -60105,7 +60674,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -60127,7 +60696,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public TransferResultCollection Results
@@ -60149,7 +60718,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -60269,7 +60838,7 @@ namespace Opc.Ua
     #region DeleteSubscriptionsRequest Class
     #if (!OPCUA_EXCLUDE_DeleteSubscriptionsRequest)
     /// <summary>
-    /// A description for the DeleteSubscriptionsRequest DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -60306,7 +60875,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the RequestHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "RequestHeader", IsRequired = false, Order = 1)]
         public RequestHeader RequestHeader
@@ -60328,7 +60897,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SubscriptionIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "SubscriptionIds", IsRequired = false, Order = 2)]
         public UInt32Collection SubscriptionIds
@@ -60443,7 +61012,7 @@ namespace Opc.Ua
     #region DeleteSubscriptionsResponse Class
     #if (!OPCUA_EXCLUDE_DeleteSubscriptionsResponse)
     /// <summary>
-    /// A description for the DeleteSubscriptionsResponse DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -60481,7 +61050,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the ResponseHeader field.
+        /// 
         /// </summary>
         [DataMember(Name = "ResponseHeader", IsRequired = false, Order = 1)]
         public ResponseHeader ResponseHeader
@@ -60503,7 +61072,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the Results field.
+        /// 
         /// </summary>
         [DataMember(Name = "Results", IsRequired = false, Order = 2)]
         public StatusCodeCollection Results
@@ -60525,7 +61094,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DiagnosticInfos field.
+        /// 
         /// </summary>
         [DataMember(Name = "DiagnosticInfos", IsRequired = false, Order = 3)]
         public DiagnosticInfoCollection DiagnosticInfos
@@ -60645,7 +61214,7 @@ namespace Opc.Ua
     #region BuildInfo Class
     #if (!OPCUA_EXCLUDE_BuildInfo)
     /// <summary>
-    /// A description for the BuildInfo DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -60685,9 +61254,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ProductUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ProductUri", IsRequired = false, Order = 1)]
         public string ProductUri
         {
@@ -60695,9 +61262,7 @@ namespace Opc.Ua
             set { m_productUri = value; }
         }
 
-        /// <summary>
-        /// A description for the ManufacturerName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ManufacturerName", IsRequired = false, Order = 2)]
         public string ManufacturerName
         {
@@ -60705,9 +61270,7 @@ namespace Opc.Ua
             set { m_manufacturerName = value; }
         }
 
-        /// <summary>
-        /// A description for the ProductName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ProductName", IsRequired = false, Order = 3)]
         public string ProductName
         {
@@ -60715,9 +61278,7 @@ namespace Opc.Ua
             set { m_productName = value; }
         }
 
-        /// <summary>
-        /// A description for the SoftwareVersion field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SoftwareVersion", IsRequired = false, Order = 4)]
         public string SoftwareVersion
         {
@@ -60725,9 +61286,7 @@ namespace Opc.Ua
             set { m_softwareVersion = value; }
         }
 
-        /// <summary>
-        /// A description for the BuildNumber field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BuildNumber", IsRequired = false, Order = 5)]
         public string BuildNumber
         {
@@ -60735,9 +61294,7 @@ namespace Opc.Ua
             set { m_buildNumber = value; }
         }
 
-        /// <summary>
-        /// A description for the BuildDate field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "BuildDate", IsRequired = false, Order = 6)]
         public DateTime BuildDate
         {
@@ -60859,46 +61416,34 @@ namespace Opc.Ua
     #region RedundancySupport Enumeration
     #if (!OPCUA_EXCLUDE_RedundancySupport)
     /// <summary>
-    /// A description for the RedundancySupport DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum RedundancySupport
     {
-        /// <summary>
-        /// A description for the None field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "None_0")]
         None = 0,
 
-        /// <summary>
-        /// A description for the Cold field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Cold_1")]
         Cold = 1,
 
-        /// <summary>
-        /// A description for the Warm field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Warm_2")]
         Warm = 2,
 
-        /// <summary>
-        /// A description for the Hot field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Hot_3")]
         Hot = 3,
 
-        /// <summary>
-        /// A description for the Transparent field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Transparent_4")]
         Transparent = 4,
 
-        /// <summary>
-        /// A description for the HotAndMirrored field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "HotAndMirrored_5")]
         HotAndMirrored = 5,
     }
@@ -60908,58 +61453,42 @@ namespace Opc.Ua
     #region ServerState Enumeration
     #if (!OPCUA_EXCLUDE_ServerState)
     /// <summary>
-    /// A description for the ServerState DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum ServerState
     {
-        /// <summary>
-        /// A description for the Running field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Running_0")]
         Running = 0,
 
-        /// <summary>
-        /// A description for the Failed field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Failed_1")]
         Failed = 1,
 
-        /// <summary>
-        /// A description for the NoConfiguration field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NoConfiguration_2")]
         NoConfiguration = 2,
 
-        /// <summary>
-        /// A description for the Suspended field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Suspended_3")]
         Suspended = 3,
 
-        /// <summary>
-        /// A description for the Shutdown field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Shutdown_4")]
         Shutdown = 4,
 
-        /// <summary>
-        /// A description for the Test field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Test_5")]
         Test = 5,
 
-        /// <summary>
-        /// A description for the CommunicationFault field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "CommunicationFault_6")]
         CommunicationFault = 6,
 
-        /// <summary>
-        /// A description for the Unknown field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Unknown_7")]
         Unknown = 7,
     }
@@ -60969,7 +61498,7 @@ namespace Opc.Ua
     #region RedundantServerDataType Class
     #if (!OPCUA_EXCLUDE_RedundantServerDataType)
     /// <summary>
-    /// A description for the RedundantServerDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -61006,9 +61535,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ServerId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerId", IsRequired = false, Order = 1)]
         public string ServerId
         {
@@ -61016,9 +61543,7 @@ namespace Opc.Ua
             set { m_serverId = value; }
         }
 
-        /// <summary>
-        /// A description for the ServiceLevel field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServiceLevel", IsRequired = false, Order = 2)]
         public byte ServiceLevel
         {
@@ -61026,9 +61551,7 @@ namespace Opc.Ua
             set { m_serviceLevel = value; }
         }
 
-        /// <summary>
-        /// A description for the ServerState field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerState", IsRequired = false, Order = 3)]
         public ServerState ServerState
         {
@@ -61220,7 +61743,7 @@ namespace Opc.Ua
     #region EndpointUrlListDataType Class
     #if (!OPCUA_EXCLUDE_EndpointUrlListDataType)
     /// <summary>
-    /// A description for the EndpointUrlListDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -61256,7 +61779,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the EndpointUrlList field.
+        /// 
         /// </summary>
         [DataMember(Name = "EndpointUrlList", IsRequired = false, Order = 1)]
         public StringCollection EndpointUrlList
@@ -61451,7 +61974,7 @@ namespace Opc.Ua
     #region NetworkGroupDataType Class
     #if (!OPCUA_EXCLUDE_NetworkGroupDataType)
     /// <summary>
-    /// A description for the NetworkGroupDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -61487,9 +62010,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ServerUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerUri", IsRequired = false, Order = 1)]
         public string ServerUri
         {
@@ -61498,7 +62019,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the NetworkPaths field.
+        /// 
         /// </summary>
         [DataMember(Name = "NetworkPaths", IsRequired = false, Order = 2)]
         public EndpointUrlListDataTypeCollection NetworkPaths
@@ -61698,7 +62219,7 @@ namespace Opc.Ua
     #region SamplingIntervalDiagnosticsDataType Class
     #if (!OPCUA_EXCLUDE_SamplingIntervalDiagnosticsDataType)
     /// <summary>
-    /// A description for the SamplingIntervalDiagnosticsDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -61736,9 +62257,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the SamplingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SamplingInterval", IsRequired = false, Order = 1)]
         public double SamplingInterval
         {
@@ -61746,9 +62265,7 @@ namespace Opc.Ua
             set { m_samplingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the MonitoredItemCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MonitoredItemCount", IsRequired = false, Order = 2)]
         public uint MonitoredItemCount
         {
@@ -61756,9 +62273,7 @@ namespace Opc.Ua
             set { m_monitoredItemCount = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxMonitoredItemCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxMonitoredItemCount", IsRequired = false, Order = 3)]
         public uint MaxMonitoredItemCount
         {
@@ -61766,9 +62281,7 @@ namespace Opc.Ua
             set { m_maxMonitoredItemCount = value; }
         }
 
-        /// <summary>
-        /// A description for the DisabledMonitoredItemCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DisabledMonitoredItemCount", IsRequired = false, Order = 4)]
         public uint DisabledMonitoredItemCount
         {
@@ -61965,7 +62478,7 @@ namespace Opc.Ua
     #region ServerDiagnosticsSummaryDataType Class
     #if (!OPCUA_EXCLUDE_ServerDiagnosticsSummaryDataType)
     /// <summary>
-    /// A description for the ServerDiagnosticsSummaryDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -62011,9 +62524,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the ServerViewCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerViewCount", IsRequired = false, Order = 1)]
         public uint ServerViewCount
         {
@@ -62021,9 +62532,7 @@ namespace Opc.Ua
             set { m_serverViewCount = value; }
         }
 
-        /// <summary>
-        /// A description for the CurrentSessionCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CurrentSessionCount", IsRequired = false, Order = 2)]
         public uint CurrentSessionCount
         {
@@ -62031,9 +62540,7 @@ namespace Opc.Ua
             set { m_currentSessionCount = value; }
         }
 
-        /// <summary>
-        /// A description for the CumulatedSessionCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CumulatedSessionCount", IsRequired = false, Order = 3)]
         public uint CumulatedSessionCount
         {
@@ -62041,9 +62548,7 @@ namespace Opc.Ua
             set { m_cumulatedSessionCount = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityRejectedSessionCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityRejectedSessionCount", IsRequired = false, Order = 4)]
         public uint SecurityRejectedSessionCount
         {
@@ -62051,9 +62556,7 @@ namespace Opc.Ua
             set { m_securityRejectedSessionCount = value; }
         }
 
-        /// <summary>
-        /// A description for the RejectedSessionCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RejectedSessionCount", IsRequired = false, Order = 5)]
         public uint RejectedSessionCount
         {
@@ -62061,9 +62564,7 @@ namespace Opc.Ua
             set { m_rejectedSessionCount = value; }
         }
 
-        /// <summary>
-        /// A description for the SessionTimeoutCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SessionTimeoutCount", IsRequired = false, Order = 6)]
         public uint SessionTimeoutCount
         {
@@ -62071,9 +62572,7 @@ namespace Opc.Ua
             set { m_sessionTimeoutCount = value; }
         }
 
-        /// <summary>
-        /// A description for the SessionAbortCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SessionAbortCount", IsRequired = false, Order = 7)]
         public uint SessionAbortCount
         {
@@ -62081,9 +62580,7 @@ namespace Opc.Ua
             set { m_sessionAbortCount = value; }
         }
 
-        /// <summary>
-        /// A description for the CurrentSubscriptionCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CurrentSubscriptionCount", IsRequired = false, Order = 8)]
         public uint CurrentSubscriptionCount
         {
@@ -62091,9 +62588,7 @@ namespace Opc.Ua
             set { m_currentSubscriptionCount = value; }
         }
 
-        /// <summary>
-        /// A description for the CumulatedSubscriptionCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CumulatedSubscriptionCount", IsRequired = false, Order = 9)]
         public uint CumulatedSubscriptionCount
         {
@@ -62101,9 +62596,7 @@ namespace Opc.Ua
             set { m_cumulatedSubscriptionCount = value; }
         }
 
-        /// <summary>
-        /// A description for the PublishingIntervalCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishingIntervalCount", IsRequired = false, Order = 10)]
         public uint PublishingIntervalCount
         {
@@ -62111,9 +62604,7 @@ namespace Opc.Ua
             set { m_publishingIntervalCount = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityRejectedRequestsCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityRejectedRequestsCount", IsRequired = false, Order = 11)]
         public uint SecurityRejectedRequestsCount
         {
@@ -62121,9 +62612,7 @@ namespace Opc.Ua
             set { m_securityRejectedRequestsCount = value; }
         }
 
-        /// <summary>
-        /// A description for the RejectedRequestsCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RejectedRequestsCount", IsRequired = false, Order = 12)]
         public uint RejectedRequestsCount
         {
@@ -62275,7 +62764,7 @@ namespace Opc.Ua
     #region ServerStatusDataType Class
     #if (!OPCUA_EXCLUDE_ServerStatusDataType)
     /// <summary>
-    /// A description for the ServerStatusDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -62315,9 +62804,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StartTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StartTime", IsRequired = false, Order = 1)]
         public DateTime StartTime
         {
@@ -62325,9 +62812,7 @@ namespace Opc.Ua
             set { m_startTime = value; }
         }
 
-        /// <summary>
-        /// A description for the CurrentTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CurrentTime", IsRequired = false, Order = 2)]
         public DateTime CurrentTime
         {
@@ -62335,9 +62820,7 @@ namespace Opc.Ua
             set { m_currentTime = value; }
         }
 
-        /// <summary>
-        /// A description for the State field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "State", IsRequired = false, Order = 3)]
         public ServerState State
         {
@@ -62346,7 +62829,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the BuildInfo field.
+        /// 
         /// </summary>
         [DataMember(Name = "BuildInfo", IsRequired = false, Order = 4)]
         public BuildInfo BuildInfo
@@ -62367,9 +62850,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the SecondsTillShutdown field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecondsTillShutdown", IsRequired = false, Order = 5)]
         public uint SecondsTillShutdown
         {
@@ -62377,9 +62858,7 @@ namespace Opc.Ua
             set { m_secondsTillShutdown = value; }
         }
 
-        /// <summary>
-        /// A description for the ShutdownReason field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ShutdownReason", IsRequired = false, Order = 6)]
         public LocalizedText ShutdownReason
         {
@@ -62501,7 +62980,7 @@ namespace Opc.Ua
     #region SessionDiagnosticsDataType Class
     #if (!OPCUA_EXCLUDE_SessionDiagnosticsDataType)
     /// <summary>
-    /// A description for the SessionDiagnosticsDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -62578,9 +63057,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the SessionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SessionId", IsRequired = false, Order = 1)]
         public NodeId SessionId
         {
@@ -62588,9 +63065,7 @@ namespace Opc.Ua
             set { m_sessionId = value; }
         }
 
-        /// <summary>
-        /// A description for the SessionName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SessionName", IsRequired = false, Order = 2)]
         public string SessionName
         {
@@ -62599,7 +63074,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ClientDescription field.
+        /// 
         /// </summary>
         [DataMember(Name = "ClientDescription", IsRequired = false, Order = 3)]
         public ApplicationDescription ClientDescription
@@ -62620,9 +63095,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the ServerUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ServerUri", IsRequired = false, Order = 4)]
         public string ServerUri
         {
@@ -62630,9 +63103,7 @@ namespace Opc.Ua
             set { m_serverUri = value; }
         }
 
-        /// <summary>
-        /// A description for the EndpointUrl field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EndpointUrl", IsRequired = false, Order = 5)]
         public string EndpointUrl
         {
@@ -62641,7 +63112,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LocaleIds field.
+        /// 
         /// </summary>
         [DataMember(Name = "LocaleIds", IsRequired = false, Order = 6)]
         public StringCollection LocaleIds
@@ -62662,9 +63133,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the ActualSessionTimeout field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ActualSessionTimeout", IsRequired = false, Order = 7)]
         public double ActualSessionTimeout
         {
@@ -62672,9 +63141,7 @@ namespace Opc.Ua
             set { m_actualSessionTimeout = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxResponseMessageSize field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxResponseMessageSize", IsRequired = false, Order = 8)]
         public uint MaxResponseMessageSize
         {
@@ -62682,9 +63149,7 @@ namespace Opc.Ua
             set { m_maxResponseMessageSize = value; }
         }
 
-        /// <summary>
-        /// A description for the ClientConnectionTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientConnectionTime", IsRequired = false, Order = 9)]
         public DateTime ClientConnectionTime
         {
@@ -62692,9 +63157,7 @@ namespace Opc.Ua
             set { m_clientConnectionTime = value; }
         }
 
-        /// <summary>
-        /// A description for the ClientLastContactTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientLastContactTime", IsRequired = false, Order = 10)]
         public DateTime ClientLastContactTime
         {
@@ -62702,9 +63165,7 @@ namespace Opc.Ua
             set { m_clientLastContactTime = value; }
         }
 
-        /// <summary>
-        /// A description for the CurrentSubscriptionsCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CurrentSubscriptionsCount", IsRequired = false, Order = 11)]
         public uint CurrentSubscriptionsCount
         {
@@ -62712,9 +63173,7 @@ namespace Opc.Ua
             set { m_currentSubscriptionsCount = value; }
         }
 
-        /// <summary>
-        /// A description for the CurrentMonitoredItemsCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CurrentMonitoredItemsCount", IsRequired = false, Order = 12)]
         public uint CurrentMonitoredItemsCount
         {
@@ -62722,9 +63181,7 @@ namespace Opc.Ua
             set { m_currentMonitoredItemsCount = value; }
         }
 
-        /// <summary>
-        /// A description for the CurrentPublishRequestsInQueue field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CurrentPublishRequestsInQueue", IsRequired = false, Order = 13)]
         public uint CurrentPublishRequestsInQueue
         {
@@ -62733,7 +63190,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the TotalRequestCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "TotalRequestCount", IsRequired = false, Order = 14)]
         public ServiceCounterDataType TotalRequestCount
@@ -62754,9 +63211,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the UnauthorizedRequestCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UnauthorizedRequestCount", IsRequired = false, Order = 15)]
         public uint UnauthorizedRequestCount
         {
@@ -62765,7 +63220,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ReadCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "ReadCount", IsRequired = false, Order = 16)]
         public ServiceCounterDataType ReadCount
@@ -62787,7 +63242,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the HistoryReadCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "HistoryReadCount", IsRequired = false, Order = 17)]
         public ServiceCounterDataType HistoryReadCount
@@ -62809,7 +63264,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the WriteCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "WriteCount", IsRequired = false, Order = 18)]
         public ServiceCounterDataType WriteCount
@@ -62831,7 +63286,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the HistoryUpdateCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "HistoryUpdateCount", IsRequired = false, Order = 19)]
         public ServiceCounterDataType HistoryUpdateCount
@@ -62853,7 +63308,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the CallCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "CallCount", IsRequired = false, Order = 20)]
         public ServiceCounterDataType CallCount
@@ -62875,7 +63330,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the CreateMonitoredItemsCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "CreateMonitoredItemsCount", IsRequired = false, Order = 21)]
         public ServiceCounterDataType CreateMonitoredItemsCount
@@ -62897,7 +63352,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ModifyMonitoredItemsCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "ModifyMonitoredItemsCount", IsRequired = false, Order = 22)]
         public ServiceCounterDataType ModifyMonitoredItemsCount
@@ -62919,7 +63374,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SetMonitoringModeCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "SetMonitoringModeCount", IsRequired = false, Order = 23)]
         public ServiceCounterDataType SetMonitoringModeCount
@@ -62941,7 +63396,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SetTriggeringCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "SetTriggeringCount", IsRequired = false, Order = 24)]
         public ServiceCounterDataType SetTriggeringCount
@@ -62963,7 +63418,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DeleteMonitoredItemsCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "DeleteMonitoredItemsCount", IsRequired = false, Order = 25)]
         public ServiceCounterDataType DeleteMonitoredItemsCount
@@ -62985,7 +63440,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the CreateSubscriptionCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "CreateSubscriptionCount", IsRequired = false, Order = 26)]
         public ServiceCounterDataType CreateSubscriptionCount
@@ -63007,7 +63462,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ModifySubscriptionCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "ModifySubscriptionCount", IsRequired = false, Order = 27)]
         public ServiceCounterDataType ModifySubscriptionCount
@@ -63029,7 +63484,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the SetPublishingModeCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "SetPublishingModeCount", IsRequired = false, Order = 28)]
         public ServiceCounterDataType SetPublishingModeCount
@@ -63051,7 +63506,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the PublishCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "PublishCount", IsRequired = false, Order = 29)]
         public ServiceCounterDataType PublishCount
@@ -63073,7 +63528,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the RepublishCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "RepublishCount", IsRequired = false, Order = 30)]
         public ServiceCounterDataType RepublishCount
@@ -63095,7 +63550,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the TransferSubscriptionsCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "TransferSubscriptionsCount", IsRequired = false, Order = 31)]
         public ServiceCounterDataType TransferSubscriptionsCount
@@ -63117,7 +63572,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DeleteSubscriptionsCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "DeleteSubscriptionsCount", IsRequired = false, Order = 32)]
         public ServiceCounterDataType DeleteSubscriptionsCount
@@ -63139,7 +63594,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AddNodesCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "AddNodesCount", IsRequired = false, Order = 33)]
         public ServiceCounterDataType AddNodesCount
@@ -63161,7 +63616,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AddReferencesCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "AddReferencesCount", IsRequired = false, Order = 34)]
         public ServiceCounterDataType AddReferencesCount
@@ -63183,7 +63638,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DeleteNodesCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "DeleteNodesCount", IsRequired = false, Order = 35)]
         public ServiceCounterDataType DeleteNodesCount
@@ -63205,7 +63660,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the DeleteReferencesCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "DeleteReferencesCount", IsRequired = false, Order = 36)]
         public ServiceCounterDataType DeleteReferencesCount
@@ -63227,7 +63682,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the BrowseCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "BrowseCount", IsRequired = false, Order = 37)]
         public ServiceCounterDataType BrowseCount
@@ -63249,7 +63704,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the BrowseNextCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "BrowseNextCount", IsRequired = false, Order = 38)]
         public ServiceCounterDataType BrowseNextCount
@@ -63271,7 +63726,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the TranslateBrowsePathsToNodeIdsCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "TranslateBrowsePathsToNodeIdsCount", IsRequired = false, Order = 39)]
         public ServiceCounterDataType TranslateBrowsePathsToNodeIdsCount
@@ -63293,7 +63748,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the QueryFirstCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "QueryFirstCount", IsRequired = false, Order = 40)]
         public ServiceCounterDataType QueryFirstCount
@@ -63315,7 +63770,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the QueryNextCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "QueryNextCount", IsRequired = false, Order = 41)]
         public ServiceCounterDataType QueryNextCount
@@ -63337,7 +63792,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the RegisterNodesCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "RegisterNodesCount", IsRequired = false, Order = 42)]
         public ServiceCounterDataType RegisterNodesCount
@@ -63359,7 +63814,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the UnregisterNodesCount field.
+        /// 
         /// </summary>
         [DataMember(Name = "UnregisterNodesCount", IsRequired = false, Order = 43)]
         public ServiceCounterDataType UnregisterNodesCount
@@ -63764,7 +64219,7 @@ namespace Opc.Ua
     #region SessionSecurityDiagnosticsDataType Class
     #if (!OPCUA_EXCLUDE_SessionSecurityDiagnosticsDataType)
     /// <summary>
-    /// A description for the SessionSecurityDiagnosticsDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -63807,9 +64262,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the SessionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SessionId", IsRequired = false, Order = 1)]
         public NodeId SessionId
         {
@@ -63817,9 +64270,7 @@ namespace Opc.Ua
             set { m_sessionId = value; }
         }
 
-        /// <summary>
-        /// A description for the ClientUserIdOfSession field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientUserIdOfSession", IsRequired = false, Order = 2)]
         public string ClientUserIdOfSession
         {
@@ -63828,7 +64279,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the ClientUserIdHistory field.
+        /// 
         /// </summary>
         [DataMember(Name = "ClientUserIdHistory", IsRequired = false, Order = 3)]
         public StringCollection ClientUserIdHistory
@@ -63849,9 +64300,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the AuthenticationMechanism field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AuthenticationMechanism", IsRequired = false, Order = 4)]
         public string AuthenticationMechanism
         {
@@ -63859,9 +64308,7 @@ namespace Opc.Ua
             set { m_authenticationMechanism = value; }
         }
 
-        /// <summary>
-        /// A description for the Encoding field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Encoding", IsRequired = false, Order = 5)]
         public string Encoding
         {
@@ -63869,9 +64316,7 @@ namespace Opc.Ua
             set { m_encoding = value; }
         }
 
-        /// <summary>
-        /// A description for the TransportProtocol field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransportProtocol", IsRequired = false, Order = 6)]
         public string TransportProtocol
         {
@@ -63879,9 +64324,7 @@ namespace Opc.Ua
             set { m_transportProtocol = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityMode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityMode", IsRequired = false, Order = 7)]
         public MessageSecurityMode SecurityMode
         {
@@ -63889,9 +64332,7 @@ namespace Opc.Ua
             set { m_securityMode = value; }
         }
 
-        /// <summary>
-        /// A description for the SecurityPolicyUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SecurityPolicyUri", IsRequired = false, Order = 8)]
         public string SecurityPolicyUri
         {
@@ -63899,9 +64340,7 @@ namespace Opc.Ua
             set { m_securityPolicyUri = value; }
         }
 
-        /// <summary>
-        /// A description for the ClientCertificate field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ClientCertificate", IsRequired = false, Order = 9)]
         public byte[] ClientCertificate
         {
@@ -64123,7 +64562,7 @@ namespace Opc.Ua
     #region ServiceCounterDataType Class
     #if (!OPCUA_EXCLUDE_ServiceCounterDataType)
     /// <summary>
-    /// A description for the ServiceCounterDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -64159,9 +64598,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the TotalCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TotalCount", IsRequired = false, Order = 1)]
         public uint TotalCount
         {
@@ -64169,9 +64606,7 @@ namespace Opc.Ua
             set { m_totalCount = value; }
         }
 
-        /// <summary>
-        /// A description for the ErrorCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ErrorCount", IsRequired = false, Order = 2)]
         public uint ErrorCount
         {
@@ -64273,7 +64708,7 @@ namespace Opc.Ua
     #region StatusResult Class
     #if (!OPCUA_EXCLUDE_StatusResult)
     /// <summary>
-    /// A description for the StatusResult DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -64309,9 +64744,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the StatusCode field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "StatusCode", IsRequired = false, Order = 1)]
         public StatusCode StatusCode
         {
@@ -64319,9 +64752,7 @@ namespace Opc.Ua
             set { m_statusCode = value; }
         }
 
-        /// <summary>
-        /// A description for the DiagnosticInfo field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DiagnosticInfo", IsRequired = false, Order = 2)]
         public DiagnosticInfo DiagnosticInfo
         {
@@ -64508,7 +64939,7 @@ namespace Opc.Ua
     #region SubscriptionDiagnosticsDataType Class
     #if (!OPCUA_EXCLUDE_SubscriptionDiagnosticsDataType)
     /// <summary>
-    /// A description for the SubscriptionDiagnosticsDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -64573,9 +65004,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the SessionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SessionId", IsRequired = false, Order = 1)]
         public NodeId SessionId
         {
@@ -64583,9 +65012,7 @@ namespace Opc.Ua
             set { m_sessionId = value; }
         }
 
-        /// <summary>
-        /// A description for the SubscriptionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "SubscriptionId", IsRequired = false, Order = 2)]
         public uint SubscriptionId
         {
@@ -64593,9 +65020,7 @@ namespace Opc.Ua
             set { m_subscriptionId = value; }
         }
 
-        /// <summary>
-        /// A description for the Priority field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Priority", IsRequired = false, Order = 3)]
         public byte Priority
         {
@@ -64603,9 +65028,7 @@ namespace Opc.Ua
             set { m_priority = value; }
         }
 
-        /// <summary>
-        /// A description for the PublishingInterval field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishingInterval", IsRequired = false, Order = 4)]
         public double PublishingInterval
         {
@@ -64613,9 +65036,7 @@ namespace Opc.Ua
             set { m_publishingInterval = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxKeepAliveCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxKeepAliveCount", IsRequired = false, Order = 5)]
         public uint MaxKeepAliveCount
         {
@@ -64623,9 +65044,7 @@ namespace Opc.Ua
             set { m_maxKeepAliveCount = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxLifetimeCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxLifetimeCount", IsRequired = false, Order = 6)]
         public uint MaxLifetimeCount
         {
@@ -64633,9 +65052,7 @@ namespace Opc.Ua
             set { m_maxLifetimeCount = value; }
         }
 
-        /// <summary>
-        /// A description for the MaxNotificationsPerPublish field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MaxNotificationsPerPublish", IsRequired = false, Order = 7)]
         public uint MaxNotificationsPerPublish
         {
@@ -64643,9 +65060,7 @@ namespace Opc.Ua
             set { m_maxNotificationsPerPublish = value; }
         }
 
-        /// <summary>
-        /// A description for the PublishingEnabled field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishingEnabled", IsRequired = false, Order = 8)]
         public bool PublishingEnabled
         {
@@ -64653,9 +65068,7 @@ namespace Opc.Ua
             set { m_publishingEnabled = value; }
         }
 
-        /// <summary>
-        /// A description for the ModifyCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "ModifyCount", IsRequired = false, Order = 9)]
         public uint ModifyCount
         {
@@ -64663,9 +65076,7 @@ namespace Opc.Ua
             set { m_modifyCount = value; }
         }
 
-        /// <summary>
-        /// A description for the EnableCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EnableCount", IsRequired = false, Order = 10)]
         public uint EnableCount
         {
@@ -64673,9 +65084,7 @@ namespace Opc.Ua
             set { m_enableCount = value; }
         }
 
-        /// <summary>
-        /// A description for the DisableCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DisableCount", IsRequired = false, Order = 11)]
         public uint DisableCount
         {
@@ -64683,9 +65092,7 @@ namespace Opc.Ua
             set { m_disableCount = value; }
         }
 
-        /// <summary>
-        /// A description for the RepublishRequestCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RepublishRequestCount", IsRequired = false, Order = 12)]
         public uint RepublishRequestCount
         {
@@ -64693,9 +65100,7 @@ namespace Opc.Ua
             set { m_republishRequestCount = value; }
         }
 
-        /// <summary>
-        /// A description for the RepublishMessageRequestCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RepublishMessageRequestCount", IsRequired = false, Order = 13)]
         public uint RepublishMessageRequestCount
         {
@@ -64703,9 +65108,7 @@ namespace Opc.Ua
             set { m_republishMessageRequestCount = value; }
         }
 
-        /// <summary>
-        /// A description for the RepublishMessageCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "RepublishMessageCount", IsRequired = false, Order = 14)]
         public uint RepublishMessageCount
         {
@@ -64713,9 +65116,7 @@ namespace Opc.Ua
             set { m_republishMessageCount = value; }
         }
 
-        /// <summary>
-        /// A description for the TransferRequestCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransferRequestCount", IsRequired = false, Order = 15)]
         public uint TransferRequestCount
         {
@@ -64723,9 +65124,7 @@ namespace Opc.Ua
             set { m_transferRequestCount = value; }
         }
 
-        /// <summary>
-        /// A description for the TransferredToAltClientCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransferredToAltClientCount", IsRequired = false, Order = 16)]
         public uint TransferredToAltClientCount
         {
@@ -64733,9 +65132,7 @@ namespace Opc.Ua
             set { m_transferredToAltClientCount = value; }
         }
 
-        /// <summary>
-        /// A description for the TransferredToSameClientCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "TransferredToSameClientCount", IsRequired = false, Order = 17)]
         public uint TransferredToSameClientCount
         {
@@ -64743,9 +65140,7 @@ namespace Opc.Ua
             set { m_transferredToSameClientCount = value; }
         }
 
-        /// <summary>
-        /// A description for the PublishRequestCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "PublishRequestCount", IsRequired = false, Order = 18)]
         public uint PublishRequestCount
         {
@@ -64753,9 +65148,7 @@ namespace Opc.Ua
             set { m_publishRequestCount = value; }
         }
 
-        /// <summary>
-        /// A description for the DataChangeNotificationsCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DataChangeNotificationsCount", IsRequired = false, Order = 19)]
         public uint DataChangeNotificationsCount
         {
@@ -64763,9 +65156,7 @@ namespace Opc.Ua
             set { m_dataChangeNotificationsCount = value; }
         }
 
-        /// <summary>
-        /// A description for the EventNotificationsCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EventNotificationsCount", IsRequired = false, Order = 20)]
         public uint EventNotificationsCount
         {
@@ -64773,9 +65164,7 @@ namespace Opc.Ua
             set { m_eventNotificationsCount = value; }
         }
 
-        /// <summary>
-        /// A description for the NotificationsCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NotificationsCount", IsRequired = false, Order = 21)]
         public uint NotificationsCount
         {
@@ -64783,9 +65172,7 @@ namespace Opc.Ua
             set { m_notificationsCount = value; }
         }
 
-        /// <summary>
-        /// A description for the LatePublishRequestCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LatePublishRequestCount", IsRequired = false, Order = 22)]
         public uint LatePublishRequestCount
         {
@@ -64793,9 +65180,7 @@ namespace Opc.Ua
             set { m_latePublishRequestCount = value; }
         }
 
-        /// <summary>
-        /// A description for the CurrentKeepAliveCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CurrentKeepAliveCount", IsRequired = false, Order = 23)]
         public uint CurrentKeepAliveCount
         {
@@ -64803,9 +65188,7 @@ namespace Opc.Ua
             set { m_currentKeepAliveCount = value; }
         }
 
-        /// <summary>
-        /// A description for the CurrentLifetimeCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CurrentLifetimeCount", IsRequired = false, Order = 24)]
         public uint CurrentLifetimeCount
         {
@@ -64813,9 +65196,7 @@ namespace Opc.Ua
             set { m_currentLifetimeCount = value; }
         }
 
-        /// <summary>
-        /// A description for the UnacknowledgedMessageCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UnacknowledgedMessageCount", IsRequired = false, Order = 25)]
         public uint UnacknowledgedMessageCount
         {
@@ -64823,9 +65204,7 @@ namespace Opc.Ua
             set { m_unacknowledgedMessageCount = value; }
         }
 
-        /// <summary>
-        /// A description for the DiscardedMessageCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DiscardedMessageCount", IsRequired = false, Order = 26)]
         public uint DiscardedMessageCount
         {
@@ -64833,9 +65212,7 @@ namespace Opc.Ua
             set { m_discardedMessageCount = value; }
         }
 
-        /// <summary>
-        /// A description for the MonitoredItemCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MonitoredItemCount", IsRequired = false, Order = 27)]
         public uint MonitoredItemCount
         {
@@ -64843,9 +65220,7 @@ namespace Opc.Ua
             set { m_monitoredItemCount = value; }
         }
 
-        /// <summary>
-        /// A description for the DisabledMonitoredItemCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DisabledMonitoredItemCount", IsRequired = false, Order = 28)]
         public uint DisabledMonitoredItemCount
         {
@@ -64853,9 +65228,7 @@ namespace Opc.Ua
             set { m_disabledMonitoredItemCount = value; }
         }
 
-        /// <summary>
-        /// A description for the MonitoringQueueOverflowCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "MonitoringQueueOverflowCount", IsRequired = false, Order = 29)]
         public uint MonitoringQueueOverflowCount
         {
@@ -64863,9 +65236,7 @@ namespace Opc.Ua
             set { m_monitoringQueueOverflowCount = value; }
         }
 
-        /// <summary>
-        /// A description for the NextSequenceNumber field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NextSequenceNumber", IsRequired = false, Order = 30)]
         public uint NextSequenceNumber
         {
@@ -64873,9 +65244,7 @@ namespace Opc.Ua
             set { m_nextSequenceNumber = value; }
         }
 
-        /// <summary>
-        /// A description for the EventQueueOverFlowCount field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "EventQueueOverFlowCount", IsRequired = false, Order = 31)]
         public uint EventQueueOverFlowCount
         {
@@ -65207,40 +65576,30 @@ namespace Opc.Ua
     #region ModelChangeStructureVerbMask Enumeration
     #if (!OPCUA_EXCLUDE_ModelChangeStructureVerbMask)
     /// <summary>
-    /// A description for the ModelChangeStructureVerbMask DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum ModelChangeStructureVerbMask
     {
-        /// <summary>
-        /// A description for the NodeAdded field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NodeAdded_1")]
         NodeAdded = 1,
 
-        /// <summary>
-        /// A description for the NodeDeleted field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "NodeDeleted_2")]
         NodeDeleted = 2,
 
-        /// <summary>
-        /// A description for the ReferenceAdded field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReferenceAdded_4")]
         ReferenceAdded = 4,
 
-        /// <summary>
-        /// A description for the ReferenceDeleted field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "ReferenceDeleted_8")]
         ReferenceDeleted = 8,
 
-        /// <summary>
-        /// A description for the DataTypeChanged field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "DataTypeChanged_16")]
         DataTypeChanged = 16,
     }
@@ -65250,7 +65609,7 @@ namespace Opc.Ua
     #region ModelChangeStructureDataType Class
     #if (!OPCUA_EXCLUDE_ModelChangeStructureDataType)
     /// <summary>
-    /// A description for the ModelChangeStructureDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -65287,9 +65646,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Affected field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Affected", IsRequired = false, Order = 1)]
         public NodeId Affected
         {
@@ -65297,9 +65654,7 @@ namespace Opc.Ua
             set { m_affected = value; }
         }
 
-        /// <summary>
-        /// A description for the AffectedType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AffectedType", IsRequired = false, Order = 2)]
         public NodeId AffectedType
         {
@@ -65307,9 +65662,7 @@ namespace Opc.Ua
             set { m_affectedType = value; }
         }
 
-        /// <summary>
-        /// A description for the Verb field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Verb", IsRequired = false, Order = 3)]
         public byte Verb
         {
@@ -65501,7 +65854,7 @@ namespace Opc.Ua
     #region SemanticChangeStructureDataType Class
     #if (!OPCUA_EXCLUDE_SemanticChangeStructureDataType)
     /// <summary>
-    /// A description for the SemanticChangeStructureDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -65537,9 +65890,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Affected field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Affected", IsRequired = false, Order = 1)]
         public NodeId Affected
         {
@@ -65547,9 +65898,7 @@ namespace Opc.Ua
             set { m_affected = value; }
         }
 
-        /// <summary>
-        /// A description for the AffectedType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AffectedType", IsRequired = false, Order = 2)]
         public NodeId AffectedType
         {
@@ -65736,7 +66085,7 @@ namespace Opc.Ua
     #region Range Class
     #if (!OPCUA_EXCLUDE_Range)
     /// <summary>
-    /// A description for the Range DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -65772,9 +66121,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Low field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Low", IsRequired = false, Order = 1)]
         public double Low
         {
@@ -65782,9 +66129,7 @@ namespace Opc.Ua
             set { m_low = value; }
         }
 
-        /// <summary>
-        /// A description for the High field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "High", IsRequired = false, Order = 2)]
         public double High
         {
@@ -65886,7 +66231,7 @@ namespace Opc.Ua
     #region EUInformation Class
     #if (!OPCUA_EXCLUDE_EUInformation)
     /// <summary>
-    /// A description for the EUInformation DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -65924,9 +66269,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the NamespaceUri field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "NamespaceUri", IsRequired = false, Order = 1)]
         public string NamespaceUri
         {
@@ -65934,9 +66277,7 @@ namespace Opc.Ua
             set { m_namespaceUri = value; }
         }
 
-        /// <summary>
-        /// A description for the UnitId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UnitId", IsRequired = false, Order = 2)]
         public int UnitId
         {
@@ -65944,9 +66285,7 @@ namespace Opc.Ua
             set { m_unitId = value; }
         }
 
-        /// <summary>
-        /// A description for the DisplayName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "DisplayName", IsRequired = false, Order = 3)]
         public LocalizedText DisplayName
         {
@@ -65954,9 +66293,7 @@ namespace Opc.Ua
             set { m_displayName = value; }
         }
 
-        /// <summary>
-        /// A description for the Description field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Description", IsRequired = false, Order = 4)]
         public LocalizedText Description
         {
@@ -66068,28 +66405,22 @@ namespace Opc.Ua
     #region AxisScaleEnumeration Enumeration
     #if (!OPCUA_EXCLUDE_AxisScaleEnumeration)
     /// <summary>
-    /// A description for the AxisScaleEnumeration DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum AxisScaleEnumeration
     {
-        /// <summary>
-        /// A description for the Linear field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Linear_0")]
         Linear = 0,
 
-        /// <summary>
-        /// A description for the Log field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Log_1")]
         Log = 1,
 
-        /// <summary>
-        /// A description for the Ln field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Ln_2")]
         Ln = 2,
     }
@@ -66099,7 +66430,7 @@ namespace Opc.Ua
     #region ComplexNumberType Class
     #if (!OPCUA_EXCLUDE_ComplexNumberType)
     /// <summary>
-    /// A description for the ComplexNumberType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -66135,9 +66466,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Real field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Real", IsRequired = false, Order = 1)]
         public float Real
         {
@@ -66145,9 +66474,7 @@ namespace Opc.Ua
             set { m_real = value; }
         }
 
-        /// <summary>
-        /// A description for the Imaginary field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Imaginary", IsRequired = false, Order = 2)]
         public float Imaginary
         {
@@ -66249,7 +66576,7 @@ namespace Opc.Ua
     #region DoubleComplexNumberType Class
     #if (!OPCUA_EXCLUDE_DoubleComplexNumberType)
     /// <summary>
-    /// A description for the DoubleComplexNumberType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -66285,9 +66612,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Real field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Real", IsRequired = false, Order = 1)]
         public double Real
         {
@@ -66295,9 +66620,7 @@ namespace Opc.Ua
             set { m_real = value; }
         }
 
-        /// <summary>
-        /// A description for the Imaginary field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Imaginary", IsRequired = false, Order = 2)]
         public double Imaginary
         {
@@ -66399,7 +66722,7 @@ namespace Opc.Ua
     #region AxisInformation Class
     #if (!OPCUA_EXCLUDE_AxisInformation)
     /// <summary>
-    /// A description for the AxisInformation DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -66439,7 +66762,7 @@ namespace Opc.Ua
 
         #region Public Properties
         /// <summary>
-        /// A description for the EngineeringUnits field.
+        /// 
         /// </summary>
         [DataMember(Name = "EngineeringUnits", IsRequired = false, Order = 1)]
         public EUInformation EngineeringUnits
@@ -66461,7 +66784,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the EURange field.
+        /// 
         /// </summary>
         [DataMember(Name = "EURange", IsRequired = false, Order = 2)]
         public Range EURange
@@ -66482,9 +66805,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the Title field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Title", IsRequired = false, Order = 3)]
         public LocalizedText Title
         {
@@ -66492,9 +66813,7 @@ namespace Opc.Ua
             set { m_title = value; }
         }
 
-        /// <summary>
-        /// A description for the AxisScaleType field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AxisScaleType", IsRequired = false, Order = 4)]
         public AxisScaleEnumeration AxisScaleType
         {
@@ -66503,7 +66822,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the AxisSteps field.
+        /// 
         /// </summary>
         [DataMember(Name = "AxisSteps", IsRequired = false, Order = 5)]
         public DoubleCollection AxisSteps
@@ -66633,7 +66952,7 @@ namespace Opc.Ua
     #region XVType Class
     #if (!OPCUA_EXCLUDE_XVType)
     /// <summary>
-    /// A description for the XVType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -66669,9 +66988,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the X field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "X", IsRequired = false, Order = 1)]
         public double X
         {
@@ -66679,9 +66996,7 @@ namespace Opc.Ua
             set { m_x = value; }
         }
 
-        /// <summary>
-        /// A description for the Value field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Value", IsRequired = false, Order = 2)]
         public float Value
         {
@@ -66783,7 +67098,7 @@ namespace Opc.Ua
     #region ProgramDiagnosticDataType Class
     #if (!OPCUA_EXCLUDE_ProgramDiagnosticDataType)
     /// <summary>
-    /// A description for the ProgramDiagnosticDataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -66827,9 +67142,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the CreateSessionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CreateSessionId", IsRequired = false, Order = 1)]
         public NodeId CreateSessionId
         {
@@ -66837,9 +67150,7 @@ namespace Opc.Ua
             set { m_createSessionId = value; }
         }
 
-        /// <summary>
-        /// A description for the CreateClientName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CreateClientName", IsRequired = false, Order = 2)]
         public string CreateClientName
         {
@@ -66847,9 +67158,7 @@ namespace Opc.Ua
             set { m_createClientName = value; }
         }
 
-        /// <summary>
-        /// A description for the InvocationCreationTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "InvocationCreationTime", IsRequired = false, Order = 3)]
         public DateTime InvocationCreationTime
         {
@@ -66857,9 +67166,7 @@ namespace Opc.Ua
             set { m_invocationCreationTime = value; }
         }
 
-        /// <summary>
-        /// A description for the LastTransitionTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LastTransitionTime", IsRequired = false, Order = 4)]
         public DateTime LastTransitionTime
         {
@@ -66867,9 +67174,7 @@ namespace Opc.Ua
             set { m_lastTransitionTime = value; }
         }
 
-        /// <summary>
-        /// A description for the LastMethodCall field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LastMethodCall", IsRequired = false, Order = 5)]
         public string LastMethodCall
         {
@@ -66877,9 +67182,7 @@ namespace Opc.Ua
             set { m_lastMethodCall = value; }
         }
 
-        /// <summary>
-        /// A description for the LastMethodSessionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LastMethodSessionId", IsRequired = false, Order = 6)]
         public NodeId LastMethodSessionId
         {
@@ -66888,7 +67191,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LastMethodInputArguments field.
+        /// 
         /// </summary>
         [DataMember(Name = "LastMethodInputArguments", IsRequired = false, Order = 7)]
         public ArgumentCollection LastMethodInputArguments
@@ -66910,7 +67213,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LastMethodOutputArguments field.
+        /// 
         /// </summary>
         [DataMember(Name = "LastMethodOutputArguments", IsRequired = false, Order = 8)]
         public ArgumentCollection LastMethodOutputArguments
@@ -66931,9 +67234,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the LastMethodCallTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LastMethodCallTime", IsRequired = false, Order = 9)]
         public DateTime LastMethodCallTime
         {
@@ -66942,7 +67243,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LastMethodReturnStatus field.
+        /// 
         /// </summary>
         [DataMember(Name = "LastMethodReturnStatus", IsRequired = false, Order = 10)]
         public StatusResult LastMethodReturnStatus
@@ -67097,7 +67398,7 @@ namespace Opc.Ua
     #region ProgramDiagnostic2DataType Class
     #if (!OPCUA_EXCLUDE_ProgramDiagnostic2DataType)
     /// <summary>
-    /// A description for the ProgramDiagnostic2DataType DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -67143,9 +67444,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the CreateSessionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CreateSessionId", IsRequired = false, Order = 1)]
         public NodeId CreateSessionId
         {
@@ -67153,9 +67452,7 @@ namespace Opc.Ua
             set { m_createSessionId = value; }
         }
 
-        /// <summary>
-        /// A description for the CreateClientName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "CreateClientName", IsRequired = false, Order = 2)]
         public string CreateClientName
         {
@@ -67163,9 +67460,7 @@ namespace Opc.Ua
             set { m_createClientName = value; }
         }
 
-        /// <summary>
-        /// A description for the InvocationCreationTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "InvocationCreationTime", IsRequired = false, Order = 3)]
         public DateTime InvocationCreationTime
         {
@@ -67173,9 +67468,7 @@ namespace Opc.Ua
             set { m_invocationCreationTime = value; }
         }
 
-        /// <summary>
-        /// A description for the LastTransitionTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LastTransitionTime", IsRequired = false, Order = 4)]
         public DateTime LastTransitionTime
         {
@@ -67183,9 +67476,7 @@ namespace Opc.Ua
             set { m_lastTransitionTime = value; }
         }
 
-        /// <summary>
-        /// A description for the LastMethodCall field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LastMethodCall", IsRequired = false, Order = 5)]
         public string LastMethodCall
         {
@@ -67193,9 +67484,7 @@ namespace Opc.Ua
             set { m_lastMethodCall = value; }
         }
 
-        /// <summary>
-        /// A description for the LastMethodSessionId field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LastMethodSessionId", IsRequired = false, Order = 6)]
         public NodeId LastMethodSessionId
         {
@@ -67204,7 +67493,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LastMethodInputArguments field.
+        /// 
         /// </summary>
         [DataMember(Name = "LastMethodInputArguments", IsRequired = false, Order = 7)]
         public ArgumentCollection LastMethodInputArguments
@@ -67226,7 +67515,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LastMethodOutputArguments field.
+        /// 
         /// </summary>
         [DataMember(Name = "LastMethodOutputArguments", IsRequired = false, Order = 8)]
         public ArgumentCollection LastMethodOutputArguments
@@ -67248,7 +67537,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LastMethodInputValues field.
+        /// 
         /// </summary>
         [DataMember(Name = "LastMethodInputValues", IsRequired = false, Order = 9)]
         public VariantCollection LastMethodInputValues
@@ -67270,7 +67559,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LastMethodOutputValues field.
+        /// 
         /// </summary>
         [DataMember(Name = "LastMethodOutputValues", IsRequired = false, Order = 10)]
         public VariantCollection LastMethodOutputValues
@@ -67291,9 +67580,7 @@ namespace Opc.Ua
             }
         }
 
-        /// <summary>
-        /// A description for the LastMethodCallTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "LastMethodCallTime", IsRequired = false, Order = 11)]
         public DateTime LastMethodCallTime
         {
@@ -67302,7 +67589,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// A description for the LastMethodReturnStatus field.
+        /// 
         /// </summary>
         [DataMember(Name = "LastMethodReturnStatus", IsRequired = false, Order = 12)]
         public StatusResult LastMethodReturnStatus
@@ -67467,7 +67754,7 @@ namespace Opc.Ua
     #region Annotation Class
     #if (!OPCUA_EXCLUDE_Annotation)
     /// <summary>
-    /// A description for the Annotation DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
@@ -67504,9 +67791,7 @@ namespace Opc.Ua
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// A description for the Message field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "Message", IsRequired = false, Order = 1)]
         public string Message
         {
@@ -67514,9 +67799,7 @@ namespace Opc.Ua
             set { m_message = value; }
         }
 
-        /// <summary>
-        /// A description for the UserName field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "UserName", IsRequired = false, Order = 2)]
         public string UserName
         {
@@ -67524,9 +67807,7 @@ namespace Opc.Ua
             set { m_userName = value; }
         }
 
-        /// <summary>
-        /// A description for the AnnotationTime field.
-        /// </summary>
+        /// <remarks />
         [DataMember(Name = "AnnotationTime", IsRequired = false, Order = 3)]
         public DateTime AnnotationTime
         {
@@ -67633,40 +67914,30 @@ namespace Opc.Ua
     #region ExceptionDeviationFormat Enumeration
     #if (!OPCUA_EXCLUDE_ExceptionDeviationFormat)
     /// <summary>
-    /// A description for the ExceptionDeviationFormat DataType.
+    /// 
     /// </summary>
     /// <exclude />
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
     [DataContract(Namespace = Opc.Ua.Namespaces.OpcUaXsd)]
     public enum ExceptionDeviationFormat
     {
-        /// <summary>
-        /// A description for the AbsoluteValue field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "AbsoluteValue_0")]
         AbsoluteValue = 0,
 
-        /// <summary>
-        /// A description for the PercentOfValue field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "PercentOfValue_1")]
         PercentOfValue = 1,
 
-        /// <summary>
-        /// A description for the PercentOfRange field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "PercentOfRange_2")]
         PercentOfRange = 2,
 
-        /// <summary>
-        /// A description for the PercentOfEURange field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "PercentOfEURange_3")]
         PercentOfEURange = 3,
 
-        /// <summary>
-        /// A description for the Unknown field.
-        /// </summary>
+        /// <remarks />
         [EnumMember(Value = "Unknown_4")]
         Unknown = 4,
     }

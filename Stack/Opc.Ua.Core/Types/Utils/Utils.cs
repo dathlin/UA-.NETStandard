@@ -1,4 +1,4 @@
-/* Copyright (c) 1996-2016, OPC Foundation. All rights reserved.
+/* Copyright (c) 1996-2019 The OPC Foundation. All rights reserved.
    The source code in this file is covered under a dual-license scenario:
      - RCL: for OPC Foundation members in good-standing
      - GPL V2: everybody else
@@ -410,7 +410,7 @@ namespace Opc.Ua
             }
 
             // trace message.
-            Trace((int)TraceMasks.Error, message.ToString(), handled, null);
+            Trace(e, (int)TraceMasks.Error, message.ToString(), handled, null);
         }
 
         /// <summary>
@@ -426,9 +426,17 @@ namespace Opc.Ua
         /// </summary>
         public static void Trace(int traceMask, string format, bool handled, params object[] args)
         {
+            Trace(null, traceMask, format, handled, args);
+        }
+
+        /// <summary>
+        /// Writes a message to the trace log.
+        /// </summary>
+        public static void Trace(Exception e, int traceMask, string format, bool handled, params object[] args)
+        {
             if (!handled)
             {
-                Tracing.Instance.RaiseTraceEvent(new TraceEventArgs(traceMask, format, string.Empty, null, args));
+                Tracing.Instance.RaiseTraceEvent(new TraceEventArgs(traceMask, format, string.Empty, e, args));
             }
 
             // do nothing if mask not enabled.
@@ -1839,6 +1847,17 @@ namespace Opc.Ua
             if (memberwiseCloneMethod != null)
             {
                 object clone = memberwiseCloneMethod.Invoke(value, null);
+                if (clone != null)
+                {
+                    return clone;
+                }
+            }
+
+            //try to find the Clone method by reflection.
+            MethodInfo cloneMethod = type.GetMethod("Clone", BindingFlags.Public | BindingFlags.Instance);
+            if (cloneMethod != null)
+            {
+                object clone = cloneMethod.Invoke(value, null);
                 if (clone != null)
                 {
                     return clone;

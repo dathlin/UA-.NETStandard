@@ -1,4 +1,4 @@
-/* Copyright (c) 1996-2016, OPC Foundation. All rights reserved.
+/* Copyright (c) 1996-2019 The OPC Foundation. All rights reserved.
    The source code in this file is covered under a dual-license scenario:
      - RCL: for OPC Foundation members in good-standing
      - GPL V2: everybody else
@@ -12,6 +12,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Security.Cryptography.X509Certificates;
 
@@ -653,62 +654,26 @@ namespace Opc.Ua
                 return 0;
             }
 
+            byte result = 0;
             switch (policyUri)
             {
+                case SecurityPolicies.Basic128Rsa15: result = 2; break;
+                case SecurityPolicies.Basic256: result = 4; break;
+                case SecurityPolicies.Basic256Sha256: result = 6; break;
+                case SecurityPolicies.Aes128_Sha256_RsaOaep: result = 8; break;
+                case SecurityPolicies.Aes256_Sha256_RsaPss: result = 10; break;
                 case SecurityPolicies.None:
-                {
-                    return 0;
-                }
-
-                case SecurityPolicies.Basic128Rsa15:
-                {
-                    if (mode == MessageSecurityMode.Sign)
-                    {
-                        return 1;
-                    }
-                    if (mode == MessageSecurityMode.SignAndEncrypt)
-                    {
-                        return 4;
-                    }
-
-                    return 0;
-                }
-
-                case SecurityPolicies.Basic256:
-                {
-                    if (mode == MessageSecurityMode.Sign)
-                    {
-                        return 2;
-                    }
-                    if (mode == MessageSecurityMode.SignAndEncrypt)
-                    {
-                        return 5;
-                    }
-
-                    return 0;
-                }
-
-                case SecurityPolicies.Basic256Sha256:
-                {
-                    if (mode == MessageSecurityMode.Sign)
-                    {
-                        return 3;
-                    }
-                    if (mode == MessageSecurityMode.SignAndEncrypt)
-                    {
-                        return 6;
-                    }
-
-                    return 0;
-                }
-
-                default:
-                {
-                    return 0;
-                }
+                default: return 0;
             }
+
+            if (mode == MessageSecurityMode.SignAndEncrypt)
+            {
+                result += 100;
+            }
+
+            return result;
         }
-        
+
         /// <summary>
         /// Specifies whether the messages are signed and encrypted or simply signed
         /// </summary>
@@ -794,6 +759,7 @@ namespace Opc.Ua
             m_nonceLength = 32;
             m_autoAcceptUntrustedCertificates = false;
             m_rejectSHA1SignedCertificates = true;
+            m_rejectUnknownRevocationStatus = false;
             m_minCertificateKeySize = CertificateFactory.defaultKeySize;
             m_addAppCertToTrustedStore = true;
             m_sendCertificateChain = false;
@@ -826,7 +792,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The trusted certificate store.
+        /// The store containing any additional issuer certificates.
         /// </summary>
         [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 2)]
         public CertificateTrustList TrustedIssuerCertificates
@@ -848,7 +814,7 @@ namespace Opc.Ua
         }
 
         /// <summary>
-        /// The store containing any additional issuer certificates.
+        /// The trusted certificate store.
         /// </summary>
         [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 4)]
         public CertificateTrustList TrustedPeerCertificates
@@ -933,12 +899,25 @@ namespace Opc.Ua
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether certificates with unavailable revocation lists are not accepted.
+        /// </summary>
+        /// <remarks>
+        /// This flag can be set to true by servers that must have a revocation list for each CA (even if empty).
+        /// </remarks>
+        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 11)]
+        public bool RejectUnknownRevocationStatus
+        {
+            get { return m_rejectUnknownRevocationStatus; }
+            set { m_rejectUnknownRevocationStatus = value; }
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating which minimum certificate key strength is accepted.
         /// </summary>
         /// <remarks>
         /// This value can be set to 1024, 2048 or 4096 by servers
         /// </remarks>
-        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 11)]
+        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 12)]
         public ushort MinimumCertificateKeySize
         {
             get { return m_minCertificateKeySize; }
@@ -951,7 +930,7 @@ namespace Opc.Ua
         /// <remarks>
         /// It is useful for client/server applications running on the same host  and sharing the cert store to autotrust.
         /// </remarks>
-        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 8)]
+        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 13)]
         public bool AddAppCertToTrustedStore
         {
             get { return m_addAppCertToTrustedStore; }
@@ -964,11 +943,99 @@ namespace Opc.Ua
         /// <remarks>
         /// If set to true the complete certificate chain will be sent for CA signed certificates.
         /// </remarks>
-        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 9)]
+        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 14)]
         public bool SendCertificateChain
         {
             get { return m_sendCertificateChain; }
             set { m_sendCertificateChain = value; }
+        }
+
+        /// <summary>
+        /// The store containing additional user issuer certificates.
+        /// </summary>
+        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 15)]
+        public CertificateTrustList UserIssuerCertificates
+        {
+            get
+            {
+                return m_userIssuerCertificates;
+            }
+
+            set
+            {
+                m_userIssuerCertificates = value;
+
+                if (m_userIssuerCertificates == null)
+                {
+                    m_userIssuerCertificates = new CertificateTrustList();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The store containing trusted user certificates.
+        /// </summary>
+        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 16)]
+        public CertificateTrustList TrustedUserCertificates
+        {
+            get
+            {
+                return m_trustedUserCertificates;
+            }
+
+            set
+            {
+                m_trustedUserCertificates = value;
+
+                if (m_trustedUserCertificates == null)
+                {
+                    m_trustedUserCertificates = new CertificateTrustList();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The store containing additional Https issuer certificates.
+        /// </summary>
+        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 17)]
+        public CertificateTrustList HttpsIssuerCertificates
+        {
+            get
+            {
+                return m_httpsIssuerCertificates;
+            }
+
+            set
+            {
+                m_httpsIssuerCertificates = value;
+
+                if (m_httpsIssuerCertificates == null)
+                {
+                    m_httpsIssuerCertificates = new CertificateTrustList();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The store containing trusted Https certificates.
+        /// </summary>
+        [DataMember(IsRequired = false, EmitDefaultValue = false, Order = 18)]
+        public CertificateTrustList TrustedHttpsCertificates
+        {
+            get
+            {
+                return m_trustedHttpsCertificates;
+            }
+
+            set
+            {
+                m_trustedHttpsCertificates = value;
+
+                if (m_trustedHttpsCertificates == null)
+                {
+                    m_trustedHttpsCertificates = new CertificateTrustList();
+                }
+            }
         }
         #endregion
 
@@ -976,11 +1043,16 @@ namespace Opc.Ua
         private CertificateIdentifier m_applicationCertificate;
         private CertificateTrustList m_trustedIssuerCertificates;
         private CertificateTrustList m_trustedPeerCertificates;
+        private CertificateTrustList m_httpsIssuerCertificates;
+        private CertificateTrustList m_trustedHttpsCertificates;
+        private CertificateTrustList m_userIssuerCertificates;
+        private CertificateTrustList m_trustedUserCertificates;
         private int m_nonceLength;
         private CertificateStoreIdentifier m_rejectedCertificateStore;
         private bool m_autoAcceptUntrustedCertificates;
         private string m_userRoleDirectory;
         private bool m_rejectSHA1SignedCertificates;
+        private bool m_rejectUnknownRevocationStatus;
         private ushort m_minCertificateKeySize;
         private bool m_addAppCertToTrustedStore;
         private bool m_sendCertificateChain;
@@ -1153,6 +1225,55 @@ namespace Opc.Ua
         public void Initialize(StreamingContext context)
         {
             Initialize();
+        }
+
+        /// <summary>
+        /// Remove unsupported security policies and expand wild cards.
+        /// </summary>
+        [OnDeserialized()]
+        private void ValidateSecurityPolicyCollection(StreamingContext context)
+        {
+            var supportedPolicies = Opc.Ua.SecurityPolicies.GetDisplayNames();
+            var newPolicies = new ServerSecurityPolicyCollection();
+            foreach (var securityPolicy in m_securityPolicies)
+            {
+                if (String.IsNullOrWhiteSpace(securityPolicy.SecurityPolicyUri))
+                {
+                    // add wild card policies
+                    foreach (var policyUri in Opc.Ua.SecurityPolicies.GetDefaultUris())
+                    {
+                        var newPolicy = new ServerSecurityPolicy() {
+                            SecurityMode = securityPolicy.SecurityMode,
+                            SecurityPolicyUri = policyUri
+                        };
+                        if (newPolicies.Where(s =>
+                            s.SecurityMode == newPolicy.SecurityMode &&
+                            String.Compare(s.SecurityPolicyUri, newPolicy.SecurityPolicyUri) == 0
+                            ).FirstOrDefault() == null)
+                        {
+                            newPolicies.Add(newPolicy);
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < supportedPolicies.Length; i++)
+                    {
+                        if (securityPolicy.SecurityPolicyUri.Contains(supportedPolicies[i]))
+                        {
+                            if (newPolicies.Where(s =>
+                                s.SecurityMode == securityPolicy.SecurityMode &&
+                                String.Compare(s.SecurityPolicyUri, securityPolicy.SecurityPolicyUri) == 0
+                                ).FirstOrDefault() == null)
+                            {
+                                newPolicies.Add(securityPolicy);
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            m_securityPolicies = newPolicies;
         }
         #endregion
 
@@ -2249,7 +2370,6 @@ namespace Opc.Ua
         private void Initialize()
         {
             m_trustedCertificates = new CertificateIdentifierCollection();
-
         }
 
         /// <summary>

@@ -53,7 +53,7 @@
          specify the certificate for each trusted certification authority. -->
     <TrustedIssuerCertificates>
       <StoreType>Directory</StoreType>
-      <StorePath>%LocalFolder%\OPC Foundation\CertificateStores\UA Certificate Authorities</StorePath>
+      <StorePath>%LocalFolder%\OPC Foundation\pki\issuer</StorePath>
     </TrustedIssuerCertificates>
     
     <!-- The list of trusted certificates. 
@@ -72,7 +72,7 @@
          -->
     <TrustedPeerCertificates>
       <StoreType>Directory</StoreType>
-      <StorePath>%LocalFolder%\OPC Foundation\CertificateStores\UA Applications</StorePath>
+      <StorePath>%LocalFolder%\OPC Foundation\pki\trusted</StorePath>
     </TrustedPeerCertificates>
     
     <!-- Applications exchange Nonces during the CreateSession. This value specifies the length. Must be >= 32 -->
@@ -81,7 +81,7 @@
     <!-- The directory used to store invalid certficates for later review by the administrator. -->
     <RejectedCertificateStore>
       <StoreType>Directory</StoreType>
-      <StorePath>%LocalFolder%\OPC Foundation\CertificateStores\RejectedCertificates</StorePath>
+      <StorePath>%LocalFolder%\OPC Foundation\pki\rejected</StorePath>
     </RejectedCertificateStore>
   
 </SecurityConfiguration>
@@ -165,18 +165,22 @@
          
          The first policy in the list is assigned to base address. -->
     <SecurityPolicies>
-      <!--Removing no secuirty option from the configuration as this is a security risk
+      <ServerSecurityPolicy>
+        <SecurityMode>SignAndEncrypt_3</SecurityMode>
+        <SecurityPolicyUri>http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256</SecurityPolicyUri>
+      </ServerSecurityPolicy>
+      <!--Removing no security option from the configuration as this is a security risk
         <ServerSecurityPolicy>
         <SecurityMode>None_1</SecurityMode>
         <SecurityPolicyUri>http://opcfoundation.org/UA/SecurityPolicy#None</SecurityPolicyUri>
       </ServerSecurityPolicy>-->
       <ServerSecurityPolicy>
         <SecurityMode>Sign_2</SecurityMode>
-        <SecurityPolicyUri>http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256</SecurityPolicyUri>
+        <SecurityPolicyUri></SecurityPolicyUri>
       </ServerSecurityPolicy>
       <ServerSecurityPolicy>
         <SecurityMode>SignAndEncrypt_3</SecurityMode>
-        <SecurityPolicyUri>http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256</SecurityPolicyUri>
+        <SecurityPolicyUri></SecurityPolicyUri>
       </ServerSecurityPolicy>
     </SecurityPolicies>
 

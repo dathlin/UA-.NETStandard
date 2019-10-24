@@ -1,4 +1,4 @@
-/* Copyright (c) 1996-2016, OPC Foundation. All rights reserved.
+/* Copyright (c) 1996-2019 The OPC Foundation. All rights reserved.
    The source code in this file is covered under a dual-license scenario:
      - RCL: for OPC Foundation members in good-standing
      - GPL V2: everybody else
@@ -73,6 +73,12 @@ namespace Opc.Ua.Bindings
                 // if unsupported, the TLS server cert must be trusted by a root CA
                 var handler = new HttpClientHandler();
                 handler.ClientCertificateOptions = ClientCertificateOption.Manual;
+
+                // send client certificate for servers that require TLS client authentication
+                if (m_settings.ClientCertificate != null)
+                {
+                    handler.ClientCertificates.Add(m_settings.ClientCertificate);
+                }
 
                 // OSX platform cannot auto validate certs and throws
                 // on PostAsync, do not set validation handler

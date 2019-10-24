@@ -1,5 +1,5 @@
 /* ========================================================================
- * Copyright (c) 2005-2016 The OPC Foundation, Inc. All rights reserved.
+ * Copyright (c) 2005-2019 The OPC Foundation, Inc. All rights reserved.
  *
  * OPC Foundation MIT License 1.00
  * 
@@ -994,11 +994,11 @@ namespace Opc.Ua.Client
 
                 if (identityPolicy == null)
                 {
-                    Utils.Trace("Endpoint does not supported the user identity type provided.");
+                    Utils.Trace("Endpoint does not support the user identity type provided.");
 
                     throw ServiceResultException.Create(
                         StatusCodes.BadUserAccessDenied,
-                        "Endpoint does not supported the user identity type provided.");
+                        "Endpoint does not support the user identity type provided.");
                 }
 
                 // select the security policy for the user token.
@@ -1121,7 +1121,8 @@ namespace Opc.Ua.Client
             settings.OmitXmlDeclaration = false;
             settings.Encoding = Encoding.UTF8;
 
-            XmlWriter writer = XmlWriter.Create(new StringBuilder(filePath), settings);
+            FileStream stream = new FileStream(filePath, FileMode.Create);
+            XmlWriter writer = XmlWriter.Create(stream, settings);
 
             SubscriptionCollection subscriptionList = new SubscriptionCollection(subscriptions);
 
@@ -1134,6 +1135,7 @@ namespace Opc.Ua.Client
             {
                 writer.Flush();
                 writer.Dispose();
+                stream.Dispose();
             }
         }
 
@@ -1214,20 +1216,24 @@ namespace Opc.Ua.Client
 
             if (ServiceResult.IsBad(result))
             {
-                throw new ServiceResultException(result);
+                Utils.Trace("FetchNamespaceTables: Cannot read NamespaceArray node: {0} " + result.StatusCode);
             }
-
-            m_namespaceUris.Update((string[])values[0].Value);
+            else
+            {
+                m_namespaceUris.Update((string[])values[0].Value);
+            }
 
             // validate server array.
             result = ValidateDataValue(values[1], typeof(string[]), 1, diagnosticInfos, responseHeader);
 
             if (ServiceResult.IsBad(result))
             {
-                throw new ServiceResultException(result);
+                Utils.Trace("FetchNamespaceTables: Cannot read ServerArray node: {0} " + result.StatusCode);
             }
-
-            m_serverUris.Update((string[])values[1].Value);
+            else
+            {
+                m_serverUris.Update((string[])values[1].Value);
+            } 
         }
 
         /// <summary>
@@ -1411,6 +1417,11 @@ namespace Opc.Ua.Client
             attributes.Add(Attributes.InverseName, null);
             attributes.Add(Attributes.Symmetric, null);
             attributes.Add(Attributes.ContainsNoLoops, null);
+            attributes.Add(Attributes.DataTypeDefinition, null);
+            attributes.Add(Attributes.RolePermissions, null);
+            attributes.Add(Attributes.UserRolePermissions, null);
+            attributes.Add(Attributes.AccessRestrictions, null);
+            attributes.Add(Attributes.AccessLevelEx, null);
 
             // build list of values to read.
             ReadValueIdCollection itemsToRead = new ReadValueIdCollection();
@@ -1603,6 +1614,14 @@ namespace Opc.Ua.Client
                             variableNode.MinimumSamplingInterval = Convert.ToDouble(attributes[Attributes.MinimumSamplingInterval].Value);
                         }
 
+                        // AccessLevelEx Attribute
+                        value = attributes[Attributes.AccessLevelEx];
+
+                        if (value != null)
+                        {
+                            variableNode.AccessLevelEx = (uint)attributes[Attributes.AccessLevelEx].GetValue(typeof(uint));
+                        }
+
                         node = variableNode;
                         break;
                     }
@@ -1694,6 +1713,14 @@ namespace Opc.Ua.Client
                         }
 
                         dataTypeNode.IsAbstract = (bool)attributes[Attributes.IsAbstract].GetValue(typeof(bool));
+
+                        // DataTypeDefinition Attribute
+                        value = attributes[Attributes.DataTypeDefinition];
+
+                        if (value != null)
+                        {
+                            dataTypeNode.DataTypeDefinition = new ExtensionObject(attributes[Attributes.DataTypeDefinition].Value);
+                        }
 
                         node = dataTypeNode;
                         break;
@@ -1817,6 +1844,50 @@ namespace Opc.Ua.Client
             if (value != null)
             {
                 node.WriteMask = (uint)attributes[Attributes.UserWriteMask].GetValue(typeof(uint));
+            }
+
+            // RolePermissions Attribute
+            value = attributes[Attributes.RolePermissions];
+
+            if (value != null)
+            {
+                ExtensionObject[] rolePermissions = attributes[Attributes.RolePermissions].Value as ExtensionObject[];
+
+                if (rolePermissions != null)
+                {
+                    node.RolePermissions = new RolePermissionTypeCollection();
+
+                    foreach (ExtensionObject rolePermission in rolePermissions)
+                    {
+                        node.RolePermissions.Add(rolePermission.Body as RolePermissionType);
+                    }
+                }
+            }
+
+            // UserRolePermissions Attribute
+            value = attributes[Attributes.UserRolePermissions];
+
+            if (value != null)
+            {
+                ExtensionObject[] userRolePermissions = attributes[Attributes.UserRolePermissions].Value as ExtensionObject[];
+
+                if (userRolePermissions != null)
+                {
+                    node.UserRolePermissions = new RolePermissionTypeCollection();
+
+                    foreach (ExtensionObject rolePermission in userRolePermissions)
+                    {
+                        node.UserRolePermissions.Add(rolePermission.Body as RolePermissionType);
+                    }
+                }
+            }
+
+            // AccessRestrictions Attribute
+            value = attributes[Attributes.AccessRestrictions];
+
+            if (value != null)
+            {
+                node.AccessRestrictions = (ushort)attributes[Attributes.AccessRestrictions].GetValue(typeof(ushort));
             }
 
             return node;
@@ -1994,6 +2065,14 @@ namespace Opc.Ua.Client
 
             string securityPolicyUri = m_endpoint.Description.SecurityPolicyUri;
 
+            // catch security policies which are not supported by core
+            if (SecurityPolicies.GetDisplayName(securityPolicyUri) == null)
+            {
+                throw ServiceResultException.Create(
+                    StatusCodes.BadSecurityChecksFailed,
+                    "The chosen security policy is not supported by the client to connect to the server.");
+            }
+
             // get the identity token.
             if (identity == null)
             {
@@ -2015,7 +2094,7 @@ namespace Opc.Ua.Client
                 {
                     throw ServiceResultException.Create(
                         StatusCodes.BadUserAccessDenied,
-                        "Endpoint does not supported the user identity type provided.");
+                        "Endpoint does not support the user identity type provided.");
                 }
 
                 identityToken.PolicyId = identityPolicy.PolicyId;
@@ -2031,7 +2110,7 @@ namespace Opc.Ua.Client
             X509Certificate2 serverCertificate = null;
             byte[] certificateData = m_endpoint.Description.ServerCertificate;
 
-            if (certificateData != null && certificateData.Length > 0 && requireEncryption)
+            if (certificateData != null && certificateData.Length > 0)
             {
                 X509Certificate2Collection serverCertificateChain = Utils.ParseCertificateChainBlob(certificateData);
 
@@ -2040,14 +2119,17 @@ namespace Opc.Ua.Client
                     serverCertificate = serverCertificateChain[0];
                 }
 
-                m_configuration.CertificateValidator.Validate(serverCertificateChain);
-
-                if (checkDomain)
+                if (requireEncryption)
                 {
-                    CheckCertificateDomain(m_endpoint);
+                    m_configuration.CertificateValidator.Validate(serverCertificateChain);
+
+                    if (checkDomain)
+                    {
+                        CheckCertificateDomain(m_endpoint);
+                    }
+                    // save for reconnect
+                    m_checkDomain = checkDomain;
                 }
-                // save for reconnect
-                m_checkDomain = checkDomain;
             }
 
             // create a nonce.
@@ -2481,7 +2563,7 @@ namespace Opc.Ua.Client
             {
                 throw ServiceResultException.Create(
                     StatusCodes.BadUserAccessDenied,
-                    "Endpoint does not supported the user identity type provided.");
+                    "Endpoint does not support the user identity type provided.");
             }
 
             // select the security policy for the user token.
@@ -2691,7 +2773,7 @@ namespace Opc.Ua.Client
 
             ResponseHeader responseHeader = Read(
                 null,
-                Int32.MaxValue,
+                0,
                 TimestampsToReturn.Both,
                 valuesToRead,
                 out results,
@@ -3480,12 +3562,6 @@ namespace Opc.Ua.Client
                     {
                         return;
                     }
-                }
-
-                // limit the number of keep alives sent.
-                if (OutstandingRequestCount > SubscriptionCount + 10)
-                {
-                    return;
                 }
 
                 RequestHeader requestHeader = new RequestHeader();

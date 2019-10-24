@@ -1,4 +1,4 @@
-/* Copyright (c) 1996-2016, OPC Foundation. All rights reserved.
+/* Copyright (c) 1996-2019 The OPC Foundation. All rights reserved.
    The source code in this file is covered under a dual-license scenario:
      - RCL: for OPC Foundation members in good-standing
      - GPL V2: everybody else
@@ -248,7 +248,7 @@ namespace Opc.Ua
         /// </summary>
         public EncodingType EncodingType
         {
-            get { return EncodingType.Xml; }
+            get { return EncodingType.Json; }
         }
 
         /// <summary>
@@ -805,7 +805,7 @@ namespace Opc.Ua
 
             if (UseReversibleEncoding)
             {
-                WriteSimpleField("Name", value.Name.ToString(), false);
+                WriteString("Name", value.Name);
 
                 if (value.NamespaceIndex > 0)
                 {
@@ -814,7 +814,7 @@ namespace Opc.Ua
             }
             else
             {
-                WriteSimpleField("Name", value.Name.ToString(), false);
+                WriteString("Name", value.Name);
                 WriteNamespaceIndex(value.NamespaceIndex);
             }
 
@@ -836,18 +836,18 @@ namespace Opc.Ua
             {
                 PushStructure(fieldName);
 
-                WriteSimpleField("Text", value.Text.ToString(), true);
+                WriteString("Text", value.Text);
 
                 if (!String.IsNullOrEmpty(value.Locale))
                 {
-                    WriteSimpleField("Locale", value.Locale.ToString(), true);
+                    WriteString("Locale", value.Locale);
                 }
 
                 PopStructure();
             }
             else
             {
-                WriteSimpleField(fieldName, value.Text, true);
+                WriteString(fieldName, value.Text);
             }
         }
 
